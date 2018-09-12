@@ -1,0 +1,7 @@
+{
+  "name": "fluster-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
