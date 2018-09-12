@@ -1,0 +1,10 @@
+@import "../../../../../theme/fluster-variables";
+
+div.gmap {
+    height: $google-map-height;
+
+    div:first-child {
+        width: 100%;
+        height: $google-map-height;
+    }
+}

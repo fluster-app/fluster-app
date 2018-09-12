@@ -1,0 +1,8 @@
+ion-action-sheet {
+  --ion-color-danger: #{$fluster-peach3};
+  --ion-color-primary: #{$fluster-dark-blue};
+
+  button.action-sheet-cancel[class*="sc-ion-action-sheet"] {
+    font-weight: $font-weight-normal;
+  }
+}

@@ -1,0 +1,841 @@
+{
+    "LOGIN": {
+        "FACEBOOK_LOGIN": "Mit Facebook anmelden",
+        "GOOGLE_LOGIN": "Mit Google anmelden",
+        "SLIDES": {
+            "SLIDE1": "Entdecke coole <strong>WG</strong> und <strong>Mitbewohner</strong>",
+            "SLIDE2": "Finde heraus, welche <strong>Interessen</strong> die <strong>Mitbewohner</strong> haben",
+            "SLIDE3": "Entdecke die <strong>Highlights</strong> der <strong>Umgebung</strong>",
+            "SLIDE4": "<strong>Spare Zeit</strong> durch sofortige Besichtigungsanfragen"
+        },
+        "LEGAL": "Mit meiner Anmeldung akzeptiere ich die Geschäftsbedingungen"
+    },
+    "FIRST_CHOICE": {
+        "LETS_GO": "Los geht's!",
+        "WHAT_DO_YOU_WANT_TO_DO": "Möchtest du ein neues Zuhause oder bietest du eins an?",
+        "DISCOVER": "Mein neues Zuhause <strong>entdecken</strong>",
+        "ADVERTISE": "Eine WG oder eine Wohnung <strong>inserieren</strong>",
+        "GENDER": {
+            "YOU_ARE": "Eine lezte Angabe",
+            "WHY_GENDER": "Um dein Gesuch zu personalisieren",
+            "MALE": "Ich bin ein <strong>Mann</strong>",
+            "FEMALE": "Ich bin eine <strong>Frau</strong>",
+            "UNKNOWN": "Keine Angabe"
+        }
+    },
+    "ADS": {
+        "NO_AD_YET": {
+            "TITLE": "Hey!",
+            "SUB_TITLE": "Du hast noch kein Inserat veröffentlicht"
+        },
+        "APPOINTMENTS": {
+            "TITLE": "Agenda",
+            "NO_UPCOMING_APPOINTMENTS": "Du hast noch keine Besichtigungstermine, sende <strong>Superstars</strong>, um deine Anzeige voranzutreiben",
+            "YOU_HAVE": "Du hast noch",
+            "UPCOMING_APPOINTMENT": "Besichtigung",
+            "UPCOMING_APPOINTMENTS": "Besichtigungen",
+            "AND": "und",
+            "NEW_CANDIDATE": "offene Bewerber",
+            "NEW_CANDIDATES": "offene Bewerber"
+        },
+        "ACTIONS": {
+            "UNDO": "wieder herstellen",
+            "EDIT_APPOINTMENTS": "Meine Verfügbarkeiten verwalten",
+            "EDIT_ADS": "Mein Inserat verwalten",
+            "CLOSE": "Mein Inserat löschen"
+        }
+    },
+    "NEW_AD": {
+        "STEP_TYPE": {
+            "COOL": "Cool!",
+            "WHAT_DO_YOU_OFFER": "Was hast du anzubieten?",
+            "SHARE": "Ein WG-Zimmer",
+            "TAKEOVER": "Eine Wohnung zu übernehmen"
+        },
+        "STEP_LOCATION": {
+            "TITLE": "Adresse",
+            "SUB_TITLE_SHARE": "Wo befindet sich deine WG?",
+            "SUB_TITLE_FLAT": "Wo befindet sich deine Wohnung?",
+            "LOCATION_PLACEHOLDER": "Adresse finden",
+            "LOCATION_NOT_DEFINED": "Bitte gib zuerst eine Adresse ein"
+        },
+        "STEP_AVAILABILITY": {
+            "TITLE": "Verfügbarkeit",
+            "SUB_TITLE_SHARE": "Ab wann steht deine WG zur Verfügung?",
+            "SUB_TITLE_FLAT": "Ab wann steht deine Wohnung zur Verfügung?",
+            "AVAILABLE_NOW": "Ab sofort",
+            "AVAILABLE_BEGIN": "Ab...",
+            "UNLIMITED": "unbefristet",
+            "AVAILABLE_END": "Bis...",
+            "PICK_DATE": "Wähle ein Datum"
+        },
+        "STEP_SHARE_SIZE": {
+            "TITLE": "WG-Zimmer",
+            "SUB_TITLE": "Was hat dein WG-Zimmer zu bieten?",
+            "SHAREDROOMS": "Anzahl freie WG-Zimmer",
+            "FLATMATE": "Anzahl WG-Mitbewohner",
+            "SHAREDROOMSSIZE": "Quadratmeter des Zimmers",
+            "FURNISHED": "Möbliert"
+        },
+        "STEP_SIZE": {
+            "TITLE": "Wohnung",
+            "SUB_TITLE_FLAT": "Was hat die ganze Wohnung zu bieten?",
+            "SUB_TITLE_SHARE": "Was hat die ganze WG zu bieten?",
+            "ROOMS": "Anzahl Zimmer",
+            "SIZE": "Quadratmeter der Wohnung",
+            "FLOOR": "Etage",
+            "FURNISHED": "Möbliert",
+            "BATHROOMS": "Badezimmer"
+        },
+        "STEP_PRICE": {
+            "TITLE": "Eigentlich unbezahlbar,",
+            "SUB_TITLE": "aber wieviel kostet die monatliche Miete?",
+            "SUB_TITLE_SHARE": "aber wieviel kostet die monatliche Miete des Zimmers?",
+            "PRICE": "Miete/Monat",
+            "ASK_ADDITIONAL_COSTS": "Gibt es zusätlich Nebenkosten?",
+            "ADDITIONAL_COSTS": "Nebenkosten/Monat",
+            "ALL_INCLUDED": "Total Kosten/Monat",
+            "PRICE_NOT_DEFINED": "Bitte führe zuerst eine Miete ein"
+        },
+        "STEP_ATTRIBUTES": {
+            "TITLE": "Extras",
+            "SUB_TITLE_SHARE": "die deine WG zu bieten hat",
+            "SUB_TITLE_FLAT": "die deine Wohnung zu bieten hat",
+            "DISABLED_FRIENDLY": "Rollstuhlfreundlich",
+            "PETS_ALLOWED": "Haustiere erlaubt",
+            "INTERNET": "Internet inbegriffen",
+            "CLEANING_AGENT": "Reinigungskraft",
+            "PARKING": "Parkplatz",
+            "BALCONY": "Balkon",
+            "GARDEN": "Garten",
+            "KIDS_WELCOMED": "Kindern willkommen"
+        },
+        "STEP_PHOTO": {
+            "ADD_PHOTO": "Foto hinzufügen",
+            "FROM_GALLERY": "Aus Album wählen",
+            "FROM_CAMERA": "Foto aufnehmen",
+            "AT_LEAST_ONE_PHOTO": "Bitte füge mindestens ein Foto hinzu, um dein Gesuch interessanter zu machen"
+        },
+        "STEP_APPOINTMENT": {
+            "TITLE": "Besichtigung",
+            "SUB_TITLE": "Wann bist du für Besichtigungen verfügbar?",
+            "MORNING": "Vormittag",
+            "AFTERNOON": "Nachmittag",
+            "EVENING": "Abend"
+        },
+        "STEP_LIMITATION": {
+            "TITLE": "Bewerber",
+            "SUB_TITLE_SHARE": "Welche Kriterien sollte dein neuer Mitbewohner erfüllen?",
+            "SUB_TITLE_FLAT": "Welche Kriterien sollten die Bewerber erfüllen?",
+            "AGE_SHARE": "Alter deines neuen Mitbewohners",
+            "AGE_FLAT": "Alter des Bewerbers",
+            "MALE": "Männlich",
+            "FEMALE": "Weiblich"
+        },
+        "STEP_USER": {
+            "TITLE": "Letzte Details",
+            "PUBLISH": "Jetzt Inserat veröffentlichen",
+            "EDIT": "Inserat aktualisieren",
+            "I_SPEAK": "Ich spreche",
+            "AND_MORE": "und andere",
+            "DISPLAY_LAST_NAME": "Familienname anzeigen"
+        },
+        "STEP_DONE": {
+            "TITLE": "Hurra!",
+            "SUB_TITLE": "Dein Inserat ist jetzt öffentlich",
+            "SUB_TITLE_REWARD": "Dein Inserat ist jetzt öffentlich und deine Teilnahme an unserem Gewinnspiel* ist registriert",
+            "REWARD_LEGAL": "* Information zum Gewinnspiel und Teilnahmebedingungen",
+            "DISPLAY": "Inserat ansehen",
+            "SHARE": "Inserat teilen"
+        },
+        "STEP_ATTENDANCE": {
+            "TITLE": "Besuch",
+            "SUB_TITLE": "Können mehrere Personen zu der gleichen Besichtigung teilnehmen?",
+            "SINGLE": "Eine Person pro Besichtigung",
+            "MULTIPLE": "Mehrere Personen, offene Türen"
+        },
+        "STEP_LIFESTYLE": {
+            "TITLE": "Über dich",
+            "SUB_TITLE": "Lifestyle & Hobbys"
+        }
+    },
+    "SEARCH_LOCATION": {
+        "PLACEHOLDER": "Finden"
+    },
+    "SELECT_LANGUAGES": {
+        "PLACEHOLDER": "Sprache wählen"
+    },
+    "SELECT_ATTRIBUTES": {
+        "ROOMS": "Zimmer",
+        "ROOM": "Zimmer",
+        "ROOMS_TEXT": "Wie viele Zimmer?",
+        "SHARED_ROOMS": "WG-Zimmer",
+        "SHARED_ROOM": "WG-Zimmer",
+        "SHARED_ROOMS_TEXT": "Wie viele Zimmer bietest du zur Untermiete an?",
+        "FLATMATES": "Mitbewohner",
+        "FLATMATE": "Mitbewohner",
+        "FLATMATE_TEXT": "Wie viele Personen werden insgesamt in deiner WG leben?",
+        "FLOOR": "Etage",
+        "FLOOR_TEXT": "Auf welcher Etage?",
+        "FLOOR_UNDERGROUND": "UG",
+        "FLOOR_GROUND_FLOOR": "EG",
+        "BATHROOMS": "Badezimmer",
+        "BATHROOM": "Badezimmer",
+        "BATHROOMS_TEXT": "Wie viele Badezimmer?"
+    },
+    "TARGETED_USERS": {
+        "PERSONS": "Personen",
+        "USERS_MATCHING_LOCATION": {
+            "IN_THIS_AREA": "in deiner Umgebung"
+        },
+        "USERS_MATCHING_ITEM": {
+            "SHARE": "möchten eine WG wie deine",
+            "FLAT": "möchten eine Wohnung wie deine"
+        }
+    },
+    "APPLICANTS": {
+        "TITLE": "Meine Bewerber",
+        "NOTHING_YET": "Derzeit hast du keine Bewerber, sende <strong>Superstars</strong>, um deine Anzeige voranzutreiben",
+        "STATUS": {
+            "NEW": "Neuer Bewerber",
+            "ACCEPTED": "Akzeptiert",
+            "CANCELLED": "Abgelehnt",
+            "TO_RESCHEDULE": "Termin vereinbaren"
+        },
+        "RESCHEDULE_INFO": "Chatte mit {{who}}, um den Termin zu vereinbaren"
+    },
+    "APPLICANT_SELECTION": {
+        "PROPOSAL": "{{who}} bietet dir {{howmany}} mögliche Termine an; wähle eins aus, um die Anfrage anzunehmen",
+        "PROPOSAL_SINGLE": "{{who}} bietet dir folgenden Termin an",
+        "CONFIRM": "Annehmen",
+        "NO_APPOINTMENTS_FOUND": "Leider passen keine der vorgeschlagenen Termine mit deinem Kalender",
+        "RESCHEDULE_IN_PROGRESS": "Du hast {{who}} für einen Besichtigungstermin angefragt",
+        "CANCELLED": "Du hast die Besichtigungsanfrage von {{who}} abgelehnt",
+        "APPOINTMENT_IN_THE_PAST": "Du hast die Wohnung bereits besichtigt",
+        "APPOINTMENT_IN_THE_FUTURE": "Die Besichtigung mit {{who}} ist an folgendem Tag",
+        "NEW_REQUEST_TITLE": "{{who}} möchte deine Wohnung besichtigen – möchtest du die Anfrage annehmen?",
+        "ACCEPT_REQUEST": "<strong>Annehmen</strong> und Termin wählen",
+        "REJECT_REQUEST": "Ablehnen",
+        "NO_SELECTED_TIME": "Wähle einen Besichtigungstermin, um die Anfrage anzunehmen",
+        "APPOINTMENT_SCHEDULED_FOR": {
+            "BEGIN": "Die Besichtigung findet am",
+            "END": "statt"
+        },
+        "ACTION_SHEET": {
+            "ACCEPT": "Diese Besichtigungsanfrage annehmen",
+            "DECLINE": "Diese Besichtigungsanfrage ablehnen",
+            "ASK_RESCHEDULE": "Neue Besichtigungstermine anfragen",
+            "FOUND_SOMEONE_ELSE": "Sorry, ich habe bereits jemand gefunden",
+            "NOT_ENOUGH_DETAILS": "Das Profil enthält nicht genügend Informationen",
+            "NO_REASON": "Ich möchte lieber noch andere Interessenten kennenlernen",
+            "COMPLAIN": "Melden"
+        }
+    },
+    "USER_PROFILE": {
+        "WHAT_ELSE": "Was sonst",
+        "PLACEHOLDER_PHONE": "Meine Telefonnumer",
+        "PLACEHOLDER_BIO": "Ein paar Worte über mich...",
+        "SELECT_SCHOOL": "Ausbildung",
+        "SELECT_WORK": "Job",
+        "MY_LIKES": "Meine Interessen",
+        "DISPLAY_LAST_NAME": "Familiennamen in meinem Gesuch anzeigen",
+        "PUBLIC": {
+            "MUTUAL_LIKES": "{{value}} gemeinsame Interessen",
+            "MY_LIKES": "{{value}} Interessen zum Vergleich",
+            "ABOUT_ME": "Über mich"
+        },
+        "SPOTIFY": {
+            "TITLE": "Meine Musikauswahl",
+            "CONNECT": "Füge deinem Profil Spotify hinzu"
+        },
+        "LIFESTYLE_HOBBIES": {
+            "MY_TITLE": "Über mich"
+        },
+        "LIFESTYLE": {
+            "TITLE": "Lifestyle",
+            "NONE": "Keine Angabe",
+            "CLEANLINESS": {
+                "TITLE": "Sauberkeit",
+                "CLEAN": "Sauber",
+                "AVERAGE": "Geht so",
+                "MESSY": "Chaotisch"
+            },
+            "GUESTS": {
+                "TITLE": "Gäste",
+                "NEVER": "Nie",
+                "RARELY": "Selten",
+                "OCCASIONALLY": "Gelegentlich",
+                "OFTEN": "Häufig"
+            },
+            "PARTY": {
+                "TITLE": "Partys",
+                "RARELY": "Selten",
+                "OCCASIONALLY": "Gelegentlich",
+                "WEEKENDS": "Am Wochenende",
+                "DAILY": "Täglich"
+            },
+            "FOOD": {
+                "TITLE": "Essensvorlieben",
+                "ANYTHING": "Fast alles",
+                "VEGETARIAN": "Vegetarisch",
+                "VEGAN": "Vegan",
+                "FRUITARIAN": "Frutarier",
+                "GLUTEN": "Glutenfrei",
+                "KOSHER": "Koscher",
+                "HALAL": "Halal",
+                "PALEOLITHIC": "Paleo"
+            },
+            "GENDER": {
+                "TITLE": "Ich bin",
+                "MALE": "Ein Mann",
+                "FEMALE": "Eine Frau"
+            }
+        },
+        "HOBBIES": {
+            "TITLE": "Hobbys",
+            "SPORTS": {
+                "TITLE": "Sport",
+                "RUNNING": "Joggen",
+                "DANCING": "Tanzen",
+                "HORSE_RIDING": "Pferdereiten",
+                "SKIING": "Skifahren",
+                "SNOWBOARDING": "Snowboarden",
+                "GOLFING": "Golfen",
+                "SURFING": "Surfen",
+                "ROWING": "Rudern",
+                "SWIMMING": "Schwimmen",
+                "BASKETBALL": "Basketball",
+                "CROSSFIT": "CrossFit",
+                "BIKING": "Rad fahren",
+                "HANDBALL": "Handball",
+                "TENNIS": "Tennis",
+                "FIELD_HOCKEY": "Landhockey",
+                "ICE_HOCKEY": "Eishockey",
+                "PING_PONG": "Tischtennis",
+                "BADMINTON": "Badminton",
+                "BOXING": "Boxen",
+                "MARTIAL_ARTS": "Kampfkünste",
+                "ICE_SKATING": "Eislaufen",
+                "FISHING": "Fischen",
+                "CLIMBING": "Klettern",
+                "YOGA": "Yoga",
+                "SOCCER": "Fussball",
+                "RUGBY": "Rugby"
+            },
+            "ARTS": {
+                "TITLE": "Kunst, Musik und Unterhaltung",
+                "VIDEO_GAMES": "Videospiele",
+                "PERFORMING_ARTS": "Darstellende Kunst",
+                "DRAWING": "Zeichnen",
+                "SAXOPHONE": "Saxophon",
+                "GUITAR": "Gitarre",
+                "MUSICAL_KEYBOARD": "Keyboard, Piano",
+                "TRUMPET": "Trompete",
+                "VIOLIN": "Geige",
+                "DRUMS": "Schlagzeug",
+                "MOVIES": "Filme",
+                "TV_SHOWS": "Serien",
+                "SINGING": "Singen",
+                "READING": "Lesen"
+            },
+            "FOOD": {
+                "TITLE": "Gastronomie",
+                "COOKING": "Kochen",
+                "COFFEE": "Kaffee",
+                "WINE": "Weinprobe",
+                "BEER": "Bierprobe"
+            },
+            "PLACES": {
+                "TITLE": "Reisen und Orte",
+                "MOUNTAIN": "Berge",
+                "BEACH": "Strand",
+                "CAMPING": "Camping",
+                "SHOPPING": "Einkaufen"
+            }
+        }
+    },
+    "APP_PARAMS": {
+        "PARAMS_TITLE": "Einstellungen",
+        "EXPORT_TO_CALENDAR": "Termine automatisch in meinen Kalender exportieren",
+        "NOTIFICATIONS": "Benachrichtigungen",
+        "ALLOW_SUPERSTARS": "Anbieter dürfen mir Superstars schicken",
+        "LEGAL": "Geschäftsbedigungen und Datennutzungsbestimmungen",
+        "CONTACT": "Fragen? Schicke uns eine E-Mail an <strong>info@fluster.io</strong>",
+        "SHARE": {
+            "SHARE_FLUSTER": "FLUSTER teilen",
+            "SHARE_SUBJECT": "FLUSTER",
+            "SHARE_CONTENT": "FLUSTER, WG's zum Greifen nah"
+        },
+        "LOGOUT": {
+            "BUTTON": "Abmelden",
+            "QUESTION": "Bist du sicher, dass du dich abmelden willst? FLUSTER ist so cool, bleib doch noch ein bisschen!",
+            "LOGOUT": "Abmelden"
+        },
+        "DELETE_ACCOUNT": {
+            "BUTTON": "Konto löschen",
+            "QUESTION": "Bist du sicher, dass du dein Konto löschen möchte? FLUSTER ist so cool, bleib doch noch ein bisschen!",
+            "DELETE": "Löschen"
+        }
+    },
+    "SELECT_SCHOOL_WORK": {
+        "NONE": "Keine Angabe"
+    },
+    "CORE": {
+        "NEXT": "Weiter",
+        "SAVE": "Speichern",
+        "DAY_ABBREVIATION": {
+            "TODAY": "Heute",
+            "LONG": {
+                "MONDAY": "Montag",
+                "TUESDAY": "Dienstag",
+                "WEDNESDAY": "Mittwoch",
+                "THURSDAY": "Donnerstag",
+                "FRIDAY": "Freitag",
+                "SATURDAY": "Samstag",
+                "SUNDAY": "Sonntag"
+            },
+            "SHORT": {
+                "MONDAY": "Mo",
+                "TUESDAY": "Di",
+                "WEDNESDAY": "Mi",
+                "THURSDAY": "Do",
+                "FRIDAY": "Fr",
+                "SATURDAY": "Sa",
+                "SUNDAY": "So"
+            }
+        },
+        "YES": "Ja",
+        "NO": "Nein",
+        "OK": "Ok",
+        "CANCEL": "Abbrechen",
+        "YEARS_OLD": "Jahre",
+        "TIME_ABBREVIATION": {
+            "MINUTES": "min",
+            "HOURS": "h"
+        },
+        "SQUARE_METER": "m2",
+        "METER": "m",
+        "BACK": "Zurück"
+    },
+    "MENU": {
+        "HEADER": {
+            "MY_PROFILE": "Mein Profil"
+        },
+        "FOOTER": {
+            "PARAMETERS": "Einstellungen"
+        },
+        "BROWSE": {
+            "DISCOVER": "Entdecken",
+            "MY_APPOINTMENTS": "Meine Termine",
+            "MY_BOOKMARKS": "Favoriten",
+            "MY_APPLICANTS": "Anfragen",
+            "ADVERTISE": "Inserieren"
+        },
+        "AD": {
+            "MY_APPOINTMENTS": "Nächste Termine",
+            "APPLICANTS": "Meine Bewerber",
+            "MY_AD": "Mein Inserat",
+            "CANDIDATES": "Finde Mitbewohner",
+            "DISCOVER": "Entdecken"
+        }
+    },
+    "CALENDAR": {
+        "EXPORT": {
+            "ASK": {
+                "TITLE": "Besichtigunstermine exportieren",
+                "QUESTION": "Sollen wir deine Besichtigunstermine deinem Kalendar hinzufügen?"
+            }
+        },
+        "DEVICE": {
+            "TITLE": "FLUSTER - Besichtigung"
+        }
+    },
+    "ERRORS": {
+        "WIZARD": {
+            "NOT_ADDED": "Ups, etwas ist schief gelaufem. Bitte überprüfe deine Angaben",
+            "PHOTO_NOT_WRITTEN": "Ups, deine Foto konnte nicht angepasst werden. Bitte versuche es nochmals"
+        },
+        "ADS": {
+            "CLOSE": "Ups, etwas ist schief gelaufen. Bitte versuche es später nochmal",
+            "UNDO": "Dein Inserat konnte nicht automatisch wieder hergestellt werden"
+        },
+        "APPLICANT_SELECTION": {
+            "NOT_UPDATED": "Ups, etwas ist schief gelaufen. Bitte kontrolliere deine Angaben",
+            "CALENDAR_EXPORT": "Alles hat geklappt bis auf den Export in deinen Kalender"
+        },
+        "USER": {
+            "SAVE_ERROR": "Sorry, leider konnten die Änderungen in deinem Profil nicht gespeichert werden"
+        },
+        "ITEM_DETAILS": {
+            "COMPLAINT": "Sorry, leider konnten wir deine Beschwerde nicht entgegen nehmen"
+        },
+        "ITEMS": {
+            "ACTION_ERROR": "Leider konnte deine Aktion nicht gespeichert werden. Bitte versuche es nochmals!"
+        },
+        "LOGIN": {
+            "LOGIN_ERROR": "Leider konnte deine Anmeldung nicht abgeschlossen werden"
+        },
+        "DEEP_LINKING": {
+            "NOT_FOUND": "Leider passt dieses Inserat nicht mit deinem Profil"
+        },
+        "SESSIONS": {
+            "TIMEOUT": "Deine Sitzung ist abgelaufen. Bitte versuche es erneut"
+        },
+        "CHAT": {
+            "NOT_LOADED": "Ups, etwas ist schief gelaufem. Das Chat könnte nicht geladen werden",
+            "NOT_SENT": "Deine Meldung könnte nicht geschickt werden",
+            "NOTHING_FOUND": "Keine Meldungen könnte gefunden werden"
+        }
+    },
+    "ITEM_PARAMS": {
+        "LOCATION": {
+            "TITLE": "Deine Stadt",
+            "TEXT": "Welche Stadt interessiert dich?",
+            "LOCATION_PLACEHOLDER": "Stadt finden",
+            "DISTANCE": "Suchbereich: {{size}} km"
+        },
+        "PRICE": {
+            "TITLE": "Dein Budget",
+            "TEXT": "Wie viel kannst du ausgeben?",
+            "UNTIL": "Bis",
+            "PER_MONTH": "/Monat",
+            "EVERYTHING": "Keine Einschränkungen"
+        },
+        "AVAILABILITY": {
+            "TITLE": "Deine Verfügbarkeit",
+            "TEXT": "Ab wann brauchst du ein neues Zuhause?",
+            "AVAILABLE_NOW": "Ab sofort",
+            "AVAILABLE_BEGIN": "Ab...?",
+            "UNLIMITED": "unbefristet",
+            "AVAILABLE_END": "Bis wann befristet?"
+        },
+        "TYPE": {
+            "TITLE": "Dein neues Zuhause",
+            "TITLE_SEGMENT": "Dein Zuhause",
+            "TEXT": "Was möchtest du genau?",
+            "SHARE": "WG-Zimmer übernehmen",
+            "TAKEOVER": "Wohnung übernehmen",
+            "WARNING_TYPE": "Bitte wähle WG, Wohnung oder beide."
+        },
+        "INTERESTS": {
+            "TITLE": "Stammplätze",
+            "TITLE_LONG": "Welche Orte besuchst du regelmässig?",
+            "SUB_TITLE": "FLUSTER berechnet für jede Anzeige deine Reisezeiten – füge also deine Stammplätze hinzu!",
+            "EXAMPLE": "Zum Beispiel « <strong>10 min</strong> mit dem Velo zur Arbeit »",
+            "WORK": "Arbeit",
+            "TRAIN_STATION": "Bahnhof",
+            "SCHOOL": "Schule",
+            "AIRPORT": "Flughafen",
+            "LOVE": "Liebe",
+            "TRAINING": "Training",
+            "MAX_TRAVEL_TIME": "Wie gross darf die Entfernung sein?",
+            "EVERYTHING": "Egal",
+            "TEXT": "Was muss es in deiner Nähe deines neuen Zuhauses geben?",
+            "ADDRESS_PLACEHOLDER": "Gib eine Adresse ein",
+            "CONFIRM": "Bestätigen",
+            "ADD": "Einen Ort hinzufügen",
+            "TEXT_EXPLANATION": {
+                "COMMON": "Für jede Anzeige zeigt FLUSTER dir die Reisezeit",
+                "WORK": "zu deiner Arbeit",
+                "TRAIN_STATION": "zum Bahnhof",
+                "SCHOOL": "zur Schule",
+                "AIRPORT": "zum Flughafen",
+                "RELATION": "zu deiner Partnerin/deinem Partner",
+                "SPORT": "zu deinen sportlichen Aktivitäten"
+            },
+            "ADDRESS_TITLE": "Genaue Adresse",
+            "MEANS_OF_TRANSPORT": "Wähle dein Verkehrsmittel"
+        }
+    },
+    "ITEMS": {
+        "FIRST_ACCESS": {
+            "INFO_WITHOUT_ADDRESS": "Du hast noch keine Stadt eingegeben",
+            "INFO_WITHOUT_ADDRESS_MODIFY": "Gib einen Ort ein",
+            "PROFILE": "Dein Profil und andere Optionen",
+            "COMPLETE_PROFILE": "Füge weitere Informationen in deinem Profil ein und erhöhe deine Chance Termine zu sichern",
+            "ITEM_NAVIGATION": {
+                "PREVIOUS_PHOTO": "Vorheriges Foto",
+                "NEXT_PHOTO": "Nächstes Foto",
+                "DETAILS": "Mehr Details"
+            }
+        },
+        "FIRST_ACTIONS": {
+            "BOOKMARK_TEXT": "Wenn du dieses Feld antippst, fügst du die Anzeige deinen Favoriten hinzu",
+            "DISLIKE_TEXT": "Wenn du das X antippst oder nach links wischst, entfernst du das Gesuch",
+            "GET_IT": "Verstanden"
+        },
+        "NO_ITEMS": "Im Moment passen keine neuen Anzeigen auf dein Profil",
+        "NO_ITEMS_EMPTY_BIRTHDAY": "Keine neuen Anzeigen? Füge dein <strong>Geburtsdatum</strong> hinzu, um auf beschränkte Anzeigen zuzugreifen",
+        "NO_ITEMS_REFRESH": "Alle ignorierten Anzeigen noch mal ansehen?",
+        "AVAILABILITY": {
+            "AVAILABLE_NOW_WITHOUT_END": "Ab sofort und unbefristet verfügbar",
+            "AVAILABLE_NOW_TILL": "Ab sofort verfügbar bis",
+            "AVAILABLE_THE": "Verfügbar ab",
+            "AVAILABLE_FROM": "Verfügbar von",
+            "AVAILABLE_TILL": "bis"
+        },
+        "TYPE": {
+            "FLAT_TAKEOVER": "Wohnung zu übernehmen",
+            "FLAT_LIMITED": "Wohnung auf Zeit",
+            "SHARE": "WG-Zimmer"
+        },
+        "LIKE_INFO": "Yay!",
+        "DISLIKE_INFO": "Nope"
+    },
+    "ITEM_DETAILS": {
+        "CONTENT": {
+            "CATEGORY": {
+                "AVAILABILITY": "Verfügbarkeit",
+                "ADDRESS": "Adresse",
+                "PRICE_GROSS": "Miete/Monat",
+                "PRICE_EXTRA": "Nebenkosten/Monat",
+                "PRICE_EXTRA_INCLUDED": "(inkl.)",
+                "SHARED_ROOMS": "Zimmer",
+                "SHARED_SIZE": "Fläche",
+                "SHARED_APPLICANTS": "Mitbewohner",
+                "FLAT_ROOMS": "Zimmer in der Wohnung",
+                "FLAT_SIZE": "Wohnfläche",
+                "FLAT_APPLICANTS": "Bewerber",
+                "BATHROOMS": "Badezimmer",
+                "FLOOR": "Etage",
+                "FLATMATE": "Mitbewohner",
+                "FLATMATE_AND_MYSELF": "(inkl. mir)",
+                "FLATMATE_AND_CANDIDATE": "(insgesamt)"
+            },
+            "SQUARE_METER": "m2",
+            "AVAILABLE_FROM": "Ab",
+            "AVAILABLE_UNTIL": "bis",
+            "FURNISHED": "Möbliert",
+            "DISABLED_FRIENDLY": "Rollstuhlfreundlich",
+            "PETS_ALLOWED": "Haustiere erlaubt",
+            "INTERNET": "Internet inbegriffen",
+            "CLEANING_AGENT": "Reinigungskraft",
+            "PARKING": "Parkplatz",
+            "NEIGHBORHOOD": "Umgebung",
+            "NEIGHBORHOOD_HIGHLIGHTS": "In der Nähe...",
+            "NO_NEIGHBORHOOD_HIGHLIGHTS": "Leider haben wir derzeit keine genauen Angaben zur Umgebung.",
+            "BALCONY": "Balkon",
+            "GARDEN": "Garten",
+            "SPECS": "Angaben",
+            "WHO": "Wer",
+            "MESSAGES": "Nachrichten",
+            "KIDS_WELCOMED": "Kinder willkommen"
+        },
+        "POPOVER": {
+            "VIEWING": "Termin vereinbaren",
+            "BOOKMARK": "Als Favorit merken",
+            "DISLIKE": "Gefällt mir nicht",
+            "SHARE": "Inserat teilen",
+            "COMPLAIN": "Melden"
+        },
+        "SHARE": {
+            "SHARE_TEXT_FLAT": "Coole neue Wohnung auf FLUSTER verfügbar, jetzt anschauen:",
+            "SHARE_TEXT_SHARE": "Coole neue WG auf FLUSTER verfügbar, jetzt anschauen:"
+        },
+        "CHAT_NOT_AVAILABLE": {
+            "TITLE": "Du hast noch keinen Termin",
+            "SUBTITLE": "Du kannst {{who}} kontaktieren, sobald er / sie deinen Termin bestätigt hat",
+            "TEXT": "Jetzt Besichtigungstermine vorschlagen?",
+            "TEXT_AD_DISPLAY": "Du könntest deine Bewerber kontaktieren, wenn Besichtigungstermine bestätigt sind"
+        }
+    },
+    "YELP_DETAILS": {
+        "NEIGHBORHOOD": "In der Nähe",
+        "EVALUATION": "Bewertung"
+    },
+    "ITEM_APPOINTMENTS": {
+        "VIEWING_REQUEST_TITLE": "Besichtigungstermin vereinbaren",
+        "VIEWING_WHEN_TEXT_SHARE": "Wann kannst du die WG von {{who}} besichtigen?",
+        "VIEWING_WHEN_TEXT_FLAT": "Wann kannst du die Wohnung von {{who}} besichtigen?",
+        "SELECTED_COUNT": {
+            "NO_SELECTED_BROWSE": "Wähle eine oder mehrere Zeitfenster aus und erhöhe deine Chancen auf einen Termin",
+            "SELECTED_COUNT_AVAILABILITY": {
+                "SINGULAR": "Du hast <strong>{{count}} möglichen Termin</strong> ausgewählt",
+                "PLURAL": "Du hast <strong>{{count}} mögliche Termine</strong> ausgewählt"
+            },
+            "NO_SPECIAL_AVAILABILITY": "Du bist <strong>flexibel</strong>, was Besichtigungstermine angeht"
+        },
+        "CONFIRM": "Bestätigen",
+        "SEND": "Senden",
+        "MISSING_PHONE": {
+            "TITLE": "Deine Telefonnummer",
+            "SUB_TITLE": "Unter dieser Nummer, die Personen mit denen du eine vereinbarte Besichtigung hast, können dich erreichen",
+            "REMARK": "Die Angabe deiner Telefonnummer ist optionnal und nur für Personen sichtbar, mit denen du eine Besichtigungstermin hast",
+            "REMARK_OPTIONAL": "Die Angabe deiner Telefonnummer ist optional und nur für Personen sichtbar, mit denen du eine Besichtigungstermin hast"
+        },
+        "TIPS": {
+            "SELECT_MANY_TIMESLOTS": {
+                "BEGIN": "Wähle",
+                "HIGHLIGHT": "mehrere Zeitfenster",
+                "END": "aus und erhöhe deine Chancen auf einen Termin!"
+            },
+            "SELECT_MANY_DAYS": {
+                "BEGIN": "Vielleicht sogar noch",
+                "HIGHLIGHT": "einen oder ein paar",
+                "END": "andere Tage?"
+            },
+            "SELECT_COUNT": {
+                "BEGIN": "Cool, du hast",
+                "HIGHLIGHT": "{{count}} möglichen Termin",
+                "HIGHLIGHTS": "{{count}} mögliche Termine",
+                "END": "ausgewählt"
+            },
+            "SELECT_ZERO_COUNT": {
+                "BEGIN": "Wähle",
+                "HIGHLIGHT": "ein Zeitfenster,",
+                "END": "um einen Termin zu bekommen"
+            }
+        }
+    },
+    "MY_APPOINTMENTS": {
+        "FILTER_CURRENT": "Aktuelle",
+        "FILTER_ALL": "Alle",
+        "ITEM_NOT_PUBLISHED_ANYMORE": "Steht nicht mehr zur Verfügung.",
+        "NO_APPOINTMENTS": "Du hast keine Termine",
+        "ITEM_WIN": "Du hast deine neue Wohnung / WG gefunden!"
+    },
+    "MY_BOOKMARKS": {
+        "FILTER_AVAILABLE": "verfügbar",
+        "FILTER_ALL": "alle",
+        "ITEM_NOT_PUBLISHED_ANYMORE": "Steht nicht mehr zur Verfügung",
+        "NO_BOOKMARKS": "Du hast keine Favoriten angelegt",
+        "ACTIONS": {
+            "DISLIKE": "Entfernen",
+            "VIEWING": "Besichtigung"
+        }
+    },
+    "MY_APPLICANTS": {
+        "NO_APPLICANTS": "Du hast keine Besichtigungsanfragen",
+        "NEED_SUBSCRIPTION": "Behalte deine Besichtigungsanfragen im Auge",
+        "STATUS": {
+            "NEW": "Offene Anfragen",
+            "ACCEPTED": "Akzeptiert",
+            "CANCELLED": "Abgelehnt",
+            "TO_RESCHEDULE": "Termin vereinbaren"
+        }
+    },
+    "NOTIFICATIONS": {
+        "ADVERTISE": {
+            "TITLE": "Gratulation",
+            "MANY_APPLICANTS": "Du hast mehrere neue Bewerber",
+            "ONE_APPLICANT": "{{who}} hat sich beworben"
+        },
+        "BROWSE": {
+            "TITLE": "Gratulation",
+            "MANY_ANSWERS": "Du hast mehrere neue Antworten",
+            "VIEWING_ACCEPTED": "{{who}} hat deine Anfrage akzeptiert",
+            "NEED_NEW_DATES": "{{who}} möchte dich gerne zur Besichtigung einladen, aber leider passt keiner der vorgeschlagenen Termine",
+            "NEED_NEW_DATES_CHAT": "Chatte mit {{who}}, um den Termin zu vereinbaren",
+            "APPOINTMENT_RESCHEDULED": {
+                "TITLE": "Hey",
+                "TEXT": "{{who}} hat den Termin verschoben"
+            }
+        },
+        "AD_EXPIRE": {
+            "TITLE_SOON": "Dein Inserat läuft bald ab",
+            "TITLE_ALREADY": "Dein Inserat ist abgelaufen",
+            "TEXT": "Du kannst dein Inserat unter 'Meine Inserat > Meine Termine verwalten' verlängern"
+        }
+    },
+    "ADMIN_APPOINTMENTS": {
+        "EXTEND": {
+            "TITLE": "Vorsicht",
+            "EXPIRE_SOON": "Dein Inserat läuft bald ab, möchtest du es weiterhin bis zum {{when}} verlängern?",
+            "EXPIRED": "Dein Inserat ist abgelaufen, möchtest du es weiterhin bis zum {{when}} verlängern?"
+        },
+        "APPOINTMENTS": {
+            "TITLE": "Besichtigungen",
+            "SUB_TITLE": "Möchtest du deine Besichtigungstermine anpassen?",
+            "CONFIRM": "Bestätigen"
+        }
+    },
+    "ADS_CLOSE": {
+        "TITLE": "Abschliessen",
+        "TEXT_FLAT": "Toll, du hast jemanden für deine Wohnung gefunden! Hat jemand deiner Bewerber unten die Wohnung bekommen?",
+        "TEXT_SHARE": "Toll, du hast jemanden für deine WG gefunden! Hat jemand deiner Bewerber unten die WG bekommen?",
+        "NO_ONE": "Niemand aus dieser Liste",
+        "CONFIRM_POPUP": {
+            "TITLE": "Bist du sicher?",
+            "QUESTION": "Möchtest du dieses Inserat wirklich beenden? Dieser Vorgang kann nicht rückgängig gemacht werden"
+        }
+    },
+    "COMPLAINT": {
+        "TITLE": "Grund deiner Beschwerde",
+        "INAPPROPRIATE": "War unangemessen",
+        "FAKE": "Ist ein Fake",
+        "DIDNT_SHOW_UP": "Kam nicht zu dem Termin"
+    },
+    "CHAT": {
+        "NO_MSG_TEXT": "Du kannst hier mit {{who}} chatten",
+        "TO_RESCHEDULE": "Lege fest oder ändere das Datum des Termins mit dem Kalender",
+        "ACCEPTED": "Du könntest das Datum des Termins mit dem Kalender ändern",
+        "POPOVER": {
+            "TO_RESCHEDULE": "Lege fest das Datums des Termins",
+            "ACCEPTED": "Ändere das Datums des Termins",
+            "OPEN_AD": "Das Inserat von {{who}} ansehen",
+            "OPEN_APPLICANT": "Das Profil von {{who}}"
+        }
+    },
+    "PRODUCT": {
+        "NO_PRODUCT": {
+            "TEXT": "Ups, diese Funktion steht gerade nicht zu Verfügung",
+            "CONTACT": "Fragen? Schreibe uns eine E-Mail"
+        },
+        "FREE": {
+            "TITLE": "HILF UNS",
+            "SUB_TITLE": "Teile uns auf Facebook und erhalte Zugriff auf mehr Features",
+            "FEATURES": {
+                "CUSTOMIZATION": "Noch mehr Entdeckungs-möglichkeiten",
+                "REVIEW": "Ignorierte Anzeigen noch mal lesen",
+                "REQUESTS_STATUS": "Status der Besichtigungsanfragen einsehen",
+                "NO_LIMITS": "Grenzenlose Anzahl von Besichtigungsanfragen und Favoriten",
+                "ON_TOP": "Ganz oben in der Liste der Kandidaten erscheinen"
+            },
+            "TEXT": {
+                "MONTHS": "Teile uns auf Facebook & profitiere von mehr Features für die nächsten {{duration}} Monate <strong>GRATIS</strong>",
+                "DAYS": "Teile uns auf Facebook & profitiere von mehr Features für die nächsten {{duration}} Tage <strong>GRATIS</strong>"
+            },
+            "PENDING": {
+                "TEXT": "Wir danken dir! Die Features werden in den nächsten Stunden aktiviert",
+                "PUSH": "Du erhältst eine Benachrichtigung, sobald sie aktiviert wurde"
+            },
+            "DONE": {
+                "TEXT": "Wir danken dir! Jetzt stehen mehr Features zu deiner Verfügung"
+            }
+        },
+        "HAS_SUBSCRIPTION": {
+            "IN_PROGRESS": "Wir überprüfen deine Anfrage, bleib dran!"
+        },
+        "PROFILE": {
+            "TITLE": "PLUS"
+        }
+    },
+    "CANDIDATES": {
+        "STAR_ACTION": {
+            "FLAT": "Möchtest du deine Wohnung <strong>vorantreiben</strong>?",
+            "ROOM": "Möchtest du dein Zimmer <strong>vorantreiben</strong>?",
+            "ACTION": "Sende {{who}} einen <strong>Superstar</strong>",
+            "SUBSCRIPTION": {
+                "TITLE": "Schau morgen wieder vorbei",
+                "TEXT": "Du hast deine Anzahl an täglichen Superstars erreicht"
+            }
+        },
+        "FIRST_ACCESS": {
+            "TITLE": "Superstars",
+            "DESCRIPTION": "<strong>Finde Mitbewohner</strong> ermöglicht dir, Bewerber zu entdecken und deine Anzeige voranzutreiben, indem du <strong>Superstars</strong> sendest",
+            "IN_ADDITION": "Fluster hilft dir dabei und zeigt dir nur Personen, die mit deiner Anzeige kompatibel sind"
+        },
+        "FIRST_SUPERSTAR": {
+            "TITLE": "Du hast einen <strong>Superstar</strong> erhalten",
+            "TEXT": "Der Inserent interessiert sich sehr für dein Profil – damit steigen deine Chancen!"
+        },
+        "NO_CANDIDATES": "Derzeit passen keine Bewerber auf dein Gesuch"
+    },
+    "RESCHEDULE": {
+        "TITLE": "Besichtigung",
+        "SUB_TITLE_ACCEPTED": "Ändere das Datum des Termins mit {{who}}",
+        "SUB_TITLE_RESCHEDULE": "Lege fest das Datum des Termins mit {{who}}",
+        "NO_SELECTED_TIME": "Wähle zuerst einen Besichtigungstermin"
+    }
+}
+

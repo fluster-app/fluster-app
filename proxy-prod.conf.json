@@ -1,0 +1,8 @@
+{
+  "/v1": {
+    "target": "https://api.fluster.io",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

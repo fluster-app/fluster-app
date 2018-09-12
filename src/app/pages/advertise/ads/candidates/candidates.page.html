@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+          <app-navbar-notification [ad]="true" [displayInMenu]="false"></app-navbar-notification>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+
+    <ion-title>{{'MENU.AD.CANDIDATES' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="ad" [fullscreen]="true" [forceOverscroll]="true">
+
+  <!-- First access msg -->
+  <div class="notification-full-screen" *ngIf="displayFirstAccessMsg" [class.hidden]="fadeFirstAccessMsg">
+
+    <a (click)="closeFirstAccessMsg()" class="notification-full-screen-close">
+      <ion-icon name="checkmark"></ion-icon>
+    </a>
+
+    <div class="notification-full-screen-text" text-center padding>
+      <h1>{{'CANDIDATES.FIRST_ACCESS.TITLE' | translate}}</h1>
+
+      <h2 padding-top [innerHTML]="'CANDIDATES.FIRST_ACCESS.DESCRIPTION' | translate"></h2>
+      <h2 padding-top [innerHTML]="'CANDIDATES.FIRST_ACCESS.IN_ADDITION' | translate"></h2>
+    </div>
+  </div>
+
+  <div *ngIf="hasItem() && hasCandidates()" padding>
+    <!-- Content -->
+    <ion-card *ngFor="let candidate of candidates; let i=index; let last = last;" no-shadow class="applicant" text-center [class.line-odd]="i == 0 || ((i+1) % 3 != 0)" [class.line-even]="i > 0 && ((i+1) % 3 == 0)">
+      <div class="content-line" tappable (click)="navigateToDetail(candidate)" [class.content-line-odd-right]="i > 0 && ((i+1) % 3 == 2)">
+        <div>
+          <ion-avatar slot="start" class="very-big-avatar">
+            <app-user-profile-img-list [facebook]="candidate.facebook" [google]="candidate.google" [starred]="isCandidateStarred(candidate)"></app-user-profile-img-list>
+          </ion-avatar>
+
+          <ion-label class="candidate-name" text-center>{{candidate.facebook.firstName}}</ion-label>
+        </div>
+      </div>
+    </ion-card>
+
+    <ion-infinite-scroll
+            *ngIf="!isLastPageReached() && hasCandidates()"
+            (ionInfinite)="findNextCandidates($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+  <div class="loading" padding text-center *ngIf="!loaded">
+    <ion-spinner ion-text color="primary"></ion-spinner>
+  </div>
+
+  <app-no-ads *ngIf="!hasItem() && loaded" (notifyNavigateNewItem)="navigateNewItem()"></app-no-ads>
+
+  <app-no-ads-users [label]="'CANDIDATES.NO_CANDIDATES'" *ngIf="hasItem() && !hasCandidates() && loaded"></app-no-ads-users>
+
+</ion-content>

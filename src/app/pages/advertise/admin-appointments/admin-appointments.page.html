@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="backToPreviousSlide()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>FLUSTER</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="ad" [forceOverscroll]="true">
+
+  <div ion-fixed>
+
+    <ion-slides #adsAdminAppointmentsSlider pager="false" [options]="slideOptsOnlyExternal">
+      <ion-slide *ngIf="itemEndCouldBeExtended && item != null">
+        <div padding class="flex-content big-screen-content">
+
+          <ion-grid class="flex-grid">
+            <ion-row>
+              <ion-col col-12 text-center>
+                <h1>{{'ADMIN_APPOINTMENTS.EXTEND.TITLE' | translate}}</h1>
+
+                <p *ngIf="!itemEndThePast">{{ 'ADMIN_APPOINTMENTS.EXTEND.EXPIRE_SOON' | translate:{when: extendDateDisplay} }}</p>
+                <p *ngIf="itemEndThePast">{{ 'ADMIN_APPOINTMENTS.EXTEND.EXPIRED' | translate:{when: extendDateDisplay} }}</p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col col-12>
+                <ion-list padding-top id="extendItemList">
+                  <ion-radio-group [(ngModel)]="extendItem">
+                    <ion-item>
+                      <ion-label>{{'CORE.YES' | translate}}</ion-label>
+                      <ion-radio checked="true" value="true"></ion-radio>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-label>{{'CORE.NO' | translate}}</ion-label>
+                      <ion-radio value="false"></ion-radio>
+                    </ion-item>
+                  </ion-radio-group>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="flex-end buttons-full-length">
+              <ion-col col-12>
+                <ion-button expand="full" shape="round" (click)="next()">
+                  {{'CORE.NEXT' | translate}}
+                  <ion-icon slot="end" name="arrow-forward"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-slide>
+
+      <ion-slide id="adminAppointmentsCalendar" *ngIf="item != null">
+        <div class="big-screen-content admin-calendar-container">
+          <h1 padding-start padding-end text-center class="padding-top-very-small">{{'ADMIN_APPOINTMENTS.APPOINTMENTS.TITLE' | translate}}</h1>
+
+          <h2 padding-start padding-end text-center>{{'ADMIN_APPOINTMENTS.APPOINTMENTS.SUB_TITLE' | translate}}</h2>
+
+          <app-pick-ads-appointments [item]="item" [appointment]="appointment" (notifiySelected)="select($event)"></app-pick-ads-appointments>
+
+          <div text-center padding class="date-picker-actions">
+            <ion-button expand="full" shape="round" (click)="extendItemAndUpdateAppointment()">
+              {{'ADMIN_APPOINTMENTS.APPOINTMENTS.CONFIRM' | translate}}
+              <ion-icon slot="end" name="checkmark"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </ion-slide>
+
+    </ion-slides>
+
+  </div>
+
+</ion-content>

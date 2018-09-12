@@ -1,0 +1,66 @@
+@import "../../../../theme/fluster-variables";
+
+#price-user-input, #location-user-input {
+  width: 100%;
+  margin: 0;
+
+  ion-list-header, ion-item {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  ion-list-header {
+    ion-label {
+      font-size: $fluster-text-normal;
+      margin-top: 0;
+      margin-bottom: 0;
+      text-transform: initial;
+    }
+
+    #range-max-price {
+      color: $fluster-peach3;
+      font-size: $fluster-text-big;
+    }
+  }
+
+  ion-item {
+    padding-left: 0;
+    box-shadow: none;
+  }
+}
+
+#availability-user-input {
+  width: 100%;
+
+  ion-item.item-toggle {
+    background-color: transparent;
+    border-color: transparent;
+
+    &.item-toggle-checked {
+      color: $fluster-peach3;
+    }
+  }
+}
+
+#warningType {
+  background-color: transparent;
+  border-color: transparent;
+  color: $fluster-peach3;
+
+}
+
+#user-interests {
+  p {
+    font-weight: $font-weight-light;
+
+    &.interest-example {
+      font-style: italic;
+    }
+  }
+}
+
+div.item-params-interest {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

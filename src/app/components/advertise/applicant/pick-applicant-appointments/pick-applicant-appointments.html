@@ -1,0 +1,39 @@
+<div #datePickerScrollX scrollX="true" class="date-picker-scroller">
+    <div class="date-picker">
+        <div *ngFor="let pickAppointment of pickAppointmentDate; let i=index;" tappable (click)="selectDate(pickAppointment, i)"  [class.selected-date]="isSelectedDate(pickAppointment)" [class.has-appointment]="pickAppointment.selected" [class.appointment-empty]="pickAppointment.pickDate == null"  [class.disabled-date]="isDisabledDate(pickAppointment)">
+            <p text-center>
+                <app-day-abbreviation [dayOfTheWeek]="pickAppointment.pickDate" [today]="i == 0"></app-day-abbreviation>
+
+                <span class="display-date">{{pickAppointment.displayDate}}</span>
+            </p>
+
+            <span class="triangle"></span>
+        </div>
+    </div>
+</div>
+
+<div text-center padding-bottom margin-bottom text-wrap>
+
+    <div text-center id="displaySelectedAppointment">
+        <span *ngIf="isAppointmentSelected()">{{'APPLICANT_SELECTION.APPOINTMENT_SCHEDULED_FOR.BEGIN' | translate}} <strong><app-display-date [displayDate]="selectedAppointmentsStartTime" [pattern]="'llll'"></app-display-date></strong> {{'APPLICANT_SELECTION.APPOINTMENT_SCHEDULED_FOR.END' | translate}}</span>
+    </div>
+
+</div>
+
+<div #datePickerScrollY scrollY="true" id="datePickerScrollY">
+    <ion-list no-padding (swipe)="swipeDatePicker($event)">
+        <ion-item *ngFor="let currentAppointment of currentAppointments;" tappable (click)="selectUnselectAppointment(currentAppointment)" text-center>
+            <p [class.appointment-selected]="currentAppointment.selected">
+                <ion-icon slot="start" name="{{currentAppointment.selected ? 'checkmark-circle' : 'radio-button-off'}}"></ion-icon>
+                <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.startTime"></app-display-date> - <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.endTime"></app-display-date>
+            </p>
+        </ion-item>
+    </ion-list>
+</div>
+
+<div text-center padding class="date-picker-actions">
+    <ion-button expand="full" shape="round" (click)="selectAppointment()" id="confirmSelection">
+        {{'APPLICANT_SELECTION.CONFIRM' | translate}}
+        <ion-icon slot="end" name="checkmark"></ion-icon>
+    </ion-button>
+</div>

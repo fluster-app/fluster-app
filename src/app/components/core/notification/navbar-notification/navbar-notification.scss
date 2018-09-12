@@ -1,0 +1,25 @@
+@import "../../../../../theme/fluster-variables";
+
+#advertiseNotification, #browseNotification {
+    position: absolute;
+    top: -0.4rem;
+    left: 0;
+
+    ion-icon {
+        color: $fluster-peach3;
+        font-size: 3rem;
+    }
+}
+
+div.align-badge-menu {
+    display: inline-block;
+
+    ion-icon {
+        vertical-align: text-bottom;
+
+        &.has-notification {
+            color: $fluster-peach3;
+        }
+    }
+}
+

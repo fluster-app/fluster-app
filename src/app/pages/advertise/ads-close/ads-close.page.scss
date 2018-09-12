@@ -1,0 +1,17 @@
+@import "../../../../theme/fluster-variables";
+
+p {
+  font-size: $fluster-text-normal;
+}
+
+#none-of-the-applicant {
+  ion-avatar {
+    img {
+      border-color: $fluster-grey-blue;
+    }
+  }
+
+  p {
+    color: $fluster-grey-blue;
+  }
+}

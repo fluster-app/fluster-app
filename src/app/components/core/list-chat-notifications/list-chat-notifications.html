@@ -1,0 +1,7 @@
+<ion-note *ngIf="notified && hasChatMessages()">
+    <app-display-date *ngIf="displayDate" [displayDate]="chatMessages[0].createdAt" [dateOrTime]="true"></app-display-date>
+
+    <div class="notificationBadge">
+        <ion-badge round>{{countNewChatMessages}}</ion-badge>
+    </div>
+</ion-note>

@@ -1,0 +1,30 @@
+<div #datePickerScrollX scrollX="true" class="date-picker-scroller margin-top-small">
+    <div class="date-picker">
+        <div *ngFor="let pickAppointment of pickAppointmentDate; let i=index;" tappable (click)="selectDate(pickAppointment, i)"  [class.selected-date]="isSelectedDate(pickAppointment)" [class.has-appointment]="pickAppointment.selected" [class.appointment-empty]="pickAppointment.pickDate == null"  [class.disabled-date]="isDisabledDate(pickAppointment)">
+            <p text-center>
+                <app-day-abbreviation [dayOfTheWeek]="pickAppointment.pickDate" [today]="i == 0"></app-day-abbreviation>
+
+                <span class="display-date">{{pickAppointment.displayDate}}</span>
+            </p>
+
+            <span class="triangle"></span>
+        </div>
+    </div>
+</div>
+
+<div text-center padding-bottom padding-start padding-end *ngIf="selectedAppointmentsStartTime != null">
+    <app-display-appointments-count [selectedAppointments]="selectedAppointmentsStartTime"></app-display-appointments-count>
+</div>
+
+<div #datePickerScrollY scrollY="true" id="datePickerScrollY">
+    <ion-list padding (swipe)="swipeDatePicker($event)">
+        <ion-item *ngFor="let currentAppointment of currentAppointments;" tappable (click)="selectUnselectAppointment(currentAppointment)" text-center>
+            <p [class.appointment-already-taken]="isAppointmentAlreadyTaken(currentAppointment)" [class.appointment-in-the-past]="!isInTheFuture(currentAppointment)" [class.appointment-selected]="currentAppointment.selected">
+                <ion-icon slot="start" name="{{iconToDisplay(currentAppointment)}}"></ion-icon>
+                <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.startTime"></app-display-date> - <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.endTime"></app-display-date>
+            </p>
+        </ion-item>
+    </ion-list>
+</div>
+
+

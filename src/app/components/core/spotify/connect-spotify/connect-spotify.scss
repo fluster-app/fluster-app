@@ -1,0 +1,10 @@
+@import "../../../../../theme/fluster-variables";
+
+#connect-spotify {
+    margin-top: -8px;
+
+    ion-label {
+        font-size: $fluster-text-normal;
+        font-weight: $font-weight-light;
+    }
+}

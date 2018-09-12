@@ -1,0 +1,16 @@
+<div id="no-ads-users" text-center text-wrap padding tappable (click)="navigate()">
+    <ion-avatar class="big-avatar" *ngIf="user != null">
+        <app-user-profile-img [facebook]="user.facebook" [google]="user.google"></app-user-profile-img>
+    </ion-avatar>
+
+    <h2 *ngIf="totalAdvertiseNotifications <= 0" [innerHTML]="label | translate" padding-top></h2>
+
+    <h2 *ngIf="totalAdvertiseNotifications > 0" padding-top>
+        <ion-icon slot="start" name="person-add" class="totalNewAdvertiseNotificationsBadge"></ion-icon>
+        <span>{{'ADS.APPOINTMENTS.YOU_HAVE' | translate}}</span>
+        <span *ngIf="totalAdvertiseNotifications <= 10" class="spaceAfter">{{totalAdvertiseNotifications}}</span>
+        <span *ngIf="totalAdvertiseNotifications > 10" class="spaceAfter">&#62; 10</span>
+        <span *ngIf="totalAdvertiseNotifications == 1">{{'ADS.APPOINTMENTS.NEW_CANDIDATE' | translate}}</span>
+        <span *ngIf="totalAdvertiseNotifications > 1">{{'ADS.APPOINTMENTS.NEW_CANDIDATES' | translate}}</span>
+    </h2>
+</div>

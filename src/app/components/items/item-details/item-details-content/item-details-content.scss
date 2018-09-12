@@ -1,0 +1,166 @@
+@import "../../../../../theme/fluster-variables";
+
+ion-label.adCategoryTitle, ion-label.adCategoryTitleSmall {
+    color: $fluster-peach3;
+    font-weight: $font-weight-light;
+}
+
+ion-label.adCategoryTitleSmall {
+    font-size: $fluster-text-small;
+    padding-top: 6px;
+}
+
+ion-label.adCategoryTitle {
+    font-size: $fluster-text-normal;
+    padding-top: 4px;
+}
+
+#price-charges {
+    padding-top: 4px;
+}
+
+#price-charges-text, .very-small-content {
+    font-size: $fluster-text-small;
+    padding-top: 4px;
+    font-weight: $font-weight-light;
+}
+
+.very-small-content {
+    vertical-align: text-top;
+}
+
+.small-content {
+    font-size: 2.6rem;
+    line-height: 100%;
+}
+
+.small-number-margin-left {
+    margin-left: 0.9rem;
+}
+
+.big-content {
+    font-size: 5.6rem;
+    line-height: 100%;
+}
+
+.availability, .limitations {
+    display: inline-block;
+}
+
+.limitations {
+    ion-icon {
+        margin-right: 0.2rem;
+    }
+
+    span {
+        margin-left: 0.2rem;
+    }
+}
+
+ion-icon {
+    margin-right: 8px;
+
+    &.ion-md-checkmark {
+        margin-right: 5px;
+    }
+}
+
+.attributeSelected, .attributeNotSelected {
+    font-weight: $font-weight-light;
+    font-size: $fluster-text-small;
+}
+
+.attributeSelected {
+    color: $fluster-peach3;
+}
+
+#item-interests {
+    padding: 0;
+
+    div.item-inner {
+        padding-right: 0;
+    }
+}
+
+#item-interests, #yelp-businesses-list ion-item {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#item-interests {
+
+    ion-label {
+        margin-bottom: 0;
+    }
+
+    #items-user {
+        justify-content: center;
+    }
+}
+
+#yelp-businesses-list {
+    margin-bottom: 0;
+
+    ion-thumbnail {
+        height: auto;
+
+        ion-icon {
+            margin: 0;
+            font-size: 3rem;
+        }
+    }
+
+    span {
+        margin-right: 4px;
+        font-weight: $font-weight-light;
+    }
+
+    h2 {
+        font-size: $fluster-text-big;
+        font-weight: $font-weight-light;
+    }
+
+    h2, p {
+        margin: 2px 0;
+    }
+
+    span, h2 {
+        color: var(--ion-text-color);
+    }
+
+    ion-icon, p {
+        color: $fluster-peach3;
+    }
+
+    p {
+        font-size: $fluster-text-normal;
+    }
+}
+
+#item-adress {
+    position: relative;
+
+    .item-adress-max-width {
+        max-width: 84%;
+    }
+
+    #item-adress-link {
+        position: absolute;
+        top: -10px;
+        right: 8px;
+        border: 0;
+
+        ion-icon {
+            color: var(--ion-text-color);
+        }
+    }
+}
+
+#item-details-neighborhood, #item-details-specs {
+    padding-top: 0;
+}
+
+#item-details-who {
+    min-height: 532px;
+}
+

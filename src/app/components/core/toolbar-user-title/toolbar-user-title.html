@@ -1,0 +1,10 @@
+<ion-title *ngIf="!display || facebook == null">FLUSTER</ion-title>
+
+<ion-title *ngIf="display && facebook != null">
+    <div>
+        <ion-avatar class="title-avatar">
+            <app-user-profile-img [facebook]="facebook" [google]="google"></app-user-profile-img>
+        </ion-avatar>
+        <span>{{facebook.firstName}}</span>
+    </div>
+</ion-title>

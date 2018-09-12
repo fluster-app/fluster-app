@@ -1,0 +1,155 @@
+// https://github.com/rafalbromirski/sass-mediaqueries
+@import "_media-queries";
+
+// https://material.io/devices/
+// https://mydevice.io/devices/
+// http://viewportsize.com
+
+@mixin nexus5($orientation: false) {
+    $width-min: 360px;
+    $width-max: 360px;
+    $height-min: 567px;
+    $height-max: 639px;
+
+    @include mq(
+        $min-width: $width-min,
+        $max-width: $width-max,
+        $min-height: $height-min,
+        $max-height: $height-max,
+        $orientation: $orientation
+    ) {
+        @content;
+    }
+}
+
+// Density 2.6
+
+@mixin nexus5X($orientation: false) {
+    $width-min: 412px;
+    $width-max: 412px;
+    $height-min: 660px;
+    $height-max: 660px;
+
+    @include mq(
+        $min-width: $width-min,
+        $max-width: $width-max,
+        $min-height: $height-min,
+        $max-height: $height-max,
+        $orientation: $orientation
+    ) {
+        @content;
+    }
+}
+
+@mixin nexus6($orientation: false) {
+    $width-min: 412px;
+    $width-max: 412px;
+    $height-min: 731px;
+    $height-max: 732px;
+    $pixel-ratio: 3.5;
+
+    @include mq(
+        $min-device-width: $width-min,
+        $max-device-width: $width-max,
+        $min-device-height: $height-min,
+        $max-device-height: $height-max,
+        $orientation: $orientation,
+        $-webkit-device-pixel-ratio: $pixel-ratio
+    ) {
+        @content;
+    }
+}
+
+// Pixel ratio 1.3 or 3.5
+@mixin nexus7($orientation: false) {
+    $width-min: 600px;
+    $width-max: 600px;
+    $height-min: 960px;
+    $height-max: 960px;
+
+    @include mq(
+        $min-device-width: $width-min,
+        $max-device-width: $width-max,
+        $min-device-height: $height-min,
+        $max-device-height: $height-max,
+        $orientation: $orientation
+    ) {
+        @content;
+    }
+}
+
+@mixin nexus10($orientation: false) {
+    $width-min: 800px;
+    $width-max: 800px;
+    $height-min: 1280px;
+    $height-max: 1280px;
+
+    @include mq(
+        $min-device-width: $width-min,
+        $max-device-width: $width-max,
+        $min-device-height: $height-min,
+        $max-device-height: $height-max,
+        $orientation: $orientation
+    ) {
+        @content;
+    }
+}
+
+// Density 3 and 4 for S5 and S6
+
+@mixin galaxyS5($orientation: false, $pixel-ratio: 3) {
+    $width-min: 360px;
+    $width-max: 360px;
+    $height-min: 640px;
+    $height-max: 640px;
+
+    @include mq(
+        $min-device-width: $width-min,
+        $max-device-width: $width-max,
+        $min-device-height: $height-min,
+        $max-device-height: $height-max,
+        $orientation: $orientation,
+        $-webkit-device-pixel-ratio: $pixel-ratio
+    ) {
+        @content;
+    }
+}
+
+// Density 2 iphone6 or 3 iPhone7
+
+@mixin iphone7($orientation: false) {
+    $width-min: 375px;
+    $width-max: 375px;
+    $height-min: 667px;
+    $height-max: 667px;
+
+    @include mq(
+        $min-device-width: $width-min,
+        $max-device-width: $width-max,
+        $min-device-height: $height-min,
+        $max-device-height: $height-max,
+        $orientation: $orientation
+    ) {
+        @content;
+    }
+}
+
+// iPhone X pixel-ratio 3
+
+@mixin iphoneX($orientation: false, $pixel-ratio: 3) {
+    $width-min: 375px;
+    $width-max: 375px;
+    $height-min: 812px;
+    $height-max: 812px;
+
+    @include mq(
+        $min-device-width: $width-min,
+        $max-device-width: $width-max,
+        $min-device-height: $height-min,
+        $max-device-height: $height-max,
+        $orientation: $orientation,
+        $-webkit-device-pixel-ratio: $pixel-ratio
+    ) {
+        @content;
+    }
+}

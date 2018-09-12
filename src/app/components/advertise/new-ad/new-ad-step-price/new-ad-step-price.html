@@ -1,0 +1,48 @@
+<div padding-start padding-end class="new-ad-container big-screen-content">
+    <div class="new-ad-content" (swipe)="swipeSlide($event)">
+        <h1 text-center class="padding-top-big">{{'NEW_AD.STEP_PRICE.TITLE' | translate}}</h1>
+
+        <h2 text-center *ngIf="isItemFlat()">{{'NEW_AD.STEP_PRICE.SUB_TITLE' | translate}}</h2>
+
+        <h2 text-center *ngIf="isItemShare()">{{'NEW_AD.STEP_PRICE.SUB_TITLE_SHARE' | translate}}</h2>
+
+        <div *ngIf="newItem != null && newItem.attributes != null">
+            <ion-list [formGroup]="priceFormGroup" class="padding-top-small">
+                <ion-item>
+                    <ion-label position="stacked">
+                        {{'NEW_AD.STEP_PRICE.PRICE' | translate}}
+                        <app-display-currency></app-display-currency>
+                    </ion-label>
+                    <ion-input type="tel" #price [value]="gross" formControlName="priceValidator" (ngModelChange)="updatePrice(price.value)"></ion-input>
+                </ion-item>
+
+                <ion-item [class.fluster-text-input-placeholder]="!additionalCosts">
+                    <ion-checkbox slot="start" checked="{{additionalCosts}}" (click)="resetCharges()" [(ngModel)]="additionalCosts" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+                    <ion-label>{{'NEW_AD.STEP_PRICE.ASK_ADDITIONAL_COSTS' | translate}}</ion-label>
+                </ion-item>
+
+                <ion-item [class.hidden]="!additionalCosts" id="additionalCosts">
+                    <ion-label position="stacked">
+                        {{'NEW_AD.STEP_PRICE.ADDITIONAL_COSTS' | translate}}
+                        <app-display-currency></app-display-currency>
+                    </ion-label>
+                    <ion-input type="tel" #chargesInput [value]="charges" formControlName="chargesValidator" (ngModelChange)="updateCharges(chargesInput.value)"></ion-input>
+                </ion-item>
+
+                <app-new-ad-step-price-total [price]="gross" [charges]="charges"></app-new-ad-step-price-total>
+            </ion-list>
+        </div>
+    </div>
+
+    <div class="new-ad-buttons" (swipe)="swipeSlide($event)">
+
+        <app-targeted-users [item]="newItem"
+                        [msgLocation]="false">
+        </app-targeted-users>
+
+        <ion-button expand="full" shape="round" class="new-ad-buttons-flex" (click)="next()">
+            {{'CORE.NEXT' | translate}}
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        </ion-button>
+    </div>
+</div>

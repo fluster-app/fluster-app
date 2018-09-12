@@ -1,0 +1,28 @@
+@import "../../../../theme/fluster-variables";
+
+#display-last-name {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+p.user-location {
+    padding-top: 4px;
+
+    ion-icon {
+        font-size: 1.6rem;
+    }
+}
+
+p.user-location, p.user-age {
+    font-weight: $font-weight-light;
+}
+
+div.advertiser-info {
+    h1, p {
+        color: white;
+        margin: 0;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

@@ -1,0 +1,421 @@
+@import "../../../../theme/mixins";
+@import "../../../../theme/media-queries";
+@import "../../../../theme/fluster-variables";
+
+// Big button
+
+button.big-button, button.medium-button, button.small-button {
+  @include fluster-linear-gradient(to right, $fluster-peach1, $fluster-peach3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  &:focus {
+    outline:0;
+  }
+
+  // https://github.com/ionic-team/ionic/blob/a7f1f4daa7166281f0735552b122d4c827cd20f1/core/src/components/fab-button/fab-button.md.vars.scss
+  &.big-button-android {
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, .14), 0 4px 5px rgba(0, 0, 0, .1);
+
+    &:active, &.activated {
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .4), 0 4px 7px 0 rgba(0, 0, 0, .1);
+    }
+  }
+
+  // https://github.com/ionic-team/ionic/blob/a7f1f4daa7166281f0735552b122d4c827cd20f1/core/src/components/fab-button/fab-button.ios.vars.scss
+  &.big-button-ios {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .12);
+
+    div {
+      transition: .2s transform cubic-bezier(.25, 1.11, .78, 1.59);
+    }
+
+    &:active, &.activated {
+      div {
+        transition: .2s transform ease-out;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  div {
+    border-radius: 50%;
+    overflow: visible;
+
+    ion-label {
+      text-transform: none;
+      white-space: normal;
+      position: relative;
+      margin: 0;
+      overflow: inherit;
+      font-weight: $font-weight-light;
+    }
+  }
+
+  &.big-button-ad-display {
+    div {
+      ion-label {
+        color: white;
+      }
+    }
+  }
+
+  &.big-button-item, &.medium-button-item, &.small-button-item {
+    div {
+      color: $fluster-grey-blue;
+      background-color: white;
+    }
+
+    &.activated, &.big-button-enabled, &.medium-button-enabled, &.small-button-enabled, &:active {
+      div {
+        background-color: inherit;
+
+        ion-icon {
+          color: white;
+        }
+      }
+    }
+
+    &:not(.activated) {
+      ion-icon {
+        color: $fluster-dark-blue;
+      }
+    }
+
+    &.big-button-disabled, &.medium-button-disabled, &.small-button-disabled {
+      div {
+        ion-icon {
+          color: white;
+        }
+      }
+    }
+
+    &.big-button-disabled, &.medium-button-disabled, &.small-button-disabled,
+    &.big-button-cancel, &.medium-button-cancel, &.small-button-cancel {
+      background-color: $fluster-light-grey;
+      background-image: none;
+
+      div {
+        background-color: $fluster-light-grey;
+
+        ion-label {
+          color: $fluster-medium-grey;
+        }
+      }
+    }
+  }
+
+  &.big-button-ads, &.medium-button-ads, &.small-button-ads {
+
+    div {
+      color: $fluster-dark-blue;
+      background-color: $fluster-dark-blue;
+
+      ion-icon {
+        color: white;
+      }
+    }
+
+    &.activated, &.big-button-enabled, &.medium-button-enabled, &.small-button-enabled, &:active {
+      div {
+        background-color: inherit;
+      }
+    }
+
+    &.big-button-disabled, &.medium-button-disabled, &.small-button-disabled,
+    &.big-button-cancel, &.medium-button-cancel, &.small-button-cancel {
+      background-color: $fluster-grey-blue;
+      background-image: none;
+
+      div {
+        color: $fluster-grey-blue;
+      }
+    }
+
+    &.big-button-disabled, &.medium-button-disabled, &.small-button-disabled {
+      div {
+        ion-icon, ion-label {
+          color: $fluster-grey-blue;
+        }
+      }
+    }
+  }
+
+  &.medium-button-superstar {
+    background: $fluster-superstar;
+
+    ion-icon {
+      color: white;
+    }
+
+    &.activated, &:active {
+      background: white;
+
+      ion-icon {
+        color: $fluster-superstar;
+      }
+    }
+  }
+}
+
+button.small-button {
+  width: 6rem;
+  height: 6rem;
+  --width: 6rem;
+  --height: 6rem;
+
+  div {
+    width: 5.6rem;
+    height: 5.6rem;
+    --width: 5.6rem;
+    --height: 5.6rem;
+
+    ion-icon {
+      padding-top: 0.8rem;
+      font-size: 4rem;
+    }
+
+    ion-label {
+      padding-top: 1.6rem;
+      font-size: $fluster-text-small;
+    }
+  }
+}
+
+button.medium-button {
+  width: 9rem;
+  height: 9rem;
+  --width: 9rem;
+  --height: 9rem;
+
+  div {
+    width: 8.6rem;
+    height: 8.6rem;
+    --width: 8.6rem;
+    --height: 8.6rem;
+
+    ion-icon {
+      padding-top: 1.2rem;
+      font-size: 6rem;
+    }
+
+    ion-label {
+      padding-top: 2rem;
+      font-size: $fluster-text-normal;
+    }
+  }
+
+  @include iphone4 {
+    width: 6rem;
+    height: 6rem;
+    --width: 6rem;
+    --height: 6rem;
+
+    div {
+      width: 5.6rem;
+      height: 5.6rem;
+      --width: 5.6rem;
+      --height: 5.6rem;
+
+      ion-icon {
+        padding-top: 1rem;
+        font-size: 4rem;
+      }
+
+      ion-label {
+        padding-top: 1rem;
+        font-size: $fluster-text-small;
+      }
+    }
+  }
+
+  @include iphone5 {
+    width: 7rem;
+    height: 7rem;
+    --width: 7rem;
+    --height: 7rem;
+
+    div {
+      width: 6.6rem;
+      height: 6.6rem;
+      --width: 6.6rem;
+      --height: 6.6rem;
+
+      ion-icon {
+        padding-top: 1.4rem;
+        font-size: 4rem;
+      }
+
+      ion-label {
+        padding-top: 1.8rem;
+      }
+    }
+  }
+
+  @include nexus5 {
+    width: 7rem;
+    height: 7rem;
+    --width: 7rem;
+    --height: 7rem;
+
+    div {
+      width: 6.6rem;
+      height: 6.6rem;
+      --width: 6.6rem;
+      --height: 6.6rem;
+
+      ion-icon {
+        padding-top: 1.4rem;
+        font-size: 4rem;
+      }
+
+      ion-label {
+        padding-top: 2.2rem;
+        font-size: $fluster-text-small;
+      }
+    }
+  }
+
+  @include galaxyS5 {
+    width: 7rem;
+    height: 7rem;
+    --width: 7rem;
+    --height: 7rem;
+
+    div {
+      width: 6.6rem;
+      height: 6.6rem;
+      --width: 6.6rem;
+      --height: 6.6rem;
+
+      ion-icon {
+        padding-top: 1.3rem;
+        font-size: 4rem;
+      }
+
+      ion-label {
+        padding-top: 2.2rem;
+        font-size: $fluster-text-small;
+      }
+    }
+  }
+
+  @include ipad {
+    width: 9rem;
+    height: 9rem;
+    --width: 9rem;
+    --height: 9rem;
+
+    div {
+      width: 8.6rem;
+      height: 8.6rem;
+      --width: 8.6rem;
+      --height: 8.6rem;
+
+      ion-icon {
+        padding-top: 1.2rem;
+        font-size: 6rem;
+      }
+
+      ion-label {
+        padding-top: 2.2rem;
+      }
+    }
+
+  }
+}
+
+button.big-button {
+  width: 14rem;
+  height: 14rem;
+  --width: 14rem;
+  --height: 14rem;
+
+  div {
+    width: 13.6rem;
+    height: 13.6rem;
+    --width: 13.6rem;
+    --height: 13.6rem;
+
+    ion-icon {
+      padding-top: 2.7rem;
+      font-size: 8rem;
+    }
+
+    ion-label {
+      padding-top: 5.0rem;
+    }
+  }
+
+  @include iphone4 {
+    width: 12rem;
+    height: 12rem;
+    --width: 12rem;
+    --height: 12rem;
+
+    div {
+      width: 11.6rem;
+      height: 11.6rem;
+      --width: 11.6rem;
+      --height: 11.6rem;
+
+      ion-icon {
+        font-size: 6rem;
+      }
+
+      ion-label {
+        padding-top: 4.8rem;
+      }
+    }
+  }
+
+  @include iphone5 {
+    width: 12rem;
+    height: 12rem;
+    --width: 12rem;
+    --height: 12rem;
+
+    div {
+      width: 11.6rem;
+      height: 11.6rem;
+      --width: 11.6rem;
+      --height: 11.6rem;
+
+      ion-icon {
+        font-size: 6rem;
+      }
+
+      ion-label {
+        padding-top: 4.8rem;
+      }
+    }
+  }
+
+  @include ipad {
+    width: 16rem;
+    height: 16rem;
+    --width: 16rem;
+    --height: 16rem;
+
+    div {
+      width: 15.6rem;
+      height: 15.6rem;
+      --width: 15.6rem;
+      --height: 15.6rem;
+
+      ion-icon {
+        font-size: 10rem;
+      }
+
+      ion-label {
+        padding-top: 5.8rem;
+      }
+    }
+
+  }
+
+}

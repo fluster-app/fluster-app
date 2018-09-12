@@ -1,0 +1,30 @@
+@import "../../../../../theme/fluster-variables";
+
+#filter-my-appointments {
+  color: white;
+}
+
+ion-card {
+  p {
+    font-weight: $font-weight-light;
+  }
+
+  .to-reschedule {
+    color: $fluster-peach2;
+  }
+
+  &.unavailable {
+
+    ion-label {
+      color: $fluster-medium-grey;
+    }
+
+    ion-avatar {
+      opacity: 0.4;
+    }
+
+    p.unavailable-text {
+      padding-top: 8px;
+    }
+  }
+}

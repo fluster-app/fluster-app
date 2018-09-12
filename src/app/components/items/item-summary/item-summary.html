@@ -1,0 +1,61 @@
+<!-- 1. Line -->
+
+<p *ngIf="isItemShare(item)" id="item-summary-share-content" [class.bookmark]="bookmarkDisplay">
+    <span>
+        {{item.attributes.sharedRooms}} <app-label-singular-plural [value]="item.attributes.sharedRooms" [keyPlural]="'SELECT_ATTRIBUTES.SHARED_ROOMS'" [keySingular]="'SELECT_ATTRIBUTES.SHARED_ROOM'"></app-label-singular-plural>
+    </span>
+    <span class="item-price">
+        {{item.attributes.price.gross | formatCurrency}}
+    </span>
+</p>
+
+<p *ngIf="isItemFlat(item)" id="item-summary-flat-content" [class.bookmark]="bookmarkDisplay">
+    <span *ngIf="item.attributes.rooms > 0">
+        {{item.attributes.rooms}} <app-label-singular-plural [value]="item.attributes.rooms" [keyPlural]="'SELECT_ATTRIBUTES.ROOMS'" [keySingular]="'SELECT_ATTRIBUTES.ROOM'"></app-label-singular-plural>
+    </span>
+    <span *ngIf="item.attributes.size > 0">
+        {{item.attributes.size}} {{'CORE.SQUARE_METER' | translate}}
+    </span>
+    <span class="item-price">
+        {{item.attributes.price.gross | formatCurrency}}
+    </span>
+</p>
+
+<!-- 2. Line -->
+
+<p *ngIf="isItemFlat(item) && displayType" id="item-summary-type-flat">
+    <span *ngIf="!hasEndAvailability(item)">{{'ITEMS.TYPE.FLAT_TAKEOVER' | translate}}</span>
+
+    <span *ngIf="hasEndAvailability(item)">{{'ITEMS.TYPE.FLAT_LIMITED' | translate}}</span>
+</p>
+
+<p *ngIf="isItemShare(item) && displayShareType() && displayType" id="item-summary-type-share-text">
+    <span>{{'ITEMS.TYPE.SHARE' | translate}}</span>
+</p>
+
+<!-- 3. Line -->
+
+<p *ngIf="item != null" id="item-summary-availability" [class.bookmark]="bookmarkDisplay">
+    <span *ngIf="isAvailableNow(item) && !hasEndAvailability(item)">
+        {{'ITEMS.AVAILABILITY.AVAILABLE_NOW_WITHOUT_END' | translate}}
+    </span>
+    <span *ngIf="isAvailableNow(item) && hasEndAvailability(item)">
+        {{'ITEMS.AVAILABILITY.AVAILABLE_NOW_TILL' | translate}} <app-display-date [displayDate]="item.attributes.availability.end"></app-display-date>
+    </span>
+    <span *ngIf="!isAvailableNow(item) && !hasEndAvailability(item)">
+        {{'ITEMS.AVAILABILITY.AVAILABLE_THE' | translate}} <app-display-date [displayDate]="item.attributes.availability.begin"></app-display-date>
+    </span>
+    <span *ngIf="!isAvailableNow(item) && hasEndAvailability(item)">
+        {{'ITEMS.AVAILABILITY.AVAILABLE_FROM' | translate}} <app-display-date [displayDate]="item.attributes.availability.begin"></app-display-date> {{'ITEMS.AVAILABILITY.AVAILABLE_TILL' | translate}} <app-display-date [displayDate]="item.attributes.availability.end"></app-display-date>
+    </span>
+</p>
+
+<!-- 4. Line -->
+
+<p *ngIf="hasCity(item)" id="item-summary-city" [class.bookmark]="bookmarkDisplay">
+    <span>{{item.address.city}}</span>
+</p>
+
+<p *ngIf="isItemShare(item) && !displayShareType() && displayType && displayEmptyLine" id="item-summary-type-share-text-empty">
+    <span><!-- Empty because of Flat length--></span>
+</p>

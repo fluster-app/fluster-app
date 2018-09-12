@@ -1,0 +1,52 @@
+@import "../../../../../theme/fluster-variables";
+
+#filter-my-appointments {
+  color: white;
+}
+
+ion-card {
+  div {
+    font-weight: $font-weight-light;
+
+    &.new {
+      img {
+        height: 1.4rem;
+        width: 1.4rem;
+        display: initial;
+      }
+    }
+  }
+
+  &.unavailable {
+
+    ion-label {
+      color: $fluster-medium-grey;
+    }
+
+    ion-avatar {
+      opacity: 0.4;
+    }
+
+    div.unavailable-text {
+      padding-top: 8px;
+    }
+  }
+
+  &:not(.unavailable) {
+    .new {
+      color: $fluster-peach3;
+    }
+
+    .accepted {
+      color: $fluster-peach1;
+    }
+
+    .cancelled {
+      color: $fluster-grey-blue;
+    }
+
+    .to-reschedule {
+      color: $fluster-peach2;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import "../../../../theme/fluster-variables";
+
+#app-params-card {
+  width: 100%;
+}
+
+#content, #legal {
+  margin-bottom: 0;
+  margin-top: 0;
+
+  ion-item {
+    padding-left: 0;
+
+    ion-label {
+      font-size: $fluster-text-normal;
+      font-weight: $font-weight-light;
+    }
+
+    a {
+      color: inherit;
+      font-size: $fluster-text-normal;
+      font-weight: $font-weight-light;
+      width: 100%;
+
+      ion-icon {
+        font-size: 2rem;
+        vertical-align: top;
+        padding-left: 4px;
+      }
+
+      ion-label[text-wrap] {
+        font-size: inherit;
+      }
+    }
+  }
+}
+
+#credits {
+  font-weight: $font-weight-light;
+
+  ion-icon {
+    vertical-align: middle;
+    color: $fluster-peach3;
+  }
+}
+
+#logout-button {
+  button {
+    width: 100%;
+  }
+
+  min-height: 80px;
+  height: 80px;
+}

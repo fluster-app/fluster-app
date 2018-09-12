@@ -1,0 +1,12 @@
+<div *ngIf="today">
+    <span>{{'CORE.DAY_ABBREVIATION.TODAY' | translate}}</span>
+</div>
+<div *ngIf="!today">
+    <span *ngIf="getDisplayDayOfTheWeek() == 1">{{'CORE.DAY_ABBREVIATION.LONG.MONDAY' | translate}}</span>
+    <span *ngIf="getDisplayDayOfTheWeek() == 2">{{'CORE.DAY_ABBREVIATION.LONG.TUESDAY' | translate}}</span>
+    <span *ngIf="getDisplayDayOfTheWeek() == 3">{{'CORE.DAY_ABBREVIATION.LONG.WEDNESDAY' | translate}}</span>
+    <span *ngIf="getDisplayDayOfTheWeek() == 4">{{'CORE.DAY_ABBREVIATION.LONG.THURSDAY' | translate}}</span>
+    <span *ngIf="getDisplayDayOfTheWeek() == 5">{{'CORE.DAY_ABBREVIATION.LONG.FRIDAY' | translate}}</span>
+    <span *ngIf="getDisplayDayOfTheWeek() == 6">{{'CORE.DAY_ABBREVIATION.LONG.SATURDAY' | translate}}</span>
+    <span *ngIf="getDisplayDayOfTheWeek() == 0">{{'CORE.DAY_ABBREVIATION.LONG.SUNDAY' | translate}}</span>
+</div>

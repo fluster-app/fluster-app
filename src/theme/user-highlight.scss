@@ -1,0 +1,58 @@
+ion-avatar {
+    &.big-avatar, &.very-big-avatar {
+        position: relative;
+
+        div {
+            &.user-highlight {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 35%);
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+
+                &.user-highlight-subscription {
+                    background: $fluster-peach3;
+                }
+
+                &.user-highlight-candidate-starred {
+                    background: $fluster-superstar;
+                }
+
+                ion-icon {
+                    color: white;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 2.2rem;
+                }
+            }
+        }
+    }
+}
+
+ion-content[role="browse"] {
+    ion-avatar {
+        &.big-avatar, &.very-big-avatar {
+            div {
+                &.user-highlight {
+                    border: 2px solid white;
+                }
+            }
+        }
+    }
+}
+
+ion-content[role="ad"] {
+    ion-avatar {
+        &.big-avatar, &.very-big-avatar {
+            div {
+                &.user-highlight {
+                    border: 2px solid $fluster-dark-blue;
+                }
+            }
+        }
+    }
+}

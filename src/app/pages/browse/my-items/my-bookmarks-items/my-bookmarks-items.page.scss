@@ -1,0 +1,52 @@
+@import "../../../../../theme/fluster-variables";
+
+ion-list {
+
+  ion-item-sliding {
+    padding: 12px;
+
+    ion-item-options.my-bookmarks-options {
+      padding: 12px;
+      border: 0;
+    }
+
+    ion-item.my-bookmarks {
+      background-color: white;
+      border-color: white;
+
+      ion-label {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+          color: inherit;
+        }
+      }
+
+      &.unavailable {
+        img {
+          opacity: 0.4;
+        }
+
+        span, p {
+          color: $fluster-medium-grey;
+        }
+
+        #item-summary-flat-content, #item-summary-share-content {
+          span.item-price {
+            color: $fluster-medium-grey;
+          }
+
+          span {
+            font-weight: $font-weight-light;
+          }
+        }
+      }
+    }
+  }
+}
+
+p.not-published-anymore {
+  font-size: $fluster-text-small;
+  color: inherit;
+}

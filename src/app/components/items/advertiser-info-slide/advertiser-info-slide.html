@@ -1,0 +1,20 @@
+<div *ngIf="user != null" class="user-container">
+    <app-user-profile-img [facebook]="user.facebook" [google]="user.google" [small]="false"></app-user-profile-img>
+
+    <div class="user-summary" [class.starred]="starred">
+
+        <ion-grid>
+            <ion-row align-items-center>
+                <ion-col text-left [attr.size]="hasHobbies() ? 6 : 12">
+                    <div>
+                        <app-public-user-profile-summary-info [user]="user" [displaySensitive]="false" [displayLocation]="false" [advertiserInfoDisplay]="true"></app-public-user-profile-summary-info>
+                    </div>
+                </ion-col>
+
+                <ion-col *ngIf="hasHobbies()" no-padding>
+                    <app-display-hobbies [hobbies]="user.description.hobbies" [gender]="user.facebook.gender" [advertiserInfoDisplay]="true"></app-display-hobbies>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</div>

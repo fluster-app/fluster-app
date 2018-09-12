@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <app-toolbar-user-title *ngIf="isStatusAccepted()" [display]="applicant != null" [facebook]="applicant?.user?.facebook" [google]="applicant?.user?.google"></app-toolbar-user-title>
+
+    <ion-title *ngIf="!isStatusAccepted()">FLUSTER</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="displayChoices()">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="ad">
+
+  <div *ngIf="category == 'who'" class="big-screen-content">
+
+    <app-public-user-profile *ngIf="applicant != null" [user]="applicant.user" [displaySensitive]="displaySensitive()" [advertiserView]="false" [displayStarred]="userStarred" (notifyLoaded)="setUserProfileLoaded($event)"></app-public-user-profile>
+
+    <ion-card *ngIf="isStatusToReschedule() || isStatusCancelled()" no-shadow padding-bottom padding-start padding-end>
+      <p class="appointments-text-to-reschedule" *ngIf="isStatusToReschedule()">{{ 'APPLICANT_SELECTION.RESCHEDULE_IN_PROGRESS' | translate:{who: applicant.user.facebook.firstName} }}</p>
+      <p class="appointments-text-cancelled" *ngIf="isStatusCancelled()">{{ 'APPLICANT_SELECTION.CANCELLED' | translate:{who: applicant.user.facebook.firstName} }}</p>
+    </ion-card>
+
+    <ion-card *ngIf="isStatusAccepted()" no-shadow padding-bottom id="applicant-selected">
+      <ion-card-header *ngIf="isAppointmentInThePast()" margin-top>{{ 'APPLICANT_SELECTION.APPOINTMENT_IN_THE_PAST' | translate:{who: applicant.user.facebook.firstName} }}</ion-card-header>
+      <ion-card-header *ngIf="!isAppointmentInThePast()">{{ 'APPLICANT_SELECTION.APPOINTMENT_IN_THE_FUTURE' | translate:{who: applicant.user.facebook.firstName} }}</ion-card-header>
+
+      <h2 *ngIf="!isAppointmentInThePast()" padding-start padding-end>
+        <app-display-date [pattern]="'LLLL'" [displayDate]="applicant.selected"></app-display-date>
+      </h2>
+    </ion-card>
+
+    <div *ngIf="isStatusNew() && userProfileLoaded && availableDatesLoaded" padding-start padding-end id="newApplicantTitle">
+      <h3 padding-start padding-end *ngIf="!hasSelectedDates()">{{'APPLICANT_SELECTION.NO_APPOINTMENTS_FOUND' | translate}}</h3>
+      <h3 padding-start padding-end *ngIf="hasSelectedDates()">{{ 'APPLICANT_SELECTION.NEW_REQUEST_TITLE' | translate:{who: applicant.user.facebook.firstName} }}</h3>
+    </div>
+
+    <div *ngIf="isStatusNew() && userProfileLoaded && availableDatesLoaded" id="actions-buttons" padding margin-bottom>
+      <app-big-button (clicked)="cancel(true)" [adDisplay]="true"
+                      [bigButton]="false" [smallButton]="true" [smallButtonAds]="true" [smallButtonCancel]="true"
+                      [icon]="'close'" [label]="'APPLICANT_SELECTION.REJECT_REQUEST'">
+      </app-big-button>
+
+      <app-big-button (clicked)="openApplicantAppointmentsModal()" [adDisplay]="true"
+                      [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true" *ngIf="hasSelectedDates()"
+                      [icon]="'checkmark'" [label]="'APPLICANT_SELECTION.ACCEPT_REQUEST'">
+      </app-big-button>
+    </div>
+
+  </div>
+
+</ion-content>

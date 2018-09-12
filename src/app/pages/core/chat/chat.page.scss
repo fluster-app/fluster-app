@@ -1,0 +1,197 @@
+@import "../../../../theme/fluster-variables";
+
+ion-content[role="browse"], ion-content[role="ad"] {
+  div.scroll-content {
+    // https://github.com/driftyco/ionic/issues/9542
+    margin-bottom: 79px;
+  }
+
+  div.msg, div.message-date {
+    display: flex;
+    padding: 8px;
+  }
+
+  div.msg {
+    &.user {
+      justify-content: flex-end;
+
+      ion-badge {
+        color: white;
+      }
+    }
+
+    &.notuser {
+      justify-content: flex-start;
+
+      ion-badge {
+        background-color: inherit;
+        border: 1px solid $fluster-peach3;
+        color: $fluster-peach3;
+
+        div {
+          &.message-time {
+            color: $fluster-medium-grey;
+          }
+        }
+      }
+    }
+  }
+
+  div.message-date {
+    justify-content: center;
+    font-size: 1rem;
+    color: $fluster-medium-grey;
+  }
+
+  ion-badge {
+    position: relative;
+    text-align: left;
+    width: 80%;
+
+    p {
+      &.message-content {
+        margin-bottom: 8px;
+        margin-top: 8px;
+        white-space: normal;
+        text-align: left;
+        font-weight: $font-weight-normal;
+        font-size: $fluster-text-normal;
+      }
+    }
+
+    div {
+      &.message-time {
+        position: absolute;
+        right: 10px;
+        font-size: 1rem;
+        display: flex;
+        font-weight: $font-weight-light;
+
+        ion-icon {
+          padding-left: 4px;
+          margin-top: -4px;
+          font-size: 1.8em;
+          font-weight: $font-weight-bold;
+
+          &.read {
+            color: $chat-message-read;
+          }
+        }
+      }
+    }
+  }
+}
+
+ion-content[role="browse"] {
+  div.msg {
+    &.notuser {
+      ion-badge {
+        color: $fluster-peach3;
+      }
+    }
+  }
+}
+
+ion-content[role="ad"] {
+  div.msg {
+    &.notuser {
+      ion-badge {
+        color: white;
+      }
+    }
+  }
+}
+
+ion-footer {
+
+  ion-toolbar {
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    --border-width: 0;
+
+    &.input-has-focus:not(.ng-invalid) {
+      box-shadow: 0 2px 0px -1px $fluster-peach3;
+
+      div.item-inner {
+        box-shadow: inherit;
+      }
+    }
+
+    ion-buttons {
+      width: 5rem;
+
+      button[icon-only], button[icon-only]:hover:not(.disable-hover) {
+        color: $fluster-peach3;
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+ion-footer[role="browse"] {
+  ion-toolbar {
+    --background: white;
+
+    ion-item.item {
+      color: $fluster-dark-blue;
+      background-color: $fluster-light-grey;
+      border-color: $fluster-light-grey;
+    }
+  }
+}
+
+ion-footer[role="ad"] {
+  ion-toolbar {
+    --background: #{$fluster-dark-blue};
+
+    ion-item.item {
+      color: white;
+      background-color: $fluster-midnight-blue;
+      border-color: $fluster-midnight-blue;
+    }
+  }
+}
+
+#msgInput {
+  width: calc(100% - 10px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  height: 25px;
+
+  &:focus {
+    outline:0;
+  }
+}
+
+#chatMessages {
+  &.hidden {
+    visibility: hidden;
+  }
+}
+
+#chatNoMessagesYet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#chatToReschedule {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+
+  h2 {
+    max-width: 27rem;
+    top: 12vh;
+  }
+
+}

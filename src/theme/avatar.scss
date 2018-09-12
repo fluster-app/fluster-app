@@ -1,0 +1,237 @@
+ion-avatar {
+
+    &.small-avatar, &.title-avatar, &.big-avatar, &.very-big-avatar {
+        img {
+            border: 2px solid inherit;
+        }
+    }
+
+    &.big-avatar, &.small-avatar, &.title-avatar, &.very-big-avatar {
+        img, div.notified {
+            border-radius: 50%;
+        }
+    }
+
+    &.very-big-avatar {
+        width: 11.6rem;
+        height: 11.6rem;
+        min-width: 11.6rem;
+        min-height: 11.6rem;
+
+        img, div.notified {
+            width: 11.6rem;
+            height: 11.6rem;
+            min-width: 11.6rem;
+            min-height: 11.6rem;
+        }
+    }
+
+    &.big-avatar {
+        width: 9.6rem;
+        height: 9.6rem;
+        min-width: 9.6rem;
+        min-height: 9.6rem;
+
+        margin-bottom: 12px;
+
+        img, div.notified {
+            width: 9.6rem;
+            height: 9.6rem;
+            min-width: 9.6rem;
+            min-height: 9.6rem;
+        }
+    }
+
+    &.small-avatar {
+        min-width: 4.6rem;
+        min-height: 4.6rem;
+        width: 4.6rem;
+        height: 4.6rem;
+
+        img {
+            min-width: 4.6rem;
+            min-height: 4.6rem;
+            width: 4.6rem;
+            height: 4.6rem;
+        }
+    }
+
+    &.title-avatar {
+        min-width: 3.2rem;
+        min-height: 3.2rem;
+        width: 3.2rem;
+        height: 3.2rem;
+
+        margin-right: 8px;
+
+        img {
+            min-width: 3.2rem;
+            min-height: 3.2rem;
+            width: 3.2rem;
+            height: 3.2rem;
+        }
+    }
+
+    @include iphone4 {
+        &.small-avatar, &.big-avatar &.small-avatar, &.very-big-avatar {
+            min-width: 3.6rem;
+            min-height: 3.6rem;
+            width: 3.6rem;
+            height: 3.6rem;
+
+            img, div.notified {
+                min-width: 3.6rem;
+                min-height: 3.6rem;
+                width: 3.6rem;
+                height: 3.6rem;
+            }
+        }
+
+        &.big-avatar {
+            min-width: 5.6rem;
+            min-height: 5.6rem;
+            width: 5.6rem;
+            height: 5.6rem;
+
+            img, div.notified {
+                min-width: 5.6rem;
+                min-height: 5.6rem;
+                width: 5.6rem;
+                height: 5.6rem;
+            }
+        }
+    }
+
+    @include iphone5 {
+        &.small-avatar, &.big-avatar &.small-avatar, &.very-big-avatar {
+            min-width: 4.6rem;
+            min-height: 4.6rem;
+            width: 4.6rem;
+            height: 4.6rem;
+
+            img, div.notified {
+                min-width: 4.6rem;
+                min-height: 4.6rem;
+                width: 4.6rem;
+                height: 4.6rem;
+            }
+        }
+
+        &.big-avatar, &.very-big-avatar {
+            min-width: 6.6rem;
+            min-height: 6.6rem;
+            width: 6.6rem;
+            height: 6.6rem;
+
+            img, div.notified {
+                min-width: 6.6rem;
+                min-height: 6.6rem;
+                width: 6.6rem;
+                height: 6.6rem;
+            }
+        }
+    }
+}
+
+ion-content[role="browse"], ion-content[role="ad"] {
+
+    ion-card.applicant, ion-card.user-profile, ion-card.my-item, ion-card.my-bookmarks {
+        ion-grid, p, span, div {
+            font-size: $fluster-text-normal;
+        }
+
+        ion-icon {
+            margin-top: 0;
+            margin-bottom: 0;
+
+            &.icon-ios {
+                margin-right: 2px;
+            }
+        }
+
+    }
+
+    ion-card.applicant, ion-card.my-item, ion-card.user-profile {
+        ion-label {
+            h1 {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                margin-top: 0;
+            }
+        }
+    }
+
+    ion-card.applicant, ion-card.my-item {
+        overflow: visible;
+
+        ion-item {
+            contain: layout;
+            overflow: visible;
+        }
+    }
+}
+
+ion-content[role="browse"] {
+
+    ion-card.user-profile, ion-card.my-item, ion-card.my-bookmarks {
+
+        h1 {
+            color: inherit;
+            margin: 0;
+        }
+
+        p {
+            color: inherit;
+        }
+    }
+}
+
+ion-content[role="ad"] {
+
+    ion-avatar {
+        &.big-avatar, &.small-avatar, &.title-avatar, &.very-big-avatar {
+            color: $fluster-midnight-blue;
+        }
+    }
+
+    ion-card.applicant, ion-card.user-profile {
+
+        ion-icon, h1 {
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+    }
+
+}
+
+
+ion-content[role="browse"] {
+    ion-item.advertiser-info-item {
+        ion-avatar {
+            img {
+                border: 2px solid white;
+            }
+        }
+
+        div.advertiser-starred {
+            border: 2px solid white;
+        }
+    }
+}
+
+ion-content[role="ad"] {
+    ion-item.advertiser-info-item {
+        ion-avatar, div.advertiser-starred {
+            img {
+                border: 2px solid $fluster-dark-blue;
+            }
+        }
+
+        div.advertiser-starred {
+            border: 2px solid $fluster-dark-blue;
+        }
+    }
+}

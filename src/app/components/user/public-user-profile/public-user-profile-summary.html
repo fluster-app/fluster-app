@@ -1,0 +1,17 @@
+<ion-card class="user-profile" no-shadow *ngIf="user != null" padding-top>
+    <ion-item text-wrap>
+        <ion-avatar slot="start" class="big-avatar">
+            <app-user-profile-img [facebook]="user.facebook" [google]="user.google"></app-user-profile-img>
+
+            <div *ngIf="isSubscriptionActive() || displayStarred" class="user-highlight" [class.user-highlight-subscription]="isSubscriptionActive()" [class.user-highlight-candidate-starred]="displayStarred && !isSubscriptionActive()">
+                <ion-icon *ngIf="isSubscriptionActive()" name="bowtie"></ion-icon>
+
+                <ion-icon *ngIf="displayStarred && !isSubscriptionActive()" name="md-star"></ion-icon>
+            </div>
+        </ion-avatar>
+
+        <app-public-user-profile-summary-info [user]="user" [displaySensitive]="displaySensitive" [displayLocation]="displayLocation"></app-public-user-profile-summary-info>
+    </ion-item>
+</ion-card>
+
+<app-public-user-skeleton-profile-summary [user]="user"></app-public-user-skeleton-profile-summary>

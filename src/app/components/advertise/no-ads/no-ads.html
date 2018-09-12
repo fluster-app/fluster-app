@@ -1,0 +1,27 @@
+<div class="flex-content" padding>
+    <ion-grid class="flex-grid">
+
+        <ion-row>
+            <ion-col size="12">
+                <h1 text-center>{{'ADS.NO_AD_YET.TITLE' | translate}}</h1>
+
+                <h2 text-center>{{'ADS.NO_AD_YET.SUB_TITLE' | translate}}</h2>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="12" text-center>
+                <app-big-button (clicked)="navigateNewItem()" [bigButtonAds]="true" [adDisplay]="true"
+                                [icon]="'md-create'" [label]="'FIRST_CHOICE.ADVERTISE'">
+                </app-big-button>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="12" text-center>
+                <!-- Nothing -->
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+</div>

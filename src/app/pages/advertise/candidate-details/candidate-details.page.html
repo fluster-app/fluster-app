@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <app-toolbar-user-title [display]="candidate != null" [facebook]="candidate?.facebook" [google]="candidate?.google"></app-toolbar-user-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="ad">
+  <div class="big-screen-content">
+      <app-public-user-profile *ngIf="candidate != null" [user]="candidate" [displaySensitive]="false" [advertiserView]="false" [displayStarred]="starred" (notifyLoaded)="setUserProfileLoaded($event)"></app-public-user-profile>
+
+      <div *ngIf="!starred && userProfileLoaded && hasItem()">
+        <h3 class="action-info" padding-right no-margin [innerHTML]="'CANDIDATES.STAR_ACTION.FLAT' | translate" *ngIf="isItemFlat()"></h3>
+        <h3 class="action-info" padding-right no-margin [innerHTML]="'CANDIDATES.STAR_ACTION.ROOM' | translate" *ngIf="isItemShare()"></h3>
+
+        <div padding margin-bottom id="actions-buttons">
+          <app-big-button (clicked)="like()" [adDisplay]="true"
+                          [bigButton]="false" [mediumButton]="true" [mediumButtonSuperstar]="true"
+                          [icon]="'star'" [label]="'CANDIDATES.STAR_ACTION.ACTION'" [labelVariable]="{who: candidate.facebook.firstName}">
+          </app-big-button>
+        </div>
+      </div>
+  </div>
+</ion-content>

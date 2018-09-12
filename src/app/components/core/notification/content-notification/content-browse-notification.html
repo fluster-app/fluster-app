@@ -1,0 +1,43 @@
+<div class="notification-full-screen" *ngIf="displayNotifications && hasManyNewNotifications()" [class.hidden]="fadeClose">
+
+    <a (click)="closeMsg()" class="notification-full-screen-close">
+        <ion-icon name="checkmark"></ion-icon>
+    </a>
+
+    <div class="notification-full-screen-text" text-center padding>
+
+        <h1 *ngIf="!hasSingleNotificationAppointmentRescheduled()">{{'NOTIFICATIONS.BROWSE.TITLE' | translate}}</h1>
+
+        <h1 *ngIf="hasSingleNotificationAppointmentRescheduled()">{{'NOTIFICATIONS.BROWSE.APPOINTMENT_RESCHEDULED.TITLE' | translate}}</h1>
+
+        <h2 padding-top *ngIf="hasMoreThanOneNotifications()">{{'NOTIFICATIONS.BROWSE.MANY_ANSWERS' | translate}}</h2>
+
+        <h2 padding-top *ngIf="hasSingleNotificationAccepted()">
+            {{ 'NOTIFICATIONS.BROWSE.VIEWING_ACCEPTED' | translate:{who: newNotifications[0].userFrom.facebook.firstName} }}
+        </h2>
+
+        <h2 padding-top *ngIf="hasSingleNotificationToReschedule()">
+            {{ 'NOTIFICATIONS.BROWSE.NEED_NEW_DATES' | translate:{who: newNotifications[0].userFrom.facebook.firstName} }}
+        </h2>
+
+        <h2 padding-top *ngIf="hasSingleNotificationToReschedule()">
+            {{ 'NOTIFICATIONS.BROWSE.NEED_NEW_DATES_CHAT' | translate:{who: newNotifications[0].userFrom.facebook.firstName} }}
+        </h2>
+
+        <h2 padding-top *ngIf="hasSingleNotificationAppointmentRescheduled()">
+            {{ 'NOTIFICATIONS.BROWSE.APPOINTMENT_RESCHEDULED.TEXT' | translate:{who: newNotifications[0].userFrom.facebook.firstName} }}
+        </h2>
+
+        <ion-row *ngIf="hasSingleNotificationAccepted() || hasSingleNotificationAppointmentRescheduled()" align-items-center class="notification-details">
+            <ion-col text-right size="7">
+                <app-display-date [displayDate]="newNotifications[0].applicant.selected"></app-display-date>
+                <br/>
+                <app-display-date [pattern]="'LT'" [displayDate]="newNotifications[0].applicant.selected"></app-display-date>
+            </ion-col>
+
+            <ion-col text-left size="5" padding-start>
+                <ion-icon name="calendar"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </div>
+</div>

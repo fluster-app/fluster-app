@@ -1,0 +1,67 @@
+@import "../../../../theme/fluster-variables";
+
+#school-work, #lifestyle, #language-card, #spotify, #likes {
+  width: 100%;
+}
+
+#school-work {
+  .inactive-school-work {
+    color: $fluster-medium-grey;
+  }
+}
+
+#school-work {
+  padding-bottom: 8px;
+}
+
+#likes, #language-card, #spotify, #user-phone-bio, #lifestyle {
+  ion-card-header {
+    font-size: $fluster-text-normal;
+    color: $fluster-peach3;
+    font-weight: $font-weight-light;
+  }
+}
+
+#likes {
+  margin-top: 0;
+
+  div {
+    font-size: $fluster-text-big;
+  }
+}
+
+#user-phone-bio {
+  margin-bottom: 0;
+  padding-top: 0;
+
+  #display-last-name {
+    background-color: inherit;
+
+    ion-label {
+      font-size: $fluster-text-big;
+    }
+  }
+}
+
+#spotify {
+  ion-card-header {
+    img {
+      height: 1.4rem;
+      width: 1.4rem;
+      vertical-align: bottom;
+      display: initial;
+    }
+  }
+}
+
+#lifestyle {
+  ion-card-header {
+    padding-bottom: 12px;
+  }
+}
+
+#language-card {
+  .language-empty {
+    color: $fluster-medium-grey;
+  }
+}

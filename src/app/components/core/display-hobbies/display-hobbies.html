@@ -1,0 +1,3 @@
+<div *ngIf="hasAllHobbies()" [class.advertiser-info]="advertiserInfoDisplay">
+    <span *ngFor="let hobby of allHobbies" [ngClass]="hobby + getGenderStyleclass()"></span>
+</div>

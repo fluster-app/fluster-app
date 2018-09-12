@@ -1,0 +1,55 @@
+@import "../../../../theme/fluster-variables";
+
+div.user-info-msg {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    z-index: 5;
+    background: white;
+    border-radius: 4px;
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: $fluster-text-normal;
+        font-weight: $font-weight-light;
+    }
+
+    &.hidden {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 1s, opacity 1s linear;
+    }
+
+    a.close-user-info-msg {
+        font-size: $fluster-text-big;
+        position: absolute;
+        top: 0;
+        right: 12px;
+    }
+
+    div {
+        position: absolute;
+    }
+}
+
+div.user-info-msg-superstar {
+    border: 2px solid $fluster-superstar;
+
+    a.close-user-info-msg {
+        ion-icon {
+            color: $fluster-superstar;
+        }
+    }
+
+    div {
+        border-left: 4px solid $fluster-superstar;
+        border-radius: 0 0 0 100%;
+        right: 20px;
+        height: 30px;
+        width: 90px;
+        bottom: -30px;
+    }
+}

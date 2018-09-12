@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+
+    <ion-title>{{'MENU.BROWSE.MY_APPOINTMENTS' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="browse" [fullscreen]="true">
+
+  <app-content-browse-notification [displayOnInit]="true" (notifyNewNotifications)="initItems()" (notifyCalendarInitialized)="doSaveUserIfNeeded()"></app-content-browse-notification>
+
+  <app-no-items [items]="itemCards" [loading]="!loaded" [label]="'MY_APPOINTMENTS.NO_APPOINTMENTS'"></app-no-items>
+
+  <div *ngIf="hasItems()" class="big-screen-content">
+
+    <ion-card *ngFor="let itemCard of itemCards | orderItemsByApplicantStatus; let i=index;" class="my-item" no-shadow [class.unavailable]="!itemStillAvalaible(itemCard.item) && !isApplicantStatusSelected(itemCard.item)" tappable (click)="navigateCard(itemCard, '/my-appointments-items')">
+      <ion-item text-wrap>
+        <ion-avatar slot="start" class="big-avatar">
+          <app-user-profile-img-list [facebook]="itemCard.item.user.facebook" [google]="itemCard.item.user.google" [starred]="isItemStarred(itemCard)"></app-user-profile-img-list>
+        </ion-avatar>
+
+        <ion-label>
+          <h1>{{itemCard.item.user.facebook.firstName}}</h1>
+
+          <p><app-display-date [displayDate]="itemCard.item.appointment.applicant[0].selected" [calendarDisplay]="true"></app-display-date></p>
+
+          <p *ngIf="!itemStillAvalaible(itemCard.item) && !isApplicantStatusSelected(itemCard.item)" class="unavailable-text">{{'MY_APPOINTMENTS.ITEM_NOT_PUBLISHED_ANYMORE' | translate}}</p>
+
+          <p *ngIf="isApplicantStatusSelected(itemCard.item)" class="unavailable-text">{{'MY_APPOINTMENTS.ITEM_WIN' | translate}}</p>
+
+          <p *ngIf="isApplicantStatusToReschedule(itemCard.item) && itemStillAvalaible(itemCard.item)" class="to-reschedule">{{'APPLICANTS.STATUS.TO_RESCHEDULE' | translate}}</p>
+
+          <app-list-chat-notifications slot="end" [user]="itemCard.item.user"></app-list-chat-notifications>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-infinite-scroll
+            *ngIf="!isLastPageReached()"
+            (ionInfinite)="findNextItems($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+</ion-content>

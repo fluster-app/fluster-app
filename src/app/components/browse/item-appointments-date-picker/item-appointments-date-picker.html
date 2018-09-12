@@ -1,0 +1,56 @@
+<div #datePickerScrollX scrollX="true" class="date-picker-scroller padding-top-very-small">
+    <div class="date-picker">
+        <div *ngFor="let pickAppointment of pickAppointmentDate; let i=index;" tappable (click)="selectDate(pickAppointment, i)"  [class.selected-date]="isSelectedDate(pickAppointment)" [class.has-appointment]="pickAppointment.selected" [class.appointment-empty]="pickAppointment.pickDate == null"  [class.disabled-date]="isDisabledDate(pickAppointment)">
+            <p text-center>
+                <app-day-abbreviation [dayOfTheWeek]="pickAppointment.pickDate" [today]="i == 0"></app-day-abbreviation>
+
+                <span class="display-date">{{pickAppointment.displayDate}}</span>
+            </p>
+
+            <span class="triangle"></span>
+        </div>
+    </div>
+</div>
+
+<div text-center id="helpText" padding-bottom>
+    <div *ngIf="manyPossibleTimeSlots">
+        <div *ngIf="!manyTimeSlotsSelected && !manyDaysSelected">
+            <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_TIMESLOTS.BEGIN' | translate}}</span> <strong> {{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_TIMESLOTS.HIGHLIGHT' | translate}} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_TIMESLOTS.END' | translate}}</span>
+        </div>
+        <div *ngIf="manyTimeSlotsSelected && !manyDaysSelected && manyPossibleDays">
+            <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_DAYS.BEGIN' | translate}}</span> <strong> {{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_DAYS.HIGHLIGHT' | translate}} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_DAYS.END' | translate}}</span>
+        </div>
+        <div *ngIf="manyTimeSlotsSelected && (manyDaysSelected || !manyPossibleDays)">
+            <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.BEGIN' | translate}}</span> <strong> {{ 'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.HIGHLIGHTS' | translate:{count: selectedAppointmentsStartTime.length} }} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.END' | translate}}</span>
+        </div>
+    </div>
+    <div *ngIf="!manyPossibleTimeSlots">
+        <div *ngIf="selectedAppointmentsStartTime == null || selectedAppointmentsStartTime.length <= 0">
+            <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_ZERO_COUNT.BEGIN' | translate}}</span> <strong> {{'ITEM_APPOINTMENTS.TIPS.SELECT_ZERO_COUNT.HIGHLIGHT' | translate}} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_ZERO_COUNT.END' | translate}}</span>
+        </div>
+        <div *ngIf="selectedAppointmentsStartTime != null && selectedAppointmentsStartTime.length == 1">
+            <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.BEGIN' | translate}}</span> <strong> {{ 'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.HIGHLIGHT' | translate:{count: selectedAppointmentsStartTime.length} }} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.END' | translate}}</span>
+        </div>
+        <div *ngIf="selectedAppointmentsStartTime != null && selectedAppointmentsStartTime.length > 1">
+            <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.BEGIN' | translate}}</span> <strong> {{ 'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.HIGHLIGHTS' | translate:{count: selectedAppointmentsStartTime.length} }} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.END' | translate}}</span>
+        </div>
+    </div>
+</div>
+
+<div #datePickerScrollY scrollY="true" id="datePickerScrollY">
+    <ion-list no-padding (swipe)="swipeDatePicker($event)">
+        <ion-item *ngFor="let currentAppointment of currentAppointments;" tappable (click)="selectUnselectAppointment(currentAppointment)" text-center>
+            <p [class.appointment-already-taken]="isAppointmentAlreadyTaken(currentAppointment) || isAppointmentRejected(currentAppointment)" [class.appointment-in-the-past]="!isInTheFuture(currentAppointment)" [class.appointment-selected]="currentAppointment.selected">
+                <ion-icon slot="start" name="{{iconToDisplay(currentAppointment)}}"></ion-icon>
+                <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.startTime"></app-display-date> - <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.endTime"></app-display-date>
+            </p>
+        </ion-item>
+    </ion-list>
+</div>
+
+<div text-center padding class="date-picker-actions">
+    <ion-button expand="full" shape="round" (click)="selectAppointments()" id="confirm-selection">
+        {{'ITEM_APPOINTMENTS.SEND' | translate}}
+        <ion-icon slot="end" name="send"></ion-icon>
+    </ion-button>
+</div>

@@ -1,0 +1,9 @@
+<app-item-slides *ngIf="item != null" [item]="item" [zIndex]="0" [renderSlides]="true" [displayFirstAccessMsg]="false" [displayLimitedAndLightbox]="true" [displayAdvertiserSlide]="displayAdvertiserSlide" [sliderOnlyExternal]="false" [displayItemExpire]="displayItemExpire" [adDisplay]="adDisplay"></app-item-slides>
+
+<ion-grid class="big-screen-content" padding-start padding-end *ngIf="item != null">
+    <ion-row id="item-summary-row">
+        <ion-col size="12">
+            <app-item-summary [item]="item" [displayEmptyLine]="false"></app-item-summary>
+        </ion-col>
+    </ion-row>
+</ion-grid>

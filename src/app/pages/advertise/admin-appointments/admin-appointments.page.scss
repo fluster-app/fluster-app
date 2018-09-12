@@ -1,0 +1,32 @@
+[ion-fixed] {
+  height: 100%;
+}
+
+ion-slides {
+  height: 100%;
+}
+
+#extendItemList {
+  width: 100%;
+}
+
+#adminAppointmentsCalendar {
+  overflow-x: hidden;
+
+  div.admin-calendar-container {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+div.date-picker-actions {
+  z-index: 1;
+}
+
+ion-row {
+  &.buttons-full-length {
+    ion-button {
+      width: 100%;
+    }
+  }
+}

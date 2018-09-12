@@ -1,0 +1,160 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="close()" *ngIf="firstSlide">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+
+            <ion-button (click)="backToPreviousSlide()" *ngIf="!firstSlide">
+                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title *ngIf="interest == null">FLUSTER</ion-title>
+
+        <ion-title *ngIf="interest != null">
+            <span *ngIf="isTypeWork()"><ion-icon name="briefcase"></ion-icon> {{'ITEM_PARAMS.INTERESTS.WORK' | translate}}</span>
+            <span *ngIf="isTypeTrain()"><ion-icon name="train"></ion-icon> {{'ITEM_PARAMS.INTERESTS.TRAIN_STATION' | translate}}</span>
+            <span *ngIf="isTypeSchool()"><ion-icon name="book"></ion-icon> {{'ITEM_PARAMS.INTERESTS.SCHOOL' | translate}}</span>
+            <span *ngIf="isTypeAirport()"><ion-icon name="airplane"></ion-icon> {{'ITEM_PARAMS.INTERESTS.AIRPORT' | translate}}</span>
+            <span *ngIf="isTypeLove()"><ion-icon name="heart"></ion-icon> {{'ITEM_PARAMS.INTERESTS.LOVE' | translate}}</span>
+            <span *ngIf="isTypeTraining()"><ion-icon name="trophy"></ion-icon> {{'ITEM_PARAMS.INTERESTS.TRAINING' | translate}}</span>
+        </ion-title>
+
+        <ion-buttons slot="end" *ngIf="currentInterest != null && firstSlide">
+            <ion-button (click)="deleteInterest()">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding role="browse">
+
+    <ion-slides #interestSlider pager="false" [options]="slideOptsOnlyExternal" (ionSlidesDidLoad)="sliderFirstSlide()" (ionSlideDidChange)="sliderFirstSlide()">
+        <ion-slide *ngIf="currentInterest == null">
+            <div class="flex-content">
+                <ion-grid class="flex-grid" margin-bottom padding-bottom>
+                    <ion-row>
+                        <ion-col col-12 text-center>
+                            <h2 no-margin>{{'ITEM_PARAMS.INTERESTS.TEXT' | translate}}</h2>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="flex2">
+                        <ion-col size="6" size-sm="4" text-center>
+                            <app-big-button (click)="selectTypeWork()"
+                                            [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                                            [icon]="'briefcase'" [label]="'ITEM_PARAMS.INTERESTS.WORK'">
+                            </app-big-button>
+                        </ion-col>
+
+                        <ion-col size="6" size-sm="4" text-center>
+                            <app-big-button (click)="selectTypeTrain()"
+                                            [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                                            [icon]="'train'" [label]="'ITEM_PARAMS.INTERESTS.TRAIN_STATION'">
+                            </app-big-button>
+                        </ion-col>
+
+                        <ion-col size="6" size-sm="4" text-center>
+                            <app-big-button (click)="selectTypeSchool()"
+                                            [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                                            [icon]="'book'" [label]="'ITEM_PARAMS.INTERESTS.SCHOOL'">
+                            </app-big-button>
+                        </ion-col>
+
+                        <ion-col size="6" size-sm="4" text-center>
+                            <app-big-button (click)="selectTypeAirport()"
+                                            [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                                            [icon]="'airplane'" [label]="'ITEM_PARAMS.INTERESTS.AIRPORT'">
+                            </app-big-button>
+                        </ion-col>
+
+                        <ion-col size="6" size-sm="4" text-center>
+                            <app-big-button (click)="selectTypeLove()"
+                                            [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                                            [icon]="'heart'" [label]="'ITEM_PARAMS.INTERESTS.LOVE'">
+                            </app-big-button>
+                        </ion-col>
+
+                        <ion-col size="6" size-sm="4" text-center>
+                            <app-big-button (click)="selectTypeTraining()"
+                                            [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                                            [icon]="'trophy'" [label]="'ITEM_PARAMS.INTERESTS.TRAINING'">
+                            </app-big-button>
+                        </ion-col>
+                    </ion-row>
+
+                </ion-grid>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="flex-content">
+                <h2 class="padding-top-average" *ngIf="interest != null">
+                    {{'ITEM_PARAMS.INTERESTS.TEXT_EXPLANATION.COMMON' | translate}} <span *ngIf="isTypeWork()">{{'ITEM_PARAMS.INTERESTS.TEXT_EXPLANATION.WORK' | translate}}</span><span *ngIf="isTypeTrain()">{{'ITEM_PARAMS.INTERESTS.TEXT_EXPLANATION.TRAIN_STATION' | translate}}</span><span *ngIf="isTypeSchool()">{{'ITEM_PARAMS.INTERESTS.TEXT_EXPLANATION.SCHOOL' | translate}}</span><span *ngIf="isTypeAirport()">{{'ITEM_PARAMS.INTERESTS.TEXT_EXPLANATION.AIRPORT' | translate}}</span><span *ngIf="isTypeLove()">{{'ITEM_PARAMS.INTERESTS.TEXT_EXPLANATION.RELATION' | translate}}</span><span *ngIf="isTypeTraining()">{{'ITEM_PARAMS.INTERESTS.TEXT_EXPLANATION.SPORT' | translate}}</span>
+                </h2>
+
+                <div class="padding-top-big sub-title">{{'ITEM_PARAMS.INTERESTS.ADDRESS_TITLE' | translate}}</div>
+
+                <ion-list *ngIf="interest != null" padding-top>
+                    <ion-item *ngIf="isInterestAddressNotDefined()" tappable (click)="changeLocation()" class="fluster-text-input-placeholder">
+                        <ion-icon name="pin" slot="start"></ion-icon>
+                        {{'ITEM_PARAMS.INTERESTS.ADDRESS_PLACEHOLDER' | translate}}
+                    </ion-item>
+
+                    <ion-item *ngIf="!isInterestAddressNotDefined()" tappable (click)="changeLocation()">
+                        <ion-icon name="pin" slot="start"></ion-icon>
+                        {{interest.addressName}}
+                    </ion-item>
+                </ion-list>
+
+                <div padding-top class="sub-title">{{'ITEM_PARAMS.INTERESTS.MEANS_OF_TRANSPORT' | translate}}</div>
+
+                <div id="travel-mode" *ngIf="interest != null" padding-top>
+
+                    <div>
+                        <ion-fab-button (click)="selectTravelModeTransit()" [class.enabled-button]="isTravelModeTransit()" [class.disabled-button]="!isTravelModeTransit()">
+                            <ion-icon name="train"></ion-icon>
+                        </ion-fab-button>
+                    </div>
+
+                    <div>
+                        <ion-fab-button (click)="selectTravelModeDriving()" [class.enabled-button]="isTravelModeDriving()" [class.disabled-button]="!isTravelModeDriving()">
+                            <ion-icon name="car"></ion-icon>
+                        </ion-fab-button>
+                    </div>
+
+                    <div>
+                        <ion-fab-button icon-only (click)="selectTravelModeBicycling()" [class.enabled-button]="isTravelModeBicycling()" [class.disabled-button]="!isTravelModeBicycling()">
+                            <ion-icon name="bicycle"></ion-icon>
+                        </ion-fab-button>
+                    </div>
+
+                    <div>
+                        <ion-fab-button icon-only (click)="selectTravelModeWalking()" [class.enabled-button]="isTravelModeWalking()" [class.disabled-button]="!isTravelModeWalking()">
+                            <ion-icon name="walk"></ion-icon>
+                        </ion-fab-button>
+                    </div>
+                </div>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="flex-content">
+                <app-select-location (notifyResult)="selectLocation($event)"></app-select-location>
+            </div>
+        </ion-slide>
+    </ion-slides>
+
+</ion-content>
+
+<ion-footer role="browse" *ngIf="interest != null && displayFooterButtons">
+    <ion-toolbar role="buttons" padding-start padding-end>
+        <ion-button expand="full" shape="round" (click)="selectInterest()" id="confirm-selection" [disabled]="!isConfirmAllowed()">
+            {{'ITEM_PARAMS.INTERESTS.CONFIRM' | translate}}
+            <ion-icon slot="end" name="checkmark"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

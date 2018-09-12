@@ -1,0 +1,90 @@
+<div [attr.role]="isAdDisplay ? 'ad' : 'browse'" [class.content-small]="hasSubscription() || (loaded && (product == null || shareDone))">
+
+    <ion-fab-button no-padding id="close-actions" (click)="close()" *ngIf="loaded">
+        <ion-icon name="close"></ion-icon>
+    </ion-fab-button>
+
+    <div *ngIf="!hasSubscription()">
+
+        <div *ngIf="product != null && product.price.free.enabled && loaded && !shareDone" id="free-product">
+
+            <div id="free-product-description" padding-start padding-end padding-top>
+                <h1 text-center no-margin>{{'PRODUCT.FREE.TITLE' | translate}}</h1>
+                <p text-center id="free-product-sub-title">{{'PRODUCT.FREE.SUB_TITLE' | translate}}</p>
+
+                <ion-slides *ngIf="product.browse" [options]="slideOptsAutoplay" pager="true" loop="true">
+                    <ion-slide text-wrap>
+                        <img src="assets/img/ico_refresh-white.svg">
+                        <div padding-bottom margin-bottom>{{'PRODUCT.FREE.FEATURES.REVIEW' | translate}}</div>
+                    </ion-slide>
+                    <ion-slide text-wrap>
+                        <img src="assets/img/ico_color-wand-white.svg">
+                        <div padding-bottom margin-bottom>{{'PRODUCT.FREE.FEATURES.CUSTOMIZATION' | translate}}</div>
+                    </ion-slide>
+                    <ion-slide text-wrap>
+                        <img src="assets/img/ico_help-white.svg">
+                        <div padding-bottom margin-bottom>{{'PRODUCT.FREE.FEATURES.REQUESTS_STATUS' | translate}}</div>
+                    </ion-slide>
+                    <ion-slide text-wrap>
+                        <img src="assets/img/ico_flash-white.svg">
+                        <div padding-bottom margin-bottom>{{'PRODUCT.FREE.FEATURES.NO_LIMITS' | translate}}</div>
+                    </ion-slide>
+                    <ion-slide text-wrap>
+                        <img src="assets/img/ico_trophy-white.svg">
+                        <div padding-bottom margin-bottom>{{'PRODUCT.FREE.FEATURES.ON_TOP' | translate}}</div>
+                    </ion-slide>
+                </ion-slides>
+            </div>
+
+            <div text-center padding>
+                <span *ngIf="!isDurationDays()" [innerHTML]="'PRODUCT.FREE.TEXT.MONTHS' | translate:{duration: product.duration.duration}">
+                </span>
+
+                <span *ngIf="isDurationDays()" [innerHTML]="'PRODUCT.FREE.TEXT.DAYS' | translate:{duration: product.duration.duration}">
+                </span>
+            </div>
+
+            <div id="sharing-actions" padding-bottom>
+                <ion-fab-button (click)="shareFlusterFacebook()" id="share-facebook" class="button-facebook" *ngIf="!shareInProgress">
+                    <img src="assets/img/ico_facebook-white.svg">
+                </ion-fab-button>
+
+                <ion-spinner ion-text color="primary" *ngIf="shareInProgress"></ion-spinner>
+            </div>
+        </div>
+
+        <div *ngIf="product != null && product.price.free.enabled && loaded && shareDone" id="share-done" padding margin text-center>
+            <img id="share-done-icon" src="assets/img/ico_heart-gradient-peach3.svg">
+
+            <div *ngIf="product.price.free.needAcknowledgement">
+                <p>{{'PRODUCT.FREE.PENDING.TEXT' | translate}}</p>
+
+                <p id="share-done-push">{{'PRODUCT.FREE.PENDING.PUSH' | translate}}</p>
+            </div>
+
+            <div *ngIf="!product.price.free.needAcknowledgement">
+                <p>{{'PRODUCT.FREE.DONE.TEXT' | translate}}</p>
+            </div>
+        </div>
+
+        <div *ngIf="product == null && loaded" id="no-product" padding margin text-center>
+            <ion-icon name="sad"></ion-icon>
+
+            <p>{{'PRODUCT.NO_PRODUCT.TEXT' | translate}}</p>
+
+            <p text-wrap>
+                <a href="mailto:info@fluster.io">
+                    {{'PRODUCT.NO_PRODUCT.CONTACT' | translate}}
+                </a>
+            </p>
+        </div>
+
+    </div>
+
+    <div id="contentWithSubscription" *ngIf="hasSubscription()" id="subscription-in-progress" padding margin text-center>
+        <ion-icon name="cog"></ion-icon>
+
+        <p>{{'PRODUCT.HAS_SUBSCRIPTION.IN_PROGRESS' | translate}}</p>
+
+    </div>
+</div>

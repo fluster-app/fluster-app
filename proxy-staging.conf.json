@@ -1,0 +1,8 @@
+{
+  "/v1": {
+    "target": "https://api.peterparker.tech",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

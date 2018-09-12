@@ -1,0 +1,21 @@
+<div *ngIf="!hasItems() && !loading" class="no-items-div" text-center text-wrap padding tappable (click)="doAction()">
+    <ion-avatar class="big-avatar" margin-bottom *ngIf="user != null && (!hasItems() || displayAvatarWithOrWithoutItems)">
+        <app-user-profile-img [facebook]="user.facebook" [google]="user.google"></app-user-profile-img>
+    </ion-avatar>
+
+    <h2 *ngIf="!hasItems() && !displayNoAddress" [innerHTML]="label | translate"></h2>
+
+    <h2 *ngIf="!hasItems() && displayNoAddress">
+        {{ 'ITEMS.FIRST_ACCESS.INFO_WITHOUT_ADDRESS' | translate }}
+    </h2>
+</div>
+
+<div id="displayNoAddressFilter" *ngIf="!hasItems() && !loading && displayNoAddress" padding class="below-navbar-info">
+    <h2>{{ 'ITEMS.FIRST_ACCESS.INFO_WITHOUT_ADDRESS_MODIFY' | translate }}</h2>
+
+    <div></div>
+</div>
+
+<div *ngIf="items == null || (items.length === 0 && loading)" class="no-items-div" text-center text-wrap padding>
+    <ion-spinner ion-text color="primary"></ion-spinner>
+</div>

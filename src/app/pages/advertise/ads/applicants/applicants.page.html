@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+
+    <ion-title>{{'APPLICANTS.TITLE' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="ad" [fullscreen]="true">
+
+  <app-content-advertise-notification [displayOnInit]="true" (notifyNewNotifications)="reset()"></app-content-advertise-notification>
+
+  <div class="loading" padding text-center *ngIf="applicants == null">
+    <ion-spinner ion-text color="primary"></ion-spinner>
+  </div>
+
+  <app-no-ads *ngIf="!hasItem() && applicants != null" (notifyNavigateNewItem)="navigateNewItem()"></app-no-ads>
+
+  <div *ngIf="hasItem() && applicants != null" class="big-screen-content">
+
+    <app-no-ads-users [label]="'APPLICANTS.NOTHING_YET'" (notifyNavigateCandidates)="goToCandidates()" *ngIf="!hasApplicants()"></app-no-ads-users>
+
+    <ion-card *ngFor="let applicant of applicants | orderByApplicantStatus:subscriptionIds; let i=index;" no-shadow tappable (click)="navigate(applicant, i)" class="applicant">
+      <ion-item [class.avatarCancelled]="isStatusCancelled(applicant)">
+        <ion-avatar slot="start" class="big-avatar">
+          <app-user-profile-img-list [facebook]="applicant.user.facebook" [google]="applicant.user.google" [starred]="isApplicantStarred(applicant)"></app-user-profile-img-list>
+        </ion-avatar>
+
+        <ion-label>
+          <h1 [class.cancelled]="isStatusCancelled(applicant)">{{applicant.user.facebook.firstName}}</h1>
+
+          <p *ngIf="isStatusNew(applicant)" class="new">{{'APPLICANTS.STATUS.NEW' | translate}}</p>
+          <p *ngIf="isStatusAccepted(applicant)" class="accepted">{{'APPLICANTS.STATUS.ACCEPTED' | translate}}</p>
+          <p *ngIf="isStatusCancelled(applicant)" class="cancelled">{{'APPLICANTS.STATUS.CANCELLED' | translate}}</p>
+          <p *ngIf="isStatusToReschedule(applicant)" class="to-reschedule">{{'APPLICANTS.STATUS.TO_RESCHEDULE' | translate}}</p>
+
+          <p>
+            <ion-note slot="end" *ngIf="isStatusNew(applicant)">
+              <app-display-date [displayDate]="applicant.createdAt" [dateOrTime]="true"></app-display-date>
+
+              <div class="notificationBadge notificationBadgeRound">
+                <ion-icon name="person-add"></ion-icon>
+              </div>
+            </ion-note>
+          </p>
+
+          <app-list-chat-notifications slot="end" *ngIf="couldChat(applicant)" [user]="applicant.user"></app-list-chat-notifications>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-infinite-scroll
+            *ngIf="!isLastPageReached() && hasApplicants()"
+            (ionInfinite)="findNextApplicants($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+</ion-content>

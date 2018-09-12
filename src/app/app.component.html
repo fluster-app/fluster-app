@@ -1,24 +1,65 @@
 <ion-app>
-  <ion-split-pane>
-    <ion-menu>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Menu</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
+  <ion-split-pane when="lg">
+    <ion-menu menuId="menuBrowse" disabled="true" swipeGesture="false">
+      <ion-content role="menubrowse">
+        <app-menu-header [user]="user"></app-menu-header>
+
         <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of browsePages">
+            <ion-item button tappable (click)="openPage(p)">
+              <ion-label>{{p.title | translate}}
+
+              <app-navbar-notification *ngIf="p.displayNotifications" [browse]="true"
+                                       [displayInMenu]="true"></app-navbar-notification>
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item button tappable (click)="navigateToAds()">
+              <ion-label>{{'MENU.BROWSE.ADVERTISE' | translate}}</ion-label>
+
+              <!-- Advertiser tend to go to the browse side -->
+              <app-navbar-notification [ad]="true" [displayOnlyNewNotification]="true"
+                                       [displayInMenu]="true" [displayChatNotification]="false"></app-navbar-notification>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
+
+        <app-menu-footer></app-menu-footer>
       </ion-content>
     </ion-menu>
+
+    <ion-menu menuId="menuAdvertise" disabled="true" swipeGesture="false">
+      <ion-content role="menuad">
+        <app-menu-header [user]="user"></app-menu-header>
+
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of advertisePages">
+            <ion-item button tappable (click)="openPage(p)">
+              <ion-label>{{p.title | translate}}
+
+                <app-navbar-notification *ngIf="p.displayNotifications" [ad]="true"
+                                   [displayInMenu]="true"></app-navbar-notification>
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item button tappable (click)="navigateToBrowse()">
+              <ion-label>{{'MENU.AD.DISCOVER' | translate}}</ion-label>
+
+              <!-- Some people go to advertise even after having send an appointment request -->
+              <app-navbar-notification [browse]="true" [displayOnlyNewNotification]="true"
+                                   [displayInMenu]="true" [displayChatNotification]="false"></app-navbar-notification>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <app-menu-footer></app-menu-footer>
+      </ion-content>
+    </ion-menu>
+
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

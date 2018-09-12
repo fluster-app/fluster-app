@@ -1,0 +1,42 @@
+<div *ngIf="hasInterest()">
+
+    <app-big-button (clicked)="editInterestAndOpenModal($event)" *ngIf="interest.type === RESOURCES.USER.INTEREST.TYPE.WORK"
+                    [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                    [icon]="'briefcase'" [label]="'ITEM_PARAMS.INTERESTS.WORK'">
+    </app-big-button>
+
+    <app-big-button (clicked)="editInterestAndOpenModal($event)" *ngIf="interest.type === RESOURCES.USER.INTEREST.TYPE.TRAIN"
+                    [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                    [icon]="'train'" [label]="'ITEM_PARAMS.INTERESTS.TRAIN_STATION'">
+    </app-big-button>
+
+    <app-big-button (clicked)="editInterestAndOpenModal($event)" *ngIf="interest.type === RESOURCES.USER.INTEREST.TYPE.SCHOOL"
+                    [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                    [icon]="'book'" [label]="'ITEM_PARAMS.INTERESTS.SCHOOL'">
+    </app-big-button>
+
+    <app-big-button (clicked)="editInterestAndOpenModal($event)" *ngIf="interest.type === RESOURCES.USER.INTEREST.TYPE.AIRPORT"
+                    [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                    [icon]="'airplane'" [label]="'ITEM_PARAMS.INTERESTS.AIRPORT'">
+    </app-big-button>
+
+    <app-big-button (clicked)="editInterestAndOpenModal($event)" *ngIf="interest.type === RESOURCES.USER.INTEREST.TYPE.LOVE"
+                    [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                    [icon]="'heart'" [label]="'ITEM_PARAMS.INTERESTS.LOVE'">
+    </app-big-button>
+
+    <app-big-button (clicked)="editInterestAndOpenModal($event)" *ngIf="interest.type === RESOURCES.USER.INTEREST.TYPE.TRAINING"
+                    [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                    [icon]="'trophy'" [label]="'ITEM_PARAMS.INTERESTS.TRAINING'">
+    </app-big-button>
+
+</div>
+
+<div *ngIf="!hasInterest()">
+
+    <app-big-button (clicked)="editInterestAndOpenModal($event)"
+                    [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
+                    [icon]="'add'" [label]="'ITEM_PARAMS.INTERESTS.ADD'">
+    </app-big-button>
+
+</div>

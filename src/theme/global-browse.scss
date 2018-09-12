@@ -1,0 +1,100 @@
+ion-content[role="browse"], ion-content[role="menubrowse"] {
+    --ion-text-color: #{$fluster-dark-blue};
+    --ion-item-text-color: #{$fluster-dark-blue};
+    --ion-placeholder-text-color: #{$fluster-medium-grey};
+}
+
+ion-content[role="browse"] {
+
+    ion-card {
+        &.card-md h2 {
+            color: inherit;
+        }
+
+        ion-card {
+            --color: #{$fluster-medium-grey};
+        }
+    }
+
+    ion-item.fluster-text-input-placeholder {
+        ion-label, ion-icon {
+            color: $fluster-dark-blue;
+        }
+
+        ion-label {
+            font-size: $fluster-text-big;
+        }
+    }
+
+    ion-item.in-list, ion-item-group ion-item {
+        background-color: $fluster-light-grey;
+        border-color: $fluster-light-grey;
+    }
+
+    ion-searchbar input.searchbar-input {
+        background-color: $fluster-light-grey;
+
+        @include fluster-placeholder {
+            color: $fluster-grey-blue;
+        }
+    }
+
+    ion-badge[outline] {
+        background-color: transparent;
+        border: 1px solid $fluster-medium-grey;
+        color: inherit;
+        margin-bottom: 0.8rem;
+    }
+
+    a[ion-item] {
+        background-color: inherit;
+    }
+
+    ion-item-sliding {
+        ion-item-options {
+            ion-item-option.primary-sliding, ion-item-option.secondary-sliding {
+                background-image: none;
+            }
+
+            ion-item-option.primary-sliding {
+                color: white;
+                --ion-color-base: #{$fluster-peach2};
+
+                &.activated {
+                    --ion-color-base: #{$fluster-peach1};
+                }
+            }
+
+            ion-item-option.secondary-sliding {
+                color: inherit;
+                --ion-color-base: #{$fluster-light-grey};
+
+                &.activated {
+                    --ion-color-base: #{$fluster-medium-grey};
+                }
+            }
+        }
+    }
+}
+
+// Deep components theming
+
+ion-content[role="browse"] {
+    #school-work {
+        ion-icon {
+            color: $fluster-dark-blue;
+        }
+    }
+
+    #chatLink {
+        a {
+            ion-icon {
+                color: $fluster-dark-blue;
+            }
+        }
+    }
+
+    .lifestyle-empty {
+        color: $fluster-medium-grey;
+    }
+}

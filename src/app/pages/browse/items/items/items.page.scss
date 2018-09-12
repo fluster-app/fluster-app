@@ -1,0 +1,177 @@
+@import "../../../../../theme/fluster-variables";
+@import "../../../../../theme/media-queries";
+
+#actions-buttons, #review-buttons {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+#actions-buttons {
+  ion-fab-button {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  @include iphone4 {
+    display: none;
+  }
+
+  @include iphone5 {
+    display: none;
+  }
+
+  @include iphoneX {
+    bottom: 6%;
+  }
+
+  @include min-screen(580px) {
+    @include screen-height(768px, 850px) {
+      display: none;
+    }
+  }
+
+  @include screen(528px, 580px) {
+    @include screen-height(768px, 816px) {
+      display: none;
+    }
+  }
+}
+
+#review-buttons-flex {
+  display: flex;
+
+  button {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  ion-datetime {
+    display: none;
+  }
+
+  &.review-buttons-flex-column {
+    flex-direction: column;
+    align-items: center;
+
+    span:last-child {
+      padding-top: 12px;
+      color: $fluster-dark-blue;
+      font-weight: $font-weight-light;
+    }
+  }
+}
+
+// First access msg navigation
+
+#firstAccessMsg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: $fluster-dark-blue;
+  opacity: 0.94;
+
+  > div {
+    opacity: 1;
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: $font-weight-light;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      font-size: $fluster-text-big;
+    }
+
+    ion-icon {
+      font-size: 4rem;
+      padding-left: 12px;
+      transform: rotate(-15deg);
+    }
+  }
+}
+
+// Animation 5px zIndex is the last card
+
+@-webkit-keyframes slideDislike {
+  0% { -webkit-transform: translate3d(0, 0, 5px) translate(-31px, 0px) rotate(0deg); }
+  50% { -webkit-transform: translate3d(0, 0, 5px) translate(-249px, 0px) rotate(-3.76deg); }
+  100% { -webkit-transform: translate3d(0, 0, 5px) translate(-1054px, 0px) rotate(-11.4deg); }
+}
+
+.slide-dislike {
+  -webkit-animation: slideDislike ease-in 1;
+  animation: slideDislike ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 200ms;
+  animation-duration: 200ms;
+}
+
+@-webkit-keyframes spaceboots {
+  0% { -webkit-transform: translate3d(0, 0, 5px) translate(2px, 1px) rotate(0deg); }
+  10% { -webkit-transform: translate3d(0, 0, 5px) translate(-1px, -2px) rotate(-1deg); }
+  20% { -webkit-transform: translate3d(0, 0, 5px) translate(-3px, 0px) rotate(1deg); }
+  30% { -webkit-transform: translate3d(0, 0, 5px) translate(0px, 2px) rotate(0deg); }
+  40% { -webkit-transform: translate3d(0, 0, 5px) translate(1px, -1px) rotate(1deg); }
+  50% { -webkit-transform: translate3d(0, 0, 5px) translate(-1px, 2px) rotate(-1deg); }
+  60% { -webkit-transform: translate3d(0, 0, 5px) translate(-3px, 1px) rotate(0deg); }
+  70% { -webkit-transform: translate3d(0, 0, 5px) translate(2px, 1px) rotate(-1deg); }
+  80% { -webkit-transform: translate3d(0, 0, 5px) translate(-1px, -1px) rotate(1deg); }
+  90% { -webkit-transform: translate3d(0, 0, 5px) translate(2px, 2px) rotate(0deg); }
+  100% { -webkit-transform: translate3d(0, 0, 5px) translate(1px, -2px) rotate(-1deg); }
+}
+
+.shake-bookmark {
+  -webkit-animation-name: spaceboots;
+  -webkit-animation-duration: 0.8s;
+  -webkit-transform-origin:50% 50%;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes review
+{
+  15% { -webkit-transform: translate3d(0, 0, 5px) translateY(5px); }
+  30% { -webkit-transform: translate3d(0, 0, 5px) translateY(-5px); }
+  50% { -webkit-transform: translate3d(0, 0, 5px) translateY(3px); }
+  65% { -webkit-transform: translate3d(0, 0, 5px) translateY(-3px); }
+  80% { -webkit-transform: translate3d(0, 0, 5px) translateY(2px); }
+  100% { -webkit-transform: translate3d(0, 0, 5px) translateY(0px); }
+}
+
+.review-dislike
+{
+  -webkit-animation-name: review;
+  -webkit-animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+@keyframes zoominzoomout {
+  0% { transform: scale(1.0) scale(-1, 1); }
+  50% { transform: scale(1.25) scale(-1, 1); }
+  100% { transform: scale(1.0) scale(-1, 1); }
+}
+
+.zoomin-zoomout {
+  -webkit-animation-name: zoominzoomout;
+  -webkit-animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}

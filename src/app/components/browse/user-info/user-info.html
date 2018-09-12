@@ -1,0 +1,12 @@
+<div class="user-info-msg" margin padding *ngIf="displaySuperstar" [class.hidden]="fadeMsg" [class.user-info-msg-superstar]="displaySuperstar">
+    <h2 [innerHTML]="'CANDIDATES.FIRST_SUPERSTAR.TITLE' | translate" *ngIf="displaySuperstar"></h2>
+    <p [innerHTML]="'CANDIDATES.FIRST_SUPERSTAR.TEXT' | translate" *ngIf="displaySuperstar"></p>
+
+    <a (click)="closeMsg($event)" class="close-user-info-msg">
+        <ion-icon name="close"></ion-icon>
+    </a>
+
+    <div></div>
+
+    {{doFadeMsg()}}
+</div>

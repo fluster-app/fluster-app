@@ -1,0 +1,59 @@
+@import "../../../../theme/fluster-variables";
+
+ion-toolbar.calendar-day-names {
+    div.toolbar-content {
+        display: flex;
+
+        span {
+            color: white;
+            width: calc(100% / 7);
+            text-align: center;
+        }
+    }
+}
+
+div.swipe-container {
+    height: 100%;
+    // no-bounce
+    overflow: hidden;
+
+    .calendar-days {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+
+        div.day {
+            text-align: center;
+            height: 6rem;
+            line-height: 6rem;
+            width: calc(100% / 7);
+            cursor: pointer;
+            position: relative;
+
+            div {
+                width: 5.9rem;
+                height: 5.9rem;
+                border-radius: 50%;
+                border: 1px solid transparent;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                &.today {
+                    font-weight: $font-weight-bold;
+                }
+
+                &.is-active {
+                    border: 1px solid $fluster-peach3;
+                    color: $fluster-peach3;
+                }
+
+                &.is-clicked {
+                    border: 1px solid $fluster-peach1;
+                    color: $fluster-peach1;
+                }
+            }
+        }
+    }
+}

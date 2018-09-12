@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="close(false)">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <app-toolbar-user-title [display]="useUserTitle()" [facebook]="item?.user?.facebook" [google]="item?.user?.google"></app-toolbar-user-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content role="browse" [scrollY]="false" padding>
+
+    <h2 text-center *ngIf="isItemFlat()" padding>
+        {{ 'ITEM_APPOINTMENTS.VIEWING_WHEN_TEXT_FLAT' | translate:{who: item.user.facebook.firstName == null ? '' : item.user.facebook.firstName} }}
+    </h2>
+
+    <h2 text-center *ngIf="isItemShare()" padding>
+        {{ 'ITEM_APPOINTMENTS.VIEWING_WHEN_TEXT_SHARE' | translate:{who: item.user.facebook.firstName == null ? '' : item.user.facebook.firstName} }}
+    </h2>
+
+    <app-pick-item-appointments [item]="item" [itemUser]="itemUser" [existingApplicant]="existingApplicant" [alreadyBookmarked]="alreadyBookmarked" (notifiyScheduled)="navigateToItems()"></app-pick-item-appointments>
+
+</ion-content>

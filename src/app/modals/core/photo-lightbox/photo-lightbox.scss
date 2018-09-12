@@ -1,0 +1,27 @@
+@import "../../../../theme/fluster-variables";
+
+div.content {
+    width: 100%;
+    height: 100%;
+}
+
+ion-slides {
+    height: 100%;
+}
+
+#prevPhoto, #nextPhoto {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1;
+    color: $fluster-peach3;
+    font-size: 8rem;
+}
+
+#prevPhoto {
+    left: 5%;
+}
+
+#nextPhoto {
+    right: 5%;
+}

@@ -1,0 +1,8 @@
+<div *ngIf="user != null" id="menuProfile" tappable (click)="userProfile()">
+    <div>
+        <span>{{'MENU.HEADER.MY_PROFILE' | translate}}</span>
+        <ion-avatar slot="end" class="small-avatar">
+            <app-user-profile-img [facebook]="user.facebook" [google]="user.google"></app-user-profile-img>
+        </ion-avatar>
+    </div>
+</div>

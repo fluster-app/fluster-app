@@ -1,0 +1,14 @@
+.fluster-toast {
+  text-align: center;
+
+  div.toast-wrapper {
+    background: transparent;
+
+    div.toast-message {
+      border: 1px solid $fluster-peach3;
+      border-radius: 4px;
+      background: white;
+      color: $fluster-peach3;
+    }
+  }
+}

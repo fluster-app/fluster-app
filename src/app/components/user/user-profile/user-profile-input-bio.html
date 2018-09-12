@@ -1,0 +1,7 @@
+<div id="user-inputs" margin-bottom #userbio>
+    <ion-item>
+        <ion-textarea rows="6" maxLength="500" (ionFocus)="addKeyboardListener()" (ionBlur)="removeKeyboardListener()" (keyup)="countCharactersLeft()" [(ngModel)]="user.description.bio" placeholder="{{'USER_PROFILE.PLACEHOLDER_BIO' | translate}}" autocomplete="on" autocorrect="on"></ion-textarea>
+    </ion-item>
+
+    <span id="characters-left">{{bioLengthLeft}}</span>
+</div>

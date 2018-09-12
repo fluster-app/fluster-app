@@ -1,0 +1,8 @@
+<ion-item text-wrap *ngIf="!loading" id="connect-spotify" [attr.padding-bottom]="spotifyEnabled">
+    <ion-label>{{'USER_PROFILE.SPOTIFY.CONNECT' | translate}}</ion-label>
+    <ion-toggle (ngModelChange)="connectSpotify($event)" [(ngModel)]="spotifyEnabled" checked="{{spotifyEnabled}}"></ion-toggle>
+</ion-item>
+
+<div padding text-center *ngIf="loading">
+    <ion-spinner ion-text color="primary"></ion-spinner>
+</div>

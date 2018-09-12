@@ -1,0 +1,13 @@
+@import "../../../../theme/fluster-variables";
+
+#user-inputs {
+    position: relative;
+
+    #characters-left {
+        position: absolute;
+        bottom: 4px;
+        right: 16px;
+        color: $fluster-medium-grey;
+        font-size: $fluster-text-normal;
+    }
+}

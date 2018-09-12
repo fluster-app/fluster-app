@@ -1,0 +1,36 @@
+@import "../../../../../theme/fluster-variables";
+
+div.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ion-icon.totalNewAdvertiseNotificationsBadge {
+    font-size: 2.8rem;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.totalNewAdvertiseNotificationsText {
+    font-size: $fluster-text-small;
+}
+
+p, span {
+    color: white;
+}
+
+#noAppointments {
+    color: $fluster-grey-blue;
+}
+
+#itemExpiringSoon {
+    z-index: 3;
+    -webkit-transform: translate3d(0, 0, 2px);
+    transform: translate3d(0, 0, 2px);
+}
+
+div.first-notification-first {
+    display: none;
+}

@@ -1,0 +1,17 @@
+@import "../../../../theme/fluster-variables";
+
+ion-item#userProfileInputPhone {
+
+    &:not(.input-has-value) {
+        ion-icon {
+            color: $fluster-medium-grey;
+        }
+    }
+}
+
+ion-item#phoneNotDisplayedInfo {
+    font-size: $fluster-text-normal;
+    font-weight: $font-weight-light;
+    background-color: inherit;
+    color: $fluster-dark-blue;
+}

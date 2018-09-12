@@ -1,0 +1,42 @@
+<div class="slides-container">
+    <ion-slides #itemSlider pager="true" [options]="sliderOnlyExternal ? slideOptsProgressbarOnlyExternal : slideOptsProgressbar" id="itemSlider" *ngIf="renderSlides" (ionSlideTap)="prevNextPhotos($event)" (ionSlideTransitionEnd)="nextSlide()" [class.expired]="isItemExpire()" [class.slide-advertiser]="displayAdvertiserSlide && isItemShare() && !displayAdvertiserAvatar" [class.max-slide-height]="displayLimitedAndLightbox">
+
+        <ion-slide *ngIf="displayAdvertiserSlide && isItemShare()">
+            <app-advertiser-info-slide [user]="item.user" [starred]="isItemStarred()"></app-advertiser-info-slide>
+        </ion-slide>
+
+        <ion-slide *ngFor="let photo of itemImages;">
+            <app-image-loader [src]="RESOURCES.AWS.S3_URL + '/' + item.source + '/' + item.hashId + '/' + photo"></app-image-loader>
+        </ion-slide>
+
+    </ion-slides>
+
+    <div class="display-photo-lightbox" *ngIf="displayLimitedAndLightbox" tappable (click)="displayPhotoLightboxModal($event)">
+        <ion-icon ios="ios-expand" md="ios-expand"></ion-icon>
+    </div>
+</div>
+
+<div *ngIf="isItemExpire()" id="itemExpire" text-center padding>
+    <h1 *ngIf="itemExpiringSoon && !itemExpired">{{'NOTIFICATIONS.AD_EXPIRE.TITLE_SOON' | translate}}</h1>
+    <h1 *ngIf="itemExpired">{{'NOTIFICATIONS.AD_EXPIRE.TITLE_ALREADY' | translate}}</h1>
+</div>
+
+<div id="firstAccessMsgPhotos" *ngIf="displayFirstAccessMsg"  [style.zIndex]="zIndex+2" [style.transform]="'translate3d(0,0,' + zIndex+2 + 'px)'">
+    <div tappable (click)="emitHideFirstAccessMsg()" class="first-access-msg-container">
+        <div id="firstAccessMsgPrevious" text-center>
+            <ion-icon name="md-hand" class="zoomin-zoomout-left"></ion-icon>
+            <span text-center>{{'ITEMS.FIRST_ACCESS.ITEM_NAVIGATION.PREVIOUS_PHOTO' | translate}}</span>
+        </div>
+    </div>
+
+    <div tappable (click)="emitHideFirstAccessMsg()" class="first-access-msg-container">
+        <div id="firstAccessMsgNext" text-center>
+            <ion-icon name="md-hand" class="zoomin-zoomout-right"></ion-icon>
+            <span text-center>{{'ITEMS.FIRST_ACCESS.ITEM_NAVIGATION.NEXT_PHOTO' | translate}}</span>
+        </div>
+    </div>
+</div>
+
+<app-advertiser-info *ngIf="displayAdvertiserInfo" [user]="item.user" [starred]="isItemStarred() && (displayAdvertiserAvatar || isItemFlat())" [displayAvatar]="displayAdvertiserAvatar"></app-advertiser-info>
+
+<app-user-info *ngIf="displayAdvertiserAvatar || isItemFlat()" [displaySuperstar]="!displayFirstAccessMsg && displayFirstSuperstarMsg && isItemStarred()" (notifiyClose)="emitHideFirstSuperstarMsg()"></app-user-info>

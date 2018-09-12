@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-toggle *ngIf="isDone()">
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+
+      <ion-button (click)="backToPreviousSlide()" *ngIf="!isDone()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>FLUSTER</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="ad" [forceOverscroll]="true">
+
+  <ion-slides #newAdSlider pager="false" [options]="slideOptsOnlyExternal">
+    <ion-slide *ngIf="!isEditMode()">
+      <app-new-ad-step-type [slider]="slider" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-type>
+    </ion-slide>
+
+    <ion-slide>
+      <app-new-ad-step-location [slider]="slider" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-location>
+    </ion-slide>
+
+    <ion-slide>
+      <app-new-ad-step-photo [slider]="slider" [openPicker]="pendingAndroidPhoto" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-photo>
+    </ion-slide>
+
+    <ion-slide>
+      <app-new-ad-step-availability [slider]="slider" (notifyNext)="loadNextSlidePrice()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-availability>
+    </ion-slide>
+
+    <ion-slide *ngIf="isItemShare()">
+      <app-new-ad-step-share-size [slider]="slider" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-share-size>
+    </ion-slide>
+
+    <ion-slide>
+      <app-new-ad-step-size [slider]="slider" (notifyNext)="loadNextSlideAttributes()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-size>
+    </ion-slide>
+
+    <ion-slide *ngIf="loadSlidePrice">
+      <app-new-ad-step-price [slider]="slider" (notifyNext)="loadNextSlidesFromPrice()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-price>
+    </ion-slide>
+
+    <ion-slide *ngIf="loadSlideAttributes">
+      <app-new-ad-step-attributes [slider]="slider" (notifyNext)="loadNextSlidesFromAttributes()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-attributes>
+    </ion-slide>
+
+    <ion-slide *ngIf="loadSlideLifestyle">
+      <app-new-ad-step-lifestyle [slider]="slider" (notifyNext)="loadNextSlideLimitation()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-lifestyle>
+    </ion-slide>
+
+    <ion-slide id="slide-new-ad-step-appointments" *ngIf="loadSlideAppointment">
+      <app-new-ad-step-appointments [slider]="slider" (notifyNext)="loadNextSlideFromAppointments()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-appointments>
+    </ion-slide>
+
+    <ion-slide *ngIf="loadSlideAttendance">
+      <app-new-ad-step-attendance [slider]="slider" (notifyNext)="loadNextSlideDone()"></app-new-ad-step-attendance>
+    </ion-slide>
+
+    <ion-slide *ngIf="loadSlideLimitation">
+      <app-new-ad-step-limitation [slider]="slider" (notifiyPublishCall)="publish()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-limitation>
+    </ion-slide>
+
+    <ion-slide *ngIf="loadSlideDone">
+      <app-new-ad-step-done [slider]="slider" (notifiyGoToAdDetailCall)="navigateToAdDetail()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-done>
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>

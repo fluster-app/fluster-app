@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="close()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title>{{title | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding [attr.role]="isAdDisplay ? 'ad' : 'browse'">
+
+    <ion-list padding-top>
+        <ion-radio-group [(ngModel)]="selected">
+            <ion-item *ngFor="let key of keys">
+                <ion-label><app-display-lifestyle [key]="translationKey" [keyValue]="key"></app-display-lifestyle></ion-label>
+                <ion-radio slot="end" value="{{key}}" (click)="selectAndNavigate()"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>{{'USER_PROFILE.LIFESTYLE.NONE' | translate}}</ion-label>
+                <ion-radio slot="end" value="{{null}}" (click)="selectAndNavigate()"></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+    </ion-list>
+
+</ion-content>

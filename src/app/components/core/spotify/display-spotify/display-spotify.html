@@ -1,0 +1,20 @@
+<div padding text-center *ngIf="loading">
+    <ion-spinner ion-text color="primary"></ion-spinner>
+</div>
+
+<div class="spotify-scroller">
+    <div scrollX="true" *ngIf="!loading && hasArtists()">
+        <div class="artists">
+            <div *ngFor="let artist of userSpotify.artists" tappable (click)="chgDisplayArtist(artist)" [class.not-displayed]="!artist.display" [class.hidden]="!editable && !artist.display">
+                <div *ngIf="hasImages(artist)" class="cover">
+                    <div>
+                        <img [src]="getCover(artist)"/>
+                    </div>
+                    <ion-label text-nowrap no-margin>{{artist.name}}</ion-label>
+
+                    {{countDisplayed(artist)}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

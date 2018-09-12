@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="close()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <app-toolbar-user-title [display]="applicant != null" [facebook]="applicant?.user?.facebook" [google]="applicant?.user?.google"></app-toolbar-user-title>
+
+        <ion-buttons slot="end">
+            <ion-button (click)="displayReschedule()">
+                <ion-icon slot="icon-only" name="more"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content role="ad" [scrollY]="false" padding>
+
+    <div *ngIf="applicant != null && hasSelectedDates()">
+        <h2 text-center *ngIf="availableDates != null && availableDates.length > 1" padding>
+            {{ 'APPLICANT_SELECTION.PROPOSAL' | translate:{who: applicant.user.facebook.firstName, howmany: availableDates.length} }}
+        </h2>
+
+        <h2 text-center *ngIf="availableDates == null || availableDates.length <= 1" padding  >
+            {{ 'APPLICANT_SELECTION.PROPOSAL_SINGLE' | translate:{who: applicant.user.facebook.firstName} }}
+        </h2>
+
+        <app-pick-applicant-appointments [selectedApplicantDates]="availableDates" (notifiySelected)="select($event)"></app-pick-applicant-appointments>
+    </div>
+
+</ion-content>

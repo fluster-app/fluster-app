@@ -1,0 +1,17 @@
+@import "../../../../theme/mixins";
+@import "../../../../theme/media-queries";
+@import "../../../../theme/fluster-variables";
+
+ion-slides {
+  height: 100%;
+}
+
+a#withoutgender {
+  color: inherit;
+  font-size: $fluster-text-normal;
+  font-weight: $font-weight-light;
+
+  &.activated, &.selected {
+    color: $fluster-peach3;
+  }
+}

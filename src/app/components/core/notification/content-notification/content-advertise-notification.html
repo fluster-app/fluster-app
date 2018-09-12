@@ -1,0 +1,17 @@
+<div class="notification-full-screen" *ngIf="displayNotifications && hasManyNewNotifications()" [class.hidden]="fadeClose">
+
+    <a (click)="closeMsg()" class="notification-full-screen-close">
+        <ion-icon name="checkmark"></ion-icon>
+    </a>
+
+    <div class="notification-full-screen-text" text-center padding>
+
+        <h1>{{'NOTIFICATIONS.ADVERTISE.TITLE' | translate}}</h1>
+
+        <h2 padding-top *ngIf="hasMoreThanOneNotifications()">{{'NOTIFICATIONS.ADVERTISE.MANY_APPLICANTS' | translate}}</h2>
+
+        <h2 padding-top *ngIf="hasSingleNewNotifications()">
+            {{ 'NOTIFICATIONS.ADVERTISE.ONE_APPLICANT' | translate:{who: newNotifications[0].userFrom.facebook.firstName} }}
+        </h2>
+    </div>
+</div>

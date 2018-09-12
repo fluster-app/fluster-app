@@ -1,0 +1,321 @@
+div {
+
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 2px;
+
+&.advertiser-info {
+    justify-content: center;
+
+    span:nth-of-type(1n+9) {
+        display: none;
+    }
+
+    span {
+        margin-right: 2px;
+        margin-bottom: 2px;
+
+        font-size: 2.6rem;
+    }
+}
+
+    span {
+
+        font-size: 3rem;
+        width: 3.8rem;
+
+        // https://emojipedia.org/
+
+        &.running:before {
+            content: "🏃"
+        }
+
+        &.running-male:before {
+            content: "🏃‍♂️"
+        }
+
+        &.running-female:before {
+            content: "🏃‍♀️"
+        }
+
+        &.dancing:before, &.dancing-male:before {
+            content: "🕺"
+        }
+
+        &.dancing-female:before {
+            content: "💃"
+        }
+
+        &.horse_riding:before, &.horse_riding-male:before, &.horse_riding-female:before {
+            content: "🏇"
+        }
+
+        &.skiing:before, &.skiing-male:before, &.skiing-female:before {
+            content: "⛷️"
+        }
+
+        &.snowboarding:before, &.snowboarding-male:before, &.snowboarding-female:before {
+            content: "🏂"
+        }
+
+        &.golfing:before {
+            content: "🏌️"
+        }
+
+        &.golfing-male:before {
+            content: "🏌️‍♂️️"
+        }
+
+        &.golfing-female:before {
+            content: "🏌️‍♀️️"
+        }
+
+        &.surfing:before {
+            content: "🏄️"
+        }
+
+        &.surfing-male:before {
+            content: "🏄‍♂️️️"
+        }
+
+        &.surfing-female:before {
+            content: "🏄‍♀️️️"
+        }
+
+        &.rowing:before {
+            content: "🚣"
+        }
+
+        &.rowing-male:before {
+            content: "🚣‍♂️"
+        }
+
+        &.rowing-female:before {
+            content: "🚣‍♀️"
+        }
+
+        &.swimming:before {
+            content: "🏊"
+        }
+
+        &.swimming-male:before {
+            content: "🏊‍♂️️"
+        }
+
+        &.swimming-female:before {
+            content: "🏊‍♀️️"
+        }
+
+        &.basketball:before {
+            content: "⛹️"
+        }
+
+        &.basketball-male:before {
+            content: "⛹️‍♂️"
+        }
+
+        &.basketball-female:before {
+            content: "⛹️‍♀️️️"
+        }
+
+        &.crossfit:before {
+            content: "🏋️️"
+        }
+
+        &.crossfit-male:before {
+            content: "🏋️‍♂️️"
+        }
+
+        &.crossfit-female:before {
+            content: "🏋️‍♀️"
+        }
+
+        &.biking:before {
+            content: "🚴️"
+        }
+
+        &.biking-male:before {
+            content: "🚴‍♂️️️"
+        }
+
+        &.biking-female:before {
+            content: "🚴‍♀️"
+        }
+
+        &.handball:before {
+            content: "🤾️"
+        }
+
+        &.handball-male:before {
+            content: "🤾‍♂️️️"
+        }
+
+        &.handball-female:before {
+            content: "🤾‍♀️️"
+        }
+
+        &.tennis:before, &.tennis-male:before, &.tennis-female:before {
+            content: "🎾"
+        }
+
+        &.snowboarding:before, &.snowboarding-male:before, &.snowboarding-female:before {
+            content: "🏂"
+        }
+
+        &.field_hockey:before, &.field_hockey-male:before, &.field_hockey-female:before {
+            content: "🏑"
+        }
+
+        &.ice_hockey:before, &.ice_hockey-male:before, &.ice_hockey-female:before {
+            content: "🏒"
+        }
+
+        &.ping_pong:before, &.ping_pong-male:before, &.ping_pong-female:before {
+            content: "🏓"
+        }
+
+        &.badminton:before, &.badminton-male:before, &.badminton-female:before {
+            content: "🏸"
+        }
+
+        &.boxing:before, &.boxing-male:before, &.boxing-female:before {
+            content: "🥊"
+        }
+
+        &.martial_arts:before, &.martial_arts-male:before, &.martial_arts-female:before {
+            content: "🥋"
+        }
+
+        &.ice_skating:before, &.ice_skating-male:before, &.ice_skating-female:before {
+            content: "⛸️"
+        }
+
+        &.fishing:before, &.fishing-male:before, &.fishing-female:before {
+            content: "🎣"
+        }
+
+        &.climbing:before {
+            content: "\01F9D7"
+        }
+
+        &.climbing-male:before {
+            content: "\01F9D7\00200D\002642\00FE0F"
+        }
+
+        &.climbing-female:before {
+            content: "\01F9D7\00200D\002640\00FE0F"
+        }
+
+        &.yoga:before {
+            content: "\01F9D8"
+        }
+
+        &.yoga-male:before {
+            content: "\01F9D8\00200D\002642\00FE0F"
+        }
+
+        &.yoga-female:before {
+            content: "\01F9D8\00200D\002640\00FE0F"
+        }
+
+        &.video_games:before, &.video_games-male:before, &.video_games-female:before {
+            content: "🎮"
+        }
+
+        &.performing_arts:before, &.performing_arts-male:before, &.performing_arts-female:before {
+            content: "🎭"
+        }
+
+        &.drawing:before, &.drawing-male:before, &.drawing-female:before {
+            content: "🎨"
+        }
+
+        &.singing:before, &.singing-male:before, &.singing-female:before {
+            content: "🎤"
+        }
+
+        &.reading:before, &.reading-male:before, &.reading-female:before {
+            content: "📚"
+        }
+
+        &.saxophone:before, &.saxophone-male:before, &.saxophone-female:before {
+            content: "🎷"
+        }
+
+        &.guitar:before, &.guitar-male:before, &.guitar-female:before {
+            content: "🎸"
+        }
+
+        &.musical_keyboard:before, &.musical_keyboard-male:before, &.musical_keyboard-female:before {
+            content: "🎹"
+        }
+
+        &.trumpet:before, &.trumpet-male:before, &.trumpet-female:before {
+            content: "🎺"
+        }
+
+        &.violin:before, &.violin-male:before, &.violin-female:before {
+            content: "🎻"
+        }
+
+        &.drums:before, &.drums-male:before, &.drums-female:before {
+            content: "🥁"
+        }
+
+        &.movies:before, &.movies-male:before, &.movies-female:before {
+            content: "🎥"
+        }
+
+        &.tv_shows:before, &.tv_shows-male:before, &.tv_shows-female:before {
+            content: "📺"
+        }
+
+        &.cooking:before {
+            content: "🍳"
+        }
+
+        &.cooking-male:before {
+            content: "👨‍🍳"
+        }
+
+        &.cooking-female:before {
+            content: "👩‍🍳️"
+        }
+
+        &.coffee:before, &.coffee-male:before, &.coffee-female:before {
+            content: "☕"
+        }
+
+        &.wine:before, &.wine-male:before, &.wine-female:before {
+            content: "🍷"
+        }
+
+        &.beer:before, &.beer-male:before, &.beer-female:before {
+            content: "🍺"
+        }
+
+        &.mountain:before, &.mountain-male:before, &.mountain-female:before {
+            content: "⛰️"
+        }
+
+        &.beach:before, &.beach-male:before, &.beach-female:before {
+            content: "🏖️"
+        }
+
+        &.camping:before, &.camping-male:before, &.camping-female:before {
+            content: "🏕️"
+        }
+
+        &.shopping:before, &.shopping-male:before, &.shopping-female:before {
+            content: "🛍️"
+        }
+
+        &.soccer:before, &.soccer-male:before, &.soccer-female:before {
+            content: "⚽"
+        }
+
+        &.rugby:before, &.rugby-male:before, &.rugby-female:before {
+            content: "🏉"
+        }
+    }
+}

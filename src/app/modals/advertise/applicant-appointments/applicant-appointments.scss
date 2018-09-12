@@ -1,0 +1,16 @@
+@import "../../../../theme/media-queries";
+@import "../../../../theme/mixins";
+@import "../../../../theme/fluster-variables";
+
+ion-content h2[text-center] {
+
+    font-size: $fluster-text-big;
+
+    @include iphone4 {
+        font-size: $fluster-text-normal;
+    }
+
+    @include iphone5 {
+        font-size: $fluster-text-normal;
+    }
+}

@@ -1,0 +1,22 @@
+@import "../../../../theme/fluster-variables";
+@import "../../../../theme/media-queries";
+@import "../../../../theme/mixins";
+
+div.countSelectedAppointments {
+    font-size: $fluster-text-normal;
+    font-weight: $font-weight-light;
+    min-height: 16px;
+    height: 16px;
+
+    strong {
+        color: $fluster-peach3;
+    }
+
+    @include iphone4 {
+        display: none;
+    }
+
+    @include iphone5 {
+        display: none;
+    }
+}

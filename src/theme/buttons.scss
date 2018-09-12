@@ -1,0 +1,159 @@
+// Buttons
+
+button.button-round {
+  span.button-inner {
+    min-width: 18rem;
+  }
+}
+
+ion-button.facebook.button {
+  --color: white;
+  --background: var(--facebook);
+  --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  --background-activated: white;
+  --color-activated: var(--facebook);
+}
+
+ion-button.google.button {
+  --color: initial;
+  --background: white;
+  --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: $font-weight-light;
+
+  --background-activated: var(--google);
+  --color-activated: white;
+
+  img {
+    width: 18px;
+    margin-right: 6px;
+  }
+}
+
+ion-button {
+
+  &.button-solid {
+    --color: white;
+    @include fluster-linear-gradient-variable(to right, $fluster-peach1, $fluster-peach3);
+
+    --color-activated: white;
+    @include fluster-linear-gradient-variable-activated(to left, $fluster-peach1, $fluster-peach3);
+  }
+
+  &.button-solid, &.button-outline {
+    --height: 5.2rem;
+    font-size: $fluster-text-big;
+  }
+
+  text-transform: inherit;
+}
+
+ion-content[role="browse"] {
+
+  ion-button[disabled].button {
+    --background: #{$fluster-light-grey};
+    --color: #{$fluster-dark-grey};
+  }
+}
+
+// Fab buttons
+
+ion-fab-button.button-review {
+  height: 8vh;
+  width: 8vh;
+  --size: 8vh;
+
+  ion-icon {
+    font-size: 6vh;
+  }
+
+  &.big {
+    height: 12vh;
+    width: 12vh;
+    --size: 12vh;
+
+    ion-icon {
+      font-size: 11vh;
+    }
+  }
+}
+
+ion-fab-button.button-bookmark, ion-fab-button.button-dislike, ion-fab-button.cancel-button, ion-fab-button.button-like, ion-fab-button.button-review-small {
+  height: 6vh;
+  width: 6vh;
+  --size: 6vh;
+
+  &.big {
+    height: 10vh;
+    width: 10vh;
+    --size: 10vh;
+
+    ion-icon {
+      font-size: 8vh;
+    }
+  }
+}
+
+ion-fab-button.button-bookmark, ion-fab-button.button-dislike, ion-fab-button.cancel-button, ion-fab-button.button-review-small {
+  ion-icon {
+    font-size: 3.5vh;
+  }
+}
+
+ion-fab-button.button-like {
+  ion-icon {
+    font-size: 4.5vh;
+  }
+}
+
+ion-fab-button.button-fab-small, ion-fab-button.button-interest-small {
+  height: 4vh;
+  width: 4vh;
+  --size: 4vh;
+
+  ion-icon {
+    font-size: 3vh;
+  }
+}
+
+ion-fab-button.button-bookmark, ion-fab-button.button-dislike, ion-fab-button.cancel-button, ion-fab-button.button-like, ion-fab-button.button-review, ion-fab-button.button-fab-small, ion-fab-button.button-review-small, ion-fab-button.button-interest-small {
+  --background: transparent;
+  --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+ion-fab-button.button-bookmark, ion-fab-button.button-dislike, ion-fab-button.button-review, ion-fab-button.button-review-small, ion-fab-button.button-interest-small {
+  color: $fluster-grey-blue;
+
+  &.activated {
+    color: white;
+    --background: #{$fluster-grey-blue};
+  }
+}
+
+ion-fab-button.cancel-button {
+  color: $fluster-grey-blue;
+
+  &.activated {
+    color: white;
+    --background: #{$fluster-grey-blue};
+  }
+}
+
+ion-fab-button.button-like, ion-fab-button.button-fab-small {
+  color: $fluster-peach3;
+
+  &.activated {
+    color: white;
+    @include fluster-linear-gradient-variable(to right, $fluster-peach1, $fluster-peach3);
+  }
+}
+
+ion-fab-button.disabled-button {
+  --background: #{$fluster-medium-grey};
+  color: white;
+}
+
+ion-fab-button.enabled-button, ion-fab-button.enabled-button.activated {
+  @include fluster-linear-gradient-variable(to right, $fluster-peach1, $fluster-peach3);
+  color: white;
+}

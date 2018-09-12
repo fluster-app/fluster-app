@@ -1,0 +1,44 @@
+<div class="flex-content big-screen-content" (swipe)="swipeSlide($event)" padding-start padding-end>
+    <ion-grid class="flex-grid">
+        <ion-row>
+            <ion-col size="12" no-padding>
+                <h1 text-center class="padding-top-small">{{'NEW_AD.STEP_LOCATION.TITLE' | translate}}</h1>
+
+                <h2 text-center *ngIf="isItemShare()">{{'NEW_AD.STEP_LOCATION.SUB_TITLE_SHARE' | translate}}</h2>
+
+                <h2 text-center *ngIf="isItemFlat()">{{'NEW_AD.STEP_LOCATION.SUB_TITLE_FLAT' | translate}}</h2>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="12" class="flex-start" no-padding>
+                <ion-list *ngIf="newItem != null && newItem.address != null" text-center padding-top>
+                    <ion-item *ngIf="isAddressNotDefined()" tappable (click)="navigateToSearchLocation()" class="fluster-text-input-placeholder">
+                        <ion-icon name="pin" slot="start"></ion-icon>
+                        <ion-label>{{'NEW_AD.STEP_LOCATION.LOCATION_PLACEHOLDER' | translate}}</ion-label>
+                    </ion-item>
+
+                    <ion-item *ngIf="!isAddressNotDefined()" tappable (click)="navigateToSearchLocation()">
+                        <ion-icon name="pin" slot="start"></ion-icon>
+                        <div text-wrap>
+                            <ion-label>{{newItem.address.addressName}}</ion-label>
+                        </div>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="flex-end">
+            <ion-col size="12" no-padding>
+                <app-targeted-users [item]="newItem"
+                                [msgLocation]="true">
+                </app-targeted-users>
+
+                <ion-button expand="full" shape="round" class="new-ad-buttons-flex" (click)="next()">
+                    {{'CORE.NEXT' | translate}}
+                    <ion-icon slot="end" name="arrow-forward"></ion-icon>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>

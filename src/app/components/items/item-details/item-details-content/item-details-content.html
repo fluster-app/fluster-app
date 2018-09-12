@@ -1,0 +1,242 @@
+<app-item-details-toolbar *ngIf="item != null" [user]="item.user" [itemShare]="isItemShare()" [firstCategory]="getFirstCategory()" [isAdDisplay]="isAdDisplay" [noAction]="isAdDisplay || noAppointmentAction" [displayChat]="displayChat" (selectedCategory)="segmentChange($event)" (performAction)="userPerformAction($event)"></app-item-details-toolbar>
+
+<ion-grid class="big-screen-content" padding-start padding-end *ngIf="item != null && category == 'details'" id="item-details-specs">
+    <ion-row>
+        <ion-col size="8">
+            <ion-label class="adCategoryTitle">
+                {{'ITEM_DETAILS.CONTENT.CATEGORY.PRICE_GROSS' | translate}}
+                <app-display-currency></app-display-currency>
+            </ion-label>
+
+            <div class="big-content">{{item.attributes.price.gross}}</div>
+        </ion-col>
+
+        <ion-col size="4">
+            <ion-label *ngIf="item.attributes.price.charges != null" class="adCategoryTitleSmall">{{'ITEM_DETAILS.CONTENT.CATEGORY.PRICE_EXTRA' | translate}}</ion-label>
+
+            <div id="price-charges" class="small-content" *ngIf="item.attributes.price.charges != null">{{item.attributes.price.charges}}</div>
+            <div id="price-charges-text" *ngIf="item.attributes.price.charges != null">{{'ITEM_DETAILS.CONTENT.CATEGORY.PRICE_EXTRA_INCLUDED' | translate}}</div>
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="isItemShare()">
+        <ion-col size="8">
+            <ion-label class="adCategoryTitle">{{'ITEM_DETAILS.CONTENT.CATEGORY.SHARED_ROOMS' | translate}}</ion-label>
+
+            <div class="big-content">{{item.attributes.sharedRooms}}</div>
+        </ion-col>
+
+        <ion-col size="4">
+            <ion-label *ngIf="item.attributes.sharedRoomsSize != null" class="adCategoryTitleSmall">{{'ITEM_DETAILS.CONTENT.CATEGORY.SHARED_SIZE' | translate}}</ion-label>
+
+            <div class="small-content" *ngIf="item.attributes.sharedRoomsSize != null">{{item.attributes.sharedRoomsSize}} {{'ITEM_DETAILS.CONTENT.SQUARE_METER' | translate}}</div>
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="isItemShare() && item.itemDetail.flatmate != null">
+        <ion-col size="8">
+            <div>
+                <ion-label class="adCategoryTitle">{{'ITEM_DETAILS.CONTENT.CATEGORY.FLATMATE' | translate}}</ion-label>
+
+                <div class="small-content small-number-margin-start">
+                    <span>{{item.itemDetail.flatmate}}&nbsp;</span>
+                    <span class="very-small-content" *ngIf="isAdDisplay && item.itemDetail.flatmate > 1">{{'ITEM_DETAILS.CONTENT.CATEGORY.FLATMATE_AND_CANDIDATE' | translate}}</span>
+                    <span class="very-small-content" *ngIf="!isAdDisplay && item.itemDetail.flatmate > 1">{{'ITEM_DETAILS.CONTENT.CATEGORY.FLATMATE_AND_MYSELF' | translate}}</span>
+                </div>
+            </div>
+        </ion-col>
+
+        <ion-col size="4">
+            <!-- Nothing -->
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="item.attributes.rooms != null || item.attributes.size != null">
+        <ion-col size="8" *ngIf="item.attributes.rooms != null">
+            <ion-label class="adCategoryTitle">{{'ITEM_DETAILS.CONTENT.CATEGORY.FLAT_ROOMS' | translate}}</ion-label>
+
+            <div class="big-content">{{item.attributes.rooms}}</div>
+        </ion-col>
+
+        <ion-col size="4">
+            <ion-label *ngIf="item.attributes.size != null" class="adCategoryTitleSmall">{{'ITEM_DETAILS.CONTENT.CATEGORY.FLAT_SIZE' | translate}}</ion-label>
+
+            <div class="small-content" *ngIf="item.attributes.size != null">{{item.attributes.size}} {{'ITEM_DETAILS.CONTENT.SQUARE_METER' | translate}}</div>
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="item.itemDetail.bathrooms != null">
+        <ion-col size="8">
+            <div>
+                <ion-label class="adCategoryTitle">{{'ITEM_DETAILS.CONTENT.CATEGORY.BATHROOMS' | translate}}</ion-label>
+
+                <div class="small-content small-number-margin-start">{{item.itemDetail.bathrooms}}</div>
+            </div>
+        </ion-col>
+
+        <ion-col size="4">
+            <!-- Nothing -->
+        </ion-col>
+    </ion-row>
+
+    <ion-row padding-top>
+        <ion-col size="6">
+            <div [class.attributeSelected]="item.attributes.disabledFriendly" [class.attributeNotSelected]="!item.attributes.disabledFriendly">
+                <ion-icon name="checkmark" *ngIf="item.attributes.disabledFriendly"></ion-icon>
+                <ion-icon name="close" *ngIf="!item.attributes.disabledFriendly"></ion-icon>
+                <span>{{'ITEM_DETAILS.CONTENT.DISABLED_FRIENDLY' | translate}}</span>
+            </div>
+
+            <div [class.attributeSelected]="isTagBalconySelected()" [class.attributeNotSelected]="!isTagBalconySelected()">
+                <ion-icon name="checkmark" *ngIf="isTagBalconySelected()"></ion-icon>
+                <ion-icon name="close" *ngIf="!isTagBalconySelected()"></ion-icon>
+                <span>{{'ITEM_DETAILS.CONTENT.BALCONY' | translate}}</span>
+            </div>
+
+            <div [class.attributeSelected]="isParkingSelected()" [class.attributeNotSelected]="!isParkingSelected()">
+                <ion-icon name="checkmark" *ngIf="isParkingSelected()"></ion-icon>
+                <ion-icon name="close" *ngIf="!isParkingSelected()"></ion-icon>
+                <span>{{'ITEM_DETAILS.CONTENT.PARKING' | translate}}</span>
+            </div>
+
+            <div *ngIf="isItemShare()" [class.attributeSelected]="isTagCleaningAgentSelected()" [class.attributeNotSelected]="!isTagCleaningAgentSelected()">
+                <ion-icon name="checkmark" *ngIf="isTagCleaningAgentSelected()"></ion-icon>
+                <ion-icon name="close" *ngIf="!isTagCleaningAgentSelected()"></ion-icon>
+                <span>{{'ITEM_DETAILS.CONTENT.CLEANING_AGENT' | translate}}</span>
+            </div>
+        </ion-col>
+
+        <ion-col size="6">
+            <div [class.attributeSelected]="item.attributes.furnished" [class.attributeNotSelected]="!item.attributes.furnished">
+                <ion-icon name="checkmark" *ngIf="item.attributes.furnished"></ion-icon>
+                <ion-icon name="close" *ngIf="!item.attributes.furnished"></ion-icon>
+                <span>{{'ITEM_DETAILS.CONTENT.FURNISHED' | translate}}</span>
+            </div>
+
+            <div *ngIf="isItemShare()" [class.attributeSelected]="isTagInternetSelected()" [class.attributeNotSelected]="!isTagInternetSelected()">
+                <ion-icon name="checkmark" *ngIf="isTagInternetSelected()"></ion-icon>
+                <ion-icon name="close" *ngIf="!isTagInternetSelected()"></ion-icon>
+                <span>{{'ITEM_DETAILS.CONTENT.INTERNET' | translate}}</span>
+            </div>
+
+            <div *ngIf="isItemFlat()" [class.attributeSelected]="isTagGardenSelected()" [class.attributeNotSelected]="!isTagGardenSelected()">
+                <ion-icon name="checkmark" *ngIf="isTagGardenSelected()"></ion-icon>
+                <ion-icon name="close" *ngIf="!isTagGardenSelected()"></ion-icon>
+                <span>{{'ITEM_DETAILS.CONTENT.GARDEN' | translate}}</span>
+            </div>
+
+            <div *ngIf="isItemShare()" [class.attributeSelected]="item.attributes.kidsWelcomed" [class.attributeNotSelected]="!item.attributes.kidsWelcomed">
+                <ion-icon name="checkmark" *ngIf="item.attributes.kidsWelcomed"></ion-icon>
+                <ion-icon name="close" *ngIf="!item.attributes.kidsWelcomed"></ion-icon>
+                <span>{{'ITEM_DETAILS.CONTENT.KIDS_WELCOMED' | translate}}</span>
+            </div>
+
+            <div [class.attributeSelected]="item.attributes.petsAllowed" [class.attributeNotSelected]="!item.attributes.petsAllowed">
+                <ion-icon name="checkmark" *ngIf="item.attributes.petsAllowed"></ion-icon>
+                <ion-icon name="close" *ngIf="!item.attributes.petsAllowed"></ion-icon>
+                <span>{{'ITEM_DETAILS.CONTENT.PETS_ALLOWED' | translate}}</span>
+            </div>
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="isAdDisplay" margin-bottom>
+        <ion-col size="12">
+            <ion-label class="adCategoryTitleSmall" *ngIf="isItemShare()">{{'ITEM_DETAILS.CONTENT.CATEGORY.SHARED_APPLICANTS' | translate}}</ion-label>
+            <ion-label class="adCategoryTitleSmall" *ngIf="isItemFlat()">{{'ITEM_DETAILS.CONTENT.CATEGORY.FLAT_APPLICANTS' | translate}}</ion-label>
+
+            <div class="limitations small-content">
+                <ion-icon name="woman" *ngIf="isLimitationsFemale()"></ion-icon>
+                <ion-icon name="man" *ngIf="isLimitationsMale()"></ion-icon>
+
+                <span>{{item.userLimitations.age.min}} - {{item.userLimitations.age.max}}</span>
+            </div>
+        </ion-col>
+    </ion-row>
+
+</ion-grid>
+
+<ion-grid class="big-screen-content" padding-start padding-end *ngIf="item != null && category == 'neighborhood'" id="item-details-neighborhood">
+    <ion-row>
+        <ion-col size="12">
+            <ion-label class="adCategoryTitle">
+                {{'ITEM_DETAILS.CONTENT.CATEGORY.ADDRESS' | translate}}
+            </ion-label>
+
+            <div class="small-content" id="item-adress">
+                <div *ngIf="item.address.street !== ''" [class.item-adress-max-width]="item.address.street !== ''">{{item.address.street}}</div>
+                <div [class.item-adress-max-width]="item.address.street === ''">{{item.address.zip}} {{item.address.city}}</div>
+
+                <div *ngIf="externalMapUrl != null" id="item-adress-link" class="avatar-item-type">
+                    <a [href]="sanitize(externalMapUrl)" data-rel="external">
+                        <ion-icon name="map"></ion-icon>
+                    </a>
+                </div>
+            </div>
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="item.itemDetail.floor != null">
+        <ion-col size="12">
+            <app-display-floor [floor]="item.itemDetail.floor"></app-display-floor>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="12">
+            <ion-label class="adCategoryTitle">{{'ITEM_DETAILS.CONTENT.NEIGHBORHOOD' | translate}}</ion-label>
+
+            <div *ngIf="item.address.district != null" padding-bottom>{{item.address.district}}</div>
+
+            <app-google-map-item [item]="item" [yelpBusinesses]="yelpBusinesses" [refresh]="mapRefresher"></app-google-map-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="hasItemUser()">
+        <ion-col size="12">
+            <ion-item id="item-interests">
+                <app-item-interests [itemUser]="itemUser"></app-item-interests>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="12">
+            <ion-label class="adCategoryTitle">{{'ITEM_DETAILS.CONTENT.NEIGHBORHOOD_HIGHLIGHTS' | translate}}</ion-label>
+
+            <div padding text-center *ngIf="yelpBusinesses == null">
+                <ion-spinner ion-text color="primary"></ion-spinner>
+            </div>
+
+            <span *ngIf="yelpBusinesses != null && !hasYelpData()">
+                {{'ITEM_DETAILS.CONTENT.NO_NEIGHBORHOOD_HIGHLIGHTS' | translate}}
+            </span>
+
+            <ion-list *ngIf="yelpBusinesses != null && hasYelpData()" no-lines id="yelp-businesses-list">
+                <ion-item *ngFor="let yelpBusiness of yelpBusinesses | orderYelpBusinessesByDistance" text-wrap tappable (click)="openYelpModal(yelpBusiness)">
+
+                    <ion-thumbnail slot="start" text-center>
+                        <ion-icon name="pin"></ion-icon>
+                        <p no-margin>{{yelpBusiness.distance | trimDistance}}{{'CORE.METER' | translate}}</p>
+                    </ion-thumbnail>
+
+                    <ion-label>
+                        <h2>{{yelpBusiness.name}}</h2>
+
+                        <p>
+                        <span *ngFor="let category of yelpBusiness.categories; let i=index;">
+                            {{category.title}}
+                        </span>
+                        </p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-col>
+    </ion-row>
+
+</ion-grid>
+
+<div *ngIf="item != null && category == 'who'" id="item-details-who" margin-bottom class="big-screen-content">
+    <app-public-user-profile [user]="advertiser" [displaySensitive]="displaySensitive" [advertiserView]="isAdDisplay" [displayStarred]="isItemStarred()" (notifyLoaded)="setUserProfileLoaded($event)"></app-public-user-profile>
+</div>
+
+<div *ngIf="item != null && category == 'chat'" id="item-details-chat"></div>

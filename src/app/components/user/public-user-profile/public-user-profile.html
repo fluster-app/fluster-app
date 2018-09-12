@@ -1,0 +1,133 @@
+<app-public-user-profile-summary [user]="user" [displaySensitive]="displaySensitive" [displayStarred]="displayStarred"></app-public-user-profile-summary>
+
+<app-public-user-skeleton-profile [user]="user"></app-public-user-skeleton-profile>
+
+<ion-card id="school-work" no-shadow *ngIf="user != null && (hasWork() || hasEducation() || phoneShoudlBeDisplayed())">
+    <ion-list padding-start padding-end>
+        <ion-item *ngIf="hasWork()">
+            <ion-icon slot="start" name="briefcase"></ion-icon>
+            <ion-label>{{user.description.employer}}</ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="hasEducation()">
+            <ion-icon slot="start" name="school"></ion-icon>
+            <ion-label>{{user.description.school}}</ion-label>
+        </ion-item>
+
+        <a ion-item [href]="'tel:' + user.description.phone.number" *ngIf="phoneShoudlBeDisplayed()">
+            <ion-icon slot="start" name="call"></ion-icon>
+            <span>{{user.description.phone.number}}</span>
+        </a>
+    </ion-list>
+</ion-card>
+
+<ion-card id="languages" no-shadow *ngIf="languages != null">
+    <ion-card-header>
+        {{'NEW_AD.STEP_USER.I_SPEAK' | translate}}
+    </ion-card-header>
+
+    <div padding-start padding-top padding-end id="language-list">
+        <span class="language" *ngFor="let language of languages">{{language.nativeName}}</span>
+        <span class="language" *ngIf="hasMoreLanguages">{{'NEW_AD.STEP_USER.AND_MORE' | translate}}</span>
+    </div>
+</ion-card>
+
+<ion-card *ngIf="user != null && hasBio()" id="bio" no-shadow>
+    <ion-card-header>
+        {{'USER_PROFILE.PUBLIC.ABOUT_ME' | translate}}
+    </ion-card-header>
+
+    <ion-item text-wrap>
+        <p no-margin>{{user.description.bio}}</p>
+    </ion-item>
+</ion-card>
+
+<ion-card *ngIf="hasMutualLikes()" id="likes" text-wrap no-shadow>
+    <ion-card-header *ngIf="!advertiserView">
+        {{ 'USER_PROFILE.PUBLIC.MUTUAL_LIKES' | translate:{value: mutualLikes.length} }}
+    </ion-card-header>
+
+    <div padding-start padding-end *ngIf="!advertiserView">
+        <ion-badge class="spaceAfter" outline *ngFor="let like of mutualLikes">{{like}}</ion-badge>
+    </div>
+
+    <ion-card-header *ngIf="advertiserView">
+        {{ 'USER_PROFILE.MY_LIKES' | translate }}
+    </ion-card-header>
+
+    <div padding-start padding-end *ngIf="advertiserView" id="advertiserLikes">
+        {{ 'USER_PROFILE.PUBLIC.MY_LIKES' | translate:{value: mutualLikes.length} }}
+    </div>
+</ion-card>
+
+<ion-card no-shadow *ngIf="hasLifestyle()" id="lifestyle">
+    <ion-card-header>
+        {{ 'USER_PROFILE.LIFESTYLE.TITLE' | translate }}
+    </ion-card-header>
+
+    <div padding-start padding-end>
+        <ion-grid>
+            <ion-row *ngIf="hasLifestyleObjects()">
+                <ion-col size="6">
+                    <div>
+                        <ion-label class="lifestyle-title">{{lifestyle[0].label | translate}}</ion-label>
+
+                        <div><app-display-lifestyle [key]="lifestyle[0].key" [keyValue]="lifestyle[0].keyValue"></app-display-lifestyle></div>
+                    </div>
+                </ion-col>
+                <ion-col size="6" *ngIf="lifestyle.length > 1">
+                    <div>
+                        <ion-label class="lifestyle-title">{{lifestyle[1].label | translate}}</ion-label>
+
+                        <div><app-display-lifestyle [key]="lifestyle[1].key" [keyValue]="lifestyle[1].keyValue"></app-display-lifestyle></div>
+                    </div>
+                </ion-col>
+
+                <ion-col size="6" *ngIf="lifestyle.length < 2">
+                    <!-- Nothing -->
+                </ion-col>
+            </ion-row>
+
+            <ion-row padding-top *ngIf="hasLifestyleObjects() && lifestyle.length > 2">
+                <ion-col size="6">
+                    <div>
+                        <ion-label class="lifestyle-title">{{lifestyle[2].label | translate}}</ion-label>
+
+                        <div><app-display-lifestyle [key]="lifestyle[2].key" [keyValue]="lifestyle[2].keyValue"></app-display-lifestyle></div>
+                    </div>
+                </ion-col>
+
+                <ion-col size="6" *ngIf="lifestyle.length > 3">
+                    <div>
+                        <ion-label class="lifestyle-title">{{lifestyle[3].label | translate}}</ion-label>
+
+                        <div><app-display-lifestyle [key]="lifestyle[3].key" [keyValue]="lifestyle[3].keyValue"></app-display-lifestyle></div>
+                    </div>
+                </ion-col>
+
+                <ion-col size="6" *ngIf="lifestyle.length < 4">
+                    <!-- Nothing -->
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-card>
+
+<ion-card no-shadow *ngIf="user != null && hasHobbies()" id="hobbies">
+    <ion-card-header>
+        {{ 'USER_PROFILE.HOBBIES.TITLE' | translate }}
+    </ion-card-header>
+
+    <div padding-start padding-end>
+        <app-display-hobbies [hobbies]="user.description.hobbies" [gender]="user.facebook.gender"></app-display-hobbies>
+    </div>
+</ion-card>
+
+<ion-card no-shadow *ngIf="hasSpotifyEnabled()" id="spotify">
+    <ion-card-header>
+        <img src="assets/img/ico_spotify-peach3.svg">
+        {{'USER_PROFILE.SPOTIFY.TITLE' | translate}}
+    </ion-card-header>
+
+    <app-display-spotify [userSpotifyId]="user.description.spotify.spotify"></app-display-spotify>
+</ion-card>

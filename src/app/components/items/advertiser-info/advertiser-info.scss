@@ -1,0 +1,47 @@
+@import "../../../../theme/fluster-variables";
+
+ion-item.advertiser-info-item {
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    z-index: 5;
+
+    &:not(.in-list) {
+        --background: transparent;
+    }
+
+    ion-avatar, div.advertiser-starred {
+        margin-right: 0;
+
+        transition: opacity 0.5s linear;
+        opacity: 0;
+
+        &.display {
+            opacity: 1;
+        }
+    }
+
+    div {
+        &.advertiser-starred {
+            position: absolute;
+            right: 16px;
+            top: 0;
+            min-width: 4.6rem;
+            min-height: 4.6rem;
+            width: 4.6rem;
+            height: 4.6rem;
+            border-radius: 50%;
+            background: $fluster-superstar;
+
+            ion-icon {
+                color: white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 3.2rem;
+            }
+        }
+    }
+}
+

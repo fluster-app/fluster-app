@@ -1,0 +1,44 @@
+@import "../../../../../theme/fluster-variables";
+
+div.spotify-scroller {
+    padding-left: 16px;
+
+    div {
+        div.artists {
+            display: inline-flex;
+            width: 100%;
+
+            div.not-displayed {
+                opacity: 0.2;
+            }
+
+            div.hidden {
+                display: none;
+            }
+
+            div.cover {
+                width: 80px;
+                margin-right: 8px;
+
+                > div {
+                    display: flex;
+                    align-items: center;
+                    min-height: 80px;
+                }
+
+                ion-label {
+                    font-size: $fluster-text-small;
+                    font-weight: $font-weight-light;
+                    justify-content: center;
+                    display: flex;
+                    padding-top: 8px;
+                }
+
+                img {
+                    border-radius: $fluster-border-radius;
+                }
+
+            }
+        }
+    }
+}

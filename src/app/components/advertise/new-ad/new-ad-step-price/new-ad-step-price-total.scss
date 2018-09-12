@@ -1,0 +1,15 @@
+@import "../../../../../theme/fluster-variables";
+
+#adPriceTotal {
+    background-color: transparent;
+    border-color: transparent;
+    margin-top: 0;
+
+    ion-label {
+        font-weight: $font-weight-light;
+
+        .totalValue {
+            color: $fluster-peach3;
+        }
+    }
+}

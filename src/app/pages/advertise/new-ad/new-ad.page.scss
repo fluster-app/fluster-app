@@ -1,0 +1,11 @@
+:host {
+  // Allow scrolling with slide
+  .swiper-slide {
+    overflow-y: scroll;
+    display: block;
+  }
+}
+
+ion-slides {
+  height: 100%;
+}

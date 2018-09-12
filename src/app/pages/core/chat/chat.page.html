@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <div tappable (click)="openInformation()">
+      <app-toolbar-user-title [display]="isInitialized()" [facebook]="getTitleUserFacebook()" [google]="getTitleUserGoogle()"></app-toolbar-user-title>
+    </div>
+
+    <ion-buttons slot="end" *ngIf="isInitialized()">
+      <ion-button (click)="presentActionSheet($event)">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [attr.role]="isAdDisplay ? 'ad' : 'browse'" id="chat-content" padding [scrollEvents]="true" (ionScroll)="scrollTopFindChatMessages($event)">
+
+  <div padding text-center *ngIf="!isInitialized() || loading">
+    <ion-spinner ion-text color="primary"></ion-spinner>
+  </div>
+
+  <div id="chatNoMessagesYet" *ngIf="isInitialized() && hasNoMessages() && getTitleUserFacebook() != null" tappable (click)="openInformation()" padding-start padding-end text-center>
+    <ion-avatar class="big-avatar">
+      <app-user-profile-img [facebook]="getTitleUserFacebook()" [google]="getTitleUserGoogle()"></app-user-profile-img>
+
+      <div class="user-highlight user-highlight-candidate-starred" *ngIf="otherUserStarred">
+        <ion-icon name="md-star"></ion-icon>
+      </div>
+    </ion-avatar>
+
+    <h2>
+      {{ 'CHAT.NO_MSG_TEXT' | translate:{who: getTitleUserFacebook().firstName} }}
+    </h2>
+  </div>
+
+  <div id="chatToReschedule" *ngIf="isAdDisplay && isInitialized() && hasNoMessages() && (isApplicantReschedule() || isApplicantAcceptedInTheFuture())" padding text-center text-wrap class="below-navbar-info">
+    <h2 *ngIf="isApplicantReschedule()">{{'CHAT.TO_RESCHEDULE' | translate}}</h2>
+    <h2 *ngIf="isApplicantAcceptedInTheFuture()">{{'CHAT.ACCEPTED' | translate}}</h2>
+    <div></div>
+  </div>
+
+  <div *ngIf="isInitialized()" id="chatMessages" margin-bottom [class.hidden]="!scrollToBottomDone" class="big-screen-content">
+    <div *ngFor="let chatMessage of chatMessages; let i=index; let last = last;">
+      <div *ngFor="let message of chatMessage.messages">
+        <div class="message-date" *ngIf="isChatDateToBeDisplayed(i)">
+          <app-display-date [displayDate]="message.createdAt" [pattern]="'LL'"></app-display-date>
+        </div>
+
+        <div class="msg {{userMsgClass(chatMessage)}}">
+          <ion-badge padding>
+            <p class="message-content">{{message.message}}</p>
+
+            <div class="message-time">
+              <app-display-date [displayDate]="message.updatedAt" [pattern]="'LT'"></app-display-date>
+              <ion-icon name="checkmark" [class.read]="chatMessage.read"></ion-icon>
+            </div>
+          </ion-badge>
+        </div>
+      </div>
+      {{scrollToBottomOnInit(last)}}
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer [attr.role]="isAdDisplay ? 'ad' : 'browse'">
+  <ion-toolbar padding-start padding-end *ngIf="isInitialized()">
+    <ion-item>
+      <textarea #msgInput id="msgInput" spellcheck="true" autocomplete="on" rows="1" maxLength="500" (keyup)="resizeTextarea()" [(ngModel)]="message"></textarea>
+    </ion-item>
+
+    <ion-buttons slot="end" no-shadow padding-start>
+      <ion-button *ngIf="!sendingMsg && lastMsgUpdated" [disabled]="isMessageEmpty()" (click)="sendMessage()" color="primary">
+        <ion-icon slot="icon-only" name="send"></ion-icon>
+      </ion-button>
+
+      <ion-spinner *ngIf="sendingMsg || !lastMsgUpdated" ion-text color="primary"></ion-spinner>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

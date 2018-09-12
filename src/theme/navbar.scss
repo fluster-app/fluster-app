@@ -1,0 +1,48 @@
+ion-header ion-toolbar {
+
+  @include fluster-linear-gradient-variable(to right, $fluster-peach1, $fluster-peach3);
+  --ion-toolbar-text-color: white;
+  --ion-color-base: white;
+  text-transform: uppercase;
+
+  ion-content, ion-title {
+    letter-spacing: 0.3rem;
+  }
+
+  ion-button {
+    --color: white;
+  }
+
+  ion-back-button[class*="sc-ion-back-button"] {
+    --ion-color-base: white;
+  }
+
+  ion-buttons[class*="sc-ion-buttons-ios"] {
+    ion-button.custom-back-button {
+      margin-left: -2px;
+      --padding-start: 0;
+      --padding-end: 0;
+
+      ion-icon {
+        font-size: 1.85em;
+      }
+    }
+  }
+
+  ion-buttons[class*="sc-ion-buttons-md"] {
+    ion-button.custom-back-button {
+      --padding-start: 5px;
+      --padding-end: 5px;
+      --margin-end: 6px;
+
+      ion-icon {
+        padding-right: .3em;
+        margin: 0 6px;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: .67;
+        text-align: start;
+      }
+    }
+  }
+}

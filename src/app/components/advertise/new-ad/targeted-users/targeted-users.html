@@ -1,0 +1,10 @@
+<div class="targetedUsers">
+    <ion-icon slot="start" color="primary" name="person"></ion-icon>
+    <span class="targetedUsersCount" *ngIf="countTargetedUsers < MIN_TARGETED_USERS">&#60;50</span>
+    <span class="targetedUsersCount" *ngIf="countTargetedUsers >= MIN_TARGETED_USERS && countTargetedUsers < MAX_TARGETED_USERS">{{countTargetedUsers}}</span>
+    <span class="targetedUsersCount" *ngIf="countTargetedUsers >= MAX_TARGETED_USERS">&#62;1&#39;000</span>
+    <span class="targetedUsersCount"> {{'TARGETED_USERS.PERSONS' | translate}} </span>
+    <span *ngIf="msgLocation">{{'TARGETED_USERS.USERS_MATCHING_LOCATION.IN_THIS_AREA' | translate}}</span>
+    <span *ngIf="!msgLocation && isItemShare()">{{'TARGETED_USERS.USERS_MATCHING_ITEM.SHARE' | translate}}</span>
+    <span *ngIf="!msgLocation && isItemFlat()">{{'TARGETED_USERS.USERS_MATCHING_ITEM.FLAT' | translate}}</span>
+</div>

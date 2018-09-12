@@ -1,0 +1,261 @@
+ion-content {
+    // How to: https://github.com/ionic-team/ionic/issues/14801
+    --facebook: #{$facebook};
+    --google: #{$google};
+
+    --progress-bar-background-active: #{$fluster-peach3};
+}
+
+// menu
+
+ion-content[role="menuad"], ion-content[role="menubrowse"] {
+    ion-list {
+        ion-menu-toggle {
+            ion-item {
+                --background: transparent;
+                font-size: 2.6rem;
+                font-weight: $font-weight-light;
+
+                &.activated {
+                    color: $fluster-peach3;
+                    --background: transparent;
+                }
+
+                ion-label {
+
+                    @include iphone4 {
+                        font-size: 2.2rem;
+                    }
+
+                    @include iphone5 {
+                        font-size: 2.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ion-list & searchbar
+
+ion-searchbar[class*="sc-ion-searchbar"] {
+    padding-left: 0;
+    padding-right: 0;
+
+    .searchbar-input-container {
+        height: 44px;
+
+        input.searchbar-input {
+            border-radius: 0;
+            box-shadow: none;
+            font-size: $fluster-text-big;
+            font-weight: $font-weight-normal;
+        }
+    }
+}
+
+.searchbar-has-focus {
+    border-bottom: 1px solid $fluster-peach3;
+
+    ion-icon {
+        color: $fluster-peach3;
+    }
+}
+
+// Link a
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+// Loading
+ion-loading {
+    --ion-background-color-step-50: transparent;
+    --ion-text-color: #{$fluster-peach3};
+    --ion-text-color-step-150: #{$fluster-peach3};
+
+    &[class*="loading"] div.loading-wrapper {
+        box-shadow: none;
+    }
+}
+
+ion-app.app-ios ion-content, ion-app.app-md ion-content, ion-content {
+
+    h1 {
+        color: $fluster-peach3;
+        font-size: 3.2rem;
+
+        ion-icon {
+            padding-left: 1rem;
+            vertical-align: text-top;
+        }
+
+        @include ipad {
+            font-size: 3.4rem;
+        }
+
+        @include nexus7 {
+            font-size: 3.4rem;
+        }
+    }
+
+    h2 {
+        font-size: 2.2rem;
+
+        @include ipad {
+            font-size: 3.0rem;
+        }
+
+        @include nexus7 {
+            font-size: 3.0rem;
+        }
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    h1, h2, h3, [class*="sc-ion-label"] h1 {
+        font-weight: $font-weight-light;
+        margin-top: inherit;
+    }
+
+    ion-list-header.item {
+        text-transform: inherit;
+        color: inherit;
+    }
+}
+
+ion-content[role="browse"], ion-content[role="ad"] {
+    ion-card {
+        background-color: inherit;
+        border-color: inherit;
+        --color: inherit;
+
+        &:not([no-margin]) {
+
+            &.sc-ion-card-ios-h {
+                margin: 12px;
+            }
+
+            &.sc-ion-card-md-h {
+                margin: 10px;
+            }
+        }
+
+        ion-item:not(.in-list) {
+            background-color: inherit;
+            border-color: inherit;
+            --background: inherit;
+        }
+    }
+
+    ion-item.in-list, ion-item-group ion-item {
+        margin-bottom: 3px;
+    }
+
+    ion-item {
+        width: 100%;
+
+        ion-label[position="fixed"], &.item-toggle ion-label {
+            font-weight: $font-weight-light;
+        }
+    }
+
+    ion-card[no-shadow] {
+        box-shadow: none;
+    }
+
+    ion-list {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    ion-list ion-input {
+        font-size: $fluster-text-big;
+
+        &.has-focus:not(.ng-invalid) {
+            box-shadow: inset 0 -1px 0 0 $fluster-peach3;
+        }
+
+        &.ng-invalid {
+            box-shadow: inset 0 -1px 0 0 $fluster-danger;
+        }
+    }
+
+    ion-label, ion-label[text-wrap] {
+        font-size: $fluster-text-big;
+
+        &.small-label {
+            font-size: $fluster-text-normal;
+        }
+    }
+
+    a[ion-item] {
+        div.item-inner {
+            background-image: none;
+            margin-left: 12px;
+        }
+    }
+
+    ion-searchbar {
+        --color-icon: #{$fluster-peach3}
+    }
+
+    p {
+        font-weight: $font-weight-light;
+    }
+}
+
+ion-content, ion-header {
+    ion-badge {
+        &.spaceAfter {
+            margin-right: 0.2rem;
+        }
+
+        &[round] {
+            padding: 6px;
+            border-radius: 50%;
+            min-width: 26px;
+        }
+    }
+}
+
+// Swiper
+
+// TODO: https://github.com/ionic-team/ionic/issues/14984
+div.swiper-pagination.swiper-pagination-progressbar {
+    top: inherit;
+    bottom: 0;
+}
+
+// Fixed content
+
+[ion-fixed] {
+    width: 100%;
+
+    ion-slides {
+        ion-slide {
+            width: 100%;
+        }
+    }
+}
+
+// ion-item-sliding
+
+ion-list ion-item-sliding {
+    ion-item-options {
+
+        ion-item-option {
+            min-width: 120px;
+        }
+
+    }
+}
+
+ion-list ion-item-sliding.item-wrapper:last-child {
+    ion-item.item.item-block {
+        border-bottom: inherit;
+    }
+}

@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>FLUSTER</ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button (click)="close()">
+                <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding [attr.role]="isAdDisplay ? 'ad' : 'browse'">
+
+    <ion-searchbar (ionInput)="search($event)"
+                   autocomplete="on" autocorrect="on" spellcheck="true" debounce="300"
+                   placeholder="{{'SELECT_LANGUAGES.PLACEHOLDER' | translate}}" margin-bottom
+                   clearIcon="close-circle" searchIcon="search"
+    ></ion-searchbar>
+
+    <div padding text-center *ngIf="languages == null">
+        <ion-spinner ion-text color="primary"></ion-spinner>
+    </div>
+
+    <ion-list *ngIf="languages != null">
+        <ion-item *ngFor="let language of languages">
+            <ion-checkbox slot="start" [(ngModel)]="language.selected" (click)="selectLang(language)"></ion-checkbox>
+            <ion-label>{{language.language.nativeName}}</ion-label>
+        </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll *ngIf="languages != null && !isLastPageReached()"
+                         (ionInfinite)="nextLanguages($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

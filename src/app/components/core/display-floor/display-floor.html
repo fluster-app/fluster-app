@@ -1,0 +1,3 @@
+<span *ngIf="floor < 0">{{'SELECT_ATTRIBUTES.FLOOR_UNDERGROUND' | translate}}</span>
+<span *ngIf="floor == 0">{{'SELECT_ATTRIBUTES.FLOOR_GROUND_FLOOR' | translate}}</span>
+<span *ngIf="floor > 0">{{floor}}</span>&nbsp;<span *ngIf="floor > 0 && displayText">{{'SELECT_ATTRIBUTES.FLOOR' | translate}}</span>

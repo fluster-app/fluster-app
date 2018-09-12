@@ -1,0 +1,129 @@
+.notification-full-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: black;
+    opacity: 0.98;
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    z-index: 6;
+    -webkit-transform: translate3d(0,0,6px);
+    transform: translate3d(0,0,6px);
+
+    &.hidden {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 1s, opacity 1s linear;
+    }
+
+    .notification-full-screen-text {
+        position: absolute;
+        top: 22%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+
+        h1 {
+            text-transform: uppercase;
+        }
+
+        h2, h3 {
+            color: white;
+        }
+    }
+
+    .notification-full-screen-close {
+        font-size: 5.2rem;
+        position: absolute;
+        bottom: 11%;
+        right: 50%;
+        transform: translate(50%, 0);
+
+        ion-icon {
+            color: white;
+        }
+    }
+
+    .notification-details {
+        padding-top: 16px;
+
+        span, p, div {
+            color: $fluster-peach3;
+            font-size: $fluster-text-big;
+        }
+
+        ion-icon {
+            color: white;
+            font-size: 5rem;
+        }
+    }
+}
+
+// Chat notifications
+ion-content[role="browse"], ion-content[role="ad"] {
+
+    ion-card.applicant, ion-card.my-item {
+        ion-item {
+            ion-note, ion-note span {
+                font-size: $fluster-text-small;
+                align-self: flex-start;
+                margin-top: 14px;
+                color: inherit;
+                font-weight: $font-weight-light;
+
+                div {
+                    &.notificationBadge {
+                        position: absolute;
+                        top: 44px;
+                        right: 14px;
+
+                        ion-badge {
+                            color: white;
+                        }
+
+                        &.notificationBadgeRound {
+                            width: 3.2rem;
+                            height: 3.2rem;
+                            background-color: $fluster-peach3;
+                            border-radius: 50%;
+
+                            ion-icon {
+                                font-size: 2.4rem;
+                                color: white;
+                                transform: translate(-50%, -50%);
+                                top: 50%;
+                                left: 50%;
+                                position: absolute;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+div.below-navbar-info {
+    h1, h2 {
+        font-family: 'Shadows Into Light';
+        color: $fluster-peach1;
+    }
+
+    h2 {
+        position: absolute;
+        top: 14vh;
+        right: 86px;
+        text-align: right;
+    }
+
+    div {
+        border-right: 3px solid $fluster-peach1;
+        height: 30px;
+        width: 40px;
+        border-radius: 0 0 100%;
+        position: absolute;
+        right: 32px;
+        top: 11vh;
+    }
+}

@@ -1,0 +1,67 @@
+@import "../../../../../theme/fluster-variables";
+
+#applicant-selected {
+
+  ion-card-header {
+    font-size: $fluster-text-normal;
+    color: $fluster-peach3;
+    font-weight: $font-weight-light;
+    padding-top: 0;
+  }
+
+  p {
+    color: white;
+  }
+
+}
+
+ion-card, ion-card.card-md {
+  p {
+    font-weight: $font-weight-light;
+  }
+}
+
+.appointments-text-new {
+  color: inherit;
+}
+
+.appointments-text-accepted {
+  color: $fluster-peach3;
+}
+
+.appointments-text-cancelled {
+  color: $fluster-grey-blue;
+}
+
+.appointments-text-to-reschedule {
+  color: $fluster-peach2;
+}
+
+#actions-buttons {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+
+  app-big-button:first-of-type {
+    margin-right: 24px;
+  }
+
+  button.small-button {
+    margin-right: 24px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid $fluster-grey-blue;
+
+    &.activated {
+      background: white;
+      border: 1px solid $fluster-grey-blue;
+      color: initial;
+    }
+  }
+}
+
+#newApplicantTitle {
+  padding-top: 4px;
+}

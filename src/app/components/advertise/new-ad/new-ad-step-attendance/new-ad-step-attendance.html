@@ -1,0 +1,31 @@
+<div class="flex-content big-screen-content" (swipe)="swipeSlide($event)" padding-start padding-end>
+    <ion-grid class="flex-grid">
+        <ion-row>
+            <ion-col size="12">
+                <h1 text-center margin-bottom>{{'NEW_AD.STEP_ATTENDANCE.TITLE' | translate}}</h1>
+
+                <h2 text-center>{{'NEW_AD.STEP_ATTENDANCE.SUB_TITLE' | translate}}</h2>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="6" text-center>
+                <app-big-button (clicked)="single()" [adDisplay]="true"
+                                [bigButtonAds]="true" [bigButtonDisabled]="!isSinglePicked && isMultiplePicked"
+                                [icon]="'person'" [label]="'NEW_AD.STEP_ATTENDANCE.SINGLE'">
+                </app-big-button>
+            </ion-col>
+
+            <ion-col size="6" text-center>
+                <app-big-button (clicked)="multiple()" [adDisplay]="true"
+                                [bigButtonAds]="true" [bigButtonDisabled]="isSinglePicked && !isMultiplePicked"
+                                [icon]="'people'" [label]="'NEW_AD.STEP_ATTENDANCE.MULTIPLE'">
+                </app-big-button>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <!-- Nothing -->
+        </ion-row>
+    </ion-grid>
+</div>

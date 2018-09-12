@@ -1,0 +1,51 @@
+@import "../../../../theme/fluster-variables";
+@import "../../../../theme/media-queries";
+
+#item-summary-availability, #item-summary-flat-content, #item-summary-share-content, #item-summary-type-flat, #item-summary-type-share-text, #item-summary-type-share-text-empty, #item-summary-type-share-notext, #item-summary-city {
+    padding-bottom: 6px;
+    margin-bottom: 0;
+    margin-top: 0;
+
+    span:not(.label-singular-plural) {
+        margin-right: 0.2rem;
+    }
+
+    .item-price {
+        color: $fluster-peach3;
+    }
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#item-summary-flat-content, #item-summary-share-content {
+    font-weight: $font-weight-bold;
+    margin-top: 12px;
+}
+
+#item-summary-availability, #item-summary-type-flat, #item-summary-type-share-text, #item-summary-type-share-text-empty, #item-summary-type-share-notext, #item-summary-city {
+    font-weight: $font-weight-light;
+}
+
+#item-summary-flat-content, #item-summary-share-content, #item-summary-availability, #item-summary-type-flat, #item-summary-type-share-text, #item-summary-type-share-text-empty, #item-summary-type-share-notext, #item-summary-city {
+    font-size: $fluster-text-normal;
+
+    @include nexus5 {
+        font-size: $fluster-text-small;
+    }
+}
+
+@include iphone4 {
+    #item-summary-city, #item-summary-availability {
+        display: none;
+    }
+}
+
+#item-summary-share-content.bookmark, #item-summary-flat-content.bookmark {
+    margin-top: 0;
+    font-weight: $font-weight-light;
+}
+
+#item-summary-availability.bookmark, #item-summary-city.bookmark {
+    font-size: 1.2rem;
+}

@@ -1,0 +1,50 @@
+@import "../../../../theme/fluster-variables";
+
+ion-slides, #loading-spinner {
+    height: 36rem;
+}
+
+#yelp-details {
+    ion-card-header, ion-card-content {
+        padding: 0;
+
+        ion-item {
+            background-color: inherit;
+        }
+    }
+
+    #yelp-address {
+        ion-label {
+            color: inherit;
+            font-size: $fluster-text-normal;
+        }
+
+        #yelp-phone {
+            display: flex;
+            align-items: center;
+
+            ion-icon {
+                margin-right: 4px;
+            }
+        }
+    }
+}
+
+#yelp-map-section {
+    padding-top: 4px;
+
+    #yelp-distance {
+        color: $fluster-peach3;
+    }
+}
+
+.label-title {
+    color: $fluster-peach3;
+    font-weight: $font-weight-light;
+}
+
+#yelp-evaluation {
+    ion-icon, span {
+        font-size: 4rem;
+    }
+}

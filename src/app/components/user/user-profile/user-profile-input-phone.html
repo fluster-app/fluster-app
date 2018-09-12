@@ -1,0 +1,8 @@
+<ion-item id="userProfileInputPhone">
+    <ion-icon name="call" slot="start"></ion-icon>
+    <ion-input type="tel" [(ngModel)]="user.description.phone.number" placeholder="{{'USER_PROFILE.PLACEHOLDER_PHONE' | translate}}"></ion-input>
+</ion-item>
+
+<ion-item text-wrap id="phoneNotDisplayedInfo">
+    <p>{{'ITEM_APPOINTMENTS.MISSING_PHONE.REMARK_OPTIONAL' | translate}}</p>
+</ion-item>

@@ -1,0 +1,57 @@
+<div padding-start padding-end class="new-ad-container big-screen-content">
+    <div class="new-ad-content" (swipe)="swipeSlide($event)">
+        <h1 text-center class="padding-top-big">{{'NEW_AD.STEP_AVAILABILITY.TITLE' | translate}}</h1>
+
+        <h2 *ngIf="isItemFlat()" text-center>{{'NEW_AD.STEP_AVAILABILITY.SUB_TITLE_FLAT' | translate}}</h2>
+
+        <h2 *ngIf="isItemShare()" text-center>{{'NEW_AD.STEP_AVAILABILITY.SUB_TITLE_SHARE' | translate}}</h2>
+
+        <ion-list class="padding-top-big">
+
+            <ion-item [class.item-toggle-checked]="availableNow" class="item-toggle">
+                <ion-label *ngIf="availableNow">{{'NEW_AD.STEP_AVAILABILITY.AVAILABLE_NOW' | translate}}</ion-label>
+                <ion-label *ngIf="!availableNow">{{'NEW_AD.STEP_AVAILABILITY.AVAILABLE_BEGIN' | translate}}</ion-label>
+                <ion-toggle [checked]="availableNow" (ionChange)="updateAvailableNow()"></ion-toggle>
+            </ion-item>
+
+            <ion-item *ngIf="!isBeginDateSelected() && !availableNow" tappable (click)="openModal(true)" class="fluster-text-input-placeholder">
+                <ion-icon name="calendar" slot="start"></ion-icon>
+                <ion-label>{{'NEW_AD.STEP_AVAILABILITY.PICK_DATE' | translate}}</ion-label>
+            </ion-item>
+
+            <ion-item *ngIf="isBeginDateSelected() && !availableNow" tappable (click)="openModal(true)">
+                <ion-icon name="calendar" slot="start"></ion-icon>
+                <ion-label><app-display-date [displayDate]="newItem.attributes.availability.begin"></app-display-date></ion-label>
+            </ion-item>
+
+            <ion-item [class.item-toggle-checked]="unlimited" class="item-toggle">
+                <ion-label *ngIf="unlimited">{{'NEW_AD.STEP_AVAILABILITY.UNLIMITED' | translate}}</ion-label>
+                <ion-label *ngIf="!unlimited">{{'NEW_AD.STEP_AVAILABILITY.AVAILABLE_END' | translate}}</ion-label>
+                <ion-toggle [checked]="unlimited"  (ionChange)="updateUnlimited()"></ion-toggle>
+            </ion-item>
+
+            <ion-item *ngIf="!isEndDateSelected() && !unlimited" tappable (click)="openModal(false)" class="fluster-text-input-placeholder">
+                <ion-icon name="calendar" slot="start"></ion-icon>
+                <ion-label>{{'NEW_AD.STEP_AVAILABILITY.PICK_DATE' | translate}}</ion-label>
+            </ion-item>
+
+            <ion-item *ngIf="isEndDateSelected() && !unlimited" tappable (click)="openModal(false)">
+                <ion-icon name="calendar" slot="start"></ion-icon>
+                <ion-label><app-display-date [displayDate]="newItem.attributes.availability.end"></app-display-date></ion-label>
+            </ion-item>
+
+        </ion-list>
+    </div>
+
+    <div class="new-ad-buttons" (swipe)="swipeSlide($event)">
+
+        <app-targeted-users [item]="newItem"
+                        [msgLocation]="false">
+        </app-targeted-users>
+
+        <ion-button expand="full" shape="round" class="new-ad-buttons-flex" (click)="next()" [disabled]="!isNextAllowed()">
+            {{'CORE.NEXT' | translate}}
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        </ion-button>
+    </div>
+</div>

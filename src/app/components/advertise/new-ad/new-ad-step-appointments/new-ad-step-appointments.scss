@@ -1,0 +1,18 @@
+@import "../new-ad.component";
+
+:host {
+    overflow-x: hidden;
+}
+
+div.slide-zoom {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+div.new-ad-content {
+    height: 100%;
+}
+
+div.new-ad-buttons {
+    z-index: 1;
+}

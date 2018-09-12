@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar>
+
+        <ion-buttons slot="start">
+            <ion-button (click)="close()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title><app-display-date [displayDate]="initDate" [pattern]="'MMMM YYYY'"></app-display-date></ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button (click)="prevMonth()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+
+            <ion-button (click)="nextMonth()">
+                <ion-icon name="arrow-forward"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+
+    <ion-toolbar class="calendar-day-names" padding-start padding-end>
+        <div class="toolbar-content">
+            <span>{{'CORE.DAY_ABBREVIATION.SHORT.MONDAY' | translate}}</span>
+            <span>{{'CORE.DAY_ABBREVIATION.SHORT.TUESDAY' | translate}}</span>
+            <span>{{'CORE.DAY_ABBREVIATION.SHORT.WEDNESDAY' | translate}}</span>
+            <span>{{'CORE.DAY_ABBREVIATION.SHORT.THURSDAY' | translate}}</span>
+            <span>{{'CORE.DAY_ABBREVIATION.SHORT.FRIDAY' | translate}}</span>
+            <span>{{'CORE.DAY_ABBREVIATION.SHORT.SATURDAY' | translate}}</span>
+            <span>{{'CORE.DAY_ABBREVIATION.SHORT.SUNDAY' | translate}}</span>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [attr.role]="isAdDisplay ? 'ad' : 'browse'" [scrollY]="false">
+
+    <div class="swipe-container" (swipe)="swipeSlide($event)">
+        <div class="calendar-days" padding>
+            <div *ngFor="let d of days; let i = index;" class="day">
+                <div *ngIf="d.enabled" tappable (click)="selectDate($event, i, d)"
+                     [class.today]="d.today"
+                     [class.is-active]="d.selected" [class.is-clicked]="d.clicked">{{ d.day }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

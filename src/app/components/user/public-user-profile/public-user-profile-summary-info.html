@@ -1,0 +1,9 @@
+<div *ngIf="user != null" [class.advertiser-info]="advertiserInfoDisplay">
+    <h1 text-nowrap>{{user.facebook.firstName}} <span id="display-last-name" *ngIf="lastNameShoudlBeDisplayed()">{{user.facebook.lastName}}</span></h1>
+    <p *ngIf="user.facebook.birthday != null" class="user-age" no-margin>{{getAge()}} {{'CORE.YEARS_OLD' | translate}}</p>
+
+    <p *ngIf="hasLocation() && displayLocation" class="user-location" no-margin>
+        <ion-icon name="pin" slot="start"></ion-icon>
+        {{getLocation()}}
+    </p>
+</div>

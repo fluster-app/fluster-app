@@ -1,0 +1,83 @@
+@import "../../../../../theme/fluster-variables";
+@import "../../../../../theme/media-queries";
+@import "../../../../../theme/mixins";
+
+div.date-picker-scroller {
+    div.date-picker {
+        div.appointment-empty {
+            opacity: 0.2;
+        }
+
+        div.disabled-date p {
+            color: $fluster-dark-blue;
+        }
+    }
+}
+
+#datePickerScrollY {
+    height: 40%;
+
+    ion-list {
+        margin-bottom: 0;
+
+        ion-item {
+
+            p {
+                font-size: $fluster-text-big;
+                color: $fluster-grey-blue;
+
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                width: 100%;
+
+                &.appointment-selected {
+                    color: $fluster-peach3;
+                    font-weight: $font-weight-bold;
+                }
+
+                ion-icon {
+                    vertical-align: middle;
+                    color: inherit;
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+}
+
+@include iphone4 {
+    #datePickerScrollY {
+        height: 28%;
+        margin-bottom: 10px;
+    }
+}
+
+@include iphone5 {
+    #datePickerScrollY {
+        height: 36%;
+        margin-bottom: 10px;
+    }
+}
+
+@include nexus5 {
+    div#datePickerScrollY {
+        height: 34%;
+        margin-bottom: 10px;
+    }
+}
+
+#displaySelectedAppointment {
+    font-size: $fluster-text-normal;
+    font-weight: $font-weight-light;
+    min-height: 16px;
+    height: 16px;
+
+    strong {
+        color: $fluster-peach3;
+    }
+}
+
+div.date-picker-actions {
+    z-index: 1;
+}

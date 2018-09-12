@@ -1,0 +1,34 @@
+@import "../../../../theme/fluster-variables";
+
+#actions-buttons {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 64px;
+
+  button {
+    background: $fluster-superstar;
+    border: 1px solid $fluster-superstar;
+
+    ion-icon {
+      color: white;
+      padding-bottom: 4px;
+    }
+
+    &.activated {
+      background: white;
+
+      ion-icon {
+        color: $fluster-superstar;
+      }
+    }
+  }
+}
+
+h3 {
+  &.action-info {
+    padding-top: 0;
+    padding-left: 32px;
+  }
+}

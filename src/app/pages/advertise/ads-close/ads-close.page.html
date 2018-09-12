@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>{{'ADS_CLOSE.TITLE' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="ad" [fullscreen]="true">
+
+  <div class="big-screen-content">
+      <div padding text-center *ngIf="applicants == null">
+        <ion-spinner ion-text color="primary"></ion-spinner>
+      </div>
+
+      <p text-center padding *ngIf="applicants != null && isItemFlat()">{{'ADS_CLOSE.TEXT_FLAT' | translate}}</p>
+
+      <p text-center padding *ngIf="applicants != null && isItemShare()">{{'ADS_CLOSE.TEXT_SHARE' | translate}}</p>
+
+      <ion-card *ngFor="let applicant of applicants" no-shadow tappable (click)="closeItem(applicant)" class="applicant">
+        <ion-item>
+          <ion-avatar slot="start" class="big-avatar">
+            <app-user-profile-img [facebook]="applicant.user.facebook" [google]="applicant.user.google"></app-user-profile-img>
+          </ion-avatar>
+
+          <h1>{{applicant.user.facebook.firstName}}</h1>
+        </ion-item>
+      </ion-card>
+
+      <ion-card no-shadow tappable (click)="closeItem(null)" class="applicant" id="none-of-the-applicant" *ngIf="lastPageReached">
+        <ion-item text-wrap>
+          <ion-avatar slot="start" class="big-avatar">
+            <img [src]="noneOfTheApplicantIcon"/>
+          </ion-avatar>
+
+          <p>{{'ADS_CLOSE.NO_ONE' | translate}}</p>
+        </ion-item>
+      </ion-card>
+  </div>
+
+</ion-content>

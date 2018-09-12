@@ -1,0 +1,31 @@
+@import "../../../../../theme/fluster-variables";
+
+ion-grid > ion-row:first-child {
+    ion-label {
+        margin-top: 0;
+    }
+}
+
+#item-summary-row {
+    padding-top: 12px;
+}
+
+#advertiser-info {
+    padding: 0;
+    background-color: transparent;
+    border-color: transparent;
+
+    div.item-inner {
+        padding-right: 0;
+    }
+}
+
+#advertiser-info {
+    ion-label {
+        margin: 0;
+
+        h1 {
+            color: inherit;
+        }
+    }
+}

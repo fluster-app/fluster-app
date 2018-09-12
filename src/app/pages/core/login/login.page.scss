@@ -1,0 +1,88 @@
+@import "../../../../theme/mixins";
+@import "../../../../theme/media-queries";
+@import "../../../../theme/fluster-variables";
+
+ion-header {
+  display: none;
+}
+
+ion-content {
+  padding: 0;
+  overflow-y: hidden;
+
+  @include iphone4 {
+    overflow-y: inherit;
+  }
+
+  @include iphone5 {
+    overflow-y: inherit;
+  }
+
+  @include nexus5 {
+    overflow-y: inherit;
+  }
+
+  @include galaxyS5 {
+    overflow-y: inherit;
+  }
+
+  ion-slides {
+
+    ion-slide {
+      height: 70vh;
+      @include fluster-linear-gradient(to bottom right, $fluster-peach1, $fluster-peach3);
+
+      div.slide-text {
+        color: white;
+        width: 100%;
+        min-height: 16vh;
+        font-weight: $font-weight-light;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: flex-start;
+      }
+
+      img {
+        height: 56vh;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+  }
+}
+
+#login-actions-informations {
+
+  #login-actions-section {
+    padding-top: 8px;
+
+    ion-button:first-of-type {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+#login-session-expired {
+  color: $fluster-peach3;
+  background-color: white;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 4px;
+}
+
+#legal {
+  font-weight: $font-weight-light;
+
+  a {
+    color: $fluster-dark-blue;
+  }
+
+}

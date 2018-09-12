@@ -1,0 +1,12 @@
+<ion-card class="user-profile" no-shadow *ngIf="!user" padding-top>
+    <ion-item text-wrap>
+        <ion-avatar slot="start" class="big-avatar">
+            <app-user-profile-img></app-user-profile-img>
+        </ion-avatar>
+
+        <div>
+            <ion-skeleton-text></ion-skeleton-text>
+            <ion-skeleton-text></ion-skeleton-text>
+        </div>
+    </ion-item>
+</ion-card>

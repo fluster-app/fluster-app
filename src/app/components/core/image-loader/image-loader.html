@@ -1,0 +1,3 @@
+<ion-spinner *ngIf="!loaded" ion-text color="primary"></ion-spinner>
+
+<img [class.not-visible]="!loaded" (load)="imageLoaded()" [src]="src" (dragstart)="preventDrag($event)"/>

@@ -1,0 +1,92 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="close()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title>FLUSTER</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [attr.role]="isAdDisplay ? 'ad' : 'browse'">
+
+    <div id="loading-spinner" padding text-center *ngIf="yelpImages == null">
+        <ion-spinner ion-text color="primary"></ion-spinner>
+    </div>
+
+    <ion-slides #yelpSlider pager="true" *ngIf="yelpImages != null">
+        <ion-slide *ngFor="let yelpImgUrl of yelpImages;">
+            <app-image-loader [src]="yelpImgUrl"></app-image-loader>
+        </ion-slide>
+    </ion-slides>
+
+    <ion-card text-center text-wrap *ngIf="yelpBusiness != null" id="yelp-details" no-shadow>
+        <ion-card-header text-center>
+            <h1>{{yelpBusiness.name}}</h1>
+        </ion-card-header>
+
+        <ion-card-content>
+            <p padding-top margin-bottom>
+                <ion-badge class="spaceAfter" outline *ngFor="let category of yelpBusiness.categories; let i=index;">
+                    {{category.title}}
+                </ion-badge>
+            </p>
+
+            <div padding text-left id="yelp-address">
+                <div>
+                    <ion-label no-margin>{{yelpBusiness.location.address1}}</ion-label>
+                    <ion-label no-margin>{{yelpBusiness.location.address2}}</ion-label>
+                    <ion-label no-margin>{{yelpBusiness.location.address3}}</ion-label>
+                    <ion-label no-margin>{{yelpBusiness.location.zip_code}} {{yelpBusiness.location.city}}</ion-label>
+                </div>
+
+                <a ion-item *ngIf="hasPhone()" [href]="'tel:' + yelpBusiness.phone" id="yelp-phone">
+                    <ion-icon slot="start" name="call"></ion-icon>
+                    <ion-label>{{yelpBusiness.phone}}</ion-label>
+                </a>
+            </div>
+
+            <div padding-top id="yelp-evaluation">
+                <ion-label class="label-title small-label">{{'YELP_DETAILS.EVALUATION' | translate}}</ion-label>
+
+                <span padding-end>
+                    <ion-icon name="star-outline" *ngIf="yelpBusiness.rating == 0"></ion-icon>
+                    <ion-icon name="star-half" *ngIf="yelpBusiness.rating < 1 && yelpBusiness.rating > 0"></ion-icon>
+                    <ion-icon name="star" *ngIf="yelpBusiness.rating >= 1"></ion-icon>
+
+                    <ion-icon name="star-outline" *ngIf="yelpBusiness.rating <= 1"></ion-icon>
+                    <ion-icon name="star-half" *ngIf="yelpBusiness.rating < 2 && yelpBusiness.rating > 1"></ion-icon>
+                    <ion-icon name="star" *ngIf="yelpBusiness.rating >= 2"></ion-icon>
+
+                    <ion-icon name="star-outline" *ngIf="yelpBusiness.rating <= 2"></ion-icon>
+                    <ion-icon name="star-half" *ngIf="yelpBusiness.rating < 3 && yelpBusiness.rating > 2"></ion-icon>
+                    <ion-icon name="star" *ngIf="yelpBusiness.rating >= 3"></ion-icon>
+
+                    <ion-icon name="star-outline" *ngIf="yelpBusiness.rating <= 3"></ion-icon>
+                    <ion-icon name="star-half" *ngIf="yelpBusiness.rating < 4 && yelpBusiness.rating > 3"></ion-icon>
+                    <ion-icon name="star" *ngIf="yelpBusiness.rating >= 4"></ion-icon>
+
+                    <ion-icon name="star-outline" *ngIf="yelpBusiness.rating <= 4"></ion-icon>
+                    <ion-icon name="star-half" *ngIf="yelpBusiness.rating < 5 && yelpBusiness.rating > 4"></ion-icon>
+                    <ion-icon name="star" *ngIf="yelpBusiness.rating >= 5"></ion-icon>
+                </span>
+
+                <span>{{yelpBusiness.price}}</span>
+            </div>
+        </ion-card-content>
+    </ion-card>
+
+    <div padding-start padding-end padding-bottom text-center id="yelp-map-section">
+        <ion-label class="label-title small-label">{{'YELP_DETAILS.NEIGHBORHOOD' | translate}}</ion-label>
+
+        <app-google-map-yelp [item]="item" [yelpBusinesses]="yelpMarkers"></app-google-map-yelp>
+
+        <ion-label class="small-label" *ngIf="yelpBusiness != null" id="yelp-distance">
+            <ion-icon slot="start" name="pin"></ion-icon>
+            {{yelpBusiness.distance | trimDistance}}{{'CORE.METER' | translate}}
+        </ion-label>
+    </div>
+
+</ion-content>

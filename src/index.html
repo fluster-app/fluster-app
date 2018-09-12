@@ -2,22 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Ionic App</title>
+  <title>Fluster</title>
 
   <base href="/" />
 
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
 
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png">
+  <meta http-equiv="Content-Security-Policy" content="default-src data: gap://* file://* https://ssl.gstatic.com 'self'; img-src 'self' https://peterparker-photos-eu.s3.dualstack.eu-west-1.amazonaws.com https://*.facebook.com https://*.fbsbx.com https://*.fbcdn.net https://*.googleusercontent.com https://plus.google.com https://ssl.gstatic.com data: https://csi.gstatic.com https://www.google-analytics.com https://maps.gstatic.com https://maps.googleapis.com https://*.yelpcdn.com https://i.scdn.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'unsafe-eval' 'self' http://localhost:35729 https://maps.googleapis.com https://google-analytics.com https://*.facebook.com https://www.google-analytics.com/analytics.js https://connect.facebook.net/en_US/sdk.js 'sha256-0IuAud84Oc27xcABhaCluvzIqMf85MFNlRGst3YQWm4=' 'sha256-BnwuNhazvY2AHpyt7v5WQ8Oguz2McVpNAAz2pZMfn5w=' 'sha256-RTThtRpB2zUpPlaAFu1ganN7MdyTb6a0cddkOTJ7pdI='; connect-src 'self' ws://localhost:35729 ws://localhost:35729 https://api.fluster.io https://maps.googleapis.com https://peterparker-photos-eu.s3.dualstack.eu-west-1.amazonaws.com ws://api.fluster.io wss://api.fluster.io https://sentry.io https://www.google-analytics.com; frame-src http://staticxx.facebook.com/ https://www.facebook.com/ https://web.facebook.com https://m.facebook.com/;">
+
+  <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
+  <link rel="manifest" href="manifest.json">
 
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+  <!--removeIf(pwa)-->
+
+  <meta name="theme-color" content="#2d294c">
+  <script src="cordova.js"></script>
+
+  <!--endRemoveIf(pwa)-->
+
+  <!--removeIf(cordova)-->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
+  <link rel="mask-icon" href="assets/icon/safari-pinned-tab.svg" color="#ff65a9">
+  <meta name="msapplication-TileColor" content="#ff65a9">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Google Analytics -->
+  <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- End Google Analytics -->
+
+  <!--endRemoveIf(cordova)-->
+
 </head>
 <body>
   <app-root></app-root>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDguYteVeMwIPgxcrKQF-jR9Gl6MqDJqc&amp;libraries=places,geometry"></script>
+
+  <!-- Facebook -->
+  <script>
+      // Load the SDK asynchronously
+      (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script async src="webphotofilter.js"></script>
+  <script async src="websocialshare.js"></script>
+
 </body>
 </html>

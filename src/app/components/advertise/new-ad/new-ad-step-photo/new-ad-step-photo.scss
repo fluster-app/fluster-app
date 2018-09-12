@@ -1,0 +1,252 @@
+@import "../../../../../theme/fluster-variables";
+@import "../../../../../theme/media-queries";
+@import "../../../../../theme/mixins";
+@import "../new-ad.component";
+
+#main-photo {
+    position: relative;
+    width: 100%;
+
+    &:before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+        margin-bottom: 10px;
+
+        @include min-screen(540px) {
+            padding-top: 36%;
+        }
+    }
+
+    #picture0 {
+        background-color: $fluster-midnight-blue;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: $fluster-border-radius;
+
+        div.addPhoto {
+            position: inherit;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: $font-weight-light;
+        }
+
+        .removePhoto {
+            position: inherit;
+            top: 2%;
+            right: 2%;
+        }
+    }
+}
+
+#other-photos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    div.pictureBlock {
+        width: calc(100% / 4);
+        max-width: calc(100% / 4);
+        height: 100%;
+
+        &:before {
+            content: "";
+            display: block;
+            padding-top: 100%;
+        }
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        background-color: $fluster-midnight-blue;
+        display: inline-block;
+        position: relative;
+        border-radius: $fluster-border-radius;
+
+        .addPhoto {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .removePhoto {
+            position: absolute;
+            top: 4%;
+            right: 4%;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+#main-photo, #other-photos {
+    img {
+        text-align: center;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .photoSelector {
+        display: none;
+
+        &.photoSelected, &.photoTarget {
+            display: inherit;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        &.photoSelected {
+            top: 2%;
+            right: 2%;
+            @include fluster-linear-gradient(to bottom right, $fluster-grey-blue, $fluster-dark-blue);
+        }
+
+        &.photoTarget {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            @include fluster-linear-gradient(to bottom right, $fluster-peach1, $fluster-peach3);
+        }
+
+        div:first-child {
+
+            ion-icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}
+
+#main-photo {
+    .photoSelector {
+        &.photoSelected {
+            div:first-child {
+                width: 4vh;
+                height: 4vh;
+
+                ion-icon {
+                    font-size: 3vh;
+                }
+            }
+        }
+
+        &.photoTarget {
+            div:first-child {
+                width: 8rem;
+                height: 8rem;
+
+                ion-icon {
+                    font-size: 6rem;
+                }
+            }
+        }
+    }
+}
+
+#other-photos {
+    .photoSelector {
+        &.photoSelected {
+            div:first-child {
+                width: 2.6vh;
+                height: 2.6vh;
+
+                ion-icon {
+                    font-size: 2.4vh;
+                }
+            }
+        }
+
+        &.photoTarget {
+            div:first-child {
+                width: 4rem;
+                height: 4rem;
+
+                ion-icon {
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+}
+
+#main-photo a.removePhoto, #other-photos a.removePhoto {
+    font-size: $fluster-text-big;
+    color: $fluster-dark-grey;
+    opacity: 0.8;
+}
+
+// Buttons for photos
+
+ion-fab-button.button-remove-big {
+    height: 4vh;
+    width: 4vh;
+    --size: 4vh;
+
+    ion-icon {
+        font-size: 3vh;
+    }
+}
+
+ion-fab-button.button-remove-small {
+    height: 2.6vh;
+    width: 2.6vh;
+    --size: 2.6vh;
+
+    ion-icon {
+        font-size: 2.4vh;
+    }
+}
+
+ion-fab-button.button-add-big {
+    height: 12vh;
+    width: 12vh;
+    --size: 12vh;
+
+    ion-icon {
+        font-size: 8vh;
+    }
+}
+
+ion-fab-button.button-add-small {
+    height: 6vh;
+    width: 6vh;
+    --size: 6vh;
+
+    ion-icon {
+        font-size: 4vh;
+    }
+}
+
+ion-fab-button.button-remove-big, ion-fab-button.button-remove-small {
+  --background: #{$fluster-peach1};
+  color: white;
+}
+
+ion-fab-button.button-add-big, ion-fab-button.button-add-small {
+    @include fluster-linear-gradient-variable(to right, $fluster-peach1, $fluster-peach3);
+    color: white;
+}
+
+// PWA
+
+div#pwa {
+    visibility: hidden;
+}

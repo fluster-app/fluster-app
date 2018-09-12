@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+          <app-navbar-notification [browse]="true" [ad]="true" [displayInMenu]="false"></app-navbar-notification>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+
+    <ion-title>FLUSTER</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="navigateToItemParams()">
+        <ion-icon slot="icon-only" name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding role="browse" [fullscreen]="true" [scrollY]="false">
+
+  <app-content-browse-notification [displayOnInit]="false"></app-content-browse-notification>
+
+  <!-- Items cards -->
+  <div swingStack #itemsSwingStack [stackConfig]="stackConfig" (throwoutleft)="dislikeThrowout()" (throwoutright)="navigateToAppointmentThrowout()" id="card-stack">
+    <ion-card swingCard #itemsSwingCards *ngFor="let item of items; let i=index; let last = last;" no-margin [style.zIndex]="(i+1)" [style.transform]="'translate3d(0,0,' + (i+1) + 'px)'" [style.-webkit-transform]="'translate3d(0,0,' + i + 'px)'" [class.slide-dislike]="last && animateDislike" [class.shake-bookmark]="last && animateBookmark" [class.review-dislike]="last && animateReview">
+
+      <!-- Don't move should be the first item, see method onItemMove -->
+      <div class="swipe-info-like">
+        <ion-badge>{{'ITEMS.LIKE_INFO' | translate}}</ion-badge>
+      </div>
+
+      <div class="swipe-info-dislike">
+        <ion-badge>{{'ITEMS.DISLIKE_INFO' | translate}}</ion-badge>
+      </div>
+
+      <div class="item-img-slider">
+        <app-item-slides [item]="item" [zIndex]="i" [renderSlides]="renderSlides(i)" [displayFirstAccessMsg]="displayFirstAccessMsg" [displayFirstSuperstarMsg]="displayFirstSuperstarMsg" [displayAdvertiserInfo]="true" [displayAdvertiserSlide]="true"
+                         (hideFirstAccessMsg)="hideFirstAccessMsg()" (initFirstAccessMsg)="initFirstAccessMsg()" (hideFirstSuperstarMsg)="closeSuperstarMsg()"></app-item-slides>
+      </div>
+
+      <div tappable (click)="navigateToDetail()" class="card-details">
+
+        <div id="firstAccessMsg" [style.zIndex]="i+1" [style.transform]="'translate3d(0,0,' + i+1 + 'px)'" *ngIf="displayFirstAccessMsg" tappable (click)="hideFirstAccessMsgClick($event)">
+          <div text-center padding>
+            <span text-center>{{'ITEMS.FIRST_ACCESS.ITEM_NAVIGATION.DETAILS' | translate}}</span>
+            <ion-icon name="md-hand" class="zoomin-zoomout" margin-start></ion-icon>
+          </div>
+        </div>
+
+        <ion-item class="item-summary">
+          <app-item-summary [item]="item"></app-item-summary>
+        </ion-item>
+
+        <div class="item-interests">
+          <app-item-interests [itemUser]="lastItemUser" *ngIf="last && lastItemUserLoaded"></app-item-interests>
+        </div>
+      </div>
+
+    </ion-card>
+  </div>
+
+  <!-- Buttons -->
+  <div *ngIf="hasItems()" id="actions-buttons">
+    <ion-fab-button no-padding (click)="reviewDisliked()" class="button-review-small" [disabled]="actionInProgress || previousItem == null || sameUser">
+      <ion-icon name="refresh"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-button no-padding (click)="dislike()" class="button-dislike" [disabled]="actionInProgress">
+      <ion-icon name="md-close"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-button no-padding (click)="like()" class="button-bookmark" [disabled]="actionInProgress || sameUser">
+      <ion-icon name="bookmark"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-button no-padding (click)="navigateToAppointment()" class="button-like" [disabled]="actionInProgress || sameUser">
+      <ion-icon name="ios-send"></ion-icon>
+    </ion-fab-button>
+  </div>
+
+  <app-no-items [items]="items" [loading]="!lastPageReached" [label]="isBirthdayDefined() ? 'ITEMS.NO_ITEMS' : 'ITEMS.NO_ITEMS_EMPTY_BIRTHDAY'" [displayAvatarWithOrWithoutItems]="true" [displayNoAddress]="!isAddressInitialized()" (notifyAction)="addBirthday()"></app-no-items>
+
+  <div *ngIf="lastPageReached && !hasItems() && isAddressInitialized()" id="review-buttons" margin-bottom>
+    <div id="review-buttons-flex" [class.review-buttons-flex-column]="isBirthdayDefined()">
+      <ion-fab-button no-padding (click)="loadDislikedItems()" class="button-review">
+        <ion-icon name="refresh"></ion-icon>
+      </ion-fab-button>
+
+      <span *ngIf="isBirthdayDefined()">{{'ITEMS.NO_ITEMS_REFRESH' | translate}}</span>
+
+      <div *ngIf="!isBirthdayDefined()" margin-start>
+        <ion-fab-button no-padding (click)="addBirthday()" class="button-review">
+          <ion-icon name="calendar"></ion-icon>
+        </ion-fab-button>
+
+        <ion-datetime id="birthdayPicker" #birthdayPicker [displayFormat]="birthdayDateFormat" [max]="birthdayMaxValue" (ionChange)="updateBirthday($event)" cancelText="{{'CORE.CANCEL' | translate}}" doneText="{{'CORE.OK' | translate}}"></ion-datetime>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

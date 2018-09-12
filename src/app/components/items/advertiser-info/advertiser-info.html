@@ -1,0 +1,9 @@
+<ion-item *ngIf="user != null" class="advertiser-info-item">
+    <ion-avatar class="small-avatar" *ngIf="user != null && user.facebook != null" [class.display]="displayAvatar">
+        <app-user-profile-img [facebook]="user.facebook" [google]="user.google"></app-user-profile-img>
+    </ion-avatar>
+
+    <div class="advertiser-starred" [class.display]="starred">
+        <ion-icon name="star"></ion-icon>
+    </div>
+</ion-item>

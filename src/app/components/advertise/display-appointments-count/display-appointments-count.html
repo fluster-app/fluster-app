@@ -1,0 +1,8 @@
+<div class="countSelectedAppointments" *ngIf="hasAppointments() && selectedAppointments.length > 1" [innerHTML]="'ITEM_APPOINTMENTS.SELECTED_COUNT.SELECTED_COUNT_AVAILABILITY.PLURAL' | translate:{count: getSelectedAppointmentsCount()}">
+</div>
+
+<div class="countSelectedAppointments" *ngIf="hasAppointments() && selectedAppointments.length == 1" [innerHTML]="'ITEM_APPOINTMENTS.SELECTED_COUNT.SELECTED_COUNT_AVAILABILITY.SINGULAR' | translate:{count: getSelectedAppointmentsCount()}">
+</div>
+
+<div class="countSelectedAppointments" *ngIf="!hasAppointments()" [innerHTML]="'ITEM_APPOINTMENTS.SELECTED_COUNT.NO_SPECIAL_AVAILABILITY' | translate:{count: getSelectedAppointmentsCount()}">
+</div>

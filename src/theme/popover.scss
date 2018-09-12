@@ -1,0 +1,32 @@
+// Product popover
+
+ion-popover {
+  &.popover-ios, &.popover-md {
+    div.popover-content {
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+
+      width: 80%;
+      overflow: initial;
+    }
+  }
+
+  &.popover-ios {
+    #free-product {
+      #free-product-description {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+    }
+  }
+
+  &.popover-md {
+    #free-product {
+      #free-product-description {
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+      }
+    }
+  }
+}

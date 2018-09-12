@@ -1,0 +1,11 @@
+ion-title {
+    div {
+        display: flex;
+        align-items: center;
+
+        span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

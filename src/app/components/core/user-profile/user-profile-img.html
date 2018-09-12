@@ -1,0 +1,17 @@
+<div *ngIf="hasFacebookId()">
+    <img #profileImg (error)="imageNotFound()" *ngIf="small" [src]="'https://graph.facebook.com/' + facebook.id + '/picture?type=large'" (dragstart)="preventDrag($event)"/>
+
+    <img #profileImg (error)="imageNotFound()" *ngIf="!small && !isLargeScreen()" [src]="'https://graph.facebook.com/' + facebook.id + '/picture?width=350&height=350'" (dragstart)="preventDrag($event)"/>
+
+    <img #profileImg (error)="imageNotFound()" *ngIf="!small && isLargeScreen()" [src]="'https://graph.facebook.com/' + facebook.id + '/picture?width=640&height=640'" (dragstart)="preventDrag($event)"/>
+</div>
+
+<div *ngIf="hasGooglePicture()">
+    <img #profileImg (error)="imageNotFound()" *ngIf="small" [src]="facebook.pictureUrl + '?sz=100'" (dragstart)="preventDrag($event)"/>
+
+    <img #profileImg (error)="imageNotFound()" *ngIf="!small && !isLargeScreen()" [src]="facebook.pictureUrl + '?sz=350'" (dragstart)="preventDrag($event)"/>
+
+    <img #profileImg (error)="imageNotFound()" *ngIf="!small && isLargeScreen()" [src]="facebook.pictureUrl + '?sz=640'" (dragstart)="preventDrag($event)"/>
+</div>
+
+<img *ngIf="!hasFacebookId() && !hasGooglePicture()" src="assets/img/profile_close.jpg" (dragstart)="preventDrag($event)"/>

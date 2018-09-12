@@ -1,0 +1,6 @@
+<ion-item *ngIf="total > 0" id="adPriceTotal">
+    <ion-label text-left>
+        <span><small>{{'NEW_AD.STEP_PRICE.ALL_INCLUDED' | translate}}</small></span>
+        <span class="totalValue">&nbsp;{{total | formatCurrency}}</span>
+    </ion-label>
+</ion-item>

@@ -1,0 +1,33 @@
+@import "../../../../theme/fluster-variables";
+@import "../../../../theme/media-queries";
+
+#menuProfile {
+    display: flex;
+    justify-content: flex-end;
+    font-size: $fluster-text-big;
+    padding-top: 1.2rem;
+
+    div {
+        float: right;
+        display: table;
+        padding-bottom: 3.4rem;
+
+        span, a, img {
+            display: table-cell;
+            vertical-align: middle;
+            font-weight: $font-weight-light;
+        }
+
+        ion-avatar {
+            margin: 1.6rem;
+        }
+
+        @include iphone4 {
+            padding-bottom: 0;
+        }
+
+        @include iphone5 {
+            padding-bottom: 2.4rem;
+        }
+    }
+}

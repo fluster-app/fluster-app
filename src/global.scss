@@ -1,12 +1,42 @@
 // http://ionicframework.com/docs/theming/
-@import "~@ionic/angular/css/core.css";
-@import "~@ionic/angular/css/normalize.css";
-@import "~@ionic/angular/css/structure.css";
-@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/core/css/core.css';
+@import '~@ionic/core/css/normalize.css';
+@import '~@ionic/core/css/structure.css';
+@import '~@ionic/core/css/typography.css';
 
-@import "~@ionic/angular/css/padding.css";
-@import "~@ionic/angular/css/float-elements.css";
-@import "~@ionic/angular/css/text-alignment.css";
-@import "~@ionic/angular/css/text-transformation.css";
-@import "~@ionic/angular/css/flex-utils.css";
+@import '~@ionic/core/css/padding.css';
+@import '~@ionic/core/css/float-elements.css';
+@import '~@ionic/core/css/text-alignment.css';
+@import '~@ionic/core/css/text-transformation.css';
+@import '~@ionic/core/css/flex-utils.css';
+
+// Fluster fonts and mixins
+@import "./theme/fonts";
+@import "./theme/mixins";
+@import "./theme/media-queries";
+
+@import "cropper";
+
+// Fluster global styles
+@import "./theme/fluster-variables";
+@import "./theme/buttons";
+@import "./theme/avatar";
+@import "./theme/spacing";
+@import "./theme/flex";
+@import "./theme/date-picker";
+@import "./theme/notification";
+@import "./theme/navbar";
+@import "./theme/toolbar";
+@import "./theme/card-stack";
+@import "./theme/popover";
+@import "./theme/scroll";
+@import "./theme/action-sheet";
+@import "./theme/toast";
+
+@import "./theme/global";
+@import "./theme/global-browse";
+@import "./theme/global-ad";
+
+@import "./theme/user-highlight";
+
 

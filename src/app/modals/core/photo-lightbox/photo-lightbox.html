@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="close()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title>FLUSTER</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [attr.role]="isAdDisplay ? 'ad' : 'browse'" [scrollY]="false">
+
+    <div class="content" *ngIf="hasImages()">
+        <ion-slides #photoLightboxSlider pager [options]="slideOptsProgressbar" (ionSlidesDidLoad)="slidePosition()" (ionSlideDidChange)="slidePosition()">
+            <ion-slide *ngFor="let photo of images;">
+                <app-image-loader [src]="rootUrl + photo"></app-image-loader>
+            </ion-slide>
+        </ion-slides>
+
+        <div id="prevPhoto" tappable (click)="previousImage()" *ngIf="viewEntered && !begin">
+            <ion-icon ios="ios-arrow-back" md="ios-arrow-back"></ion-icon>
+        </div>
+
+        <div id="nextPhoto" tappable (click)="nextImage()" *ngIf="viewEntered && !end">
+            <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+        </div>
+    </div>
+
+</ion-content>

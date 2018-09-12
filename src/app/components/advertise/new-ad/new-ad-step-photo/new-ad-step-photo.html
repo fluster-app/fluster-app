@@ -1,0 +1,152 @@
+<div padding-start padding-end class="new-ad-container big-screen-content">
+    <!-- Pictures -->
+    <div id="container-photo" class="new-ad-content" padding-top (swipe)="swipeSlide($event)">
+        <div id="main-photo">
+            <div id="picture0" tappable (click)="navigateToPhotoPicker($event, 0)">
+                <img *ngIf="hasPhoto(0)" [src]="wkWebViewFileURI(photos[0].imgURI)">
+
+                <div class="photoSelector" [class.photoSelected]="isSelectedAsSource(0)">
+                    <div>
+                        <ion-icon name="flag"></ion-icon>
+                    </div>
+                </div>
+
+                <ion-fab-button no-padding (click)="removePhoto($event, 0)" *ngIf="isRemovable(0)" class="removePhoto button-remove-big">
+                    <ion-icon name="close"></ion-icon>
+                </ion-fab-button>
+
+                <div *ngIf="!hasPhoto(0)" class="addPhoto">
+                    <ion-fab-button no-padding class="button-add-big" (click)="navigateToPhotoPicker($event, 0)">
+                        <ion-icon name="add"></ion-icon>
+                    </ion-fab-button>
+
+                    <ion-label>{{'NEW_AD.STEP_PHOTO.ADD_PHOTO' | translate}}</ion-label>
+                </div>
+
+                <div *ngIf="sourceIndex != null && !isSelectedAsSource(0) && hasPhoto(0)" class="photoSelector photoTarget" tappable (click)="navigateToPhotoPicker($event, 0)">
+                    <div>
+                        <ion-icon name="repeat"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="other-photos">
+            <div id="picture1" tappable (click)="navigateToPhotoPicker($event, 1)" class="pictureBlock">
+                <img *ngIf="hasPhoto(1)" [src]="wkWebViewFileURI(photos[1].imgURI)">
+
+                <div class="photoSelector" [class.photoSelected]="isSelectedAsSource(1)">
+                    <div>
+                        <ion-icon name="flag"></ion-icon>
+                    </div>
+                </div>
+
+                <ion-fab-button no-padding (click)="removePhoto($event, 1)" *ngIf="isRemovable(1)" class="removePhoto button-remove-small">
+                    <ion-icon name="close"></ion-icon>
+                </ion-fab-button>
+
+                <ion-fab-button no-padding *ngIf="isNextPhoto(1)" class="addPhoto button-add-small" (click)="navigateToPhotoPicker($event, 1)">
+                    <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+
+                <div *ngIf="sourceIndex != null && !isSelectedAsSource(1) && hasPhoto(1)" class="photoSelector photoTarget" tappable (click)="navigateToPhotoPicker($event, 1)">
+                    <div>
+                        <ion-icon name="repeat"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div id="picture2" tappable (click)="navigateToPhotoPicker($event, 2)" class="pictureBlock">
+                <img *ngIf="hasPhoto(2)" [src]="wkWebViewFileURI(photos[2].imgURI)">
+
+                <div class="photoSelector" [class.photoSelected]="isSelectedAsSource(2)">
+                    <div>
+                        <ion-icon name="flag"></ion-icon>
+                    </div>
+                </div>
+
+                <ion-fab-button no-padding (click)="removePhoto($event, 2)" *ngIf="isRemovable(2)" class="removePhoto button-remove-small">
+                    <ion-icon name="close"></ion-icon>
+                </ion-fab-button>
+
+                <ion-fab-button no-padding *ngIf="isNextPhoto(2)" class="addPhoto button-add-small" (click)="navigateToPhotoPicker($event, 2)">
+                    <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+
+                <div *ngIf="sourceIndex != null && !isSelectedAsSource(2) && hasPhoto(2)" class="photoSelector photoTarget" tappable (click)="navigateToPhotoPicker($event, 1)">
+                    <div>
+                        <ion-icon name="repeat"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div id="picture3" tappable (click)="navigateToPhotoPicker($event, 3)" class="pictureBlock">
+                <img *ngIf="hasPhoto(3)" [src]="wkWebViewFileURI(photos[3].imgURI)">
+
+                <div class="photoSelector" [class.photoSelected]="isSelectedAsSource(3)">
+                    <div>
+                        <ion-icon name="flag"></ion-icon>
+                    </div>
+                </div>
+
+                <ion-fab-button no-padding (click)="removePhoto($event, 3)" *ngIf="isRemovable(3)" class="removePhoto button-remove-small">
+                    <ion-icon name="close"></ion-icon>
+                </ion-fab-button>
+
+                <ion-fab-button no-padding *ngIf="isNextPhoto(3)" class="addPhoto button-add-small" (click)="navigateToPhotoPicker($event, 3)">
+                    <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+
+                <div *ngIf="sourceIndex != null && !isSelectedAsSource(3) && hasPhoto(3)" class="photoSelector photoTarget" tappable (click)="navigateToPhotoPicker($event, 1)">
+                    <div>
+                        <ion-icon name="repeat"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div id="picture4" tappable (click)="navigateToPhotoPicker($event, 4)" class="pictureBlock">
+                <img *ngIf="hasPhoto(4)" [src]="wkWebViewFileURI(photos[4].imgURI)">
+
+                <div class="photoSelector" [class.photoSelected]="isSelectedAsSource(4)">
+                    <div>
+                        <ion-icon name="flag"></ion-icon>
+                    </div>
+                </div>
+
+                <ion-fab-button no-padding (click)="removePhoto($event, 4)" *ngIf="isRemovable(4)" class="removePhoto button-remove-small">
+                    <ion-icon name="close"></ion-icon>
+                </ion-fab-button>
+
+                <ion-fab-button no-padding *ngIf="isNextPhoto(4)" class="addPhoto button-add-small" (click)="navigateToPhotoPicker($event, 4)">
+                    <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+
+                <div *ngIf="sourceIndex != null && !isSelectedAsSource(4) && hasPhoto(4)" class="photoSelector photoTarget" tappable (click)="navigateToPhotoPicker($event, 1)">
+                    <div>
+                        <ion-icon name="repeat"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="new-ad-buttons" (swipe)="swipeSlide($event)">
+
+        <app-targeted-users [item]="newItem"
+                        [msgLocation]="true">
+        </app-targeted-users>
+
+        <ion-button expand="full" shape="round" (click)="next()">
+            {{'CORE.NEXT' | translate}}
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        </ion-button>
+
+        <!--removeIf(production)-->
+        <ion-button fill="outline" shape="round" (click)="dummyNext()">Next mockup</ion-button>
+        <!--endRemoveIf(production)-->
+    </div>
+
+    <div id="pwa" *ngIf="!ENV_CORDOVA">
+        <input type="file" id="pwaphoto" #pwaphoto accept="image/x-png,image/jpeg" (change)="uploadPWA()">
+    </div>
+</div>

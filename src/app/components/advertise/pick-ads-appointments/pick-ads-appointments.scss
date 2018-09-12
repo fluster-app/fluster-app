@@ -1,0 +1,75 @@
+@import "../../../../theme/fluster-variables";
+@import "../../../../theme/media-queries";
+@import "../../../../theme/mixins";
+
+div.date-picker-scroller {
+    div.date-picker {
+        div.appointment-empty {
+            opacity: 0.4;
+        }
+
+        div.disabled-date {
+            color: $fluster-grey-blue;
+        }
+    }
+}
+
+#datePickerScrollY {
+    height: 40%;
+
+    ion-list {
+        margin-bottom: 0;
+
+        ion-item {
+            p {
+                font-size: $fluster-text-big;
+                color: $fluster-grey-blue;
+
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                width: 100%;
+
+                &.appointment-selected, &.appointment-selected.appointment-in-the-past {
+                    color: $fluster-peach3;
+                    font-weight: $font-weight-bold;
+                }
+
+                &.appointment-in-the-past {
+                    color: $fluster-dark-blue;
+                }
+
+                &.appointment-already-taken, &.appointment-selected.appointment-already-taken, &.appointment-selected.appointment-in-the-past.appointment-already-taken {
+                    color: $fluster-peach1;
+                }
+
+                ion-icon {
+                    vertical-align: middle;
+                    color: inherit;
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+}
+
+@include iphone4 {
+    #datePickerScrollY {
+        height: 28%;
+        margin-bottom: 10px;
+    }
+}
+
+@include iphone5 {
+    #datePickerScrollY {
+        height: 34%;
+        margin-bottom: 10px;
+    }
+}
+
+@include nexus5 {
+    div#datePickerScrollY {
+        height: 34%;
+        margin-bottom: 10px;
+    }
+}

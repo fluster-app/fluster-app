@@ -1,0 +1,37 @@
+div.web-social-share div.web-social-share-action-sheet div.web-social-share-action-sheet-container {
+    div.web-social-share-action-sheet-group {
+        justify-content: left;
+        padding: 16px;
+
+        web-social-share-target {
+
+            &:not(:last-child) {
+                padding-right: 8px;
+            }
+
+            button {
+
+                &.web-social-share-button {
+                    background-repeat: no-repeat;
+                }
+
+                &.web-social-share-button-facebook {
+                    background-image: url("/assets/img/ico_facebook-blue.svg");
+                }
+
+                &.web-social-share-button-twitter {
+                    background-image: url("/assets/img/ico_twitter-blue.svg");
+                }
+
+                &.web-social-share-button-email {
+                    background-image: url("/assets/img/ico_email-peach1.svg");
+                }
+
+                &.web-social-share-button-linkedin {
+                    background-image: url("/assets/img/ico_linkedin-blue.svg");
+                }
+
+            }
+        }
+    }
+}

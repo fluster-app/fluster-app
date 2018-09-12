@@ -1,0 +1,29 @@
+<div no-padding>
+  <button tappable (click)="forwardClickEvent($event)"
+              [class.big-button]="bigButton"
+              [class.big-button-item]="bigButtonItem"
+              [class.big-button-ads]="bigButtonAds"
+              [class.big-button-enabled]="bigButtonEnabled"
+              [class.big-button-disabled]="bigButtonDisabled"
+              [class.activated]="bigButtonActivated"
+              [class.medium-button]="mediumButton"
+              [class.medium-button-ads]="mediumButtonAds"
+              [class.medium-button-item]="mediumButtonItem"
+              [class.medium-button-superstar]="mediumButtonSuperstar"
+              [class.small-button]="smallButton"
+              [class.small-button-ads]="smallButtonAds"
+              [class.small-button-cancel]="smallButtonCancel"
+              [class.big-button-android]="isAndroid()"
+              [class.big-button-ios]="!isAndroid()"
+              [class.big-button-ad-display]="adDisplay"
+              no-margin no-padding>
+    <div>
+      <ion-icon *ngIf="icon != null" [name]="icon"></ion-icon>
+      <ion-icon *ngIf="icon == null && iconIos != null && iconMd != null" [ios]="iconIos" [md]="iconMd"></ion-icon>
+      <ion-icon *ngIf="iconSrc != null" [src]="iconSrc"></ion-icon>
+
+      <ion-label text-wrap [innerHTML]="label | translate:labelVariable" no-margin></ion-label>
+    </div>
+  </button>
+
+</div>

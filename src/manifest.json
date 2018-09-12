@@ -1,0 +1,28 @@
+{
+  "name": "Fluster",
+  "short_name": "Fluster",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "assets/icon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "orientation": "portrait",
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=io.fluster.fluster",
+      "id": "io.fluster.fluster"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://itunes.apple.com/app/id1187266720"
+    }
+  ]
+}

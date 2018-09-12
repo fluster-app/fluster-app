@@ -1,0 +1,31 @@
+<div class="flex-content big-screen-content" (swipe)="swipeSlide($event)" padding-start padding-end>
+    <ion-grid class="flex-grid">
+        <ion-row>
+            <ion-col size="12" no-padding>
+                <h1 text-center margin-bottom>{{'NEW_AD.STEP_TYPE.COOL' | translate}}</h1>
+
+                <h2 text-center>{{'NEW_AD.STEP_TYPE.WHAT_DO_YOU_OFFER' | translate}}</h2>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="5" text-center no-padding>
+                <app-big-button (clicked)="takeover()" [adDisplay]="true"
+                                [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true" [bigButtonDisabled]="!isTakeoverPicked && isSharePicked"
+                                [icon]="'home'" [label]="'NEW_AD.STEP_TYPE.TAKEOVER'">
+                </app-big-button>
+
+            </ion-col>
+
+            <ion-col size="7" text-center no-padding>
+                <app-big-button (clicked)="flatSharing()" [adDisplay]="true"
+                                [bigButtonAds]="true" [bigButtonDisabled]="isTakeoverPicked && !isSharePicked"
+                                [icon]="'people'" [label]="'NEW_AD.STEP_TYPE.SHARE'">
+                </app-big-button>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+        </ion-row>
+    </ion-grid>
+</div>

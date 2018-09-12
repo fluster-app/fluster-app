@@ -1,0 +1,47 @@
+<ion-header #itemDetailsHeader>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-toggle *ngIf="srcDeeplink">
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+          <app-navbar-notification [browse]="true" [displayInMenu]="false"></app-navbar-notification>
+        </ion-button>
+      </ion-menu-toggle>
+
+      <ion-button (click)="customBackAction()" *ngIf="!srcDeeplink" class="custom-back-button">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <app-toolbar-user-title [display]="item != null" [facebook]="item?.user?.facebook" [google]="item?.user?.google"></app-toolbar-user-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="presentActionSheet($event)">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content appNavbarOnScroll [header]="detailsHeader" role="browse" [fullscreen]="true" id="item-details-content" [forceOverscroll]="true" [scrollEvents]="true">
+
+  <app-content-browse-notification [displayOnInit]="false"></app-content-browse-notification>
+
+  <app-item-details-header [item]="item"></app-item-details-header>
+
+  <app-item-details-content [item]="item" [applicant]="applicant" [itemUser]="itemUser" [isAdDisplay]="false" [displaySensitive]="displaySensitive" [noAppointmentAction]="!isAppointmentActionAllowed()" [displayChat]="!hideChat" (performAction)="navigateToAppointment()"></app-item-details-content>
+</ion-content>
+
+<ion-footer role="browse" [class.display]="displayButtons">
+  <ion-toolbar role="buttons" *ngIf="item != null && isAppointmentActionAllowed() && displayButtons" padding-start padding-end>
+    <ion-button expand="full" shape="round" (click)="navigateToAppointment()" [disabled]="actionInProgress">
+      {{'ITEM_APPOINTMENTS.VIEWING_REQUEST_TITLE' | translate}}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+<div *ngIf="!ENV_CORDOVA && item != null">
+  <app-web-social-share [show]="pwaShowShare" [share]="pwaShareOptions" (closed)="sharePWAClose()"></app-web-social-share>
+</div>

@@ -1,0 +1,9 @@
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ion-icon[slot="start"] {
+        margin-right: 4px;
+    }
+}

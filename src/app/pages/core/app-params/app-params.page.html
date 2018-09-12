@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>FLUSTER</ion-title>
+
+      <ion-buttons slot="end">
+          <ion-button (click)="shareFluster()">
+              <ion-icon slot="icon-only" name="share"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="browse" [forceOverscroll]="true">
+
+  <div class="big-screen-content">
+    <ion-card id="app-params-card" *ngIf="user != null" no-shadow no-margin padding>
+      <ion-list>
+        <ion-item>
+          <ion-label text-wrap>{{'APP_PARAMS.EXPORT_TO_CALENDAR' | translate}}</ion-label>
+          <ion-toggle checked="user.userParams.appSettings.calendarExport" [(ngModel)]="user.userParams.appSettings.calendarExport"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+          <ion-label text-wrap>{{'APP_PARAMS.NOTIFICATIONS' | translate}}</ion-label>
+          <ion-toggle checked="user.userParams.appSettings.pushNotifications" [(ngModel)]="user.userParams.appSettings.pushNotifications"></ion-toggle>
+        </ion-item>
+
+        <ion-item *ngIf="user.userParams.appSettings.browsing">
+          <ion-label text-wrap>{{'APP_PARAMS.ALLOW_SUPERSTARS' | translate}}</ion-label>
+          <ion-toggle checked="user.userParams.appSettings.allowSuperstars" [(ngModel)]="user.userParams.appSettings.allowSuperstars"></ion-toggle>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <ion-card id="content" no-shadow>
+      <ion-item tappable (click)="openGithub()">
+        <ion-label text-wrap text-center>Fluster is <strong>open source</strong>, released under the GNU Affero General Public License</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <a (click)="openGithub()">
+          <ion-label text-wrap text-center>
+            <span>Fork me on Github</span>
+            <ion-icon name="logo-github" slot="end"></ion-icon>
+          </ion-label>
+        </a>
+      </ion-item>
+
+      <ion-item>
+        <a href="mailto:info@fluster.io">
+          <ion-label text-wrap text-center><span [innerHTML]="'APP_PARAMS.CONTACT' | translate"></span></ion-label>
+        </a>
+      </ion-item>
+
+    </ion-card>
+
+    <div id="logout-button" no-margin padding text-center>
+      <ion-button expand="full" shape="round" text-center (click)="showLogOutActionSheet()" *ngIf="!logoutInProgress" [disabled]="deleteInProgress">
+        {{'APP_PARAMS.LOGOUT.BUTTON' | translate}}
+      </ion-button>
+
+      <ion-spinner *ngIf="logoutInProgress" ion-text color="primary"></ion-spinner>
+    </div>
+
+    <ion-card no-shadow margin-bottom text-center *ngIf="!logoutInProgress">
+      <a (click)="showDeleteActionSheet()" *ngIf="!deleteInProgress">
+        {{'APP_PARAMS.DELETE_ACCOUNT.BUTTON' | translate}}
+      </a>
+
+      <ion-spinner *ngIf="deleteInProgress" ion-text color="primary"></ion-spinner>
+    </ion-card>
+
+    <ion-card no-shadow padding-top id="legal">
+      <ion-item>
+        <a (click)="openTermsOfuser()">
+          <ion-label text-wrap text-center>{{'APP_PARAMS.LEGAL' | translate}}</ion-label>
+        </a>
+      </ion-item>
+    </ion-card>
+
+    <ion-card no-shadow id="credits" padding-bottom>
+      <!--removeIf(production)-->
+      <div text-center>
+        <small>{{RESOURCES.API.SERVER_DOMAIN}}</small>
+        <small>{{RESOURCES.SOCIAL_SHARING.FLUSTER_WEBSITE}}</small>
+      </div>
+      <!--endRemoveIf(production)-->
+
+      <div text-center>
+        <small>Developed with passion in Zürich🇨🇭</small>
+      </div>
+
+      <div text-center>
+        <small>Fluster v{{RESOURCES.APP_VERSION}}</small>
+      </div>
+    </ion-card>
+  </div>
+
+</ion-content>
+
+<div *ngIf="!ENV_CORDOVA">
+  <app-web-social-share [show]="pwaShowShare" [share]="pwaShareOptions" (closed)="sharePWAClose()"></app-web-social-share>
+</div>
+

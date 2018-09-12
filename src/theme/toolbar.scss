@@ -1,0 +1,161 @@
+// ion-content toolbar with segments
+
+ion-content[role="browse"] {
+
+    ion-toolbar {
+        --background: inherit;
+    }
+}
+
+ion-content[role="ad"] {
+
+    ion-toolbar {
+        --background: #{$fluster-dark-blue};
+    }
+}
+
+ion-content[role="browse"], ion-content[role="ad"] {
+
+    ion-segment {
+        ion-segment-button {
+            max-width: 100%;
+            --border-width: 0;
+        }
+
+        ion-segment-button {
+            margin-right: 4px;
+
+            &:first-of-type {
+                margin-right: 4px;
+            }
+
+            &:last-of-type {
+                margin-right: 0px;
+            }
+
+        }
+    }
+}
+
+ion-content[role="browse"] {
+
+    ion-segment {
+        ion-segment-button {
+            background-color: $fluster-light-grey;
+        }
+    }
+}
+
+ion-content[role="ad"] {
+
+    ion-segment {
+        background-color: $fluster-dark-blue;
+
+        ion-segment-button {
+            background-color: $fluster-grey-blue;
+        }
+    }
+}
+
+ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], ion-content[role="ad"] {
+
+    ion-toolbar {
+
+        ion-segment {
+
+            position: relative;
+
+            &.ion-segment-four-buttons {
+                ion-segment-button {
+                    width: calc(100% / 4);
+                }
+            }
+
+            ion-segment-button {
+                --border-color: transparent;
+                color: $fluster-midnight-blue;
+                font-size: $fluster-text-normal;
+                --border-radius: 0;
+                height: 100%;
+                opacity: 1.0;
+                --border-width: 0;
+
+                ion-icon {
+                    padding-top: 4px;
+                }
+
+                span {
+                    display: block;
+                    text-transform: none;
+                    font-size: $fluster-text-small;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    padding: 4px;
+                }
+
+                &.segment-button-checked {
+                    @include fluster-linear-gradient-variable(to bottom right, $fluster-peach1, $fluster-peach3);
+                    color: white;
+                }
+
+
+            }
+        }
+    }
+}
+
+// ion-footer sticky toolbar
+
+ion-footer[role="browse"], ion-footer[role="ad"] {
+
+    &::before {
+        background: none;
+    }
+
+    ion-toolbar[role="buttons"] {
+
+        height: 100%;
+        --border-color: transparent;
+
+        --padding-start: 0;
+        --padding-end: 0;
+
+        ion-button {
+            margin-bottom: 16px;
+            margin-top: 12px;
+        }
+    }
+}
+
+ion-split-pane ion-footer[role="browse"] {
+    ion-toolbar[role="buttons"] {
+        --background: rgba(255, 255, 255, 0.9);
+    }
+}
+
+ion-split-pane ion-footer[role="ad"] {
+    ion-toolbar[role="buttons"] {
+        --background: rgba(45, 41, 76, 0.7);
+    }
+}
+
+ion-modal ion-footer[role="browse"] {
+    ion-toolbar[role="buttons"] {
+        --background: white;
+    }
+}
+
+ion-modal ion-content div[role="ad"] {
+    &.footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: 99;
+        background: rgba(45, 41, 76, 0.7);
+
+        ion-button {
+            margin-top: 12px;
+            margin-bottom: 16px;
+        }
+    }
+}

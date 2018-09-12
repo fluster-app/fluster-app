@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="close()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title>FLUSTER</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content role="ad" [scrollY]="false" padding>
+
+    <div padding text-center *ngIf="item == null || appointment == null || applicant == null">
+        <ion-spinner ion-text color="primary"></ion-spinner>
+    </div>
+
+    <div *ngIf="item != null && appointment != null && applicant != null" id="rescheduleAppointments">
+
+        <h2 padding text-center *ngIf="isApplicantAccepted()">{{'RESCHEDULE.SUB_TITLE_ACCEPTED' | translate:{who: applicant.user.facebook.firstName} }}</h2>
+
+        <h2 padding text-center *ngIf="isApplicantReschedule()">{{'RESCHEDULE.SUB_TITLE_RESCHEDULE' | translate:{who: applicant.user.facebook.firstName} }}</h2>
+
+        <app-pick-reschedule-appointments [item]="item" [appointment]="appointment" [applicant]="applicant" (notifiySelected)="select($event)"></app-pick-reschedule-appointments>
+
+        <div text-center padding class="date-picker-actions">
+            <ion-button expand="full" shape="round" (click)="doReschedule()">
+                {{'ADMIN_APPOINTMENTS.APPOINTMENTS.CONFIRM' | translate}}
+                <ion-icon name="checkmark"></ion-icon>
+            </ion-button>
+        </div>
+    </div>
+
+</ion-content>

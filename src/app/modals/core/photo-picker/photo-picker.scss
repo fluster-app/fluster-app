@@ -1,0 +1,157 @@
+@import "../../../../theme/fluster-variables";
+@import "../../../../theme/media-queries";
+@import "../../../../theme/mixins";
+
+ion-buttons[slot="end"] {
+    ion-button {
+        ion-icon.smaller-icon {
+            height: 0.8em;
+            width: 0.8em;
+        }
+    }
+}
+
+#photo-picker.no-padding {
+    padding: 0;
+
+    .scroll-content {
+        height: 100%;
+    }
+
+}
+
+#preview {
+    width: 100%;
+    height: 100%;
+
+    web-photo-filter {
+        > img:first-of-type, > canvas:first-of-type {
+            max-width: 100%;
+            display: none;
+        }
+    }
+
+    div#previewAndroid {
+        img {
+            max-width: 100%;
+        }
+    }
+
+    @include min-screen-height(600px) {
+        web-photo-filter {
+            > img:first-of-type, > canvas:first-of-type {
+                max-width: 70%;
+                display: none;
+            }
+        }
+
+        div#previewAndroid {
+            img {
+                max-width: 70%;
+            }
+        }
+    }
+
+    &.hideImgContent {
+        img, canvas {
+            visibility: hidden;
+        }
+    }
+
+    div.cropper-container {
+        background-image: none;
+
+        div.cropper-modal {
+            background-color: $fluster-dark-blue;
+        }
+    }
+}
+
+.cropper-crop-box {
+    z-index: 2;
+}
+
+.cropper-view-box {
+    outline: $fluster-peach2;
+    outline-color: $fluster-peach2;
+}
+
+.cropper-dashed {
+    border: 0 dashed $fluster-peach2;
+}
+
+.cropper-line, .cropper-point {
+    background-color: $fluster-peach2;
+}
+
+.cropper-point.point-se:before {
+    background-color: $fluster-peach2;
+}
+
+div#toolbarFilters {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+
+    &.hidden {
+        display: none;
+    }
+
+    div[scrollx=true] {
+        width: 100%;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        div.filters {
+            display: inline-flex;
+            width: 100%;
+
+            div.filter {
+                min-height: 80px;
+                padding-right: 16px;
+
+                &:first-child {
+                    padding-left: 16px;
+                }
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                ion-label {
+                    font-size: $fluster-text-small;
+                    color: white;
+                    margin: 0;
+                    font-weight: $font-weight-light;
+                }
+
+                img, canvas {
+                    min-height: 6rem;
+                    min-width: 6rem;
+                    width: 6rem;
+                    height: 6rem;
+                    border-radius: 50%;
+                    border: 1px solid $fluster-peach2;
+                }
+
+                &.filter-selected {
+                    ion-label {
+                        color: $fluster-peach3;
+                    }
+
+                    img, canvas {
+                        min-height: 6.4rem;
+                        min-width: 6.4rem;
+                        width: 6.4rem;
+                        height: 6.4rem;
+                        border: 1px solid $fluster-peach3;
+                    }
+                }
+            }
+        }
+    }
+}

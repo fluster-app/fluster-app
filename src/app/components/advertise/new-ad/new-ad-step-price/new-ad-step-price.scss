@@ -1,0 +1,7 @@
+@import "../new-ad.component";
+
+#additionalCosts {
+    &.hidden {
+        visibility: hidden;
+    }
+}

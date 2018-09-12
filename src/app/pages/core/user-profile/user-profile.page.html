@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>FLUSTER</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="browse">
+
+  <div class="big-screen-content">
+    <app-public-user-profile-summary [user]="user" [displaySensitive]="true" [displaySubscription]="true"></app-public-user-profile-summary>
+
+    <ion-card *ngIf="hasUser()" id="school-work" no-shadow no-margin padding-start padding-end>
+      <ion-list>
+        <ion-item tappable (click)="navigateToSelectWorkSchool(true)">
+          <ion-label position="fixed">{{'USER_PROFILE.SELECT_WORK' | translate}}</ion-label>
+          <ion-label *ngIf="hasWork()">{{user.description.employer}}</ion-label>
+          <ion-label *ngIf="!hasWork()" class="inactive-school-work">{{'SELECT_SCHOOL_WORK.NONE' | translate}}</ion-label>
+        </ion-item>
+
+        <ion-item tappable (click)="navigateToSelectWorkSchool(false)">
+          <ion-label position="fixed">{{'USER_PROFILE.SELECT_SCHOOL' | translate}}</ion-label>
+          <ion-label *ngIf="hasEducation()">{{user.description.school}}</ion-label>
+          <ion-label *ngIf="!hasEducation()" class="inactive-school-work">{{'SELECT_SCHOOL_WORK.NONE' | translate}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <ion-card id="language-card" *ngIf="hasUser()" no-shadow no-margin padding-start padding-end padding-bottom>
+      <ion-card-header>
+        {{'NEW_AD.STEP_USER.I_SPEAK' | translate}}
+      </ion-card-header>
+
+      <ion-list>
+        <ion-item tappable (click)="navigateToLang()">
+          <ion-label *ngIf="!hasLanguages()" class="language-empty">{{'USER_PROFILE.LIFESTYLE.NONE' | translate}}</ion-label>
+          <ion-label *ngIf="hasLanguages()">{{languages}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <ion-card id="lifestyle" *ngIf="hasUser()" no-shadow no-margin padding-start padding-end padding-bottom>
+      <ion-card-header>
+        {{'USER_PROFILE.LIFESTYLE_HOBBIES.MY_TITLE' | translate}}
+      </ion-card-header>
+
+      <app-list-lifestyle-hobbies [user]="user" [adDisplay]="false"></app-list-lifestyle-hobbies>
+    </ion-card>
+
+    <ion-card id="spotify" text-wrap no-shadow *ngIf="hasUser() && ENV_CORDOVA" no-margin padding-start padding-end>
+      <ion-card-header>
+        <img src="assets/img/ico_spotify-peach3.svg">
+        {{'USER_PROFILE.SPOTIFY.TITLE' | translate}}
+      </ion-card-header>
+
+      <app-connect-spotify (notifyResult)="updateSpotify($event)" [userSpotify]="user.description.spotify"></app-connect-spotify>
+
+      <app-display-spotify *ngIf="hasSpotifyEnabled()" [userSpotifyId]="user.description.spotify.spotify" [editable]="true"></app-display-spotify>
+    </ion-card>
+
+    <ion-list padding-start padding-end *ngIf="hasUser()" id="user-phone-bio">
+      <ion-card-header>
+        {{'USER_PROFILE.WHAT_ELSE' | translate}}
+      </ion-card-header>
+
+      <app-user-profile-input-bio [user]="user" [content]="content"></app-user-profile-input-bio>
+
+      <app-user-profile-input-phone [user]="user"></app-user-profile-input-phone>
+
+      <ion-item text-wrap id="display-last-name" padding-start *ngIf="!user.userParams.appSettings.browsing">
+        <ion-label>{{'USER_PROFILE.DISPLAY_LAST_NAME' | translate}}</ion-label>
+        <ion-toggle [(ngModel)]="user.description.displayName" checked="{{user.description.displayName}}"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-card *ngIf="hasLikes()" id="likes" text-wrap no-shadow no-margin padding-start padding-end padding-bottom>
+      <ion-card-header>
+        {{'USER_PROFILE.MY_LIKES' | translate}}
+      </ion-card-header>
+
+      <div padding-start padding-end>{{ 'USER_PROFILE.PUBLIC.MY_LIKES' | translate:{value: user.facebook.likes.data.length} }}</div>
+
+    </ion-card>
+  </div>
+</ion-content>

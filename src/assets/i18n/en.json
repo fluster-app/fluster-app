@@ -1,0 +1,840 @@
+{
+    "LOGIN": {
+        "FACEBOOK_LOGIN": "Sign in with Facebook",
+        "GOOGLE_LOGIN": "Sign in with Google",
+        "SLIDES": {
+            "SLIDE1": "Discover <strong>flatshares</strong> and <strong>roommates</strong>",
+            "SLIDE2": "Find out the <strong>interests</strong> of the roommates",
+            "SLIDE3": "Discover the <strong>highlights</strong> of the <strong>area</strong>",
+            "SLIDE4": "<strong>Save time</strong>, send instant viewings’ requests"
+        },
+        "LEGAL": "By entering I accept the Terms & Conditions"
+    },
+    "FIRST_CHOICE": {
+        "LETS_GO": "Let's go!",
+        "WHAT_DO_YOU_WANT_TO_DO": "Do you need or do you offer a new home?",
+        "DISCOVER": "<strong>Discover</strong> my new home",
+        "ADVERTISE": "<strong>Advertise</strong> a room or a flat to rent",
+        "GENDER": {
+            "YOU_ARE": "One last info",
+            "WHY_GENDER": "To customize your request",
+            "MALE": "I am a <strong>man</strong>",
+            "FEMALE": "I am a <strong>woman</strong>",
+            "UNKNOWN": "Not specified"
+        }
+    },
+    "ADS": {
+        "NO_AD_YET": {
+            "TITLE": "Hey!",
+            "SUB_TITLE": "You haven't published an ad yet"
+        },
+        "APPOINTMENTS": {
+            "TITLE": "Agenda",
+            "NO_UPCOMING_APPOINTMENTS": "You have no upcoming viewings, send <strong>Superstars</strong> to highlight your ad",
+            "YOU_HAVE": "You still have",
+            "UPCOMING_APPOINTMENT": "Viewing",
+            "UPCOMING_APPOINTMENTS": "Viewings",
+            "AND": "and",
+            "NEW_CANDIDATE": "pending candidate",
+            "NEW_CANDIDATES": "pending candidates"
+        },
+        "ACTIONS": {
+            "UNDO": "restore",
+            "EDIT_APPOINTMENTS": "Manage my availability",
+            "EDIT_ADS": "Manage my ad",
+            "CLOSE": "Delete my ad"
+        }
+    },
+    "NEW_AD": {
+        "STEP_TYPE": {
+            "COOL": "Cool!",
+            "WHAT_DO_YOU_OFFER": "What do you have to offer?",
+            "SHARE": "A room",
+            "TAKEOVER": "Takeover my flat"
+        },
+        "STEP_LOCATION": {
+            "TITLE": "Address",
+            "SUB_TITLE_SHARE": "Where is your shared flat located?",
+            "SUB_TITLE_FLAT": "Where is your flat located?",
+            "LOCATION_PLACEHOLDER": "Find the address",
+            "LOCATION_NOT_DEFINED": "Please find an address first"
+        },
+        "STEP_AVAILABILITY": {
+            "TITLE": "Availability",
+            "SUB_TITLE_SHARE": "Your room is available...",
+            "SUB_TITLE_FLAT": "Your flat is available...",
+            "AVAILABLE_NOW": "from now on",
+            "AVAILABLE_BEGIN": "As of...",
+            "UNLIMITED": "unlimited",
+            "AVAILABLE_END": "Until...",
+            "PICK_DATE": "Pick a date"
+        },
+        "STEP_SHARE_SIZE": {
+            "TITLE": "Room",
+            "SUB_TITLE": "What's your room like?",
+            "SHAREDROOMS": "Number of free rooms",
+            "FLATMATE": "Number of roommates",
+            "SHAREDROOMSSIZE": "Square meters of the room",
+            "FURNISHED": "Furnished"
+        },
+        "STEP_SIZE": {
+            "TITLE": "Flat",
+            "SUB_TITLE_FLAT": "What is your flat like?",
+            "SUB_TITLE_SHARE": "What is your shared flat like in general?",
+            "ROOMS": "Flat",
+            "SIZE": "Square meters of the flat",
+            "FLOOR": "Floor",
+            "FURNISHED": "Furnished",
+            "BATHROOMS": "Bathrooms"
+        },
+        "STEP_PRICE": {
+            "TITLE": "Rental price",
+            "SUB_TITLE": "What's the price per month?",
+            "SUB_TITLE_SHARE": "What's the room's price per month?",
+            "PRICE": "Rental fee/month",
+            "ASK_ADDITIONAL_COSTS": "Are there additional costs?",
+            "ADDITIONAL_COSTS": "Additional costs/month",
+            "ALL_INCLUDED": "Total costs/month",
+            "PRICE_NOT_DEFINED": "Please enter a rental fee first"
+        },
+        "STEP_ATTRIBUTES": {
+            "TITLE": "Extras",
+            "SUB_TITLE_SHARE": "Your shared flat has to offer",
+            "SUB_TITLE_FLAT": "Your flat has to offer",
+            "DISABLED_FRIENDLY": "Wheelchair friendly",
+            "PETS_ALLOWED": "Pets allowed",
+            "INTERNET": "Internet included",
+            "CLEANING_AGENT": "Cleaning supplies",
+            "PARKING": "Parking spot",
+            "BALCONY": "Balcony",
+            "GARDEN": "Garden",
+            "KIDS_WELCOMED": "With kids welcomed"
+        },
+        "STEP_PHOTO": {
+            "ADD_PHOTO": "Add image",
+            "FROM_GALLERY": "Choose from album",
+            "FROM_CAMERA": "Take image",
+            "AT_LEAST_ONE_PHOTO": "Please upload at least one photo to make your ad attractive"
+        },
+        "STEP_APPOINTMENT": {
+            "TITLE": "Viewings",
+            "SUB_TITLE": "When are you available for viewings?",
+            "MORNING": "Morning",
+            "AFTERNOON": "Afternoon",
+            "EVENING": "Evening"
+        },
+        "STEP_LIMITATION": {
+            "TITLE": "Candidates",
+            "SUB_TITLE_SHARE": "What criteria your new roommate need to fill?",
+            "SUB_TITLE_FLAT": "What criteria your candidates need to fill?",
+            "AGE_SHARE": "Age of your new roommate",
+            "AGE_FLAT": "Age of candidate",
+            "MALE": "Male",
+            "FEMALE": "Female"
+        },
+        "STEP_USER": {
+            "TITLE": "Last details",
+            "PUBLISH": "Publish your ad",
+            "EDIT": "Publish ad",
+            "I_SPEAK": "I know",
+            "AND_MORE": "& more",
+            "DISPLAY_LAST_NAME": "Display last name"
+        },
+        "STEP_DONE": {
+            "TITLE": "Pretty cool!",
+            "SUB_TITLE": "Your ad is published",
+            "SUB_TITLE_REWARD": "Your ad is published and you entered our contest*",
+            "REWARD_LEGAL": "* Contest details and conditions of participation",
+            "DISPLAY": "View ad",
+            "SHARE": "Share ad"
+        },
+        "STEP_ATTENDANCE": {
+            "TITLE": "Attendance",
+            "SUB_TITLE": "Could several people participate to the same viewing?",
+            "SINGLE": "Single person viewing",
+            "MULTIPLE": "Several people, open door"
+        },
+        "STEP_LIFESTYLE": {
+            "TITLE": "About you",
+            "SUB_TITLE": "Lifestyle & Hobbys"
+        }
+    },
+    "SEARCH_LOCATION": {
+        "PLACEHOLDER": "Search"
+    },
+    "SELECT_LANGUAGES": {
+        "PLACEHOLDER": "Choose language"
+    },
+    "SELECT_ATTRIBUTES": {
+        "ROOMS": "bedrooms",
+        "ROOM": "bedroom",
+        "ROOMS_TEXT": "How many rooms?",
+        "SHARED_ROOMS": "bedrooms",
+        "SHARED_ROOM": "bedroom",
+        "SHARED_ROOMS_TEXT": "How many rooms to sublease?",
+        "FLATMATES": "roommates",
+        "FLATMATE": "roommate",
+        "FLATMATE_TEXT": "How many persons (in total) will live in your shared flat?",
+        "FLOOR": "floor",
+        "FLOOR_TEXT": "On what floor?",
+        "FLOOR_UNDERGROUND": "Basement",
+        "FLOOR_GROUND_FLOOR": "GF",
+        "BATHROOMS": "bathrooms/toilets",
+        "BATHROOM": "bathroom/toilet",
+        "BATHROOMS_TEXT": "How many bathrooms?"
+    },
+    "TARGETED_USERS": {
+        "PERSONS": "persons",
+        "USERS_MATCHING_LOCATION": {
+            "IN_THIS_AREA": "nearby"
+        },
+        "USERS_MATCHING_ITEM": {
+            "SHARE": "want a place like yours",
+            "FLAT": "want a place like yours"
+        }
+    },
+    "APPLICANTS": {
+        "TITLE": "My candidates",
+        "NOTHING_YET": "You have no candidates currently, send <strong>Superstars</strong> to highlight your ad",
+        "STATUS": {
+            "NEW": "New candidates",
+            "ACCEPTED": "Accepted",
+            "CANCELLED": "Declined",
+            "TO_RESCHEDULE": "Schedule the viewing"
+        },
+        "RESCHEDULE_INFO": "Chat with {{who}} to schedule the viewing"
+    },
+    "APPLICANT_SELECTION": {
+        "PROPOSAL": "{{who}} offers you {{howmany}} possible time slots, select one of them to accept the request",
+        "PROPOSAL_SINGLE": "{{who}} offers you this time slot",
+        "CONFIRM": "Accept",
+        "NO_APPOINTMENTS_FOUND": "Unfortunately, none of the proposed time slots fit your calendar.",
+        "RESCHEDULE_IN_PROGRESS": "You requested a viewing from {{who}}",
+        "CANCELLED": "You declined {{who}}'s request",
+        "APPOINTMENT_IN_THE_PAST": "The viewing with {{who}} already took place",
+        "APPOINTMENT_IN_THE_FUTURE": "The viewing with {{who}} is the following date",
+        "NEW_REQUEST_TITLE": "{{who}} has applied for a viewing, would you like to accept the request?",
+        "ACCEPT_REQUEST": "<strong>Accept</strong> and select the viewing",
+        "REJECT_REQUEST": "Reject",
+        "NO_SELECTED_TIME": "Select a time slot to accept the request",
+        "APPOINTMENT_SCHEDULED_FOR": {
+            "BEGIN": "The viewing takes place the",
+            "END": ""
+        },
+        "ACTION_SHEET": {
+            "ACCEPT": "Accept this request",
+            "DECLINE": "Decline this request",
+            "ASK_RESCHEDULE": "Request new viewings' time slots",
+            "FOUND_SOMEONE_ELSE": "Sorry, I found someone else",
+            "NOT_ENOUGH_DETAILS": "The profile does not contain enough information",
+            "NO_REASON": "I rather like to meet other candidates",
+            "COMPLAIN": "Report"
+        }
+    },
+    "USER_PROFILE": {
+        "WHAT_ELSE": "What else",
+        "PLACEHOLDER_PHONE": "My phone number",
+        "PLACEHOLDER_BIO": "Some words about myself...",
+        "SELECT_SCHOOL": "Education",
+        "SELECT_WORK": "Job",
+        "MY_LIKES": "My Interests",
+        "DISPLAY_LAST_NAME": "Display last name in my ad",
+        "PUBLIC": {
+            "MUTUAL_LIKES": "{{value}} common interests",
+            "MY_LIKES": "{{value}} Interests for comparison",
+            "ABOUT_ME": "About me"
+        },
+        "SPOTIFY": {
+            "TITLE": "My music selection",
+            "CONNECT": "Add Spotify to my profile"
+        },
+        "LIFESTYLE_HOBBIES": {
+            "MY_TITLE": "About me"
+        },
+        "LIFESTYLE": {
+            "TITLE": "Lifestyle",
+            "NONE": "Not specified",
+            "CLEANLINESS": {
+                "TITLE": "Cleanliness",
+                "CLEAN": "Clean",
+                "AVERAGE": "Average",
+                "MESSY": "Messy"
+            },
+            "GUESTS": {
+                "TITLE": "Guests",
+                "NEVER": "Never",
+                "RARELY": "Rarely",
+                "OCCASIONALLY": "Occasionally",
+                "OFTEN": "Often"
+            },
+            "PARTY": {
+                "TITLE": "Party habits",
+                "RARELY": "Rarely",
+                "OCCASIONALLY": "Occasionally",
+                "WEEKENDS": "On weekends",
+                "DAILY": "Daily"
+            },
+            "FOOD": {
+                "TITLE": "Food preference",
+                "ANYTHING": "Anything",
+                "VEGETARIAN": "Vegetarian",
+                "VEGAN": "Vegan",
+                "FRUITARIAN": "Fruitarian",
+                "GLUTEN": "Gluten free",
+                "KOSHER": "Kosher",
+                "HALAL": "Halal",
+                "PALEOLITHIC": "Paleolithic"
+            },
+            "GENDER": {
+                "TITLE": "I am",
+                "MALE": "A man",
+                "FEMALE": "A woman"
+            }
+        },
+        "HOBBIES": {
+            "TITLE": "Hobbies",
+            "SPORTS": {
+                "TITLE": "Sports",
+                "RUNNING": "Running",
+                "DANCING": "Dancing",
+                "HORSE_RIDING": "Horse riding",
+                "SKIING": "Skiing",
+                "SNOWBOARDING": "Snowboarding",
+                "GOLFING": "Golfing",
+                "SURFING": "Surfing",
+                "ROWING": "Rowing",
+                "SWIMMING": "Swimming",
+                "BASKETBALL": "Basketball",
+                "CROSSFIT": "CrossFit",
+                "BIKING": "Biking",
+                "HANDBALL": "Handball",
+                "TENNIS": "Tennis",
+                "FIELD_HOCKEY": "Field hockey",
+                "ICE_HOCKEY": "Ice hockey",
+                "PING_PONG": "Ping pong",
+                "BADMINTON": "Badminton",
+                "BOXING": "Boxing",
+                "MARTIAL_ARTS": "Martial arts",
+                "ICE_SKATING": "Ice skating",
+                "FISHING": "Fishing",
+                "CLIMBING": "Climbing",
+                "YOGA": "Yoga",
+                "SOCCER": "Football",
+                "RUGBY": "Rugby"
+            },
+            "ARTS": {
+                "TITLE": "Arts, music and entertainment",
+                "VIDEO_GAMES": "Video games",
+                "PERFORMING_ARTS": "Performing arts",
+                "DRAWING": "Drawing",
+                "SAXOPHONE": "Saxophone",
+                "GUITAR": "Guitar",
+                "MUSICAL_KEYBOARD": "Musical keyboard",
+                "TRUMPET": "Trumpet",
+                "VIOLIN": "Violin",
+                "DRUMS": "Drums",
+                "MOVIES": "Movies",
+                "TV_SHOWS": "TV shows",
+                "SINGING": "Singing",
+                "READING": "Reading"
+            },
+            "FOOD": {
+                "TITLE": "Gastronomy",
+                "COOKING": "Cooking",
+                "COFFEE": "Coffee",
+                "WINE": "Wine tasting",
+                "BEER": "Beer tasting"
+            },
+            "PLACES": {
+                "TITLE": "Places and travels",
+                "MOUNTAIN": "Mountains",
+                "BEACH": "Beach",
+                "CAMPING": "Camping",
+                "SHOPPING": "Shopping"
+            }
+        }
+    },
+    "APP_PARAMS": {
+        "PARAMS_TITLE": "Settings",
+        "EXPORT_TO_CALENDAR": "Export viewings to my calendar",
+        "NOTIFICATIONS": "Notifications",
+        "ALLOW_SUPERSTARS": "Allow rooms and flats advertisers to send me Superstars",
+        "LEGAL": "Terms & Conditions",
+        "CONTACT": "Any questions? Send us an e-mail <strong>info@fluster.io</strong>",
+        "SHARE": {
+            "SHARE_FLUSTER": "Share FLUSTER",
+            "SHARE_SUBJECT": "FLUSTER",
+            "SHARE_CONTENT": "FLUSTER, flatshares within your grasp"
+        },
+        "LOGOUT": {
+            "BUTTON": "Sign out",
+            "QUESTION": "Are you sure that you want to sign-out? FLUSTER is awesome, stay with us!",
+            "LOGOUT": "Sign out"
+        },
+        "DELETE_ACCOUNT": {
+            "BUTTON": "Delete account",
+            "QUESTION": "Do you really want to delete your account? FLUSTER is awesome, stay with us!",
+            "DELETE": "Delete"
+        }
+    },
+    "SELECT_SCHOOL_WORK": {
+        "NONE": "Not specified"
+    },
+    "CORE": {
+        "NEXT": "Continue",
+        "SAVE": "Save",
+        "DAY_ABBREVIATION": {
+            "TODAY": "Today",
+            "LONG": {
+                "MONDAY": "Monday",
+                "TUESDAY": "Tuesday",
+                "WEDNESDAY": "Wednesday",
+                "THURSDAY": "Thursday",
+                "FRIDAY": "Friday",
+                "SATURDAY": "Saturday",
+                "SUNDAY": "Sunday"
+            },
+            "SHORT": {
+                "MONDAY": "Mo",
+                "TUESDAY": "Tue",
+                "WEDNESDAY": "Wed",
+                "THURSDAY": "Thu",
+                "FRIDAY": "Fri",
+                "SATURDAY": "Sat",
+                "SUNDAY": "Sun"
+            }
+        },
+        "YES": "Yes",
+        "NO": "No",
+        "OK": "Ok",
+        "CANCEL": "Cancel",
+        "YEARS_OLD": "Years",
+        "TIME_ABBREVIATION": {
+            "MINUTES": "min",
+            "HOURS": "h"
+        },
+        "SQUARE_METER": "m2",
+        "METER": "m",
+        "BACK": "Back"
+    },
+    "MENU": {
+        "HEADER": {
+            "MY_PROFILE": "My profile"
+        },
+        "FOOTER": {
+            "PARAMETERS": "Settings"
+        },
+        "BROWSE": {
+            "DISCOVER": "Discover",
+            "MY_APPOINTMENTS": "My viewings",
+            "MY_BOOKMARKS": "Bookmarks",
+            "MY_APPLICANTS": "Requests",
+            "ADVERTISE": "Publish ad"
+        },
+        "AD": {
+            "MY_APPOINTMENTS": "Viewings",
+            "APPLICANTS": "My candidates",
+            "MY_AD": "My ad",
+            "CANDIDATES": "Find roommates",
+            "DISCOVER": "Discover"
+        }
+    },
+    "CALENDAR": {
+        "EXPORT": {
+            "ASK": {
+                "TITLE": "Export viewing dates",
+                "QUESTION": "Should we add your viewing dates to your calendar?"
+            }
+        },
+        "DEVICE": {
+            "TITLE": "FLUSTER - Viewing"
+        }
+    },
+    "ERRORS": {
+        "WIZARD": {
+            "NOT_ADDED": "Ups, something went wrong. Please check your details",
+            "PHOTO_NOT_WRITTEN": "Ooops sorry, your photo could not be cropped. Please try again"
+        },
+        "ADS": {
+            "CLOSE": "Ups, something went wrong. Try again later",
+            "UNDO": "Your ad could not be restored automatically"
+        },
+        "APPLICANT_SELECTION": {
+            "NOT_UPDATED": "Ups, something went wrong. Please check your details",
+            "CALENDAR_EXPORT": "Everything worked finde except the export to your calendar"
+        },
+        "USER": {
+            "SAVE_ERROR": "Sorry, the changes to your profile were not saved"
+        },
+        "ITEM_DETAILS": {
+            "COMPLAINT": "Sorry, we could not process your complaint"
+        },
+        "ITEMS": {
+            "ACTION_ERROR": "Sorry, your action could not be stored. Please try again!"
+        },
+        "LOGIN": {
+            "LOGIN_ERROR": "Sorry, we could not finalise your registration"
+        },
+        "DEEP_LINKING": {
+            "NOT_FOUND": "Sorry, this ad does no fit your profile"
+        },
+        "SESSIONS": {
+            "TIMEOUT": "The session has expired. Please try again"
+        },
+        "CHAT": {
+            "NOT_LOADED": "Ups, something went wrong, no messages could be found",
+            "NOT_SENT": "Your message could not be sent",
+            "NOTHING_FOUND": "No messages could be found"
+        }
+    },
+    "ITEM_PARAMS": {
+        "LOCATION": {
+            "TITLE": "Your city",
+            "TEXT": "Which city are you interested in?",
+            "LOCATION_PLACEHOLDER": "Find city",
+            "DISTANCE": "Search area: {{size}} km"
+        },
+        "PRICE": {
+            "TITLE": "Your budget",
+            "TEXT": "How much can you spend?",
+            "UNTIL": "up to",
+            "PER_MONTH": "/Month",
+            "EVERYTHING": "No restrictions"
+        },
+        "AVAILABILITY": {
+            "TITLE": "Your availability",
+            "TEXT": "By when you need a new home?",
+            "AVAILABLE_NOW": "As of now",
+            "AVAILABLE_BEGIN": "As of...?",
+            "UNLIMITED": "limited",
+            "AVAILABLE_END": "Until when it is limited?"
+        },
+        "TYPE": {
+            "TITLE": "Your new home",
+            "TITLE_SEGMENT": "Your home",
+            "TEXT": "What you want exactly?",
+            "SHARE": "Take room in shared flat",
+            "TAKEOVER": "Takeover flat",
+            "WARNING_TYPE": "Please choose between room in shared flat and takeover flat"
+        },
+        "INTERESTS": {
+            "TITLE": "Your interests",
+            "TITLE_LONG": "Where are your points of interests?",
+            "SUB_TITLE": "For each ad, FLUSTER calculates your travel time, add your points of interests!",
+            "EXAMPLE": "For example « <strong>10 min</strong> by bike to work »",
+            "WORK": "Job",
+            "TRAIN_STATION": "Railway station",
+            "SCHOOL": "Education",
+            "AIRPORT": "Airport",
+            "LOVE": "Relationship",
+            "TRAINING": "Gym",
+            "MAX_TRAVEL_TIME": "How far away?",
+            "EVERYTHING": "Not relevant",
+            "TEXT": "What needs to be close by your new home?",
+            "ADDRESS_PLACEHOLDER": "Edit the address here",
+            "CONFIRM": "Confirm",
+            "ADD": "Add a point of interest",
+            "TEXT_EXPLANATION": {
+                "COMMON": "For each ad, FLUSTER shows you the travel time to reach",
+                "WORK": "your job",
+                "TRAIN_STATION": "the railway station",
+                "SCHOOL": "your school",
+                "AIRPORT": "the airport",
+                "RELATION": "your partner",
+                "SPORT": "your sports activity"
+            },
+            "ADDRESS_TITLE": "Exact address",
+            "MEANS_OF_TRANSPORT": "Pick your means of transport"
+        }
+    },
+    "ITEMS": {
+        "FIRST_ACCESS": {
+            "INFO_WITHOUT_ADDRESS": "You have no location for the discovery defined yet",
+            "INFO_WITHOUT_ADDRESS_MODIFY": "Edit your location settings",
+            "PROFILE": "Your profile and other options",
+            "COMPLETE_PROFILE": "Add some more information to your profile and increase your chances to get viewings",
+            "ITEM_NAVIGATION": {
+                "PREVIOUS_PHOTO": "Previous photo",
+                "NEXT_PHOTO": "Next photo",
+                "DETAILS": "More details"
+            }
+        },
+        "FIRST_ACTIONS": {
+            "BOOKMARK_TEXT": "By clicking here you add the ad to your bookmarks",
+            "DISLIKE_TEXT": "By clicking X or by swiping the ad to the left you remove it",
+            "GET_IT": "I got it"
+        },
+        "NO_ITEMS": "Currently, no new ads fit your profile",
+        "NO_ITEMS_EMPTY_BIRTHDAY": "No new ads? Add your <strong>date of birth</strong> to access the restricted ads",
+        "NO_ITEMS_REFRESH": "Rewind all ignored ads ?",
+        "AVAILABILITY": {
+            "AVAILABLE_NOW_WITHOUT_END": "As of now and forever",
+            "AVAILABLE_NOW_TILL": "As of now until",
+            "AVAILABLE_THE": "Available as of",
+            "AVAILABLE_FROM": "Available as of",
+            "AVAILABLE_TILL": "until"
+        },
+        "TYPE": {
+            "FLAT_TAKEOVER": "Flat takeover",
+            "FLAT_LIMITED": "Flat for temporary lease",
+            "SHARE": "Flatshare"
+        },
+        "LIKE_INFO": "Yay",
+        "DISLIKE_INFO": "Nope"
+    },
+    "ITEM_DETAILS": {
+        "CONTENT": {
+            "CATEGORY": {
+                "AVAILABILITY": "Availability",
+                "ADDRESS": "Address",
+                "PRICE_GROSS": "Rental fee/month",
+                "PRICE_EXTRA": "Additional costs/month",
+                "PRICE_EXTRA_INCLUDED": "(incl.)",
+                "SHARED_ROOMS": "Room(s)",
+                "SHARED_SIZE": "Size",
+                "SHARED_APPLICANTS": "Roommates",
+                "FLAT_ROOMS": "Room(s) in the flat",
+                "FLAT_SIZE": "Living space",
+                "FLAT_APPLICANTS": "Candidates",
+                "BATHROOMS": "Bathroom(s)/toilet(s)",
+                "FLOOR": "Floor",
+                "FLATMATE": "Roommates",
+                "FLATMATE_AND_MYSELF": "(incl. myself)",
+                "FLATMATE_AND_CANDIDATE": "(overall)"
+            },
+            "SQUARE_METER": "m2",
+            "AVAILABLE_FROM": "As of",
+            "AVAILABLE_UNTIL": "until",
+            "FURNISHED": "Furnished",
+            "DISABLED_FRIENDLY": "Wheelchair friendly",
+            "PETS_ALLOWED": "Pets allowed",
+            "INTERNET": "Internet included",
+            "CLEANING_AGENT": "Cleaning supplies",
+            "PARKING": "Parking spot",
+            "NEIGHBORHOOD": "Surroundings",
+            "NEIGHBORHOOD_HIGHLIGHTS": "Near by...",
+            "NO_NEIGHBORHOOD_HIGHLIGHTS": "Currently, we have no specific information about the surroundings.",
+            "BALCONY": "Balcony",
+            "GARDEN": "Garden",
+            "SPECS": "Specifications",
+            "WHO": "Who",
+            "MESSAGES": "Messages",
+            "KIDS_WELCOMED": "Kids welcomed"
+        },
+        "POPOVER": {
+            "VIEWING": "Request a viewing",
+            "BOOKMARK": "Bookmark",
+            "DISLIKE": "Don't like",
+            "SHARE": "Share ad",
+            "COMPLAIN": "Report"
+        },
+        "SHARE": {
+            "SHARE_TEXT_FLAT": "Awesome new place available on FLUSTER, check it out now:",
+            "SHARE_TEXT_SHARE": "Awesome new place available on FLUSTER, check it out now:"
+        },
+        "CHAT_NOT_AVAILABLE": {
+            "TITLE": "No viewing yet",
+            "SUBTITLE": "You could contact {{who}} as soon as your viewing would be confirmed",
+            "TEXT": "Send viewings' requests now?",
+            "TEXT_AD_DISPLAY": "You will be able to contact your candidates as soon as viewings have been confirmed"
+        }
+    },
+    "YELP_DETAILS": {
+        "NEIGHBORHOOD": "Nearby",
+        "EVALUATION": "Rating"
+    },
+    "ITEM_APPOINTMENTS": {
+        "VIEWING_REQUEST_TITLE": "Request a viewing",
+        "VIEWING_WHEN_TEXT_SHARE": "When can you visit {{who}}'s flat?",
+        "VIEWING_WHEN_TEXT_FLAT": "When can you visit {{who}}'s flat?",
+        "SELECTED_COUNT": {
+            "NO_SELECTED_BROWSE": "Pick one or many time slots to increase your chances to get a viewing",
+            "SELECTED_COUNT_AVAILABILITY": {
+                "SINGULAR": "<strong>{{count}} potential time slot</strong>",
+                "PLURAL": "<strong>{{count}} potential time slots</strong>"
+            },
+            "NO_SPECIAL_AVAILABILITY": "You are <strong>flexible</strong> and have no special dates"
+        },
+        "CONFIRM": "Confirm",
+        "SEND": "Send",
+        "MISSING_PHONE": {
+            "TITLE": "Your phone number",
+            "SUB_TITLE": "The persons with whom you have an appointment can reach you at this number",
+            "REMARK": "Your phone number is only visible to persons who have an accepted viewing with",
+            "REMARK_OPTIONAL": "Your phone number is optional and would only be visible to persons with whom you would have a viewing"
+        },
+        "TIPS": {
+            "SELECT_MANY_TIMESLOTS": {
+                "BEGIN": "Select",
+                "HIGHLIGHT": "multiple time slots",
+                "END": "to increase your chances of getting a viewing!"
+            },
+            "SELECT_MANY_DAYS": {
+                "BEGIN": "Maybe also",
+                "HIGHLIGHT": "one or more",
+                "END": "other days?"
+            },
+            "SELECT_COUNT": {
+                "BEGIN": "Cool, you have selected",
+                "HIGHLIGHT": "{{count}} time slot",
+                "HIGHLIGHTS": "{{count}} time slots",
+                "END": ""
+            },
+            "SELECT_ZERO_COUNT": {
+                "BEGIN": "Pick",
+                "HIGHLIGHT": "a time slot",
+                "END": "to get a viewing"
+            }
+        }
+    },
+    "MY_APPOINTMENTS": {
+        "FILTER_CURRENT": "Current",
+        "FILTER_ALL": "All",
+        "ITEM_NOT_PUBLISHED_ANYMORE": "Not available anymore.",
+        "NO_APPOINTMENTS": "You have no viewings",
+        "ITEM_WIN": "You found your new home!"
+    },
+    "MY_BOOKMARKS": {
+        "FILTER_AVAILABLE": "Available",
+        "FILTER_ALL": "All",
+        "ITEM_NOT_PUBLISHED_ANYMORE": "Not available anymore",
+        "NO_BOOKMARKS": "Your list of bookmarks is empty",
+        "ACTIONS": {
+            "DISLIKE": "Delete",
+            "VIEWING": "Viewings"
+        }
+    },
+    "MY_APPLICANTS": {
+        "NO_APPLICANTS": "You have no viewings' requests",
+        "NEED_SUBSCRIPTION": "Track your viewings' requests",
+        "STATUS": {
+            "NEW": "Pending request",
+            "ACCEPTED": "Accepted",
+            "CANCELLED": "Declined",
+            "TO_RESCHEDULE": "Schedule the viewing"
+        }
+    },
+    "NOTIFICATIONS": {
+        "ADVERTISE": {
+            "TITLE": "Congrats",
+            "MANY_APPLICANTS": "You have one or more applicants",
+            "ONE_APPLICANT": "{{who}} has applied for a viewing"
+        },
+        "BROWSE": {
+            "TITLE": "Congrats",
+            "MANY_ANSWERS": "You have one or more open requests",
+            "VIEWING_ACCEPTED": "{{who}} has accepted your application",
+            "NEED_NEW_DATES": "{{who}} would like to meet you but has no suitable time slots",
+            "NEED_NEW_DATES_CHAT": "Chat with {{who}} to schedule the viewing",
+            "APPOINTMENT_RESCHEDULED": {
+                "TITLE": "Hey",
+                "TEXT": "{{who}} has rescheduled the appointment"
+            }
+        },
+        "AD_EXPIRE": {
+            "TITLE_SOON": "Your ad is about to expire",
+            "TITLE_ALREADY": "Your ad is expired",
+            "TEXT": "You can extend your ad in 'My ads > Edit my timeslots'"
+        }
+    },
+    "ADMIN_APPOINTMENTS": {
+        "EXTEND": {
+            "TITLE": "Attention",
+            "EXPIRE_SOON": "Your ad is about to expire, do you want to keep it activated till {{when}}?",
+            "EXPIRED": "Your ad is expired, do you want to keep it activated till {{when}}?"
+        },
+        "APPOINTMENTS": {
+            "TITLE": "Time slots",
+            "SUB_TITLE": "Do you want to adjust your time slots?",
+            "CONFIRM": "Confirm"
+        }
+    },
+    "ADS_CLOSE": {
+        "TITLE": "Close",
+        "TEXT_FLAT": "Cool, you found someone for your flat! Who of your applicants took the place?",
+        "TEXT_SHARE": "Cool, you found someone for your shared flat! Who of your applicants took the place?",
+        "NO_ONE": "No one of this list",
+        "CONFIRM_POPUP": {
+            "TITLE": "Are you sure?",
+            "QUESTION": "Are you sure that you want to end your ad? This action cannot be undone"
+        }
+    },
+    "COMPLAINT": {
+        "TITLE": "Reason of your complaint",
+        "INAPPROPRIATE": "Was inappropriate",
+        "FAKE": "Is a fake",
+        "DIDNT_SHOW_UP": "Didn't show up"
+    },
+    "CHAT": {
+        "NO_MSG_TEXT": "You could have a chat here with {{who}}",
+        "TO_RESCHEDULE": "Set or reschedule the appointment with the calendar",
+        "ACCEPTED": "You could reschedule the appointment with the calendar",
+        "POPOVER": {
+            "TO_RESCHEDULE": "Set the appointment",
+            "ACCEPTED": "Reschedule the appointment",
+            "OPEN_AD": "View {{who}}'s ad",
+            "OPEN_APPLICANT": "{{who}}'s profile"
+        }
+    },
+    "PRODUCT": {
+        "NO_PRODUCT": {
+            "TEXT": "Ups, this feature isn't available yet.",
+            "CONTACT": "Any questions? Send us an e-mail"
+        },
+        "FREE": {
+            "TITLE": "HELP US",
+            "SUB_TITLE": "Share us on Facebook and get extra features",
+            "FEATURES": {
+                "CUSTOMIZATION": "More options to select your listening",
+                "REVIEW": "Rewind the ignored ads",
+                "REQUESTS_STATUS": "Track the status of your viewings' requests",
+                "NO_LIMITS": "No daily limits for requests and bookmarks",
+                "ON_TOP": "Be always on top of candidate list"
+            },
+            "TEXT": {
+                "MONTHS": "Share us on Facebook and get more features for <strong>FREE</strong> for the next {{duration}} months",
+                "DAYS": "Share us on Facebook and get more features for <strong>FREE</strong> for the next {{duration}} ays"
+            },
+            "PENDING": {
+                "TEXT": "Awesome! Your extra features gonna be activated within the next couple of hours.",
+                "PUSH": "You gonna receive a push notifications once activated"
+            },
+            "DONE": {
+                "TEXT": "Thx! You could now enjoy more features"
+            }
+        },
+        "HAS_SUBSCRIPTION": {
+            "IN_PROGRESS": "We are reviewing your subscription, stay tuned!"
+        },
+        "PROFILE": {
+            "TITLE": "PLUS"
+        }
+    },
+    "CANDIDATES": {
+        "STAR_ACTION": {
+            "FLAT": "Do your want to <strong>push forward</strong> your flat?",
+            "ROOM": "Do your want to <strong>push your</strong> room?",
+            "ACTION": "Send a <strong>Superstar</strong> to {{who}}",
+            "SUBSCRIPTION": {
+                "TITLE": "Come back tomorrow",
+                "TEXT": "You are out of daily Superstars"
+            }
+        },
+        "FIRST_ACCESS": {
+            "TITLE": "Superstars",
+            "DESCRIPTION": "<strong>Find roommates</strong> allows you to discover candidates and to highlight your ad by sending <strong>Superstars</strong>",
+            "IN_ADDITION": "Fluster helps you in this process by showing you only people compatible with your ad"
+        },
+        "FIRST_SUPERSTAR": {
+            "TITLE": "Cool, you received a <strong>Superstar</strong>",
+            "TEXT": "The advertiser is very interested in your profile, you will more likely have more chances to get this opportunity"
+        },
+        "NO_CANDIDATES": "Currently, no candidates are fitting your ads"
+    },
+    "RESCHEDULE": {
+        "TITLE": "Viewing",
+        "SUB_TITLE_ACCEPTED": "Reschedule the appointment with {{who}}",
+        "SUB_TITLE_RESCHEDULE": "Schedule the appointment with {{who}}",
+        "NO_SELECTED_TIME": "Select a time slot first"
+    }
+}

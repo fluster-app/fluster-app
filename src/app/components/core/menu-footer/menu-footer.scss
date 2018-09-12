@@ -1,0 +1,37 @@
+@import "../../../../theme/fluster-variables";
+@import "../../../../theme/media-queries";
+
+#menuParams {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: $fluster-text-big;
+
+    @include iphoneX {
+        bottom: 30px;
+    }
+
+    div {
+        float: right;
+        display: table;
+        padding: 1.6rem;
+
+        span, ion-icon {
+            vertical-align: middle;
+            font-weight: $font-weight-light;
+        }
+
+        span {
+            padding-right: 0.6rem;
+        }
+
+        ion-icon {
+            padding-left: 1.0rem;
+            font-size: 5.2rem;
+
+            @include iphone4 {
+                font-size: 4.2rem;
+            }
+        }
+    }
+}

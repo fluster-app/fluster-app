@@ -1,0 +1,49 @@
+@import "../../../../../theme/fluster-variables";
+
+div.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ion-item {
+
+  &.avatarCancelled {
+    ion-avatar {
+      img {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  p {
+    font-weight: $font-weight-light;
+
+    &.new {
+      color: $fluster-peach3;
+    }
+
+    &.accepted {
+      color: $fluster-peach1;
+    }
+
+    &.cancelled {
+      color: $fluster-grey-blue;
+    }
+
+    &.to-reschedule {
+      color: $fluster-peach2;
+    }
+  }
+}
+
+button.applicantActionNeeded {
+  ion-icon {
+    color: $fluster-peach3;
+  }
+}
+
+#nothingYetText {
+  color: $fluster-grey-blue;
+}

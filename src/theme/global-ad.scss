@@ -1,0 +1,122 @@
+ion-content[role="ad"], ion-content[role="menuad"] {
+    --ion-text-color: white;
+    --ion-item-text-color: white;
+    --ion-placeholder-text-color: #{$fluster-grey-blue};
+}
+
+// menu
+
+ion-content[role="menuad"], ion-content[role="ad"] {
+    background: $fluster-dark-blue;
+    color: white;
+
+    ion-list {
+        background: $fluster-dark-blue;
+    }
+}
+
+// Menu
+
+ion-split-pane[class*="split-pane"].split-pane-visible ion-menu[menuid="menuAdvertise"] {
+    border-right: 1px solid $fluster-midnight-blue;
+}
+
+ion-content[role="ad"] {
+    ion-item.in-list, ion-item-group ion-item {
+        background-color: $fluster-midnight-blue;
+        border-color: $fluster-midnight-blue;
+
+        ion-icon {
+            color: $fluster-peach3;
+        }
+
+        &.item-toggle-checked {
+            // In case we would like to highlight the text too when selected
+            // color: $fluster-peach3;
+        }
+
+        &.item-toggle {
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+
+    ion-item.fluster-text-input-placeholder {
+        ion-label, ion-icon {
+            color: $fluster-grey-blue;
+        }
+
+        ion-label {
+            font-size: $fluster-text-big;
+        }
+    }
+
+    ion-item {
+        ion-label.label-stacked {
+            color: $fluster-grey-blue;
+        }
+
+        &.item-has-value {
+            ion-label.label-stacked {
+                color: inherit;
+            }
+        }
+    }
+
+    div.range-pin {
+        color: white;
+        transform: none;
+    }
+
+    ion-badge[outline] {
+        background-color: transparent;
+        border: 1px solid $fluster-grey-blue;
+        color: white;
+        margin-bottom: 0.8rem;
+    }
+
+    a[ion-item] {
+        background-color: inherit;
+        color: white;
+    }
+
+    ion-checkbox {
+        --background: transparent;
+        --border-color: #{$fluster-grey-blue};
+    }
+
+    ion-item-group ion-item-divider {
+      --ion-color-light: transparent;
+    }
+
+    ion-card {
+      --color: white;
+    }
+
+    ion-searchbar {
+        --ion-background-color: #{$fluster-midnight-blue};
+        --ion-text-color-step-150: white;
+    }
+}
+
+// Deep components theming
+
+ion-content[role="ad"] {
+    #school-work {
+        ion-icon {
+            color: $fluster-grey-blue;
+        }
+    }
+
+    #chatLink {
+        a {
+            ion-icon {
+                color: $fluster-grey-blue;
+            }
+        }
+    }
+
+    .lifestyle-empty {
+        color: $fluster-grey-blue;
+    }
+}

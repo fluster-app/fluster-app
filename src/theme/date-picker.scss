@@ -1,0 +1,199 @@
+div.date-picker-scroller {
+
+    div.date-picker {
+        display: inline-flex;
+
+        > div {
+            &.has-appointment {
+                color: $fluster-peach3;
+            }
+        }
+
+        div {
+            border: 0;
+            position: relative;
+            width: 10.8rem;
+            margin-left: 3px;
+
+            &:first-child {
+                margin-left: 0px;
+            }
+
+            p {
+                color: inherit;
+                margin: 10px 0px;
+                font-size: $fluster-text-normal;
+
+                span {
+                    display: block;
+                }
+            }
+
+            span.triangle {
+                display: none;
+            }
+
+            &.selected-date {
+                @include fluster-linear-gradient(to bottom right, $fluster-peach1, $fluster-peach3);
+                color: white;
+
+                span.triangle {
+                    @include triangle(14px, $fluster-date-picker-triangle, down);
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    display: inherit;
+                }
+            }
+
+        }
+    }
+}
+
+ion-content[role="browse"] {
+    div.date-picker-scroller {
+        div.date-picker {
+            > div {
+                background-color: $fluster-light-grey;
+
+                &.has-appointment.selected-date {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+ion-content[role="browse"], ion-content[role="ad"][padding] {
+    div.date-picker-scroller {
+        margin-left: -16px;
+        margin-right: -16px;
+
+        @include iphone4 {
+            margin-left: -14px;
+            margin-right: -14px;
+        }
+
+        @include iphone5 {
+            margin-left: -14px;
+            margin-right: -14px;
+        }
+
+        @include nexus5 {
+            margin-left: -14px;
+            margin-right: -14px;
+        }
+
+        @include galaxyS5 {
+            margin-left: -14px;
+            margin-right: -14px;
+        }
+
+        @include nexus7 {
+            margin-left: -48px;
+            margin-right: -48px;
+        }
+    }
+}
+
+ion-content[role="browse"], ion-content[role="ad"] {
+    div.date-picker-scroller {
+
+        div.scroll-content {
+            padding: 0;
+        }
+    }
+
+    div.date-picker-actions {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+
+        button {
+            width: 100%;
+            margin: 0;
+        }
+
+        @include iphoneX {
+            bottom: 30px;
+        }
+    }
+
+    div[scrolly="true"] {
+        ion-list {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+
+ion-content[role="ad"] {
+    div.date-picker-scroller {
+        div.date-picker {
+            > div:not(.selected-date) {
+                background-color: $fluster-midnight-blue;
+
+                &:not(.has-appointment) {
+                    color: $fluster-grey-blue;
+                }
+            }
+        }
+    }
+}
+
+ion-content[role="browse"] {
+    div.date-picker-scroller {
+
+        height: 10.4vh;
+
+        @include iphone4 {
+            height: 13.4vh;
+        }
+
+        @include iphone5 {
+            height: 13.4vh;
+        }
+
+        @include iphoneX {
+            height: 9.4vh;
+        }
+
+        @include ipad {
+            height: 6.4vh;
+        }
+
+        @include nexus5 {
+            height: 11.4vh;
+        }
+    }
+}
+
+ion-content[role="ad"] {
+
+    div.date-picker-scroller {
+
+        height: 11.4vh;
+
+        @include iphone4 {
+            height: 15.4vh;
+        }
+
+        @include iphone5 {
+            height: 15.4vh;
+        }
+
+        @include iphoneX {
+            height: 10.4vh;
+        }
+
+        @include ipad {
+            height: 7.4vh;
+        }
+
+        @include nexus5 {
+            height: 13.4vh;
+        }
+    }
+}

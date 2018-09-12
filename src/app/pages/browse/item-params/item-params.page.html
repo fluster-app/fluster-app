@@ -1,0 +1,160 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>FLUSTER</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="browse" padding [forceOverscroll]="true">
+
+  <div *ngIf="user != null && category == 'location'" class="flex-content">
+
+    <ion-grid class="flex-grid">
+
+      <ion-row>
+        <ion-col size="12" text-center>
+          <h2>{{'ITEM_PARAMS.LOCATION.TEXT' | translate}}</h2>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-list no-margin>
+            <ion-item *ngIf="isAddressNotDefined()" tappable (click)="navigateToSearchLocation()" class="fluster-text-input-placeholder">
+              <ion-icon name="pin" slot="start"></ion-icon>
+              <ion-label>{{'ITEM_PARAMS.LOCATION.LOCATION_PLACEHOLDER' | translate}}</ion-label>
+            </ion-item>
+
+            <ion-item *ngIf="!isAddressNotDefined()" tappable (click)="navigateToSearchLocation()">
+              <ion-icon name="pin" slot="start"></ion-icon>
+              <div text-wrap>
+                <ion-label>{{user.userParams.address.addressName}}</ion-label>
+              </div>
+            </ion-item>
+          </ion-list>
+
+          <ion-list id="location-user-input" padding-top>
+            <ion-list-header no-margin padding-top>
+              <ion-label>
+                {{ 'ITEM_PARAMS.LOCATION.DISTANCE' | translate:{size: distance} }}
+              </ion-label>
+            </ion-list-header>
+
+            <ion-item>
+              <ion-range [(ngModel)]="distance" min="15" max="99" debounce="300" (ionChange)="onDistanceChange($event)"></ion-range>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <!-- Nothing -->
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </div>
+
+  <div *ngIf="user != null && category == 'price'" class="flex-content">
+    <ion-grid class="flex-grid">
+
+      <ion-row>
+        <ion-col size="12" text-center>
+          <h2>{{'ITEM_PARAMS.PRICE.TEXT' | translate}}</h2>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-list id="price-user-input">
+            <ion-list-header margin-bottom>
+              <ion-label *ngIf="hasPriceRange()">
+                {{'ITEM_PARAMS.PRICE.UNTIL' | translate}} <app-display-currency></app-display-currency>{{'ITEM_PARAMS.PRICE.PER_MONTH' | translate}} <span id="range-max-price">{{price | formatCurrency}}</span>
+              </ion-label>
+              <ion-label *ngIf="!hasPriceRange()">{{'ITEM_PARAMS.PRICE.EVERYTHING' | translate}}</ion-label>
+            </ion-list-header>
+
+            <ion-item>
+              <ion-range [(ngModel)]="price" min="0" max="3999" debounce="300" (ionChange)="onPriceChange($event)"></ion-range>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <!-- Nothing -->
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+
+  <div *ngIf="user != null && category == 'interests'" class="flex-content" padding-bottom id="user-interests">
+
+    <ion-grid class="flex-grid">
+
+      <ion-row>
+        <ion-col size="12" text-center>
+          <h2>{{'ITEM_PARAMS.INTERESTS.TITLE_LONG' | translate}}</h2>
+
+          <p>{{'ITEM_PARAMS.INTERESTS.SUB_TITLE' | translate}}</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <div text-center class="item-params-interest">
+            <app-item-params-interest [interest]="getInterest(0)" [user]="user" [index]="0" (notifiyUpdated)="updateUserInterest($event, 0)"></app-item-params-interest>
+
+            <app-item-params-interest *ngIf="hasInterest(0)" [user]="user" [interest]="getInterest(1)" [index]="1" padding-start (notifiyUpdated)="updateUserInterest($event, 1)"></app-item-params-interest>
+
+            <app-item-params-interest *ngIf="hasInterest(1)" [user]="user" [interest]="getInterest(2)" [index]="2" padding-start (notifiyUpdated)="updateUserInterest($event, 2)"></app-item-params-interest>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="flex-end">
+        <ion-col size="12"  text-center>
+          <p [innerHTML]="'ITEM_PARAMS.INTERESTS.EXAMPLE' | translate" class="interest-example"></p>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </div>
+
+</ion-content>
+
+<ion-footer role="browse">
+  <ion-toolbar *ngIf="category != null" no-padding>
+    <ion-segment [(ngModel)]="category">
+      <ion-segment-button value="location">
+        <ion-icon name="pin"></ion-icon>
+        <span>{{'ITEM_PARAMS.LOCATION.TITLE' | translate}}</span>
+      </ion-segment-button>
+      <ion-segment-button value="interests">
+        <ion-icon name="timer"></ion-icon>
+        <span>{{'ITEM_PARAMS.INTERESTS.TITLE' | translate}}</span>
+      </ion-segment-button>
+      <ion-segment-button value="price">
+        <ion-icon name="cash"></ion-icon>
+        <span>{{'ITEM_PARAMS.PRICE.TITLE' | translate}}</span>
+      </ion-segment-button>
+      <!--ion-segment-button value="availability">
+          <ion-icon name="calendar"></ion-icon>
+          <span>{{'ITEM_PARAMS.AVAILABILITY.TITLE' | translate}}</span>
+      </ion-segment-button
+      <ion-segment-button value="type">
+          <ion-icon name="albums"></ion-icon>
+          <span>{{'ITEM_PARAMS.TYPE.TITLE_SEGMENT' | translate}}</span>
+      </ion-segment-button-->
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>
+

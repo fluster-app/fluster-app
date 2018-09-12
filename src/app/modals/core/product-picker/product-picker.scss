@@ -1,0 +1,126 @@
+@import "../../../../theme/fluster-variables";
+@import "../../../../theme/media-queries";
+@import "../../../../theme/mixins";
+
+ion-slides {
+    height: 28vh;
+
+    ion-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 8rem;
+            margin: 8px;
+        }
+
+        @include iphone4 {
+            img {
+                display: none;
+            }
+        }
+
+        @include iphone5 {
+            img {
+                display: none;
+            }
+        }
+
+        div {
+            width: 90%;
+            font-size: $fluster-text-normal;
+        }
+    }
+
+    button.swiper-pagination-bullet {
+        border: 1px solid white;
+
+        &.swiper-pagination-bullet-active {
+            background: white;
+        }
+    }
+}
+
+#sharing-actions {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+
+    img {
+        height: 5rem;
+    }
+
+    ion-spinner {
+        margin-bottom: 16px;
+    }
+
+    ion-fab-button {
+        color: white;
+        --background: #{$facebook};
+        --box-shadow: none;
+
+        --size: 12vh;
+        padding: 16px;
+
+        &.activated {
+            --background: #{$fluster-medium-grey};
+        }
+    }
+}
+
+#share-done, #no-product, #subscription-in-progress {
+    ion-icon {
+        font-size: 12rem;
+    }
+
+    p {
+        color: $fluster-dark-blue;
+        font-size: $fluster-text-normal;
+        font-weight: $font-weight-light;
+    }
+}
+
+#share-done {
+    #share-done-push {
+        color: $fluster-dark-blue;
+    }
+
+    #share-done-icon {
+        height: 12rem;
+    }
+}
+
+#close-actions {
+    position: absolute;
+    right: -4%;
+    top: -6%;
+
+    color: white;
+    --background: #{$fluster-medium-grey};
+    --box-shadow: none;
+
+    ion-icon {
+        font-size: 3.4rem;
+    }
+}
+
+#free-product {
+    color: $fluster-dark-blue;
+
+    #free-product-description {
+        @include fluster-linear-gradient(to bottom right, $fluster-peach1, $fluster-peach3);
+        color: white;
+
+        p:first-of-type {
+            margin-top: 8px;
+            margin-bottom: 8px;
+            font-size: $fluster-text-normal;
+        }
+    }
+
+    span {
+        font-size: $fluster-text-normal;
+        font-weight: $font-weight-light;
+    }
+}

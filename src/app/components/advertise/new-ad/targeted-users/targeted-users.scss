@@ -1,0 +1,19 @@
+@import "../../../../../theme/fluster-variables";
+
+.targetedUsers {
+    padding-bottom: 8px;
+}
+
+.targetedUsers * {
+    font-size: $fluster-text-normal;
+    font-weight: $font-weight-light;
+}
+
+.targetedUsers ion-icon {
+    font-size: 1.8rem;
+    vertical-align: middle;
+}
+
+.targetedUsersCount {
+    color: $fluster-peach3;
+}

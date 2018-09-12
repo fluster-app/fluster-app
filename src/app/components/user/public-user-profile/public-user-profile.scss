@@ -1,0 +1,117 @@
+@import "../../../../theme/fluster-variables";
+
+#bio {
+    margin-bottom: 0;
+
+    ion-card-header {
+        padding-bottom: 8px;
+    }
+
+    p {
+        color: inherit;
+        font-size: $fluster-text-big;
+        font-weight: $font-weight-light;
+    }
+}
+
+#likes, #languages, #bio, #spotify, #lifestyle, #hobbies {
+    ion-card-header {
+        font-size: $fluster-text-normal;
+        color: $fluster-peach3;
+        font-weight: $font-weight-light;
+        padding-top: 8px;
+        padding-left: 16px;
+    }
+}
+
+#likes {
+    #advertiserLikes {
+        font-weight: $font-weight-light;
+    }
+}
+
+#languages, #school-work {
+    ion-card-header {
+        padding-bottom: 0;
+    }
+
+    ion-item {
+        background-color: transparent;
+        padding-left: 0;
+
+        ion-label {
+            margin-bottom: 0;
+            margin-top: 0;
+            font-weight: $font-weight-light;
+        }
+
+        a {
+            color: inherit;
+        }
+    }
+}
+
+#school-work {
+    a[ion-item] {
+        padding-left: 0;
+    }
+}
+
+#languages {
+    margin-bottom: 4px;
+
+    #language-list {
+        display: flex;
+        flex-wrap: wrap;
+        font-weight: $font-weight-light;
+
+        .language {
+            font-size: $fluster-text-big;
+            text-transform: uppercase;
+            margin-right: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+    }
+}
+
+#lifestyle {
+    ion-grid {
+        padding: 0;
+
+        ion-row {
+            ion-col {
+                padding: 0;
+
+                ion-label {
+                    margin: 0;
+                    padding: 0;
+
+                    &.lifestyle-title {
+                        font-size: $fluster-text-normal;
+                        font-weight: 300;
+                        padding-bottom: 2px;
+                    }
+                }
+
+                div {
+                    font-size: $fluster-text-big;
+                    font-weight: $font-weight-light;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+#spotify {
+    margin-bottom: 0;
+
+    ion-card-header {
+        img {
+            height: 1.4rem;
+            width: 1.4rem;
+            vertical-align: bottom;
+            display: initial;
+        }
+    }
+}

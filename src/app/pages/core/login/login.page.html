@@ -1,0 +1,77 @@
+<ion-header>
+</ion-header>
+
+<ion-content [fullscreen]="true" [forceOverscroll]="true">
+
+  <!--removeIf(production)-->
+  <div *ngIf="!interacting" text-center padding-top>
+    <ion-button fill="outline" shape="round" (click)="mockupLoginDavid()">David</ion-button>
+    <ion-button fill="outline" shape="round" (click)="mockupLoginSam()">Sam</ion-button>
+    <ion-button fill="outline" shape="round" (click)="mockupLoginSteve()">Steve</ion-button>
+  </div>
+  <!--endRemoveIf(production)-->
+
+  <ion-slides #loginSlider pager="true" [options]="slideOptsProgressbar">
+    <ion-slide>
+      <div class="slide-text" padding>
+        <p [innerHTML]="'LOGIN.SLIDES.SLIDE1' | translate"></p>
+      </div>
+
+      <img src="assets/img/login/login-slide1.png"/>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="slide-text" padding>
+        <p [innerHTML]="'LOGIN.SLIDES.SLIDE2' | translate"></p>
+      </div>
+
+      <img src="assets/img/login/login-slide2.png"/>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="slide-text" padding>
+        <p [innerHTML]="'LOGIN.SLIDES.SLIDE3' | translate"></p>
+      </div>
+
+      <img src="assets/img/login/login-slide3.png"/>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="slide-text" padding>
+        <p [innerHTML]="'LOGIN.SLIDES.SLIDE4' | translate"></p>
+      </div>
+
+      <img src="assets/img/login/login-slide4.png"/>
+    </ion-slide>
+  </ion-slides>
+
+  <div id="login-actions-informations">
+    <div id="login-actions-section" text-center padding-start padding-end>
+      <div *ngIf="!interacting" text-center>
+        <ion-button expand="full" shape="round" (click)="googleSignIn()" class="google">
+          <img src="assets/img/ico_google-login.svg">
+          {{'LOGIN.GOOGLE_LOGIN' | translate}}
+        </ion-button>
+
+        <ion-button expand="full" shape="round" (click)="facebookSignIn()" class="facebook">
+          <ion-icon slot="start" ios="logo-facebook" md="logo-facebook"></ion-icon>
+          {{'LOGIN.FACEBOOK_LOGIN' | translate}}
+        </ion-button>
+      </div>
+
+      <div *ngIf="interacting" text-center>
+        <ion-spinner ion-text color="primary"></ion-spinner>
+      </div>
+    </div>
+
+    <div *ngIf="!interacting" text-center id="legal" padding>
+      <a (click)="openTermsOfuser()">{{'LOGIN.LEGAL' | translate}}</a>
+    </div>
+  </div>
+
+
+  <div id="login-session-expired" *ngIf="notAuthorized" text-center>
+    {{'ERRORS.SESSIONS.TIMEOUT' | translate}}
+  </div>
+
+</ion-content>

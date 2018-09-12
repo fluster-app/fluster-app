@@ -1,0 +1,57 @@
+@import "../../../../theme/fluster-variables";
+@import "../../../../theme/media-queries";
+@import "../../../../theme/mixins";
+
+ion-slides {
+    height: 100%;
+
+    div.flex-content {
+        width: 100%;
+    }
+}
+
+#travel-mode {
+    display: flex;
+    justify-content: center;
+
+    div {
+        margin: 8px;
+    }
+}
+
+#travel-time {
+    margin: 0;
+
+    ion-list-header, ion-item {
+        background-color: transparent;
+        border-color: transparent;
+    }
+}
+
+ion-list {
+    width: 100%;
+}
+
+div.sub-title {
+    font-weight: $font-weight-light;
+}
+
+ion-content[role="browse"] {
+    @include iphone4 {
+        h2 {
+            font-size: $fluster-text-normal;
+        }
+    }
+
+    @include min-screen(768px) {
+        h2, div {
+            font-size: $fluster-text-normal;
+        }
+    }
+
+    @include ipad {
+        .padding-top-average, .padding-top-big {
+            padding-top: 30px;
+        }
+    }
+}

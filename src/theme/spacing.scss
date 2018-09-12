@@ -1,0 +1,174 @@
+.padding-top-very-small {
+    padding-top: 8px;
+
+    @include iphone4 {
+        padding-top: 0;
+    }
+
+    @include iphone5 {
+        padding-top: 0;
+    }
+
+    @include nexus5 {
+        padding-top: 0;
+    }
+
+    @include galaxyS5 {
+        padding-top: 0;
+    }
+
+    @include ipad {
+        padding-top: 12px;
+    }
+}
+
+.padding-top-small {
+    padding-top: 16px;
+
+    @include iphone4 {
+        padding-top: 12px;
+    }
+
+    @include iphone5 {
+        padding-top: 12px;
+    }
+
+    @include iphone6 {
+        padding-top: 26px;
+    }
+
+    @include iphone6-plus {
+        padding-top: 26px;
+    }
+
+    @include nexus6 {
+        padding-top: 24px;
+    }
+
+    @include nexus5X {
+        padding-top: 24px;
+    }
+}
+
+.margin-top-small {
+    margin-top: 16px;
+
+    @include iphone6 {
+        margin-top: 26px;
+    }
+
+    @include nexus6 {
+        margin-top: 24px;
+    }
+
+    @include nexus5X {
+        margin-top: 24px;
+    }
+
+    @include iphone6-plus {
+        margin-top: 32px;
+    }
+
+    @include ipad {
+        margin-top: 10px;
+    }
+}
+
+.padding-top-average {
+    padding-top: 40px;
+
+    @include iphone4 {
+        padding-top: 16px;
+    }
+
+    @include iphone5 {
+        padding-top: 16px;
+    }
+
+    @include iphone6-plus {
+        padding-top: 50px;
+    }
+
+    @include nexus5 {
+        padding-top: 20px;
+    }
+
+    @include galaxyS5 {
+        padding-top: 30px;
+    }
+
+    @include nexus7 {
+        padding-top: 50px;
+    }
+
+    @include nexus10 {
+        padding-top: 140px;
+    }
+
+    @include ipad {
+        padding-top: 80px;
+    }
+}
+
+.margin-top-average {
+    margin-top: 40px;
+
+    @include iphone4 {
+        margin-top: 16px;
+    }
+
+    @include iphone5 {
+        margin-top: 16px;
+    }
+
+    @include nexus5 {
+        margin-top: 20px;
+    }
+
+    @include galaxyS5 {
+        margin-top: 30px;
+    }
+
+    @include nexus7 {
+        margin-top: 80px;
+    }
+
+    @include nexus10 {
+        margin-top: 140px;
+    }
+}
+
+.padding-top-big {
+    padding-top: 45px;
+
+    @include iphone4 {
+        padding-top: 28px;
+    }
+
+    @include nexus5 {
+        padding-top: 40px;
+    }
+
+    @include galaxyS5 {
+        padding-top: 40px;
+    }
+
+    @include iphone5 {
+        padding-top: 30px;
+    }
+
+    @include nexus7 {
+        padding-top: 80px;
+    }
+
+    @include ipad {
+        padding-top: 80px;
+    }
+}
+
+.big-screen-content {
+    @include min-screen(540px) {
+        margin: auto;
+        width: 80%;
+    }
+}

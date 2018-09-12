@@ -1,0 +1,84 @@
+@import "../../../../../theme/mixins";
+@import "../../../../../theme/media-queries";
+@import "../../../../../theme/fluster-variables";
+
+div.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ion-card.user-profile {
+  margin: 0;
+}
+
+#candidate-item-summary {
+  min-height: 18vh;
+  height: 18vh;
+  align-items: flex-start;
+}
+
+ion-card {
+  position: relative;
+
+  &.line-odd {
+    display: inline-block;
+    width: calc(50% - 24px);
+
+    div.content-line {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: flex-start;
+
+      &.content-line-odd-right {
+        align-items: flex-end;
+      }
+
+      @include min-screen(768px) {
+        align-items: center;
+
+        &.content-line-odd-right {
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  &.line-even {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    overflow: visible;
+
+    div.content-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -20%);
+    }
+  }
+
+  &.line-even, &.line-odd {
+    div.content-line {
+      div:first-child {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+  }
+
+  ion-avatar {
+    margin-bottom: 12px;
+  }
+
+  ion-label.candidate-name {
+    max-width: 11rem;
+    font-weight: $font-weight-light;
+    margin: 0;
+    font-size: $fluster-text-normal;
+  }
+}

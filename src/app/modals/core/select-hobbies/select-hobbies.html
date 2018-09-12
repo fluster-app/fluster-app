@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>{{ 'USER_PROFILE.HOBBIES.TITLE' | translate }}</ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button (click)="close()">
+                <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding [attr.role]="isAdDisplay ? 'ad' : 'browse'">
+
+    <div padding text-center *ngIf="groups == null">
+        <ion-spinner ion-text color="primary"></ion-spinner>
+    </div>
+
+    <div *ngIf="groups != null">
+        <ion-item-group *ngFor="let group of groups">
+            <ion-item-divider color="light" padding-bottom padding-top>{{ 'USER_PROFILE.HOBBIES.' + group.titleKey + '.TITLE' | translate}}</ion-item-divider>
+
+            <ion-item *ngFor="let key of group.keys">
+                <ion-checkbox slot="start" [(ngModel)]="key.selected" (click)="selectKey(group.titleKey, key)"></ion-checkbox>
+                <ion-label>{{ key.keyTranslation | translate}}</ion-label>
+            </ion-item>
+        </ion-item-group>
+    </div>
+
+</ion-content>

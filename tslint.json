@@ -7,8 +7,7 @@
     "callable-types": true,
     "class-name": true,
     "comment-format": [
-      true,
-      "check-space"
+      true
     ],
     "curly": true,
     "deprecation": {
@@ -25,7 +24,7 @@
     "label-position": true,
     "max-line-length": [
       true,
-      140
+      1400
     ],
     "member-access": false,
     "member-ordering": [
@@ -53,10 +52,10 @@
     "no-debugger": true,
     "no-duplicate-super": true,
     "no-empty": false,
-    "no-empty-interface": true,
+    "no-empty-interface": false,
     "no-eval": true,
     "no-inferrable-types": [
-      true,
+      false,
       "ignore-params"
     ],
     "no-misused-new": true,
@@ -122,7 +121,6 @@
       true,
       "element",
       "app",
-      "page",
       "kebab-case"
     ],
     "no-output-on-prefix": true,

@@ -1,0 +1,9 @@
+<div *ngIf="hasItemInterest()">
+    <ion-icon name="briefcase" *ngIf="interests[index].interest.type === RESOURCES.USER.INTEREST.TYPE.WORK" slot="start"></ion-icon>
+    <ion-icon name="train" *ngIf="interests[index].interest.type === RESOURCES.USER.INTEREST.TYPE.TRAIN" slot="start"></ion-icon>
+    <ion-icon name="book" *ngIf="interests[index].interest.type === RESOURCES.USER.INTEREST.TYPE.SCHOOL" slot="start"></ion-icon>
+    <ion-icon name="airplane" *ngIf="interests[index].interest.type === RESOURCES.USER.INTEREST.TYPE.AIRPORT" slot="start"></ion-icon>
+    <ion-icon name="heart" *ngIf="interests[index].interest.type === RESOURCES.USER.INTEREST.TYPE.LOVE" slot="start"></ion-icon>
+    <ion-icon name="trophy" *ngIf="interests[index].interest.type === RESOURCES.USER.INTEREST.TYPE.TRAINING" slot="start"></ion-icon>
+    <app-display-time [minutes]="interests[index].time" [class.interest-over-max-time]="isOverMaxTime()" [class.interest-almost-max-time]="isAlmostMaxTime()" [class.interest-under-max-time]="isUnderMaxTime()"></app-display-time>
+</div>

@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+          <app-navbar-notification [ad]="true" [displayInMenu]="false" [displayChatNotification]="false"></app-navbar-notification>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+
+    <ion-title>FLUSTER</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="ad" [fullscreen]="true">
+
+  <div [class.first-notification-first]="displayExpirationMsg">
+    <app-content-advertise-notification [displayOnInit]="false"></app-content-advertise-notification>
+  </div>
+
+  <!-- Expiration msg -->
+  <div id="itemExpiringSoon" class="notification-full-screen" *ngIf="displayExpirationMsg" [class.hidden]="fadeExpirationMsg">
+
+    <a (click)="closeExpirationMsg()" class="notification-full-screen-close">
+      <ion-icon name="close"></ion-icon>
+    </a>
+
+    <div class="notification-full-screen-text" text-center padding>
+      <h1 *ngIf="!isItemAlreadyExpired">{{'NOTIFICATIONS.AD_EXPIRE.TITLE_SOON' | translate}}</h1>
+      <h1 *ngIf="isItemAlreadyExpired">{{'NOTIFICATIONS.AD_EXPIRE.TITLE_ALREADY' | translate}}</h1>
+
+      <h2 padding-top>{{ 'NOTIFICATIONS.AD_EXPIRE.TEXT' | translate }}</h2>
+    </div>
+  </div>
+
+  <app-no-ads-users [label]="'ADS.APPOINTMENTS.NO_UPCOMING_APPOINTMENTS'" [totalAdvertiseNotifications]="totalNewAdvertiseNotifications" (notifyNavigateApplicants)="goToApplicants()" (notifyNavigateCandidates)="goToCandidates()" *ngIf="hasItem() && isApplicantsLoaded() && !hasApplicants()"></app-no-ads-users>
+
+  <div *ngIf="hasItem()" class="big-screen-content">
+    <div class="loading" padding text-center *ngIf="!isApplicantsLoaded()">
+      <ion-spinner ion-text color="primary"></ion-spinner>
+    </div>
+
+    <div *ngIf="isApplicantsLoaded()">
+
+      <p text-center padding-start padding-end margin-bottom *ngIf="hasApplicants() && totalNewAdvertiseNotifications > 0" padding-top tappable (click)="goToApplicants()">
+        <ion-icon slot="start" name="person-add" class="totalNewAdvertiseNotificationsBadge"></ion-icon>
+        <span class="totalNewAdvertiseNotificationsText">{{'ADS.APPOINTMENTS.YOU_HAVE' | translate}}&nbsp;</span>
+        <span *ngIf="totalNewAdvertiseNotifications <= 10" class="totalNewAdvertiseNotificationsText">{{totalNewAdvertiseNotifications}}</span>
+        <span *ngIf="totalNewAdvertiseNotifications > 10" class="totalNewAdvertiseNotificationsText">&#62; 10</span>
+        <span *ngIf="totalNewAdvertiseNotifications == 1" class="totalNewAdvertiseNotificationsText">&nbsp;{{'ADS.APPOINTMENTS.NEW_CANDIDATE' | translate}}</span>
+        <span *ngIf="totalNewAdvertiseNotifications > 1" class="totalNewAdvertiseNotificationsText">&nbsp;{{'ADS.APPOINTMENTS.NEW_CANDIDATES' | translate}}</span>
+      </p>
+    </div>
+
+    <ion-card *ngFor="let applicant of applicants; let i=index;" no-shadow tappable (click)="navigateToChat(applicant, i)" class="applicant">
+      <ion-item>
+        <ion-avatar slot="start" class="big-avatar">
+          <app-user-profile-img-list [facebook]="applicant.user.facebook" [google]="applicant.user.google" [starred]="isApplicantStarred(applicant)"></app-user-profile-img-list>
+        </ion-avatar>
+
+        <ion-label>
+          <h1>{{applicant.user.facebook.firstName}}</h1>
+
+          <p><app-display-date [displayDate]="applicant.selected" [calendarDisplay]="true"></app-display-date></p>
+
+          <app-list-chat-notifications slot="end" [user]="applicant.user" [displayDate]="false"></app-list-chat-notifications>
+        </ion-label>
+      </ion-item>
+
+    </ion-card>
+
+    <ion-infinite-scroll
+            *ngIf="!isLastPageReached() && hasApplicants()"
+            (ionInfinite)="findNextApplicants($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+  <app-no-ads *ngIf="isApplicantsLoaded() && !hasItem()" (notifyNavigateNewItem)="navigateNewItem()"></app-no-ads>
+</ion-content>

@@ -1,0 +1,14 @@
+<ion-searchbar #searchLocation [formControl]="searchControl" (ionInput)="onSearchInput(searchLocation.value)" text-left
+               placeholder="{{'SEARCH_LOCATION.PLACEHOLDER' | translate}}" margin-bottom></ion-searchbar>
+
+<div *ngIf="searching" text-center margin-bottom>
+    <ion-spinner ion-text color="primary"></ion-spinner>
+</div>
+
+<ion-list>
+    <ion-item *ngFor="let result of results" tappable (click)="selectLocation(result, result.geometry.location.lat, result.geometry.location.lng)">
+        <div text-wrap>
+            <ion-label>{{result.formatted_address}}</ion-label>
+        </div>
+    </ion-item>
+</ion-list>

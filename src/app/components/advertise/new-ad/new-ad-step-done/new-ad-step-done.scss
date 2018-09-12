@@ -1,0 +1,68 @@
+@import "../new-ad.component";
+@import "../../../../../theme/fluster-variables";
+
+#infoMsgProfile {
+    h1, h2 {
+        font-family: 'Shadows Into Light';
+        color: $fluster-peach1;
+    }
+
+    h2 {
+        position: absolute;
+        top: 30px;
+        left: 72px;
+    }
+
+    div {
+        border-left: 3px solid $fluster-peach1;
+        height: 30px;
+        width: 40px;
+        border-radius: 0 0 0 100%;
+        position: absolute;
+        top: 12px;
+        left: 28px;
+    }
+}
+
+#rewardlegal {
+    font-size: $fluster-text-normal;
+    font-weight: $font-weight-light;
+
+    a {
+        color: inherit;
+    }
+}
+
+div.new-ad-button-done-display {
+    width: 100%;
+}
+
+// Confetti
+
+[class|="confetti"] {
+    position: absolute;
+}
+
+$colors: ($fluster-peach3, $fluster-peach2, $fluster-peach1);
+
+@for $i from 0 through 150 {
+    $w: random(8);
+    $l: random(100);
+    .confetti-#{$i} {
+        width: #{$w}px;
+        height:#{$w*0.4}px;
+        background-color: nth($colors, random(3));
+        top: -10%;
+        left: unquote($l+"%");
+        opacity: random() + 0.5;
+        transform: rotate(#{random()*360}deg);
+        animation: drop-#{$i} unquote(4+random()+"s") unquote(random()+"s") infinite;
+    }
+
+    @keyframes drop-#{$i} {
+        100% {
+            top: 110%;
+            left: unquote($l+random(15)+"%");
+        }
+    }
+}

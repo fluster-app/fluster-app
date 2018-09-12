@@ -1,0 +1,17 @@
+<div *ngIf="(newAdvertiseNotification || (notified && displayChatNotification)) && ad && !displayInMenu" no-padding no-margin id="advertiseNotification">
+    <ion-icon name="mail"></ion-icon>
+</div>
+
+<div *ngIf="(newBrowseNotification || (notified && displayChatNotification)) && browse && !displayInMenu" no-padding no-margin id="browseNotification">
+    <ion-icon name="mail"></ion-icon>
+</div>
+
+<div class="align-badge-menu" *ngIf="displayAdMenuNotification()">
+    <ion-icon name="mail" [class.has-notification]="hasAdNotification()"></ion-icon>
+</div>
+
+<div class="align-badge-menu" *ngIf="displayBrowseMenuNotification()">
+    <ion-icon name="mail" [class.has-notification]="hasBrowseNotification()"></ion-icon>
+</div>
+
+
