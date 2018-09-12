@@ -1,26 +1,26 @@
 <h1 align="center">Fluster</h1>
 
 <p align="center">
+  Roommates next door
+</p>
+
+<p align="center">
   <a href="https://fluster.io/">
     <img alt="Fluster" title="Fluster" src="https://github.com/fluster/fluster-app/blob/master/resources/pwa/assets/icon/android-chrome-512x512.png" width="450">
   </a>
 </p>
 
 <p align="center">
-  Roommates next door
-</p>
-
-<p align="center">
   <a href="https://itunes.apple.com/app/id1187266720">
-    <img alt="Download on the App Store" title="App Store" src="https://fluster.io/assets/images/store/app-store-badge-en.svg" height="32px">
+    <img alt="Download on the App Store" title="App Store" src="https://fluster.io/assets/images/store/app-store-badge-en.svg" height="48px">
   </a>
 
   <a href="http://play.google.com/store/apps/details?id=io.fluster.fluster">
-    <img alt="Get it on Google Play" title="Google Play" src="https://fluster.io/assets/images/store/google-play-badge-en.png" height="32px">
+    <img alt="Get it on Google Play" title="Google Play" src="https://fluster.io/assets/images/store/google-play-badge-en.png" height="48px">
   </a>
 
   <a href="https://m.fluster.io">
-    <img alt="Launch now as a PWA" title="PWA" src="https://user-images.githubusercontent.com/9122190/28998409-c5bf7362-7a00-11e7-9b63-db56694522e7.png" height="32px">
+    <img alt="Launch now as a PWA" title="PWA" src="https://user-images.githubusercontent.com/9122190/28998409-c5bf7362-7a00-11e7-9b63-db56694522e7.png" height="48px">
   </a>
 </p>
 
