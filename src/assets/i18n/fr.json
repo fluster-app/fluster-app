@@ -8,7 +8,8 @@
             "SLIDE3": "Découvre les <strong>incontournables</strong> des <strong>quartiers</strong>",
             "SLIDE4": "<strong>Gagne du temps</strong>, pas de blabla, envoie des demandes de rdv instantanées"
         },
-        "LEGAL": "En m'identifiant j'accepte les termes et conditions"
+        "LEGAL": "En m'identifiant j'accepte les",
+        "LEGAL_LINK": "termes et conditions"
     },
     "FIRST_CHOICE": {
         "LETS_GO": "On y va !",

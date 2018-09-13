@@ -8,7 +8,8 @@
             "SLIDE3": "Scopri i <strong>punti forti della zona</strong>",
             "SLIDE4": "<strong>Risparmia tempo</strong> e richiedi una visita subito"
         },
-        "LEGAL": "Procedendo accetto Termini e Condizioni"
+        "LEGAL": "Procedendo accetto",
+        "LEGAL_LINK": "Termini e Condizioni"
     },
     "FIRST_CHOICE": {
         "LETS_GO": "Via!",

@@ -65,7 +65,7 @@
     </div>
 
     <div *ngIf="!interacting" text-center id="legal" padding>
-      <a (click)="openTermsOfuser()">{{'LOGIN.LEGAL' | translate}}</a>
+      <span>{{'LOGIN.LEGAL' | translate}}&nbsp;</span><a (click)="openTermsOfuser()">{{'LOGIN.LEGAL_LINK' | translate}}</a>
     </div>
   </div>
 
