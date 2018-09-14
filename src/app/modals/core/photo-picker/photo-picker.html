@@ -17,10 +17,6 @@
             <ion-button (click)="zoom(true)">
                 <ion-icon src="assets/img/ico_search-plus-white.svg" class="smaller-icon"></ion-icon>
             </ion-button>
-
-            <ion-button *ngIf="webGLDetected && croppedImgFilterSrc != null" (click)="toggleFilter()">
-                <ion-icon name="funnel"></ion-icon>
-            </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -76,9 +72,17 @@
   </div>
 
     <div role="ad" *ngIf="imgURI != null" class="footer">
-        <div *ngIf="webGLDetected" id="toolbarFilters" [class.hidden]="hideFilter">
+        <div *ngIf="webGLDetected" id="toolbarFilters" padding-bottom>
             <div scrollX="true" *ngIf="croppedImgFilterSrc != null">
                 <div class="filters">
+                    <div class="filter">
+                        <app-big-button (clicked)="select()" [adDisplay]="true"
+                                        [bigButton]="false" [smallButton]="true" [smallButtonAds]="true"
+                                        [icon]="'save'">
+                        </app-big-button>
+                        <ion-label text-nowrap>{{'CORE.SAVE' | translate}}</ion-label>
+                    </div>
+
                     <div class="filter" tappable (click)="applyFilter(null)" [class.filter-selected]="filter == null">
                         <div>
                             <img [src]="croppedImgFilterSrc"/>
@@ -166,8 +170,8 @@
             </div>
         </div>
 
-        <div role="buttons" class="actions-buttons" text-center>
-            <ion-button expand="full" shape="round" (click)="select()">
+        <div *ngIf="!webGLDetected && cropperReady" role="buttons" class="actions-buttons" text-center>
+            <ion-button expand="full" shape="round" (click)="select()" padding-start padding-end>
                 {{'CORE.SAVE' | translate}}
                 <ion-icon slot="end" name="checkmark"></ion-icon>
             </ion-button>

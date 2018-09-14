@@ -47,8 +47,6 @@ export class PhotoPickerModal extends AbstractWizardModal {
 
     filterInitialized: boolean = false;
 
-    hideFilter: boolean = false;
-
     webGLDetected: boolean = false;
     croppedImgFilterSrc: string = null;
 
@@ -424,10 +422,6 @@ export class PhotoPickerModal extends AbstractWizardModal {
         }
 
         return true;
-    }
-
-    toggleFilter() {
-        this.hideFilter = !this.hideFilter;
     }
 
     //removeIf(production)
