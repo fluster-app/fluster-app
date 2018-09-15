@@ -63,7 +63,8 @@ export class PhotoLightboxModal extends AbstractModal {
             return;
         }
 
-        this.slides.slideNext(0);
+        // TODO: Remove 2nd param, Ionic bug https://github.com/ionic-team/ionic/issues/15604
+        this.slides.slideNext(0, true);
     }
 
     hasImages(): boolean {

@@ -73,7 +73,8 @@ export class NewAdStepTypeComponent extends AbstractNewAdComponent {
         this.newItem.itemDetail.bathrooms = this.RESOURCES.ITEM.DETAIL.ATTRIBUTES.DEFAULT_BATHROOMS;
 
         setTimeout(() => {
-            this.slider.slideNext();
+            // TODO: Remove params, Ionic bug https://github.com/ionic-team/ionic/issues/15604
+            this.slider.slideNext(500, true);
 
             this.gaTrackEventOnce(this.platform, this.googleAnalyticsNativeService,
                 this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.ADS.WIZARD,

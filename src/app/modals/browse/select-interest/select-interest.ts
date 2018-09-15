@@ -130,7 +130,8 @@ export class SelectInterestModal extends AbstractModal {
     }
 
     changeLocation() {
-        this.slider.slideNext();
+        // TODO: Remove params, Ionic bug https://github.com/ionic-team/ionic/issues/15604
+        this.slider.slideNext(500, true);
     }
 
     selectLocation(selectedLocation: Address) {
@@ -283,7 +284,8 @@ export class SelectInterestModal extends AbstractModal {
                 loading.dismiss().then(() => {
                     this.interest = interest;
                     this.initTravelTime();
-                    this.slider.slideNext();
+                    // TODO: Remove params, Ionic bug https://github.com/ionic-team/ionic/issues/15604
+                    this.slider.slideNext(500, true);
                 });
             });
         });

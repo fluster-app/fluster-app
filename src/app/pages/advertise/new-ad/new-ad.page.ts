@@ -223,7 +223,8 @@ export class NewAdPage extends AbstractPage implements OnInit {
         this.updateSlider();
 
         this.loading.dismiss().then(() => {
-            this.slider.slideNext();
+            // TODO: Remove params, Ionic bug https://github.com/ionic-team/ionic/issues/15604
+            this.slider.slideNext(500, true);
 
             if (this.newItemService.isEdit()) {
                 this.gaTrackEvent(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.ADS.WIZARD, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.ADS.WIZARD.PUBLISH.UPDATE_DONE);
