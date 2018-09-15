@@ -147,7 +147,7 @@ export class NewAdStepAvailabilityComponent extends AbstractNewAdComponent {
                     const result: boolean = (this.newItemService.isEdit() ? index === 2 : index === 3);
                     resolve(result);
                 } catch (err) {
-                    return false;
+                    resolve(false);
                 }
             }
         });
