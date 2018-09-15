@@ -61,8 +61,6 @@ export class SelectInterestModal extends AbstractModal {
         super();
 
         this.gaTrackEvent(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.MODAL, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.PARAMS.SELECT_INTERESTS);
-
-        this.overrideHardwareBackAction();
     }
 
     ionViewWillEnter() {
@@ -80,6 +78,10 @@ export class SelectInterestModal extends AbstractModal {
         }
 
         this.initTravelTime();
+    }
+
+    ionViewDidEnter() {
+        this.overrideHardwareBackAction();
     }
 
     ionViewDidLeave() {
