@@ -1,7 +1,7 @@
 // Product popover
 
 ion-popover {
-  &.popover-ios, &.popover-md {
+  &[class*="sc-ion-popover"] {
     div.popover-content {
       top: 50% !important;
       left: 50% !important;
@@ -12,7 +12,7 @@ ion-popover {
     }
   }
 
-  &.popover-ios {
+  &[class*="sc-ion-popover-ios"] {
     #free-product {
       #free-product-description {
         border-top-left-radius: 10px;
@@ -21,7 +21,7 @@ ion-popover {
     }
   }
 
-  &.popover-md {
+  &[class*="sc-ion-popover-md"] {
     #free-product {
       #free-product-description {
         border-top-left-radius: 2px;
