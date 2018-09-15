@@ -3,7 +3,7 @@
   "author": "Fluster",
   "homepage": "https://fluster.io",
   "private": true,
-  "version": "5.0.0-beta.5",
+  "version": "5.0.0-beta.6",
   "scripts": {
     "ng": "ng",
     "start": "ionic serve",
