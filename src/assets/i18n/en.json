@@ -8,7 +8,8 @@
             "SLIDE3": "Discover the <strong>highlights</strong> of the <strong>area</strong>",
             "SLIDE4": "<strong>Save time</strong>, send instant viewings’ requests"
         },
-        "LEGAL": "By entering I accept the Terms & Conditions"
+        "LEGAL": "By entering I accept the",
+        "LEGAL_LINK": "Terms & Conditions"
     },
     "FIRST_CHOICE": {
         "LETS_GO": "Let's go!",

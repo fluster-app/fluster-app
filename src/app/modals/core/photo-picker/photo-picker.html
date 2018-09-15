@@ -17,10 +17,6 @@
             <ion-button (click)="zoom(true)">
                 <ion-icon src="assets/img/ico_search-plus-white.svg" class="smaller-icon"></ion-icon>
             </ion-button>
-
-            <ion-button *ngIf="webGLDetected && croppedImgFilterSrc != null" (click)="toggleFilter()">
-                <ion-icon name="funnel"></ion-icon>
-            </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -65,96 +61,6 @@
     </ion-row>
   </ion-grid>
 
-    <div *ngIf="imgURI != null && webGLDetected" id="toolbarFilters" [class.hidden]="hideFilter">
-        <div scrollX="true" *ngIf="croppedImgFilterSrc != null">
-            <div class="filters">
-                <div class="filter" tappable (click)="applyFilter(null)" [class.filter-selected]="filter == null">
-                    <div>
-                        <img [src]="croppedImgFilterSrc"/>
-                    </div>
-                    <ion-label text-nowrap>No Filter</ion-label>
-                </div>
-
-                <div class="filter" tappable (click)="applyFilter('contrast')" [class.filter-selected]="filter === 'contrast'">
-                    <div>
-                        <web-photo-filter src="{{croppedImgFilterSrc}}" filter="contrast"></web-photo-filter>
-                    </div>
-                    <ion-label text-nowrap>Contrast</ion-label>
-                </div>
-
-                <div class="filter" tappable (click)="applyFilter('saturation')" [class.filter-selected]="filter === 'saturation'">
-                    <div>
-                        <web-photo-filter src="{{croppedImgFilterSrc}}" filter="saturation"></web-photo-filter>
-                    </div>
-                    <ion-label text-nowrap>Saturation</ion-label>
-                </div>
-
-                <div class="filter" tappable (click)="applyFilter('brightness')" [class.filter-selected]="filter === 'brightness'" *ngIf="iOS">
-                    <div>
-                        <web-photo-filter src="{{croppedImgFilterSrc}}" filter="brightness"></web-photo-filter>
-                    </div>
-                    <ion-label text-nowrap>Brightness</ion-label>
-                </div>
-
-                <div class="filter" tappable (click)="applyFilter('technicolor')" [class.filter-selected]="filter === 'technicolor'">
-                    <div>
-                        <web-photo-filter src="{{croppedImgFilterSrc}}" filter="technicolor"></web-photo-filter>
-                    </div>
-                    <ion-label text-nowrap>Technicolor</ion-label>
-                </div>
-
-                <div class="filter" tappable (click)="applyFilter('polaroid')" [class.filter-selected]="filter === 'polaroid'">
-                    <div>
-                        <web-photo-filter src="{{croppedImgFilterSrc}}" filter="polaroid"></web-photo-filter>
-                    </div>
-                    <ion-label text-nowrap>Polaroid</ion-label>
-                </div>
-
-                <div class="filter" tappable (click)="applyFilter('cookie')" [class.filter-selected]="filter === 'cookie'" *ngIf="iOS">
-                    <div>
-                        <web-photo-filter src="{{croppedImgFilterSrc}}" filter="cookie"></web-photo-filter>
-                    </div>
-                    <ion-label text-nowrap>Cookie</ion-label>
-                </div>
-
-                <div class="filter" tappable (click)="applyFilter('vintage')" [class.filter-selected]="filter === 'vintage'">
-                    <div>
-                        <web-photo-filter src="{{croppedImgFilterSrc}}" filter="vintage"></web-photo-filter>
-                    </div>
-                    <ion-label text-nowrap>Vintage</ion-label>
-                </div>
-
-                <div class="filter" tappable (click)="applyFilter('sepia')" [class.filter-selected]="filter === 'sepia'">
-                    <div>
-                        <web-photo-filter src="{{croppedImgFilterSrc}}" filter="sepia"></web-photo-filter>
-                    </div>
-                    <ion-label text-nowrap>Sepia</ion-label>
-                </div>
-
-                <div class="filter" tappable (click)="applyFilter('greyscale')" [class.filter-selected]="filter === 'greyscale'" *ngIf="iOS">
-                    <div>
-                        <web-photo-filter src="{{croppedImgFilterSrc}}" filter="greyscale"></web-photo-filter>
-                    </div>
-                    <ion-label text-nowrap>Greyscale</ion-label>
-                </div>
-
-                <div class="filter" tappable (click)="applyFilter('bgr')" [class.filter-selected]="filter === 'bgr'" *ngIf="iOS">
-                    <div>
-                        <web-photo-filter src="{{croppedImgFilterSrc}}" filter="bgr"></web-photo-filter>
-                    </div>
-                    <ion-label text-nowrap>Blue</ion-label>
-                </div>
-
-                <div class="filter" tappable (click)="applyFilter('hue')" [class.filter-selected]="filter === 'hue'" *ngIf="iOS">
-                    <div>
-                        <web-photo-filter src="{{croppedImgFilterSrc}}" filter="hue"></web-photo-filter>
-                    </div>
-                    <ion-label text-nowrap>Green</ion-label>
-                </div>
-            </div>
-        </div>
-    </div>
-
   <div id="preview" *ngIf="imgURI != null" [class.hideImgContent]="!cropperReady">
       <div *ngIf="advanceMode">
         <web-photo-filter (filterLoad)="imageLoaded($event)" src="{{imgURI}}" filter="{{filter}}" keep="true"></web-photo-filter>
@@ -166,10 +72,108 @@
   </div>
 
     <div role="ad" *ngIf="imgURI != null" class="footer">
-        <div role="buttons" class="actions-buttons" text-center>
-            <ion-button expand="full" shape="round" (click)="select()">
+        <div *ngIf="webGLDetected" id="toolbarFilters" padding-bottom>
+            <div scrollX="true" *ngIf="croppedImgFilterSrc != null">
+                <div class="filters">
+                    <div class="filter">
+                        <app-big-button (clicked)="select()" [adDisplay]="true"
+                                        [bigButton]="false" [smallButton]="true" [smallButtonAds]="true"
+                                        [icon]="'save'">
+                        </app-big-button>
+                        <ion-label text-nowrap>{{'CORE.SAVE' | translate}}</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter(null)" [class.filter-selected]="filter == null">
+                        <div>
+                            <img [src]="croppedImgFilterSrc"/>
+                        </div>
+                        <ion-label text-nowrap>No Filter</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter('contrast')" [class.filter-selected]="filter === 'contrast'">
+                        <div>
+                            <web-photo-filter src="{{croppedImgFilterSrc}}" filter="contrast"></web-photo-filter>
+                        </div>
+                        <ion-label text-nowrap>Contrast</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter('saturation')" [class.filter-selected]="filter === 'saturation'">
+                        <div>
+                            <web-photo-filter src="{{croppedImgFilterSrc}}" filter="saturation"></web-photo-filter>
+                        </div>
+                        <ion-label text-nowrap>Saturation</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter('brightness')" [class.filter-selected]="filter === 'brightness'" *ngIf="iOS">
+                        <div>
+                            <web-photo-filter src="{{croppedImgFilterSrc}}" filter="brightness"></web-photo-filter>
+                        </div>
+                        <ion-label text-nowrap>Brightness</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter('technicolor')" [class.filter-selected]="filter === 'technicolor'">
+                        <div>
+                            <web-photo-filter src="{{croppedImgFilterSrc}}" filter="technicolor"></web-photo-filter>
+                        </div>
+                        <ion-label text-nowrap>Technicolor</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter('polaroid')" [class.filter-selected]="filter === 'polaroid'">
+                        <div>
+                            <web-photo-filter src="{{croppedImgFilterSrc}}" filter="polaroid"></web-photo-filter>
+                        </div>
+                        <ion-label text-nowrap>Polaroid</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter('cookie')" [class.filter-selected]="filter === 'cookie'" *ngIf="iOS">
+                        <div>
+                            <web-photo-filter src="{{croppedImgFilterSrc}}" filter="cookie"></web-photo-filter>
+                        </div>
+                        <ion-label text-nowrap>Cookie</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter('vintage')" [class.filter-selected]="filter === 'vintage'">
+                        <div>
+                            <web-photo-filter src="{{croppedImgFilterSrc}}" filter="vintage"></web-photo-filter>
+                        </div>
+                        <ion-label text-nowrap>Vintage</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter('sepia')" [class.filter-selected]="filter === 'sepia'">
+                        <div>
+                            <web-photo-filter src="{{croppedImgFilterSrc}}" filter="sepia"></web-photo-filter>
+                        </div>
+                        <ion-label text-nowrap>Sepia</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter('greyscale')" [class.filter-selected]="filter === 'greyscale'" *ngIf="iOS">
+                        <div>
+                            <web-photo-filter src="{{croppedImgFilterSrc}}" filter="greyscale"></web-photo-filter>
+                        </div>
+                        <ion-label text-nowrap>Greyscale</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter('bgr')" [class.filter-selected]="filter === 'bgr'" *ngIf="iOS">
+                        <div>
+                            <web-photo-filter src="{{croppedImgFilterSrc}}" filter="bgr"></web-photo-filter>
+                        </div>
+                        <ion-label text-nowrap>Blue</ion-label>
+                    </div>
+
+                    <div class="filter" tappable (click)="applyFilter('hue')" [class.filter-selected]="filter === 'hue'" *ngIf="iOS">
+                        <div>
+                            <web-photo-filter src="{{croppedImgFilterSrc}}" filter="hue"></web-photo-filter>
+                        </div>
+                        <ion-label text-nowrap>Green</ion-label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!webGLDetected && cropperReady" role="buttons" class="actions-buttons" text-center>
+            <ion-button expand="full" shape="round" (click)="select()" padding-start padding-end>
                 {{'CORE.SAVE' | translate}}
-                <ion-icon slot="end" name="checkmark"></ion-icon>
+                <ion-icon slot="end" name="save"></ion-icon>
             </ion-button>
         </div>
     </div>

@@ -89,15 +89,7 @@ ion-buttons[slot="end"] {
 }
 
 div#toolbarFilters {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    z-index: 3;
-
-    &.hidden {
-        display: none;
-    }
 
     div[scrollx=true] {
         width: 100%;
@@ -144,11 +136,7 @@ div#toolbarFilters {
                     }
 
                     img, canvas {
-                        min-height: 6.4rem;
-                        min-width: 6.4rem;
-                        width: 6.4rem;
-                        height: 6.4rem;
-                        border: 1px solid $fluster-peach3;
+                        border: 2px solid $fluster-peach3;
                     }
                 }
             }

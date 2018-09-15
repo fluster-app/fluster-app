@@ -228,12 +228,13 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
     initializeApp() {
         this.platform.ready().then(() => {
             if (this.ENV_CORDOVA && this.platform.is('cordova')) {
-                this.statusBar.styleDefault();
-
-                // The first bar on the top when th time etc. are displayed. Otherwise theme-color of index.html will apply.
+                // The first bar on the top when the time etc. are displayed. Otherwise theme-color of index.html will apply.
                 const isAndroid: boolean = this.platform.is('android');
                 if (isAndroid) {
+                    this.statusBar.styleDefault();
                     this.statusBar.backgroundColorByHexString('#000000');
+                } else {
+                    this.statusBar.styleLightContent();
                 }
             }
         });

@@ -8,7 +8,8 @@
             "SLIDE3": "Entdecke die <strong>Highlights</strong> der <strong>Umgebung</strong>",
             "SLIDE4": "<strong>Spare Zeit</strong> durch sofortige Besichtigungsanfragen"
         },
-        "LEGAL": "Mit meiner Anmeldung akzeptiere ich die Geschäftsbedingungen"
+        "LEGAL": "Mit meiner Anmeldung akzeptiere ich die",
+        "LEGAL_LINK": "Geschäftsbedingungen"
     },
     "FIRST_CHOICE": {
         "LETS_GO": "Los geht's!",
