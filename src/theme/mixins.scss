@@ -36,6 +36,14 @@
     --background-activated: linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
 }
 
+@mixin fluster-linear-gradient-variable-checked($direction, $color-left, $color-right) {
+    --background-checked: #{$color-right};
+    --background-checked: -webkit-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+    --background-checked: -moz-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+    --background-checked: -o-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+    --background-checked: linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+}
+
 // Instead of importing all bourbon, we only use specially this method
 // https://github.com/thoughtbot/bourbon/blob/v4-stable/app/assets/stylesheets/addons/_triangle.scss
 @mixin triangle($size, $color, $direction) {
