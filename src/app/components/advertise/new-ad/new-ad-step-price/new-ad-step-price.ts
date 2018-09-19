@@ -143,8 +143,7 @@ export class NewAdStepPriceComponent extends AbstractNewAdComponent implements A
 
         this.notifyNext.emit();
 
-        // TODO: Remove params, Ionic bug https://github.com/ionic-team/ionic/issues/15604
-        this.slider.slideNext(500, true);
+        this.slider.slideNext();
 
         this.gaTrackEventOnce(this.platform, this.googleAnalyticsNativeService,
             this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.ADS.WIZARD,
