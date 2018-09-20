@@ -117,13 +117,6 @@
             "FROM_CAMERA": "Take image",
             "AT_LEAST_ONE_PHOTO": "Please upload at least one photo to make your ad attractive"
         },
-        "STEP_APPOINTMENT": {
-            "TITLE": "Viewings",
-            "SUB_TITLE": "When are you available for viewings?",
-            "MORNING": "Morning",
-            "AFTERNOON": "Afternoon",
-            "EVENING": "Evening"
-        },
         "STEP_LIMITATION": {
             "TITLE": "Candidates",
             "SUB_TITLE_SHARE": "What criteria your new roommate need to fill?",

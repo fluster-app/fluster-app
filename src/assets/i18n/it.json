@@ -117,13 +117,6 @@
             "FROM_CAMERA": "Scatta una foto",
             "AT_LEAST_ONE_PHOTO": "Aggiungi almeno una foto per mettere in risalto il tuo annuncio"
         },
-        "STEP_APPOINTMENT": {
-            "TITLE": "Appuntamenti",
-            "SUB_TITLE": "Quando sei disponibile per le visite?",
-            "MORNING": "Mattina",
-            "AFTERNOON": "Pomeriggio",
-            "EVENING": "Sera"
-        },
         "STEP_LIMITATION": {
             "TITLE": "Candidato",
             "SUB_TITLE_SHARE": "Requisiti che dovrebbe avere il nuovo coinquilino...",

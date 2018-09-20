@@ -33,7 +33,6 @@ export class NewItemService {
     private newItem: Item;
 
     private newAppointment: Appointment;
-    private newAppointmentSchedule: number[];
 
     private photos: Photo[];
 
@@ -61,20 +60,24 @@ export class NewItemService {
         return this.newItem;
     }
 
-    setNewItem(item: Item) {
-        this.newItem = item;
+    private initNewAppointment() {
+        if (this.newAppointment == null) {
+            this.newAppointment = new Appointment();
+            this.newAppointment.item = this.newItem;
+            this.newAppointment.type = Resources.Constants.APPOINTMENT.TYPE.FIXED;
+            this.newAppointment.attendance = Resources.Constants.APPOINTMENT.ATTENDANCE.SINGLE;
+            this.newAppointment.approval = Resources.Constants.APPOINTMENT.APPROVAL.SELECT;
+        }
     }
 
-    getNewAppointment(): Appointment {
+    getAndInitNewAppointment(): Appointment {
+        this.initNewAppointment();
+
         return this.newAppointment;
     }
 
     setNewAppointment(appointment: Appointment) {
         this.newAppointment = appointment;
-    }
-
-    setNewAppointmentSchedule(schedule: number[]) {
-        this.newAppointmentSchedule = schedule;
     }
 
     getPhotos(): Photo[] {
@@ -202,13 +205,15 @@ export class NewItemService {
         return new Promise(async (resolve, reject) => {
 
             if (Comparator.isEmpty(this.newItem) ||
-                Comparator.isEmpty(this.photos) ||
-                Comparator.isEmpty(this.newAppointment)) {
+                Comparator.isEmpty(this.photos)) {
 
                 reject();
             } else {
                 try {
-                    // 0. Clear _id to allow new inserts
+                    // 0. In case of flatshare, the appointment is not initialized in the wizard
+                    this.initNewAppointment();
+
+                    // 1. Clear _id to allow new inserts
                     delete this.newItem._id;
                     delete this.newAppointment._id;
 
@@ -218,19 +223,19 @@ export class NewItemService {
                     const body: AccessTokenBody = await this.accessTokenService.getRequestBody();
                     body['newItem'] = this.newItem;
 
-                    // 1. Add item
+                    // 2. Add item
                     this.httpClient.post(Resources.Constants.API.ITEMS, body, {headers: headers})
                         .subscribe((postedItem: Item) => {
                             this.newAppointment.item = postedItem;
 
-                            // 2. Schedule
-                            this.schedule().then((postedAppointment: Appointment) => {
+                            // 3. Schedule
+                            this.initSchedule().then((postedAppointment: Appointment) => {
 
-                                // 3. Add photos
-                                // posteItem is not populated
+                                // 4. Add photos
+                                // Note: posteItem is not populated
                                 this.uploadPhotos(postedItem.hashId, this.newItem.mainPhoto, this.newItem.itemDetail.otherPhotos).then(() => {
 
-                                    // 4. All good, set item as published
+                                    // 5. All good, set item as published
                                     this.adsService.setStatus(postedItem._id, Resources.Constants.ITEM.STATUS.PUBLISHED)
                                         .then((updatedItem: Item) => {
                                             this.newItem = updatedItem;
@@ -307,36 +312,27 @@ export class NewItemService {
         });
     }
 
-    private schedule(): Promise<{}> {
+    private initSchedule(): Promise<{}> {
 
-        return new Promise((resolve, reject) => {
-            this.appointmentService.extractSchedule(this.newAppointment, this.newAppointmentSchedule).then(async (appointment: Appointment) => {
-                try {
-                    this.newAppointment = appointment;
+        return new Promise(async (resolve, reject) => {
+            const headers: HttpHeaders = new HttpHeaders();
+            headers.append('Content-Type', 'application/json');
 
-                    const headers: HttpHeaders = new HttpHeaders();
-                    headers.append('Content-Type', 'application/json');
+            const body: AccessTokenBody = await this.accessTokenService.getRequestBody();
+            body['appointment'] = this.newAppointment;
 
-                    const body: AccessTokenBody = await this.accessTokenService.getRequestBody();
-                    body['appointment'] = this.newAppointment;
-
-                    this.httpClient.post(Resources.Constants.API.APPOINTMENTS, body, {headers: headers})
-                        .subscribe((result: Appointment) => {
-                            resolve(result);
-                        }, (errorResponse: HttpErrorResponse) => {
-                            reject(errorResponse);
-                        });
-                } catch (err) {
-                    reject(err);
-                }
-
-            });
+            this.httpClient.post(Resources.Constants.API.APPOINTMENTS, body, {headers: headers})
+                .subscribe((result: Appointment) => {
+                    resolve(result);
+                }, (errorResponse: HttpErrorResponse) => {
+                    reject(errorResponse);
+                });
         });
     }
 
     private update(): Promise<{}> {
 
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
 
             if (Comparator.isEmpty(this.newItem) ||
                 Comparator.isEmpty(this.photos) ||
@@ -344,25 +340,19 @@ export class NewItemService {
 
                 reject();
             } else {
-                const promises = new Array();
+                try {
+                    await this.uploadPhotos(this.newItem.hashId, this.newItem.mainPhoto, this.newItem.itemDetail.otherPhotos);
 
-                promises.push(this.updateSchedule());
-                promises.push(this.uploadPhotos(this.newItem.hashId, this.newItem.mainPhoto, this.newItem.itemDetail.otherPhotos));
-
-                forkJoin(promises).subscribe(
-                    (data: HttpErrorResponse[]) => {
-                        this.updateNewItem().then((updatedItem: Item) => {
-                            this.newItem = updatedItem;
-                            this.done = true;
-                            resolve();
-                        }, (errorResponse: HttpErrorResponse) => {
-                            reject(errorResponse);
-                        });
-                    },
-                    (err: any) => {
-                        reject(err);
-                    }
-                );
+                    this.updateNewItem().then((updatedItem: Item) => {
+                        this.newItem = updatedItem;
+                        this.done = true;
+                        resolve();
+                    }, (errorResponse: HttpErrorResponse) => {
+                        reject(errorResponse);
+                    });
+                } catch (err) {
+                    reject(err);
+                }
             }
         });
     }
@@ -385,19 +375,6 @@ export class NewItemService {
             } catch (err) {
                 reject(err);
             }
-        });
-    }
-
-    private updateSchedule(): Promise<{}> {
-        return new Promise((resolve, reject) => {
-            this.appointmentService.updateAppointmentSchedule(this.newAppointment, this.newAppointmentSchedule)
-                .then((appointment: Appointment) => {
-                    this.newAppointment = appointment;
-
-                    resolve(appointment);
-                }, (errorResponse: HttpErrorResponse) => {
-                    reject(errorResponse);
-                });
         });
     }
 

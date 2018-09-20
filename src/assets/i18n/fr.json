@@ -117,13 +117,6 @@
             "FROM_CAMERA": "Prendre une photo",
             "AT_LEAST_ONE_PHOTO": "Ajoute au moins une photo pour rendre ton annonce attrayante"
         },
-        "STEP_APPOINTMENT": {
-            "TITLE": "Rendez-vous",
-            "SUB_TITLE": "À quel moment es-tu disponible pour des visites?",
-            "MORNING": "Le matin",
-            "AFTERNOON": "L'après-midi",
-            "EVENING": "Le soir"
-        },
         "STEP_LIMITATION": {
             "TITLE": "Candidats",
             "SUB_TITLE_SHARE": "Quels critères ton nouveau colocataire doit-il remplir?",

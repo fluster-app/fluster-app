@@ -71,7 +71,7 @@ export class NewAdStepAttendanceComponent extends AbstractNewAdComponent {
     }
 
     private setAttendanceAndNavigate() {
-        const appointment: Appointment = this.newItemService.getNewAppointment();
+        const appointment: Appointment = this.newItemService.getAndInitNewAppointment();
 
         if (this.isSinglePicked) {
             appointment.attendance = this.RESOURCES.APPOINTMENT.ATTENDANCE.SINGLE;

@@ -117,13 +117,6 @@
             "FROM_CAMERA": "Foto aufnehmen",
             "AT_LEAST_ONE_PHOTO": "Bitte füge mindestens ein Foto hinzu, um dein Gesuch interessanter zu machen"
         },
-        "STEP_APPOINTMENT": {
-            "TITLE": "Besichtigung",
-            "SUB_TITLE": "Wann bist du für Besichtigungen verfügbar?",
-            "MORNING": "Vormittag",
-            "AFTERNOON": "Nachmittag",
-            "EVENING": "Abend"
-        },
         "STEP_LIMITATION": {
             "TITLE": "Bewerber",
             "SUB_TITLE_SHARE": "Welche Kriterien sollte dein neuer Mitbewohner erfüllen?",

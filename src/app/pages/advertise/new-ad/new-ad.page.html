@@ -49,15 +49,11 @@
     </ion-slide>
 
     <ion-slide *ngIf="loadSlideAttributes">
-      <app-new-ad-step-attributes [slider]="slider" (notifyNext)="loadNextSlidesFromAttributes()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-attributes>
+      <app-new-ad-step-attributes [slider]="slider" (notifyNext)="loadNextSlideLimitation()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-attributes>
     </ion-slide>
 
     <ion-slide *ngIf="loadSlideLifestyle">
-      <app-new-ad-step-lifestyle [slider]="slider" (notifyNext)="loadNextSlideLimitation()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-lifestyle>
-    </ion-slide>
-
-    <ion-slide id="slide-new-ad-step-appointments" *ngIf="loadSlideAppointment">
-      <app-new-ad-step-appointments [slider]="slider" (notifyNext)="loadNextSlideFromAppointments()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-appointments>
+      <app-new-ad-step-lifestyle [slider]="slider" (notifyNext)="loadNextSlideDone()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-lifestyle>
     </ion-slide>
 
     <ion-slide *ngIf="loadSlideAttendance">

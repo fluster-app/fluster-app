@@ -44,7 +44,6 @@ export class NewAdPage extends AbstractPage implements OnInit {
     loadSlidePrice: boolean = false;
     loadSlideAttributes: boolean = false;
     loadSlideLifestyle: boolean = false;
-    loadSlideAppointment: boolean = false;
     loadSlideAttendance: boolean = false;
     loadSlideLimitation: boolean = false;
     loadSlideDone: boolean = false;
@@ -255,14 +254,9 @@ export class NewAdPage extends AbstractPage implements OnInit {
         this.updateSlider();
     }
 
-    loadNextSlideLifestyle() {
-        this.loadSlideLifestyle = true;
-        this.updateSlider();
-    }
-
     loadNextSlidesFromPrice() {
         if (this.isItemFlat()) {
-            this.loadSlideAppointment = true;
+            this.loadSlideAttendance = true;
         } else {
             this.loadSlideLifestyle = true;
         }
@@ -270,28 +264,8 @@ export class NewAdPage extends AbstractPage implements OnInit {
         this.updateSlider();
     }
 
-    loadNextSlidesFromAttributes() {
-        if (this.isItemFlat()) {
-            this.loadSlideAttendance = true;
-        } else {
-            this.loadSlideAppointment = true;
-        }
-
-        this.updateSlider();
-    }
-
     loadNextSlideLimitation() {
         this.loadSlideLimitation = true;
-        this.updateSlider();
-    }
-
-    loadNextSlideFromAppointments() {
-        if (this.isItemFlat()) {
-            this.loadSlideLimitation = true;
-        } else {
-            this.loadSlideDone = true;
-        }
-
         this.updateSlider();
     }
 
