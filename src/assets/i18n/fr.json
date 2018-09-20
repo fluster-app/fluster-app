@@ -147,7 +147,8 @@
             "SUB_TITLE_REWARD": "Ton annonce est publiée et tu prendras part à notre concours*",
             "REWARD_LEGAL": "* Les détails du concours et conditions de participation",
             "DISPLAY": "Voir l'annonce",
-            "SHARE": "Partager l'annonce"
+            "SHARE": "Partager l'annonce",
+            "APPOINTMENTS": "Fixer tes disponibilités"
         },
         "STEP_ATTENDANCE": {
             "TITLE": "Fréquentation",

@@ -41,7 +41,7 @@
         },
         "ACTIONS": {
             "UNDO": "restore",
-            "EDIT_APPOINTMENTS": "Manage my availability",
+            "EDIT_APPOINTMENTS": "Manage my availabilities",
             "EDIT_ADS": "Manage my ad",
             "CLOSE": "Delete my ad"
         }
@@ -147,7 +147,8 @@
             "SUB_TITLE_REWARD": "Your ad is published and you entered our contest*",
             "REWARD_LEGAL": "* Contest details and conditions of participation",
             "DISPLAY": "View ad",
-            "SHARE": "Share ad"
+            "SHARE": "Share ad",
+            "APPOINTMENTS": "Set your availabilities"
         },
         "STEP_ATTENDANCE": {
             "TITLE": "Attendance",
