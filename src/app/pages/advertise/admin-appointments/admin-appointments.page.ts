@@ -23,6 +23,7 @@ import {ItemsComparator} from '../../../services/core/utils/items-utils';
 import {AppointmentService} from '../../../services/core/appointment/appointment-service';
 import {AdsService} from '../../../services/advertise/ads-service';
 import {GoogleAnalyticsNativeService} from '../../../services/native/analytics/google-analytics-native-service';
+import {AdminAppointmentsNavParams, NavParamsService} from '../../../services/core/navigation/nav-params-service';
 
 @Component({
     selector: 'app-admin-appointments',
@@ -43,6 +44,7 @@ export class AdminAppointmentsPage extends AbstractPage {
     // First slide
 
     updatedSchedule: number[];
+    menuToggle: boolean = false;
 
     // Second slide
 
@@ -58,13 +60,14 @@ export class AdminAppointmentsPage extends AbstractPage {
                 private translateService: TranslateService,
                 private appointmentService: AppointmentService,
                 private adsService: AdsService,
-                private googleAnalyticsNativeService: GoogleAnalyticsNativeService) {
+                private googleAnalyticsNativeService: GoogleAnalyticsNativeService,
+                private navParamsService: NavParamsService) {
         super();
 
         this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.ADS_CLOSE);
     }
 
-    ionViewWillEnter() {
+    async ionViewWillEnter() {
         this.initItem().then((item: Item) => {
             this.item = item;
 
@@ -78,6 +81,8 @@ export class AdminAppointmentsPage extends AbstractPage {
         });
 
         this.overrideHardwareBackAction();
+
+        await this.displayMenuToggle();
     }
 
     ionViewDidLeave() {
@@ -100,16 +105,42 @@ export class AdminAppointmentsPage extends AbstractPage {
 
             if (activeIndex > 0) {
                 this.slider.slidePrev();
+                this.displayMenuToggle();
             } else {
-                await this.navigateBackToDetails();
+                await this.navigateToDetails();
             }
         } else {
-            await this.navigateBackToDetails();
+            await this.navigateToDetails();
         }
     }
 
-    private async navigateBackToDetails() {
-        await this.navController.navigateBack('/ads-details');
+    private async displayMenuToggle() {
+        let activeIndex: number = 0;
+
+        try {
+            if (this.slider) {
+                activeIndex = await this.slider.getActiveIndex();
+            }
+        } catch (err) {
+            // On init the slider may not exist yet
+        }
+
+        const navParams: AdminAppointmentsNavParams = await this.navParamsService.getAdminAppointmentsNavParams();
+
+        this.menuToggle = activeIndex === 0 && navParams && navParams.menuToggle;
+    }
+
+    private async navigateToDetails() {
+        await this.getNavigationToDetails();
+    }
+
+    private async getNavigationToDetails(): Promise<boolean> {
+        const navParams: AdminAppointmentsNavParams = await this.navParamsService.getAdminAppointmentsNavParams();
+        if (navParams && navParams.menuToggle) {
+            return this.navController.navigateRoot('/ads-details');
+        } else {
+            return this.navController.navigateBack('/ads-details');
+        }
     }
 
     private initItem(): Promise<{}> {
@@ -215,7 +246,7 @@ export class AdminAppointmentsPage extends AbstractPage {
                 this.adsService.setSelectedItem(item);
             }
 
-            this.navController.navigateBack('/ads-details').then(() => {
+            this.getNavigationToDetails().then(() => {
                 loading.dismiss();
             }, (err: any) => {
                 loading.dismiss();

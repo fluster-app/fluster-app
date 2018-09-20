@@ -237,6 +237,12 @@ export class NewAdPage extends AbstractPage implements OnInit {
         this.navController.navigateRoot('/ads-details', true);
     }
 
+    async navigateToAdminAppointments() {
+        this.navParamsService.setAdminAppointmentsNavParams({menuToggle: true});
+        await this.navController.navigateRoot('/admin-appointments', true);
+        this.enableMenu(this.menuController, false, true);
+    }
+
     // HACK: Fck it, Load incrementaly these steps for devices with small memory which could not handle a important load on load of the slides
 
     loadNextSlidePrice() {
