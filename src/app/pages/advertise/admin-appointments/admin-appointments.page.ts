@@ -89,6 +89,8 @@ export class AdminAppointmentsPage extends AbstractPage {
         if (this.customBackActionSubscription) {
             this.customBackActionSubscription.unsubscribe();
         }
+
+        this.navParamsService.setAdminAppointmentsNavParams(null);
     }
 
     private overrideHardwareBackAction() {
