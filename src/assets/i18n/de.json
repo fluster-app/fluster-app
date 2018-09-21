@@ -680,6 +680,12 @@
                 "HIGHLIGHT": "ein Zeitfenster,",
                 "END": "um einen Termin zu bekommen"
             }
+        },
+        "FLEXIBILITY": {
+            "TITLE": "Bist du flexibel?",
+            "SUB_TITLE": "Um Zeit zu sparen, möchtest du Besichtigungsanfragen mit deiner Verfügbarkeiten schicken?",
+            "MATCH_ONLY": "Nur Anfragen schicken",
+            "SCHEDULE": "Anfragen mit Verfügbarkeiten schicken"
         }
     },
     "MY_APPOINTMENTS": {

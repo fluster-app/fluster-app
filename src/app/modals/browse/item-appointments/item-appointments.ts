@@ -37,7 +37,7 @@ export class ItemAppointmentsModal extends AbstractModal implements OnInit {
 
     alreadyBookmarked: boolean = false;
 
-    matchSelected: boolean = false;
+    matchOnlySelected: boolean = false;
     scheduleSelected: boolean = false;
 
     initScheduledDates: InitScheduledDates;
@@ -66,8 +66,11 @@ export class ItemAppointmentsModal extends AbstractModal implements OnInit {
         this.firstSlide = !Comparator.hasElements(this.initScheduledDates.favoritesDates);
         this.closeButton = this.firstSlide;
 
+
         // TODO: Resolve parameters, user want generally speaking to define dates or not?
         // TODO: Use storage, add param to app-params
+
+        // TODO: Setter param to true seuelement si slide 2 et si data sélectionné > 1
 
         this.loaded = true;
     }
@@ -113,8 +116,8 @@ export class ItemAppointmentsModal extends AbstractModal implements OnInit {
         return !Comparator.isEmpty(this.item) && !Comparator.isEmpty(this.item.user.facebook) && !Comparator.isStringEmpty(this.item.user.facebook.firstName);
     }
 
-    match() {
-        this.matchSelected = true;
+    matchOnly() {
+        this.matchOnlySelected = true;
     }
 
     schedule() {
@@ -127,7 +130,7 @@ export class ItemAppointmentsModal extends AbstractModal implements OnInit {
 
     backToPreviousSlide() {
         this.scheduleSelected = false;
-        this.matchSelected = false;
+        this.matchOnlySelected = false;
         this.closeButton = true;
 
         this.slider.slidePrev();

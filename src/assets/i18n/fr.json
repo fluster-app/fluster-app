@@ -680,6 +680,12 @@
                 "HIGHLIGHT": "une proposition",
                 "END": "de créneau horaire afin d'obtenir un rendez-vous"
             }
+        },
+        "FLEXIBILITY": {
+            "TITLE": "Tu es flexible?",
+            "SUB_TITLE": "Pour économiser du temps, tu veux ajouter tes disponibilités à tes demandes?",
+            "MATCH_ONLY": "Envoyer seulement mes demandes",
+            "SCHEDULE": "Envoyer mes demandes et mes disponibilités"
         }
     },
     "MY_APPOINTMENTS": {
