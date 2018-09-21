@@ -17,8 +17,8 @@
 
   <app-content-advertise-notification [displayOnInit]="true" (notifyNewNotifications)="reset()"></app-content-advertise-notification>
 
-  <div class="loading" padding text-center *ngIf="applicants == null">
-    <ion-spinner ion-text color="primary"></ion-spinner>
+  <div class="spinner-loading" padding text-center *ngIf="applicants == null">
+    <ion-spinner color="primary"></ion-spinner>
   </div>
 
   <app-no-ads *ngIf="!hasItem() && applicants != null" (notifyNavigateNewItem)="navigateNewItem()"></app-no-ads>

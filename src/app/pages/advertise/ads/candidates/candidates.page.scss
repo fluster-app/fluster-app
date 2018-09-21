@@ -1,13 +1,7 @@
 @import "../../../../../theme/mixins";
 @import "../../../../../theme/media-queries";
 @import "../../../../../theme/fluster-variables";
-
-div.loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+@import "../../../../../theme/spinner";
 
 ion-card.user-profile {
   margin: 0;
