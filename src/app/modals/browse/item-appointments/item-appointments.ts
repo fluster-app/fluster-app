@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 import {Card} from 'ionic-swing';
 
@@ -17,14 +17,17 @@ import {ItemsComparator} from '../../../services/core/utils/items-utils';
 // Services
 import {LastItemsService} from '../../../services/browse/last-items-service';
 import {GoogleAnalyticsNativeService} from '../../../services/native/analytics/google-analytics-native-service';
-import {ModalController, NavParams, Platform} from '@ionic/angular';
+import {ModalController, NavParams, Platform, Slides} from '@ionic/angular';
+import {InitScheduledDates, ItemAppointmentService} from '../../../services/core/appointment/item-appointment-service';
 
 @Component({
     templateUrl: 'item-appointments.html',
     styleUrls: ['./item-appointments.scss'],
     selector: 'app-item-appointments'
 })
-export class ItemAppointmentsModal extends AbstractModal {
+export class ItemAppointmentsModal extends AbstractModal implements OnInit {
+
+    @ViewChild('appointmentsSlider') slider: Slides;
 
     item: Item;
     itemUser: ItemUser;
@@ -34,19 +37,39 @@ export class ItemAppointmentsModal extends AbstractModal {
 
     alreadyBookmarked: boolean = false;
 
+    matchSelected: boolean = false;
+    scheduleSelected: boolean = false;
+
+    initScheduledDates: InitScheduledDates;
+
+    firstSlide: boolean = false;
+    loaded: boolean = false;
+    closeButton: boolean = true;
+
     constructor(private platform: Platform,
                 private navParams: NavParams,
                 private modalController: ModalController,
                 private lastItemsService: LastItemsService,
-                private googleAnalyticsNativeService: GoogleAnalyticsNativeService) {
+                private googleAnalyticsNativeService: GoogleAnalyticsNativeService,
+                private itemAppointmentService: ItemAppointmentService) {
 
         super();
 
         this.gaTrackEvent(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.MODAL, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.BROWSE.ITEM_APPOINTMENTS);
     }
 
-    ionViewWillEnter() {
+    async ngOnInit() {
         this.initItem();
+
+        this.initScheduledDates = await this.itemAppointmentService.init(this.item, this.existingApplicant);
+
+        this.firstSlide = !Comparator.hasElements(this.initScheduledDates.favoritesDates);
+        this.closeButton = this.firstSlide;
+
+        // TODO: Resolve parameters, user want generally speaking to define dates or not?
+        // TODO: Use storage, add param to app-params
+
+        this.loaded = true;
     }
 
     private initItem() {
@@ -90,4 +113,23 @@ export class ItemAppointmentsModal extends AbstractModal {
         return !Comparator.isEmpty(this.item) && !Comparator.isEmpty(this.item.user.facebook) && !Comparator.isStringEmpty(this.item.user.facebook.firstName);
     }
 
+    match() {
+        this.matchSelected = true;
+    }
+
+    schedule() {
+        this.scheduleSelected = true;
+
+        this.slider.slideNext();
+
+        this.closeButton = false;
+    }
+
+    backToPreviousSlide() {
+        this.scheduleSelected = false;
+        this.matchSelected = false;
+        this.closeButton = true;
+
+        this.slider.slidePrev();
+    }
 }
