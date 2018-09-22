@@ -8,16 +8,12 @@ import * as moment from 'moment';
 // Abstract
 import {AbstractPickAppointments} from '../../core/pick-appointments/abstract-pick-appointments';
 
-// Model
-import {Item} from '../../../services/model/item/item';
-import {Appointment} from '../../../services/model/appointment/appointment';
-
 // Resources and utils
 import {Comparator} from '../../../services/core/utils/utils';
-import {PickAppointmentExistingDates, PickAppointmentTime} from '../../../services/model/utils/pickAppointments';
+import {PickAppointmentTime} from '../../../services/model/utils/pickAppointments';
 
 // Services
-import {AppointmentService} from '../../../services/core/appointment/appointment-service';
+import {AdminScheduledDates} from '../../../services/core/appointment/admin-appoinments-service';
 
 @Component({
     templateUrl: 'pick-ads-appointments.html',
@@ -31,33 +27,27 @@ export class PickAdsAppointmentsComponent extends AbstractPickAppointments imple
 
     @Output() notifiySelected: EventEmitter<number[]> = new EventEmitter<number[]>();
 
-    @Input() item: Item;
-    @Input() appointment: Appointment;
+    @Input() adminScheduledDates: AdminScheduledDates;
 
     unavailableAppointmentDates: number[];
-
-    // Output
     selectedAppointmentsStartTime: number[];
 
-    constructor(private appointmentService: AppointmentService) {
+    constructor() {
         super();
         this.onlySelectedDates = false;
     }
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
-        if (Comparator.isEmpty(this.selectedDates)) {
-
+        if (Comparator.isEmpty(this.selectedDates) && !Comparator.isEmpty(this.adminScheduledDates)) {
             this.onlySelectedDates = false;
 
-            this.appointmentService.buildExistingDates(this.item, this.appointment).then((result: PickAppointmentExistingDates) => {
-                this.selectedAppointmentsStartTime = result.scheduledDates != null ? result.scheduledDates : new Array();
-                this.selectedDates = result.scheduledDates != null ? result.scheduledDates : new Array();
-                this.unavailableAppointmentDates = result.unavailableAppointmentDates;
+            this.selectedAppointmentsStartTime = this.adminScheduledDates.selectedAppointmentsStartTime;
+            this.selectedDates = this.adminScheduledDates.selectedDates;
+            this.unavailableAppointmentDates = this.adminScheduledDates.unavailableAppointmentDates;
 
-                this.emitSelectedDates();
+            this.emitSelectedDates();
 
-                this.init();
-            });
+            this.init();
         }
     }
 

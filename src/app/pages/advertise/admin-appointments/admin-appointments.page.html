@@ -20,7 +20,7 @@
 
 <ion-content role="ad" [forceOverscroll]="true">
 
-  <div ion-fixed>
+  <div ion-fixed *ngIf="loaded">
 
     <ion-slides #adsAdminAppointmentsSlider pager="false" [options]="slideOptsOnlyExternal">
       <ion-slide *ngIf="itemEndCouldBeExtended && item != null">
@@ -72,7 +72,7 @@
 
           <h2 padding-start padding-end text-center>{{'ADMIN_APPOINTMENTS.APPOINTMENTS.SUB_TITLE' | translate}}</h2>
 
-          <app-pick-ads-appointments [item]="item" [appointment]="appointment" (notifiySelected)="select($event)"></app-pick-ads-appointments>
+          <app-pick-ads-appointments [adminScheduledDates]="adminScheduledDates"  (notifiySelected)="select($event)"></app-pick-ads-appointments>
 
           <div text-center padding class="date-picker-actions">
             <ion-button expand="full" shape="round" (click)="extendItemAndUpdateAppointment()">
@@ -85,6 +85,10 @@
 
     </ion-slides>
 
+  </div>
+
+  <div class="spinner-loading" padding text-center *ngIf="!loaded">
+    <ion-spinner color="primary"></ion-spinner>
   </div>
 
 </ion-content>
