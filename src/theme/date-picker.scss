@@ -134,10 +134,6 @@ ion-content[role="ad"] {
         div.date-picker {
             > div:not(.selected-date) {
                 background-color: $fluster-midnight-blue;
-
-                &:not(.has-appointment) {
-                    color: $fluster-grey-blue;
-                }
             }
         }
     }

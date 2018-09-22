@@ -24,7 +24,7 @@ div.date-picker-scroller {
 
             p {
                 font-size: $fluster-text-big;
-                color: $fluster-grey-blue;
+                color: white;
 
                 display: flex;
                 justify-content: center;
@@ -33,7 +33,7 @@ div.date-picker-scroller {
 
                 &.appointment-selected {
                     color: $fluster-peach3;
-                    font-weight: $font-weight-bold;
+                    font-weight: $font-weight-normal;
                 }
 
                 ion-icon {

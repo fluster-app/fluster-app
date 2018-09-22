@@ -25,13 +25,11 @@ export class PickApplicantAppointmentsComponent extends AbstractPickAppointments
 
     @Output() notifiySelected: EventEmitter<Date> = new EventEmitter<Date>();
 
-    // Array of dates.getTime()
     @Input() selectedApplicantDates: number[];
 
     private previousSelectedPickAppointmentDate: PickAppointmentDate;
     private previousSelectedAppointment: PickAppointmentTime;
 
-    // Output
     selectedAppointmentsStartTime: Date;
 
     constructor(private alertController: AlertController,
