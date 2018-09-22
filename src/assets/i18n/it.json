@@ -684,7 +684,8 @@
         "BUTTONS": {
             "ADD": "Aggiunger",
             "LOCK": "Occupato/a",
-            "REJECTED": "Rifiutato"
+            "REJECTED": "Rifiutato",
+            "AVAILABLE": "Disponibile"
         }
     },
     "MY_APPOINTMENTS": {

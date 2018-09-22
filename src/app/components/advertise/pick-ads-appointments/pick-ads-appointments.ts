@@ -5,6 +5,8 @@ import {
 
 import * as moment from 'moment';
 
+import {TranslateService} from '@ngx-translate/core';
+
 // Abstract
 import {AbstractPickAppointments} from '../../core/pick-appointments/abstract-pick-appointments';
 
@@ -32,7 +34,7 @@ export class PickAdsAppointmentsComponent extends AbstractPickAppointments imple
     unavailableAppointmentDates: number[];
     selectedAppointmentsStartTime: number[];
 
-    constructor() {
+    constructor(private translateService: TranslateService) {
         super();
         this.onlySelectedDates = false;
     }
@@ -68,6 +70,14 @@ export class PickAdsAppointmentsComponent extends AbstractPickAppointments imple
             return 'lock';
         } else {
             return currentAppointment.selected ? 'checkmark-circle' : 'radio-button-off';
+        }
+    }
+
+    actionToDisplay(currentAppointment: PickAppointmentTime): string {
+        if (this.isAppointmentAlreadyTaken(currentAppointment)) {
+            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.LOCK');
+        } else {
+            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.AVAILABLE');
         }
     }
 
