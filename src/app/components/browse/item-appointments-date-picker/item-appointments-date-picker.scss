@@ -39,6 +39,10 @@ div.date-picker-scroller {
           width: 50%;
         }
 
+        ion-button[fill="solid"] {
+          --border-width: 1px;
+        }
+
         .appointment-selected {
           font-weight: $font-weight-normal;
         }
