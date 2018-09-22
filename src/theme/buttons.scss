@@ -53,6 +53,7 @@ ion-content[role="browse"] {
   ion-button[disabled].button {
     --background: #{$fluster-light-grey};
     --color: #{$fluster-dark-grey};
+    --ion-color-medium: #{$fluster-medium-grey};
   }
 }
 
