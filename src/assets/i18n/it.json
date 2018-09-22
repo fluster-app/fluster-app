@@ -680,11 +680,6 @@
                 "HIGHLIGHT": "una",
                 "END": "finestra temporale per ottenere un appuntamento"
             }
-        }"FLEXIBILITY": {
-            "TITLE": "Sei flessibile?",
-            "SUB_TITLE": "Per risparmiare tempo, vuoi aggiungere la tua disponibilità alle tue richieste?",
-            "MATCH_ONLY": "Invia solo richieste",
-            "SCHEDULE": "Invia richieste e le mie disponibilità"
         }
     },
     "MY_APPOINTMENTS": {

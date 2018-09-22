@@ -680,12 +680,6 @@
                 "HIGHLIGHT": "a time slot",
                 "END": "to get a viewing"
             }
-        },
-        "FLEXIBILITY": {
-            "TITLE": "Are you flexible on dates?",
-            "SUB_TITLE": "To save time, do you want to add your availabilities to your requests?",
-            "MATCH_ONLY": "Send only requests",
-            "SCHEDULE": "Send requests and my availabilities"
         }
     },
     "MY_APPOINTMENTS": {

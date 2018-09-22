@@ -27,8 +27,6 @@ import {InitScheduledDates, ItemAppointmentService} from '../../../services/core
 })
 export class ItemAppointmentsModal extends AbstractModal implements OnInit {
 
-    @ViewChild('appointmentsSlider') slider: Slides;
-
     item: Item;
     itemUser: ItemUser;
     itemSwingCard: Card;
@@ -37,14 +35,9 @@ export class ItemAppointmentsModal extends AbstractModal implements OnInit {
 
     alreadyBookmarked: boolean = false;
 
-    matchOnlySelected: boolean = false;
-    scheduleSelected: boolean = false;
-
     initScheduledDates: InitScheduledDates;
 
-    firstSlide: boolean = false;
     loaded: boolean = false;
-    closeButton: boolean = true;
 
     constructor(private platform: Platform,
                 private navParams: NavParams,
@@ -62,15 +55,6 @@ export class ItemAppointmentsModal extends AbstractModal implements OnInit {
         this.initItem();
 
         this.initScheduledDates = await this.itemAppointmentService.init(this.item, this.existingApplicant);
-
-        this.firstSlide = !Comparator.hasElements(this.initScheduledDates.favoritesDates);
-        this.closeButton = this.firstSlide;
-
-
-        // TODO: Resolve parameters, user want generally speaking to define dates or not?
-        // TODO: Use storage, add param to app-params
-
-        // TODO: Setter param to true seuelement si slide 2 et si data sélectionné > 1
 
         this.loaded = true;
     }
@@ -114,25 +98,5 @@ export class ItemAppointmentsModal extends AbstractModal implements OnInit {
 
     useUserTitle(): boolean {
         return !Comparator.isEmpty(this.item) && !Comparator.isEmpty(this.item.user.facebook) && !Comparator.isStringEmpty(this.item.user.facebook.firstName);
-    }
-
-    matchOnly() {
-        this.matchOnlySelected = true;
-    }
-
-    schedule() {
-        this.scheduleSelected = true;
-
-        this.slider.slideNext();
-
-        this.closeButton = false;
-    }
-
-    backToPreviousSlide() {
-        this.scheduleSelected = false;
-        this.matchOnlySelected = false;
-        this.closeButton = true;
-
-        this.slider.slidePrev();
     }
 }

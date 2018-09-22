@@ -1,12 +1,8 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-button (click)="close(false)" *ngIf="closeButton">
+            <ion-button (click)="close(false)">
                 <ion-icon slot="icon-only" name="close"></ion-icon>
-            </ion-button>
-
-            <ion-button (click)="backToPreviousSlide()" *ngIf="!closeButton" class="custom-back-button">
-                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
             </ion-button>
         </ion-buttons>
 
@@ -14,62 +10,23 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content role="browse" [scrollY]="false" no-padding>
+<ion-content role="browse" [scrollY]="false" padding>
 
-    <ion-slides #appointmentsSlider pager="false" [options]="slideOptsOnlyExternal" *ngIf="loaded">
-        <ion-slide *ngIf="firstSlide">
-            <div class="flex-content" padding>
-                <ion-grid class="flex-grid">
-                    <ion-row>
-                        <ion-col size="12">
-                            <h1 text-center padding-top>{{'ITEM_APPOINTMENTS.FLEXIBILITY.TITLE' | translate}}</h1>
+    <ng-container *ngIf="loaded">
+        <h2 text-center *ngIf="isItemFlat()" padding>
+            {{ 'ITEM_APPOINTMENTS.VIEWING_WHEN_TEXT_FLAT' | translate:{who: item.user.facebook.firstName == null ? '' : item.user.facebook.firstName} }}
+        </h2>
 
-                            <h2 text-center padding-top>{{'ITEM_APPOINTMENTS.FLEXIBILITY.SUB_TITLE' | translate}}</h2>
-                        </ion-col>
-                    </ion-row>
+        <h2 text-center *ngIf="isItemShare()" padding>
+            {{ 'ITEM_APPOINTMENTS.VIEWING_WHEN_TEXT_SHARE' | translate:{who: item.user.facebook.firstName == null ? '' : item.user.facebook.firstName} }}
+        </h2>
 
-                    <ion-row>
-                        <ion-col size="6" text-center>
-                            <app-big-button (clicked)="matchOnly()"
-                                            [bigButtonItem]="true" [bigButtonEnabled]="matchOnlySelected" [bigButtonDisabled]="scheduleSelected"
-                                            [icon]="'ios-send'" [label]="'ITEM_APPOINTMENTS.FLEXIBILITY.MATCH_ONLY'">
-                            </app-big-button>
-                        </ion-col>
-
-                        <ion-col size="6" text-center>
-                            <app-big-button (clicked)="schedule()"
-                                            [bigButtonItem]="true" [bigButtonEnabled]="scheduleSelected" [bigButtonDisabled]="matchOnlySelected"
-                                            [iconSrc]="scheduleSelected ? 'assets/img/ico_calendar_send-white.svg' : 'assets/img/ico_calendar_send-dark-blue.svg'" [label]="'ITEM_APPOINTMENTS.FLEXIBILITY.SCHEDULE'">
-                            </app-big-button>
-                        </ion-col>
-                    </ion-row>
-
-                    <ion-row>
-                        <ion-col size="12" text-center>
-                            <!-- Nothing -->
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-            </div>
-        </ion-slide>
-
-        <ion-slide>
-            <div class="flex-content" padding>
-                <h2 text-center *ngIf="isItemFlat()" padding>
-                    {{ 'ITEM_APPOINTMENTS.VIEWING_WHEN_TEXT_FLAT' | translate:{who: item.user.facebook.firstName == null ? '' : item.user.facebook.firstName} }}
-                </h2>
-
-                <h2 text-center *ngIf="isItemShare()" padding>
-                    {{ 'ITEM_APPOINTMENTS.VIEWING_WHEN_TEXT_SHARE' | translate:{who: item.user.facebook.firstName == null ? '' : item.user.facebook.firstName} }}
-                </h2>
-
-                <app-pick-item-appointments [item]="item" [itemUser]="itemUser" [existingApplicant]="existingApplicant" [alreadyBookmarked]="alreadyBookmarked" [initScheduledDates]="initScheduledDates" (notifiyScheduled)="navigateToItems()"></app-pick-item-appointments>
-            </div>
-        </ion-slide>
-    </ion-slides>
+        <app-pick-item-appointments [item]="item" [itemUser]="itemUser" [existingApplicant]="existingApplicant" [alreadyBookmarked]="alreadyBookmarked" [initScheduledDates]="initScheduledDates" (notifiyScheduled)="navigateToItems()"></app-pick-item-appointments>
+    </ng-container>
 
     <div class="spinner-loading" padding text-center *ngIf="!loaded">
         <ion-spinner color="primary"></ion-spinner>
     </div>
 
 </ion-content>
+
