@@ -3,107 +3,101 @@
 @import "../../../../theme/mixins";
 
 div.date-picker-scroller {
-    div.date-picker {
-        div.appointment-empty {
-            opacity: 0.4;
-        }
-
-        div.disabled-date {
-            color: $fluster-medium-grey;
-        }
+  div.date-picker {
+    div.appointment-empty {
+      opacity: 0.4;
     }
+
+    div.disabled-date {
+      color: $fluster-medium-grey;
+    }
+  }
 }
 
 #datePickerScrollY {
-    height: 46%;
+  height: 46%;
 
-    @include ipad {
-        height: 40%;
-    }
+  @include ipad {
+    height: 40%;
+  }
 
-    ion-list {
-        margin-bottom: 0;
+  ion-list {
+    margin-bottom: 0;
 
-        ion-item {
-            p {
-                font-size: $fluster-text-big;
-                color: $fluster-midnight-blue;
+    ion-item {
 
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
-                width: 100%;
+      p {
+        font-size: $fluster-text-big;
+        color: $fluster-midnight-blue;
 
-                &.appointment-selected {
-                    color: $fluster-peach3;
-                    font-weight: $font-weight-bold;
-                }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
 
-                &.appointment-in-the-past {
-                    color: $fluster-medium-grey;
-                    opacity: 0.4;
-                }
-
-                &.appointment-already-taken, &.appointment-selected.appointment-already-taken, &.appointment-selected.appointment-in-the-past.appointment-already-taken {
-                    color: $fluster-medium-grey;
-                    opacity: 0.4;
-                }
-
-                ion-icon {
-                    vertical-align: middle;
-                    margin-right: 8px;
-                }
-            }
+        app-display-date {
+          width: 50%;
         }
+
+        .appointment-selected {
+          font-weight: $font-weight-normal;
+        }
+
+        .appointment-in-the-past, .appointment-already-taken, .appointment-selected.appointment-already-taken, .appointment-selected.appointment-in-the-past.appointment-already-taken {
+          color: $fluster-medium-grey;
+          opacity: 0.4;
+        }
+      }
     }
+  }
 }
 
 @include iphone4 {
-    #datePickerScrollY {
-        height: 32%;
-    }
+  #datePickerScrollY {
+    height: 32%;
+  }
 
-    #countSelectedAppointments {
-        display: none;
-    }
+  #countSelectedAppointments {
+    display: none;
+  }
 }
 
 @include iphone5 {
-    #datePickerScrollY {
-        height: 40%;
-    }
+  #datePickerScrollY {
+    height: 40%;
+  }
 
-    #countSelectedAppointments {
-        display: none;
-    }
+  #countSelectedAppointments {
+    display: none;
+  }
 }
 
 @include nexus5 {
-    div#datePickerScrollY {
-        height: 40%;
-    }
+  div#datePickerScrollY {
+    height: 40%;
+  }
 }
 
 #helpText {
-    div {
-        height: 34px;
-        min-height: 34px;
-        padding-top: 4px;
+  div {
+    height: 34px;
+    min-height: 34px;
+    padding-top: 4px;
 
-        span {
-            font-weight: $font-weight-light;
-        }
-
-        strong {
-            color: $fluster-peach3;
-        }
-
-        span, strong {
-            font-size: $fluster-text-normal;
-        }
+    span {
+      font-weight: $font-weight-light;
     }
+
+    strong {
+      color: $fluster-peach3;
+    }
+
+    span, strong {
+      font-size: $fluster-text-normal;
+    }
+  }
 }
 
 div.date-picker-actions {
-    z-index: 1;
+  z-index: 1;
 }

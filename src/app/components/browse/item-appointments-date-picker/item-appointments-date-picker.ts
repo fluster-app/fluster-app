@@ -148,7 +148,17 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
         } else if (this.isAppointmentRejected(currentAppointment)) {
             return 'close';
         } else {
-            return currentAppointment.selected ? 'checkmark-circle' : 'radio-button-off';
+            return 'basket';
+        }
+    }
+
+    actionToDisplay(currentAppointment: PickAppointmentTime): string {
+        if (this.isAppointmentAlreadyTaken(currentAppointment)) {
+            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.LOCK');
+        } else if (this.isAppointmentRejected(currentAppointment)) {
+            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.REJECTED');
+        } else {
+            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.ADD');
         }
     }
 

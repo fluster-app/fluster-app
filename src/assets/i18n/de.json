@@ -680,6 +680,11 @@
                 "HIGHLIGHT": "ein Zeitfenster,",
                 "END": "um einen Termin zu bekommen"
             }
+        },
+        "BUTTONS": {
+            "ADD": "Hinzufügen",
+            "LOCK": "Beschäftigt",
+            "REJECTED": "Abgelehnt"
         }
     },
     "MY_APPOINTMENTS": {

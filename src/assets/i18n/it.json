@@ -680,6 +680,11 @@
                 "HIGHLIGHT": "una",
                 "END": "finestra temporale per ottenere un appuntamento"
             }
+        },
+        "BUTTONS": {
+            "ADD": "Aggiunger",
+            "LOCK": "Occupato/a",
+            "REJECTED": "Rifiutato"
         }
     },
     "MY_APPOINTMENTS": {

@@ -680,6 +680,11 @@
                 "HIGHLIGHT": "a time slot",
                 "END": "to get a viewing"
             }
+        },
+        "BUTTONS": {
+            "ADD": "Add",
+            "LOCK": "Busy",
+            "REJECTED": "Rejected"
         }
     },
     "MY_APPOINTMENTS": {
