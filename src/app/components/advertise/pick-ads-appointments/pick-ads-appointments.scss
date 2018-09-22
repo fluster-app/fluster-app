@@ -35,13 +35,11 @@ div.date-picker-scroller {
                 }
 
                 ion-button[fill="solid"] {
+                    --border-width: 1px;
+
                     ion-icon, ion-label {
                         color: white;
                     }
-                }
-
-                .appointment-selected, &.appointment-selected.appointment-in-the-past {
-                    font-weight: $font-weight-normal;
                 }
 
                 .appointment-in-the-past {
