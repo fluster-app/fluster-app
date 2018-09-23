@@ -239,7 +239,7 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
 
     private hasManyTimeSlotsSelected() {
         this.manyTimeSlotsSelected = Comparator.hasElements(this.selectedAppointmentsStartTime) &&
-            this.selectedAppointmentsStartTime.length > (this.manyPossibleTimeSlots ? 1 : 0);
+            this.selectedAppointmentsStartTime.length > 0;
     }
 
     private hasManyAppointmentDaysSelected(): Promise<{}> {

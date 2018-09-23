@@ -14,26 +14,35 @@
 
 <div text-center id="helpText" padding-bottom>
     <div *ngIf="manyPossibleTimeSlots">
-        <div *ngIf="!manyTimeSlotsSelected && !manyDaysSelected">
+        <ng-container *ngIf="!manyTimeSlotsSelected && !manyDaysSelected">
             <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_TIMESLOTS.BEGIN' | translate}}</span> <strong> {{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_TIMESLOTS.HIGHLIGHT' | translate}} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_TIMESLOTS.END' | translate}}</span>
-        </div>
-        <div *ngIf="manyTimeSlotsSelected && !manyDaysSelected && manyPossibleDays">
+        </ng-container>
+        <ng-container *ngIf="manyTimeSlotsSelected && !manyDaysSelected && manyPossibleDays">
+            <ng-container *ngIf="selectedAppointmentsStartTime.length == 1">
+                <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.BEGIN' | translate}}</span> <span> {{ 'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.HIGHLIGHT' | translate:{count: selectedAppointmentsStartTime.length} }} </span> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.END' | translate}}</span>
+            </ng-container>
+
+            <ng-container *ngIf="selectedAppointmentsStartTime.length > 1">
+                <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.BEGIN' | translate}}</span> <span> {{ 'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.HIGHLIGHTS' | translate:{count: selectedAppointmentsStartTime.length} }} </span> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.END' | translate}}</span>
+            </ng-container>
+
+            <br/>
             <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_DAYS.BEGIN' | translate}}</span> <strong> {{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_DAYS.HIGHLIGHT' | translate}} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_MANY_DAYS.END' | translate}}</span>
-        </div>
-        <div *ngIf="manyTimeSlotsSelected && (manyDaysSelected || !manyPossibleDays)">
+        </ng-container>
+        <ng-container *ngIf="manyTimeSlotsSelected && (manyDaysSelected || !manyPossibleDays)">
             <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.BEGIN' | translate}}</span> <strong> {{ 'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.HIGHLIGHTS' | translate:{count: selectedAppointmentsStartTime.length} }} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.END' | translate}}</span>
-        </div>
+        </ng-container>
     </div>
     <div *ngIf="!manyPossibleTimeSlots">
-        <div *ngIf="selectedAppointmentsStartTime == null || selectedAppointmentsStartTime.length <= 0">
+        <ng-container *ngIf="selectedAppointmentsStartTime == null || selectedAppointmentsStartTime.length <= 0">
             <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_ZERO_COUNT.BEGIN' | translate}}</span> <strong> {{'ITEM_APPOINTMENTS.TIPS.SELECT_ZERO_COUNT.HIGHLIGHT' | translate}} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_ZERO_COUNT.END' | translate}}</span>
-        </div>
-        <div *ngIf="selectedAppointmentsStartTime != null && selectedAppointmentsStartTime.length == 1">
+        </ng-container>
+        <ng-container *ngIf="selectedAppointmentsStartTime != null && selectedAppointmentsStartTime.length == 1">
             <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.BEGIN' | translate}}</span> <strong> {{ 'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.HIGHLIGHT' | translate:{count: selectedAppointmentsStartTime.length} }} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.END' | translate}}</span>
-        </div>
-        <div *ngIf="selectedAppointmentsStartTime != null && selectedAppointmentsStartTime.length > 1">
+        </ng-container>
+        <ng-container *ngIf="selectedAppointmentsStartTime != null && selectedAppointmentsStartTime.length > 1">
             <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.BEGIN' | translate}}</span> <strong> {{ 'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.HIGHLIGHTS' | translate:{count: selectedAppointmentsStartTime.length} }} </strong> <span>{{'ITEM_APPOINTMENTS.TIPS.SELECT_COUNT.END' | translate}}</span>
-        </div>
+        </ng-container>
     </div>
 </div>
 
