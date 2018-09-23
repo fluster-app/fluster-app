@@ -30,6 +30,10 @@ div.date-picker-scroller {
         align-items: center;
         width: 100%;
 
+        app-display-date {
+          width: 50%;
+        }
+
         ion-button {
           --width: 18rem;
           --height: initial;
