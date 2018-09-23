@@ -5,8 +5,8 @@ import {IonicModule} from '@ionic/angular';
 import {TranslateModule} from '@ngx-translate/core';
 
 import {PickApplicantAppointmentsComponent} from './pick-applicant-appointments';
-import {DayAbbreviationModule} from '../../../core/day-abbreviation/day-abbreviation.module';
-import {DisplayDateModule} from '../../../core/display-date/display-date.module';
+import {DayAbbreviationModule} from '../../core/day-abbreviation/day-abbreviation.module';
+import {DisplayDateModule} from '../../core/display-date/display-date.module';
 
 @NgModule({
     declarations: [

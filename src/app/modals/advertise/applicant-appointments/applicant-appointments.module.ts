@@ -7,7 +7,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {ApplicantAppointmentsModal} from './applicant-appointments';
 
 import {ToolbarUserTitleModule} from '../../../components/core/toolbar-user-title/toolbar-user-title.module';
-import {PickApplicantAppointmentsModule} from '../../../components/advertise/applicant/pick-applicant-appointments/pick-applicant-appointments.module';
+import {PickApplicantAppointmentsModule} from '../../../components/advertise/pick-applicant-appointments/pick-applicant-appointments.module';
 
 @NgModule({
     declarations: [
