@@ -25,7 +25,7 @@
         <ion-item *ngFor="let currentAppointment of currentAppointments;" tappable (click)="selectUnselectAppointment(currentAppointment)" text-center>
             <p [class.appointment-already-taken]="isAppointmentAlreadyTaken(currentAppointment) || currentAppointment.highlighted" [class.appointment-in-the-past]="!isInTheFuture(currentAppointment)" [class.appointment-selected]="currentAppointment.selected">
                 <ion-icon slot="start" name="{{iconToDisplay(currentAppointment)}}"></ion-icon>
-                <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.startTime"></app-display-date> - <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.endTime"></app-display-date>
+                <app-display-date [calendarDisplay]="true" [displayDate]="currentAppointment.startTime"></app-display-date>
             </p>
         </ion-item>
     </ion-list>
