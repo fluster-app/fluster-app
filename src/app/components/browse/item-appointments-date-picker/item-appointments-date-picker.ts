@@ -30,6 +30,7 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
     @Input() advertiserDates: number[];
     @Input() unavailableAppointmentDates: number[];
     @Input() rejectedAppointmentDates: number[]; // In case of to_reschedule appointments
+    @Input() prefillAppointmentsStartTimes: number[];
 
     selectedAppointmentsStartTime: number[] = new Array();
 
@@ -69,13 +70,32 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
         const promises = new Array();
         promises.push(this.hasManyPossibleTimeSlots());
         promises.push(this.hasManyPossibleDays());
+        promises.push(this.prefillSelectedAppointments());
 
         forkJoin(promises).subscribe(
-            (data: boolean[]) => {
-                this.manyPossibleTimeSlots = data[0];
-                this.manyPossibleDays = data[1];
+            ([possibleTimeSlots, possibleDays, nothing]: [boolean, boolean, void]) => {
+                this.manyPossibleTimeSlots = possibleTimeSlots;
+                this.manyPossibleDays = possibleDays;
             }
         );
+    }
+
+    private prefillSelectedAppointments(): Promise<void> {
+        return new Promise<void>((resolve) => {
+            if (Comparator.hasElements(this.prefillAppointmentsStartTimes)) {
+                const prefillPickAppointmentTime: PickAppointmentTime[] = this.pickAppointmentTime.filter((appointmentTime: PickAppointmentTime) => {
+                    return this.prefillAppointmentsStartTimes.indexOf(appointmentTime.startTime.getTime()) > -1;
+                });
+
+                if (Comparator.hasElements(prefillPickAppointmentTime)) {
+                    prefillPickAppointmentTime.forEach((appointmentTime: PickAppointmentTime) => {
+                        this.selectUnselectAppointment(appointmentTime);
+                    });
+                }
+            }
+
+            resolve();
+        });
     }
 
     private hasManyPossibleTimeSlots(): Promise<{}> {

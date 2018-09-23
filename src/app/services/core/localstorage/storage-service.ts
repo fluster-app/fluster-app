@@ -110,4 +110,12 @@ export class StorageService {
         return this.storage.get('fluster_login_state');
     }
 
+    savePrefillItemAppointmentsStartTimes(selectedAppointmentsStartTimes: number[]): Promise<number[]> {
+        return this.storage.set('fluster_prefill_item_appointments', selectedAppointmentsStartTimes);
+    }
+
+    retrievePrefillItemAppointmentsStartTimes(): Promise<number[]> {
+        return this.storage.get('fluster_prefill_item_appointments');
+    }
+
 }

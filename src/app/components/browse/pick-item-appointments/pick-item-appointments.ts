@@ -27,6 +27,7 @@ import {NotificationService} from '../../../services/core/notification/notificat
 import {ItemUsersService} from '../../../services/browse/item-users-service';
 import {LikeService} from '../../../services/browse/like-service';
 import {SubscriptionService} from '../../../services/core/user/subscription-service';
+import {StorageService} from '../../../services/core/localstorage/storage-service';
 
 @Component({
     templateUrl: 'pick-item-appointments.html',
@@ -57,7 +58,8 @@ export class PickItemAppointmentsComponent extends AbstractItemsPage {
                 private likeService: LikeService,
                 private appointmentService: AppointmentService,
                 private userSessionService: UserSessionService,
-                private subscriptionService: SubscriptionService) {
+                private subscriptionService: SubscriptionService,
+                private storageService: StorageService) {
 
         super(popoverController, itemUsersService);
 
@@ -78,7 +80,7 @@ export class PickItemAppointmentsComponent extends AbstractItemsPage {
 
     private doProductCallback = () => {
         this.initAndDoSchedule();
-    };
+    }
 
     private async initAndDoSchedule() {
         const loading: HTMLIonLoadingElement = await this.loadingController.create({});
@@ -98,7 +100,13 @@ export class PickItemAppointmentsComponent extends AbstractItemsPage {
         return new Promise((resolve, reject) => {
             const promise = this.hasExistingApplicant() ? this.updateWithNewSchedule() : this.createNewSchedule();
 
-            promise.then(() => {
+            promise.then(async () => {
+                try {
+                    await this.storageService.savePrefillItemAppointmentsStartTimes(this.selectedAppointmentStartTimes);
+                } catch (err) {
+                    // We could ignore this error, better if it works but what really matters have been done
+                }
+
                 resolve();
             }, (errorResponse: HttpErrorResponse) => {
                 reject(errorResponse);
@@ -107,8 +115,8 @@ export class PickItemAppointmentsComponent extends AbstractItemsPage {
     }
 
     private updateWithNewSchedule(): Promise<{}> {
-        return new Promise((resolve, reject) => {
-            const applicant: Applicant = this.buildAppointmentApplicant();
+        return new Promise(async (resolve, reject) => {
+            const applicant: Applicant = await this.buildAppointmentApplicant();
 
             this.appointmentService.updateApplicant(applicant).then((data: Applicant) => {
                 this.notificationAndInterests(applicant, false).then(() => {
@@ -121,8 +129,8 @@ export class PickItemAppointmentsComponent extends AbstractItemsPage {
     }
 
     private createNewSchedule(): Promise<{}> {
-        return new Promise((resolve, reject) => {
-            const applicant: Applicant = this.buildAppointmentApplicant();
+        return new Promise(async (resolve, reject) => {
+            const applicant: Applicant = await this.buildAppointmentApplicant();
 
             this.appointmentService.createApplicant(applicant).then((data: Applicant) => {
                 // Appointment added, like item
@@ -185,21 +193,23 @@ export class PickItemAppointmentsComponent extends AbstractItemsPage {
         });
     }
 
-    private buildAppointmentApplicant(): Applicant {
-        const applicant: Applicant = this.hasExistingApplicant() ? this.existingApplicant :
-            new Applicant(this.item.appointment, this.user, this.item);
+    private buildAppointmentApplicant(): Promise<Applicant> {
+        return new Promise<Applicant>((resolve) => {
+            const applicant: Applicant = this.hasExistingApplicant() ? this.existingApplicant :
+                new Applicant(this.item.appointment, this.user, this.item);
 
-        applicant.status = this.RESOURCES.APPLICANT.STATUS.NEW;
+            applicant.status = this.RESOURCES.APPLICANT.STATUS.NEW;
 
-        for (let i: number = 0; i < this.selectedAppointmentStartTimes.length; i++) {
-            const agenda: ApplicantAgenda = new ApplicantAgenda();
-            agenda.when = new Date(this.selectedAppointmentStartTimes[i]);
-            agenda.status = this.RESOURCES.APPLICANT.AGENDA.STATUS.NEW;
+            for (let i: number = 0; i < this.selectedAppointmentStartTimes.length; i++) {
+                const agenda: ApplicantAgenda = new ApplicantAgenda();
+                agenda.when = new Date(this.selectedAppointmentStartTimes[i]);
+                agenda.status = this.RESOURCES.APPLICANT.AGENDA.STATUS.NEW;
 
-            applicant.agenda.push(agenda);
-        }
+                applicant.agenda.push(agenda);
+            }
 
-        return applicant;
+            resolve(applicant);
+        });
     }
 
     private hasExistingApplicant(): boolean {

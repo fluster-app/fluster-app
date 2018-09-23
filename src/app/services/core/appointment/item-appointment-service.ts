@@ -11,11 +11,13 @@ import {Comparator, Converter} from '../utils/utils';
 
 // Services
 import {AppointmentService} from './appointment-service';
+import {StorageService} from '../localstorage/storage-service';
 
 export interface InitScheduledDates {
     advertiserDates: number[];
     unavailableAppointmentDates: number[];
     rejectedAppointmentDates: number[];
+    previousSelectedAppointmentsStartTimes: number[];
 }
 
 @Injectable({
@@ -23,7 +25,8 @@ export interface InitScheduledDates {
 })
 export class ItemAppointmentService {
 
-    constructor(private appointmentService: AppointmentService) {
+    constructor(private appointmentService: AppointmentService,
+                private storageService: StorageService) {
 
     }
 
@@ -35,6 +38,7 @@ export class ItemAppointmentService {
                 item.appointment._id, item.appointment.attendance));
             promises.push(this.buildUnavailableAppointments(existingApplicant));
             promises.push(this.appointmentService.getMyApplicants(null));
+            promises.push(this.storageService.retrievePrefillItemAppointmentsStartTimes());
 
             forkJoin(promises).subscribe(
                 (data: number[][]) => {
@@ -46,11 +50,14 @@ export class ItemAppointmentService {
                     let allUnavailableDates: number[] = allAlreadyScheduledDates;
                     allUnavailableDates = allUnavailableDates.concat(data[2]);
 
+                    const previousStartTimes: number[] = data[4];
+
                     this.hasStillAvailableDates(data[0], allUnavailableDates).then((hasStillAvailableDates: boolean) => {
                         resolve({
                             advertiserDates: hasStillAvailableDates ? data[0] : new Array(),
                             unavailableAppointmentDates: allAlreadyScheduledDates,
-                            rejectedAppointmentDates: data[2]
+                            rejectedAppointmentDates: data[2],
+                            previousSelectedAppointmentsStartTimes: previousStartTimes ? previousStartTimes : new Array()
                         });
                     });
                 }
