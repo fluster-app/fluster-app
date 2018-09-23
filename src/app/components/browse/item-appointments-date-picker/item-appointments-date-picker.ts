@@ -27,11 +27,11 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
 
     @Output() notifiySelected: EventEmitter<number[]> = new EventEmitter<number[]>();
 
-    @Input() favoriteDates: number[];
+    @Input() advertiserDates: number[];
     @Input() unavailableAppointmentDates: number[];
     @Input() rejectedAppointmentDates: number[]; // In case of to_reschedule appointments
+    @Input() prefillAppointmentsStartTimes: number[];
 
-    // Output
     selectedAppointmentsStartTime: number[] = new Array();
 
     manyPossibleTimeSlots: boolean = true;
@@ -46,12 +46,12 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
     }
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
-        if (this.favoriteDates != null && this.unavailableAppointmentDates != null && this.rejectedAppointmentDates != null) {
+        if (this.advertiserDates != null && this.unavailableAppointmentDates != null && this.rejectedAppointmentDates != null) {
 
             // If there is still favoriteDates in the future for the ad, display only these
-            if (!Comparator.isEmpty(this.favoriteDates)) {
+            if (!Comparator.isEmpty(this.advertiserDates)) {
                 this.onlySelectedDates = true;
-                this.selectedDates = this.favoriteDates;
+                this.selectedDates = this.advertiserDates;
             }
 
             this.init();
@@ -72,11 +72,31 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
         promises.push(this.hasManyPossibleDays());
 
         forkJoin(promises).subscribe(
-            (data: boolean[]) => {
+            async(data: boolean[]) => {
                 this.manyPossibleTimeSlots = data[0];
                 this.manyPossibleDays = data[1];
+
+                await this.prefillSelectedAppointments();
             }
         );
+    }
+
+    private prefillSelectedAppointments(): Promise<void> {
+        return new Promise<void>((resolve) => {
+            if (Comparator.hasElements(this.prefillAppointmentsStartTimes)) {
+                const prefillPickAppointmentTime: PickAppointmentTime[] = this.pickAppointmentTime.filter((appointmentTime: PickAppointmentTime) => {
+                    return this.prefillAppointmentsStartTimes.indexOf(appointmentTime.startTime.getTime()) > -1;
+                });
+
+                if (Comparator.hasElements(prefillPickAppointmentTime)) {
+                    prefillPickAppointmentTime.forEach((appointmentTime: PickAppointmentTime) => {
+                        this.selectUnselectAppointment(appointmentTime);
+                    });
+                }
+            }
+
+            resolve();
+        });
     }
 
     private hasManyPossibleTimeSlots(): Promise<{}> {
@@ -122,11 +142,13 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
         });
     }
 
-    selectAppointments() {
-        if (this.hasSelectedAppointments()) {
-            this.notifiySelected.emit(this.selectedAppointmentsStartTime);
+    async selectAppointments() {
+        // User could send viewings requests without any dates selected
+        // as long as advertiser did not specified particular dates
+        if (!this.hasSelectedAppointments() && this.hasFavoritesDates()) {
+            await this.displayAlertAtLeastOneAppointment();
         } else {
-            this.displayAlertAtLeastOneAppointment();
+            this.notifiySelected.emit(this.selectedAppointmentsStartTime);
         }
     }
 
@@ -148,7 +170,17 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
         } else if (this.isAppointmentRejected(currentAppointment)) {
             return 'close';
         } else {
-            return currentAppointment.selected ? 'checkmark-circle' : 'radio-button-off';
+            return 'basket';
+        }
+    }
+
+    actionToDisplay(currentAppointment: PickAppointmentTime): string {
+        if (this.isAppointmentAlreadyTaken(currentAppointment)) {
+            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.LOCK');
+        } else if (this.isAppointmentRejected(currentAppointment)) {
+            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.REJECTED');
+        } else {
+            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.ADD');
         }
     }
 
@@ -207,7 +239,7 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
 
     private hasManyTimeSlotsSelected() {
         this.manyTimeSlotsSelected = Comparator.hasElements(this.selectedAppointmentsStartTime) &&
-            this.selectedAppointmentsStartTime.length > (this.manyPossibleTimeSlots ? 1 : 0);
+            this.selectedAppointmentsStartTime.length > 0;
     }
 
     private hasManyAppointmentDaysSelected(): Promise<{}> {
@@ -234,6 +266,10 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
 
     private hasSelectedAppointments(): boolean {
         return Comparator.hasElements(this.selectedAppointmentsStartTime);
+    }
+
+    private hasFavoritesDates(): boolean {
+        return Comparator.hasElements(this.advertiserDates);
     }
 
     swipeDatePicker($event: any) {

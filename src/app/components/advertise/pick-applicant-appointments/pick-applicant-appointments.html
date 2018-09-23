@@ -25,7 +25,7 @@
         <ion-item *ngFor="let currentAppointment of currentAppointments;" tappable (click)="selectUnselectAppointment(currentAppointment)" text-center>
             <p [class.appointment-selected]="currentAppointment.selected">
                 <ion-icon slot="start" name="{{currentAppointment.selected ? 'checkmark-circle' : 'radio-button-off'}}"></ion-icon>
-                <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.startTime"></app-display-date> - <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.endTime"></app-display-date>
+                <app-display-date [calendarDisplay]="true" [displayDate]="currentAppointment.startTime"></app-display-date>
             </p>
         </ion-item>
     </ion-list>

@@ -10,7 +10,6 @@ export interface PickAppointmentTime {
     filterIndex: number;
 
     startTime: Date;
-    endTime: Date;
 
     selected: boolean;
 

@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {LoadingController, NavController, Platform, Slides, ToastController} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -23,13 +23,15 @@ import {ItemsComparator} from '../../../services/core/utils/items-utils';
 import {AppointmentService} from '../../../services/core/appointment/appointment-service';
 import {AdsService} from '../../../services/advertise/ads-service';
 import {GoogleAnalyticsNativeService} from '../../../services/native/analytics/google-analytics-native-service';
+import {AdminAppointmentsNavParams, NavParamsService} from '../../../services/core/navigation/nav-params-service';
+import {AdminAppointmentsService, AdminScheduledDates} from '../../../services/core/appointment/admin-appoinments-service';
 
 @Component({
     selector: 'app-admin-appointments',
     templateUrl: './admin-appointments.page.html',
     styleUrls: ['./admin-appointments.page.scss'],
 })
-export class AdminAppointmentsPage extends AbstractPage {
+export class AdminAppointmentsPage extends AbstractPage implements OnInit {
 
     @ViewChild('adsAdminAppointmentsSlider') slider: Slides;
 
@@ -43,6 +45,7 @@ export class AdminAppointmentsPage extends AbstractPage {
     // First slide
 
     updatedSchedule: number[];
+    menuToggle: boolean = false;
 
     // Second slide
 
@@ -51,6 +54,10 @@ export class AdminAppointmentsPage extends AbstractPage {
     extendDateDisplay: string;
     itemEndThePast: boolean = false;
 
+    adminScheduledDates: AdminScheduledDates;
+
+    loaded: boolean = false;
+
     constructor(private platform: Platform,
                 private navController: NavController,
                 private loadingController: LoadingController,
@@ -58,32 +65,46 @@ export class AdminAppointmentsPage extends AbstractPage {
                 private translateService: TranslateService,
                 private appointmentService: AppointmentService,
                 private adsService: AdsService,
-                private googleAnalyticsNativeService: GoogleAnalyticsNativeService) {
+                private googleAnalyticsNativeService: GoogleAnalyticsNativeService,
+                private navParamsService: NavParamsService,
+                private adminAppointmentsService: AdminAppointmentsService) {
         super();
 
         this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.ADS_CLOSE);
     }
 
-    ionViewWillEnter() {
-        this.initItem().then((item: Item) => {
-            this.item = item;
+    async ngOnInit() {
+        this.item = await this.initItem();
 
-            if (this.item != null) {
-                this.appointment = this.item.appointment;
+        if (this.item != null) {
+            this.appointment = this.item.appointment;
 
-                this.computeExtendDates().then(() => {
-                    // Do nothing
-                });
-            }
-        });
+            const promises = new Array();
+            promises.push(this.computeExtendDates());
+            promises.push(this.adminAppointmentsService.init(this.item, this.appointment));
 
+            forkJoin(promises).subscribe(([empty, adminScheduledDates]: [void, AdminScheduledDates]) => {
+                this.adminScheduledDates = adminScheduledDates;
+
+                this.loaded = true;
+            });
+        } else {
+            this.loaded = true;
+        }
+    }
+
+    async ionViewWillEnter() {
         this.overrideHardwareBackAction();
+
+        await this.displayMenuToggle();
     }
 
     ionViewDidLeave() {
         if (this.customBackActionSubscription) {
             this.customBackActionSubscription.unsubscribe();
         }
+
+        this.navParamsService.setAdminAppointmentsNavParams(null);
     }
 
     private overrideHardwareBackAction() {
@@ -100,20 +121,46 @@ export class AdminAppointmentsPage extends AbstractPage {
 
             if (activeIndex > 0) {
                 this.slider.slidePrev();
+                this.displayMenuToggle();
             } else {
-                await this.navigateBackToDetails();
+                await this.navigateToDetails();
             }
         } else {
-            await this.navigateBackToDetails();
+            await this.navigateToDetails();
         }
     }
 
-    private async navigateBackToDetails() {
-        await this.navController.navigateBack('/ads-details');
+    private async displayMenuToggle() {
+        let activeIndex: number = 0;
+
+        try {
+            if (this.slider) {
+                activeIndex = await this.slider.getActiveIndex();
+            }
+        } catch (err) {
+            // On init the slider may not exist yet
+        }
+
+        const navParams: AdminAppointmentsNavParams = await this.navParamsService.getAdminAppointmentsNavParams();
+
+        this.menuToggle = activeIndex === 0 && navParams && navParams.menuToggle;
     }
 
-    private initItem(): Promise<{}> {
-        return new Promise((resolve) => {
+    private async navigateToDetails() {
+        await this.getNavigationToDetails();
+    }
+
+    private async getNavigationToDetails(): Promise<boolean> {
+        const navParams: AdminAppointmentsNavParams = await this.navParamsService.getAdminAppointmentsNavParams();
+        if (navParams && navParams.menuToggle) {
+            return this.navController.navigateRoot('/ads-details');
+        } else {
+            return this.navController.navigateBack('/ads-details');
+        }
+    }
+
+    private initItem(): Promise<Item> {
+        return new Promise<Item>((resolve) => {
             // Always refresh the item to be sure to have the last one
             this.adsService.findAdsItems().then((items: Item[]) => {
                 resolve(Comparator.isEmpty(items) ? null : items[0]);
@@ -123,8 +170,8 @@ export class AdminAppointmentsPage extends AbstractPage {
         });
     }
 
-    private computeExtendDates(): Promise<{}> {
-        return new Promise((resolve) => {
+    private computeExtendDates(): Promise<void> {
+        return new Promise<void>((resolve) => {
             this.itemEndCouldBeExtended = ItemsComparator.isItemExpiringSoon(this.item);
 
             let today: Date = new Date();
@@ -141,8 +188,7 @@ export class AdminAppointmentsPage extends AbstractPage {
 
     async next() {
         await this.slider.update();
-        // TODO: Remove params, Ionic bug https://github.com/ionic-team/ionic/issues/15604
-        this.slider.slideNext(500, true);
+        this.slider.slideNext();
     }
 
     private async updateAppointment() {
@@ -216,7 +262,7 @@ export class AdminAppointmentsPage extends AbstractPage {
                 this.adsService.setSelectedItem(item);
             }
 
-            this.navController.navigateBack('/ads-details').then(() => {
+            this.getNavigationToDetails().then(() => {
                 loading.dismiss();
             }, (err: any) => {
                 loading.dismiss();

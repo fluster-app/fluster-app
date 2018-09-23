@@ -24,7 +24,7 @@ div#datePickerScrollX {
 
             p {
                 font-size: $fluster-text-big;
-                color: $fluster-grey-blue;
+                color: white;
 
                 display: flex;
                 justify-content: center;
@@ -33,7 +33,7 @@ div#datePickerScrollX {
 
                 &.appointment-selected, &.appointment-selected.appointment-in-the-past {
                     color: $fluster-peach3;
-                    font-weight: 900;
+                    font-weight: $font-weight-normal;
                 }
 
                 &.appointment-in-the-past {

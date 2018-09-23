@@ -51,8 +51,8 @@
     </ion-infinite-scroll>
   </div>
 
-  <div class="loading" padding text-center *ngIf="!loaded">
-    <ion-spinner ion-text color="primary"></ion-spinner>
+  <div class="spinner-loading" padding text-center *ngIf="!loaded">
+    <ion-spinner color="primary"></ion-spinner>
   </div>
 
   <app-no-ads *ngIf="!hasItem() && loaded" (notifyNavigateNewItem)="navigateNewItem()"></app-no-ads>

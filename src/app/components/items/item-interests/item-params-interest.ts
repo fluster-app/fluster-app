@@ -33,11 +33,11 @@ export class ItemParamsInterestComponent extends AbstractItemInterestComponent {
         return !Comparator.isEmpty(this.interest);
     }
 
-    protected doEditInterestAndOpenModal() {
+    protected async doEditInterestAndOpenModal() {
         if (this.hasInterest()) {
-            this.openInterestModal(this.interest, this.user, false);
+            await this.openInterestModal(this.interest, this.user, false);
         } else {
-            this.openInterestModal(null, this.user, false);
+            await this.openInterestModal(null, this.user, false);
         }
     }
 

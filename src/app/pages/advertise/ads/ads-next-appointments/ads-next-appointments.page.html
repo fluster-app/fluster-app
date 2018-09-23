@@ -38,8 +38,8 @@
   <app-no-ads-users [label]="'ADS.APPOINTMENTS.NO_UPCOMING_APPOINTMENTS'" [totalAdvertiseNotifications]="totalNewAdvertiseNotifications" (notifyNavigateApplicants)="goToApplicants()" (notifyNavigateCandidates)="goToCandidates()" *ngIf="hasItem() && isApplicantsLoaded() && !hasApplicants()"></app-no-ads-users>
 
   <div *ngIf="hasItem()" class="big-screen-content">
-    <div class="loading" padding text-center *ngIf="!isApplicantsLoaded()">
-      <ion-spinner ion-text color="primary"></ion-spinner>
+    <div class="spinner-loading" padding text-center *ngIf="!isApplicantsLoaded()">
+      <ion-spinner color="primary"></ion-spinner>
     </div>
 
     <div *ngIf="isApplicantsLoaded()">

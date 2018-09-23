@@ -44,7 +44,6 @@ export class NewAdPage extends AbstractPage implements OnInit {
     loadSlidePrice: boolean = false;
     loadSlideAttributes: boolean = false;
     loadSlideLifestyle: boolean = false;
-    loadSlideAppointment: boolean = false;
     loadSlideAttendance: boolean = false;
     loadSlideLimitation: boolean = false;
     loadSlideDone: boolean = false;
@@ -223,8 +222,7 @@ export class NewAdPage extends AbstractPage implements OnInit {
         this.updateSlider();
 
         this.loading.dismiss().then(() => {
-            // TODO: Remove params, Ionic bug https://github.com/ionic-team/ionic/issues/15604
-            this.slider.slideNext(500, true);
+            this.slider.slideNext();
 
             if (this.newItemService.isEdit()) {
                 this.gaTrackEvent(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.ADS.WIZARD, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.ADS.WIZARD.PUBLISH.UPDATE_DONE);
@@ -236,6 +234,12 @@ export class NewAdPage extends AbstractPage implements OnInit {
 
     navigateToAdDetail() {
         this.navController.navigateRoot('/ads-details', true);
+    }
+
+    async navigateToAdminAppointments() {
+        this.navParamsService.setAdminAppointmentsNavParams({menuToggle: true});
+        await this.navController.navigateRoot('/admin-appointments', true);
+        this.enableMenu(this.menuController, false, true);
     }
 
     // HACK: Fck it, Load incrementaly these steps for devices with small memory which could not handle a important load on load of the slides
@@ -250,14 +254,9 @@ export class NewAdPage extends AbstractPage implements OnInit {
         this.updateSlider();
     }
 
-    loadNextSlideLifestyle() {
-        this.loadSlideLifestyle = true;
-        this.updateSlider();
-    }
-
     loadNextSlidesFromPrice() {
         if (this.isItemFlat()) {
-            this.loadSlideAppointment = true;
+            this.loadSlideAttendance = true;
         } else {
             this.loadSlideLifestyle = true;
         }
@@ -265,28 +264,8 @@ export class NewAdPage extends AbstractPage implements OnInit {
         this.updateSlider();
     }
 
-    loadNextSlidesFromAttributes() {
-        if (this.isItemFlat()) {
-            this.loadSlideAttendance = true;
-        } else {
-            this.loadSlideAppointment = true;
-        }
-
-        this.updateSlider();
-    }
-
     loadNextSlideLimitation() {
         this.loadSlideLimitation = true;
-        this.updateSlider();
-    }
-
-    loadNextSlideFromAppointments() {
-        if (this.isItemFlat()) {
-            this.loadSlideLimitation = true;
-        } else {
-            this.loadSlideDone = true;
-        }
-
         this.updateSlider();
     }
 

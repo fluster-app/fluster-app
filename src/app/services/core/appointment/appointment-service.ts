@@ -25,14 +25,6 @@ export class AppointmentService {
                 private accessTokenService: AccessTokenService) {
     }
 
-    // Appointment
-
-    hasItemAppointment(item: Item): boolean {
-        return !Comparator.isEmpty(item) && !Comparator.isEmpty(item.appointment);
-    }
-
-    // Applicant
-
     findApplicants(itemId: string, appointmentId: string, status: string, populateUser: boolean,
                    pageIndex: number, upcoming: boolean, sort: string, candidateId: string): Promise<{}> {
         return new Promise(async (resolve, reject) => {

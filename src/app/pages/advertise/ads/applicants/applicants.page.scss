@@ -1,11 +1,5 @@
 @import "../../../../../theme/fluster-variables";
-
-div.loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+@import "../../../../../theme/spinner";
 
 ion-item {
 

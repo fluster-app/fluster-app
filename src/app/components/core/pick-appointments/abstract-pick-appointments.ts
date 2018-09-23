@@ -157,10 +157,6 @@ export abstract class AbstractPickAppointments {
                 const startTimeElement: Date = new Date(selectedDate.toISOString());
                 startTimeElement.setHours(i, 0, 0, 0);
 
-                const endTimeElement: Date = new Date(startTimeElement.toISOString());
-                endTimeElement.setHours(startTimeElement.getHours() +
-                    this.RESOURCES.APPOINTMENT.AGENDA.SCHEDULE.TIME_FRAME.APPOINTMENT_LENGTH, 0, 0, 0);
-
                 if ((this.onlySelectedDates && this.selectedDates != null &&
                     this.selectedDates.indexOf(startTimeElement.getTime()) > -1) || !this.onlySelectedDates) {
 
@@ -170,9 +166,7 @@ export abstract class AbstractPickAppointments {
                             Math.floor(this.pickAppointmentDate.length / this.RESOURCES.APPOINTMENT.DISPLAY.ALL_WEEK) *
                             this.RESOURCES.APPOINTMENT.DISPLAY.ALL_WEEK,
                         startTime: startTimeElement,
-                        endTime: endTimeElement,
-                        selected: (!this.onlySelectedDates && this.selectedDates != null &&
-                            this.selectedDates.indexOf(startTimeElement.getTime()) > -1),
+                        selected: this.isAppointmentTimeSelected(startTimeElement),
                         highlighted: this.highlightSpecialTime != null && startTimeElement.getTime() === this.highlightSpecialTime
                     };
 
@@ -195,6 +189,11 @@ export abstract class AbstractPickAppointments {
                 hasTimeSlot: hasTimeSlot
             });
         });
+    }
+
+    private isAppointmentTimeSelected(startTimeElement: Date): boolean {
+        return (!this.onlySelectedDates && this.selectedDates != null &&
+            this.selectedDates.indexOf(startTimeElement.getTime()) > -1);
     }
 
     private formateDisplayDate(toFormat: Date): string {
@@ -329,8 +328,8 @@ export abstract class AbstractPickAppointments {
         const scrollRatio: number = (this.RESOURCES.APPOINTMENT.AGENDA.SCHEDULE.TIME_FRAME.MORNING.COUNT +
             this.RESOURCES.APPOINTMENT.AGENDA.SCHEDULE.TIME_FRAME.AFTERNOON.COUNT) /
             (this.RESOURCES.APPOINTMENT.AGENDA.SCHEDULE.TIME_FRAME.MORNING.COUNT +
-            this.RESOURCES.APPOINTMENT.AGENDA.SCHEDULE.TIME_FRAME.AFTERNOON.COUNT +
-            this.RESOURCES.APPOINTMENT.AGENDA.SCHEDULE.TIME_FRAME.EVENING.COUNT);
+                this.RESOURCES.APPOINTMENT.AGENDA.SCHEDULE.TIME_FRAME.AFTERNOON.COUNT +
+                this.RESOURCES.APPOINTMENT.AGENDA.SCHEDULE.TIME_FRAME.EVENING.COUNT);
 
         scrollElement.scrollTop = scrollElement.scrollHeight * scrollRatio;
     }

@@ -6,6 +6,7 @@ import {TranslateModule} from '@ngx-translate/core';
 
 import {NewAdStepDoneComponent} from './new-ad-step-done';
 import {WebSocialShareModule} from '../../../core/web-social-share/web-social-share.module';
+import {BigButtonModule} from '../../../core/big-button/big-button.module';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import {WebSocialShareModule} from '../../../core/web-social-share/web-social-sh
         IonicModule,
         CommonModule,
         TranslateModule.forChild(),
-        WebSocialShareModule
+        WebSocialShareModule,
+        BigButtonModule
     ],
     exports: [
         NewAdStepDoneComponent

@@ -32,7 +32,9 @@ import {GoogleAnalyticsNativeService} from '../../../../services/native/analytic
 })
 export class NewAdStepDoneComponent extends AbstractNewAdComponent implements AfterViewInit, OnDestroy {
 
-    @Output() notifiyGoToAdDetailCall: EventEmitter<{}> = new EventEmitter<{}>();
+    @Output() notifiyGoToAdDetailCall: EventEmitter<void> = new EventEmitter<void>();
+
+    @Output() notifiyGoToAdminAppointments: EventEmitter<void> = new EventEmitter<void>();
 
     @Input() slider: Slides;
 
@@ -71,7 +73,11 @@ export class NewAdStepDoneComponent extends AbstractNewAdComponent implements Af
     }
 
     navigateToAdDetail() {
-        this.notifiyGoToAdDetailCall.emit({});
+        this.notifiyGoToAdDetailCall.emit();
+    }
+
+    navigateToAdminAppointments() {
+        this.notifiyGoToAdminAppointments.emit();
     }
 
     shareAd() {

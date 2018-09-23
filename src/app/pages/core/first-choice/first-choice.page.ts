@@ -109,8 +109,7 @@ export class FirstChoicePage extends AbstractPage {
 
             this.setBrowseAndNavigate();
         } else {
-            // TODO: Remove params, Ionic bug https://github.com/ionic-team/ionic/issues/15604
-            this.slider.slideNext(500, true);
+            this.slider.slideNext();
             this.firstSlide = false;
         }
     }

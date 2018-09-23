@@ -7,11 +7,11 @@ import {AlertController} from '@ionic/angular';
 import {TranslateService} from '@ngx-translate/core';
 
 // Abstract
-import {AbstractPickAppointments} from '../../../core/pick-appointments/abstract-pick-appointments';
+import {AbstractPickAppointments} from '../../core/pick-appointments/abstract-pick-appointments';
 
 // Resources and utils
-import {Comparator} from '../../../../services/core/utils/utils';
-import {PickAppointmentTime, PickAppointmentDate} from '../../../../services/model/utils/pickAppointments';
+import {Comparator} from '../../../services/core/utils/utils';
+import {PickAppointmentTime, PickAppointmentDate} from '../../../services/model/utils/pickAppointments';
 
 @Component({
     templateUrl: 'pick-applicant-appointments.html',
@@ -25,13 +25,11 @@ export class PickApplicantAppointmentsComponent extends AbstractPickAppointments
 
     @Output() notifiySelected: EventEmitter<Date> = new EventEmitter<Date>();
 
-    // Array of dates.getTime()
     @Input() selectedApplicantDates: number[];
 
     private previousSelectedPickAppointmentDate: PickAppointmentDate;
     private previousSelectedAppointment: PickAppointmentTime;
 
-    // Output
     selectedAppointmentsStartTime: Date;
 
     constructor(private alertController: AlertController,

@@ -1,1 +1,5 @@
-<app-item-appointments-date-picker *ngIf="hasItemAppointment()" [favoriteDates]="favoritesDates" [unavailableAppointmentDates]="unavailableAppointmentDates" [rejectedAppointmentDates]="rejectedAppointmentDates" (notifiySelected)="schedule($event)"></app-item-appointments-date-picker>
+<app-item-appointments-date-picker *ngIf="hasItemAppointment()" [advertiserDates]="initScheduledDates?.advertiserDates"
+                                   [unavailableAppointmentDates]="initScheduledDates?.unavailableAppointmentDates"
+                                   [rejectedAppointmentDates]="initScheduledDates?.rejectedAppointmentDates"
+                                   [prefillAppointmentsStartTimes]="initScheduledDates?.previousSelectedAppointmentsStartTimes"
+                                   (notifiySelected)="schedule($event)"></app-item-appointments-date-picker>
