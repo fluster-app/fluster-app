@@ -3,9 +3,9 @@
         <app-user-profile-img [facebook]="user.facebook" [google]="user.google"></app-user-profile-img>
     </ion-avatar>
 
-    <h2 *ngIf="totalAdvertiseNotifications <= 0" [innerHTML]="label | translate" padding-top></h2>
+    <h2 *ngIf="totalAdvertiseNotifications <= 0" [innerHTML]="label | translate"></h2>
 
-    <h2 *ngIf="totalAdvertiseNotifications > 0" padding-top>
+    <h2 *ngIf="totalAdvertiseNotifications > 0">
         <ion-icon slot="start" name="person-add" class="totalNewAdvertiseNotificationsBadge"></ion-icon>
         <span>{{'ADS.APPOINTMENTS.YOU_HAVE' | translate}}</span>
         <span *ngIf="totalAdvertiseNotifications <= 10" class="spaceAfter">{{totalAdvertiseNotifications}}</span>
