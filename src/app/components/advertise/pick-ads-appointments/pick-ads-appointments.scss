@@ -30,15 +30,15 @@ div.date-picker-scroller {
         align-items: center;
         width: 100%;
 
-        app-display-date {
-          width: 50%;
-        }
+        ion-button {
+          --width: 18rem;
 
-        ion-button[fill="solid"] {
-          --border-width: 1px;
+          &[fill="solid"] {
+            --border-width: 1px;
 
-          ion-icon, ion-label {
-            color: white;
+            ion-icon, ion-label {
+              color: white;
+            }
           }
         }
 
