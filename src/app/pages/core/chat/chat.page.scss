@@ -183,8 +183,8 @@ ion-footer[role="ad"] {
 }
 
 #chatToReschedule {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: -4rem;
   left: 0;
   width: 100%;
   z-index: 1;
