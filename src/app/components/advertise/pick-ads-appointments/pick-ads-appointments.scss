@@ -22,7 +22,6 @@ div.date-picker-scroller {
 
     ion-item {
       p {
-        font-size: $fluster-text-special;
         color: white;
 
         display: flex;
@@ -37,11 +36,6 @@ div.date-picker-scroller {
         ion-button {
           --width: 18rem;
           --height: initial;
-          font-size: $fluster-text-normal;
-
-          ion-label {
-            font-size: $fluster-text-normal;
-          }
 
           &[fill="solid"] {
             --border-width: 1px;
