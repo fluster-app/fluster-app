@@ -101,16 +101,28 @@ export class PickItemAppointmentsComponent extends AbstractItemsPage {
             const promise = this.hasExistingApplicant() ? this.updateWithNewSchedule() : this.createNewSchedule();
 
             promise.then(async () => {
-                try {
-                    await this.storageService.savePrefillItemAppointmentsStartTimes(this.selectedAppointmentStartTimes);
-                } catch (err) {
-                    // We could ignore this error, better if it works but what really matters have been done
-                }
+                await this.savePrefillItemAppointmentsStartTimes();
 
                 resolve();
             }, (errorResponse: HttpErrorResponse) => {
                 reject(errorResponse);
             });
+        });
+    }
+
+    private savePrefillItemAppointmentsStartTimes(): Promise<void> {
+        return new Promise<void>(async (resolve) => {
+            try {
+                const concatenedPrefill: number[] = Array.from(new Set([
+                    ...this.initScheduledDates.previousSelectedAppointmentsStartTimes,
+                    ...this.selectedAppointmentStartTimes]));
+
+                await this.storageService.savePrefillItemAppointmentsStartTimes(concatenedPrefill);
+            } catch (err) {
+                // We could ignore this error, better if it works but what really matters have been done
+            }
+
+            resolve();
         });
     }
 

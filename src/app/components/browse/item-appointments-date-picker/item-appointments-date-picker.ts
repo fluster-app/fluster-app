@@ -70,12 +70,13 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
         const promises = new Array();
         promises.push(this.hasManyPossibleTimeSlots());
         promises.push(this.hasManyPossibleDays());
-        promises.push(this.prefillSelectedAppointments());
 
         forkJoin(promises).subscribe(
-            ([possibleTimeSlots, possibleDays, nothing]: [boolean, boolean, void]) => {
-                this.manyPossibleTimeSlots = possibleTimeSlots;
-                this.manyPossibleDays = possibleDays;
+            async(data: boolean[]) => {
+                this.manyPossibleTimeSlots = data[0];
+                this.manyPossibleDays = data[1];
+
+                await this.prefillSelectedAppointments();
             }
         );
     }
