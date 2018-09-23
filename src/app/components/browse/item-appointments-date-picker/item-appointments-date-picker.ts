@@ -27,7 +27,7 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
 
     @Output() notifiySelected: EventEmitter<number[]> = new EventEmitter<number[]>();
 
-    @Input() favoriteDates: number[];
+    @Input() advertiserDates: number[];
     @Input() unavailableAppointmentDates: number[];
     @Input() rejectedAppointmentDates: number[]; // In case of to_reschedule appointments
 
@@ -45,12 +45,12 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
     }
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
-        if (this.favoriteDates != null && this.unavailableAppointmentDates != null && this.rejectedAppointmentDates != null) {
+        if (this.advertiserDates != null && this.unavailableAppointmentDates != null && this.rejectedAppointmentDates != null) {
 
             // If there is still favoriteDates in the future for the ad, display only these
-            if (!Comparator.isEmpty(this.favoriteDates)) {
+            if (!Comparator.isEmpty(this.advertiserDates)) {
                 this.onlySelectedDates = true;
-                this.selectedDates = this.favoriteDates;
+                this.selectedDates = this.advertiserDates;
             }
 
             this.init();
@@ -248,7 +248,7 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
     }
 
     private hasFavoritesDates(): boolean {
-        return Comparator.hasElements(this.favoriteDates);
+        return Comparator.hasElements(this.advertiserDates);
     }
 
     swipeDatePicker($event: any) {

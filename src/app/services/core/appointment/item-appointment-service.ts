@@ -13,7 +13,7 @@ import {Comparator, Converter} from '../utils/utils';
 import {AppointmentService} from './appointment-service';
 
 export interface InitScheduledDates {
-    favoritesDates: number[];
+    advertiserDates: number[];
     unavailableAppointmentDates: number[];
     rejectedAppointmentDates: number[];
 }
@@ -48,7 +48,7 @@ export class ItemAppointmentService {
 
                     this.hasStillAvailableDates(data[0], allUnavailableDates).then((hasStillAvailableDates: boolean) => {
                         resolve({
-                            favoritesDates: hasStillAvailableDates ? data[0] : new Array(),
+                            advertiserDates: hasStillAvailableDates ? data[0] : new Array(),
                             unavailableAppointmentDates: allAlreadyScheduledDates,
                             rejectedAppointmentDates: data[2]
                         });
