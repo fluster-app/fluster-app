@@ -203,13 +203,13 @@
         "PROPOSAL": "{{who}} te propose {{howmany}} rendez-vous potentiels, sélectionnes-en un pour accepter la demande",
         "PROPOSAL_SINGLE": "{{who}} te propose ce rendez-vous",
         "CONFIRM": "Accepter",
-        "NO_APPOINTMENTS_FOUND": "Malheureusement, aucun des rendez-vous proposés n'est compatible avec ton calendrier",
         "RESCHEDULE_IN_PROGRESS": "Tu as proposé un nouveau rendez-vous à {{who}}",
         "CANCELLED": "Tu as refusé la demande de visite de {{who}}",
         "APPOINTMENT_IN_THE_PAST": "Tu as déjà réalisé une visite avec {{who}}",
         "APPOINTMENT_IN_THE_FUTURE": "La visite de {{who}} est prévue à la date suivante",
         "NEW_REQUEST_TITLE": "{{who}} a répondu à ton annonce, souhaites-tu accepter sa demande de rendez-vous?",
         "ACCEPT_REQUEST": "<strong>Accepter</strong> et sélectionner le rendez-vous",
+        "ACCEPT_REQUEST_CHAT": "Accepter et <strong>chatter</strong> pour fixer un rendez-vous",
         "REJECT_REQUEST": "Rejeter",
         "NO_SELECTED_TIME": "Sélectionnes-en un pour accepter la demande",
         "APPOINTMENT_SCHEDULED_FOR": {
@@ -217,9 +217,9 @@
             "END": ""
         },
         "ACTION_SHEET": {
-            "ACCEPT": "Accepter cette demande de visite",
-            "DECLINE": "Refuser cette demande de visite",
-            "ASK_RESCHEDULE": "Demander un nouveau rendez-vous",
+            "ACCEPT": "Accepter cette demande",
+            "DECLINE": "Refuser cette demande",
+            "ASK_RESCHEDULE": "Accepter et chatter pour fixer un rendez-vous",
             "FOUND_SOMEONE_ELSE": "Excuse-moi, j'ai déjà trouvé quelqu'un",
             "NOT_ENOUGH_DETAILS": "Le profil ne contient pas suffisamment d'informations",
             "NO_REASON": "Je préférais encore rencontrer d'autres candidats",
@@ -643,7 +643,7 @@
         "VIEWING_WHEN_TEXT_SHARE": "Quand peux-tu visiter la colocation de {{who}}?",
         "VIEWING_WHEN_TEXT_FLAT": "Quand peux-tu visiter l'appartement de {{who}}?",
         "SELECTED_COUNT": {
-            "NO_SELECTED_BROWSE": "Sélectionne une ou plusieurs propositions de créneau horaire afin d'augmenter tes chances d'obtenir un rendez-vous",
+            "NO_SELECTED_BROWSE": "Sélectionne une ou plusieurs propositions de créneau horaire pour obtenir un rendez-vous",
             "SELECTED_COUNT_AVAILABILITY": {
                 "SINGULAR": "Tu as sélectionné <strong>{{count}} créneau horaire</strong>",
                 "PLURAL": "Tu as sélectionné <strong>{{count}} créneaux horaires</strong>"
@@ -651,7 +651,7 @@
             "NO_SPECIAL_AVAILABILITY": "Aucune date spécifique, tu es <strong>flexible</strong>"
         },
         "CONFIRM": "Confirmer",
-        "SEND": "Envoyer",
+        "SEND": "Envoyer maintenant",
         "MISSING_PHONE": {
             "TITLE": "Ton numéro de téléphone",
             "SUB_TITLE": "Les personnes avec lesquelles tu as un rendez-vous peuvent te joindre à ce numéro",
@@ -660,8 +660,8 @@
         },
         "TIPS": {
             "SELECT_MANY_TIMESLOTS": {
-                "BEGIN": "Sélectionne",
-                "HIGHLIGHT": "plusieurs créneaux horaires",
+                "BEGIN": "Ajoute",
+                "HIGHLIGHT": "tes disponibilités",
                 "END": "et augmente tes chances d'obtenir un rendez-vous"
             },
             "SELECT_MANY_DAYS": {
@@ -673,7 +673,7 @@
                 "BEGIN": "Cool, tu as sélectionné",
                 "HIGHLIGHT": "{{count}} proposition",
                 "HIGHLIGHTS": "{{count}} propositions",
-                "END": "de rendez-vous."
+                "END": "de rendez-vous"
             },
             "SELECT_ZERO_COUNT": {
                 "BEGIN": "Sélectionne",

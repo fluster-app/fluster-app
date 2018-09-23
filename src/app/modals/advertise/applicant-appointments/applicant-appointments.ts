@@ -118,7 +118,7 @@ export class ApplicantAppointmentsModal extends AbstractApplicantSelectionPage {
         });
     }
 
-    select(startTime: Date) {
+    async select(startTime: Date) {
 
         this.gaTrackEvent(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.ADS.ADS, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.ADS.APPLICANT.APPLICANT_SELECT);
 
@@ -132,6 +132,6 @@ export class ApplicantAppointmentsModal extends AbstractApplicantSelectionPage {
             }
         }
 
-        this.updateAndExportToCalendar(this.RESOURCES.APPLICANT.STATUS.ACCEPTED, null);
+        await this.updateAndExportToCalendar(this.RESOURCES.APPLICANT.STATUS.ACCEPTED, null);
     }
 }

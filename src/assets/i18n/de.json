@@ -203,13 +203,13 @@
         "PROPOSAL": "{{who}} bietet dir {{howmany}} mögliche Termine an; wähle eins aus, um die Anfrage anzunehmen",
         "PROPOSAL_SINGLE": "{{who}} bietet dir folgenden Termin an",
         "CONFIRM": "Annehmen",
-        "NO_APPOINTMENTS_FOUND": "Leider passen keine der vorgeschlagenen Termine mit deinem Kalender",
         "RESCHEDULE_IN_PROGRESS": "Du hast {{who}} für einen Besichtigungstermin angefragt",
         "CANCELLED": "Du hast die Besichtigungsanfrage von {{who}} abgelehnt",
         "APPOINTMENT_IN_THE_PAST": "Du hast die Wohnung bereits besichtigt",
         "APPOINTMENT_IN_THE_FUTURE": "Die Besichtigung mit {{who}} ist an folgendem Tag",
         "NEW_REQUEST_TITLE": "{{who}} möchte deine Wohnung besichtigen – möchtest du die Anfrage annehmen?",
         "ACCEPT_REQUEST": "<strong>Annehmen</strong> und Termin wählen",
+        "ACCEPT_REQUEST_CHAT": "Annehmen und <strong>chatten</strong>, um einen Termin zu vereinbaren",
         "REJECT_REQUEST": "Ablehnen",
         "NO_SELECTED_TIME": "Wähle einen Besichtigungstermin, um die Anfrage anzunehmen",
         "APPOINTMENT_SCHEDULED_FOR": {
@@ -219,7 +219,7 @@
         "ACTION_SHEET": {
             "ACCEPT": "Diese Besichtigungsanfrage annehmen",
             "DECLINE": "Diese Besichtigungsanfrage ablehnen",
-            "ASK_RESCHEDULE": "Neue Besichtigungstermine anfragen",
+            "ASK_RESCHEDULE": "Annehmen und chatten, um einen Termin zu vereinbaren",
             "FOUND_SOMEONE_ELSE": "Sorry, ich habe bereits jemand gefunden",
             "NOT_ENOUGH_DETAILS": "Das Profil enthält nicht genügend Informationen",
             "NO_REASON": "Ich möchte lieber noch andere Interessenten kennenlernen",
@@ -643,7 +643,7 @@
         "VIEWING_WHEN_TEXT_SHARE": "Wann kannst du die WG von {{who}} besichtigen?",
         "VIEWING_WHEN_TEXT_FLAT": "Wann kannst du die Wohnung von {{who}} besichtigen?",
         "SELECTED_COUNT": {
-            "NO_SELECTED_BROWSE": "Wähle eine oder mehrere Zeitfenster aus und erhöhe deine Chancen auf einen Termin",
+            "NO_SELECTED_BROWSE": "Wähle eine oder mehrere Zeitfenster aus, um den Termin zu vereinbaren",
             "SELECTED_COUNT_AVAILABILITY": {
                 "SINGULAR": "Du hast <strong>{{count}} möglichen Termin</strong> ausgewählt",
                 "PLURAL": "Du hast <strong>{{count}} mögliche Termine</strong> ausgewählt"
@@ -651,7 +651,7 @@
             "NO_SPECIAL_AVAILABILITY": "Du bist <strong>flexibel</strong>, was Besichtigungstermine angeht"
         },
         "CONFIRM": "Bestätigen",
-        "SEND": "Senden",
+        "SEND": "Jetzt senden",
         "MISSING_PHONE": {
             "TITLE": "Deine Telefonnummer",
             "SUB_TITLE": "Unter dieser Nummer, die Personen mit denen du eine vereinbarte Besichtigung hast, können dich erreichen",
@@ -660,9 +660,9 @@
         },
         "TIPS": {
             "SELECT_MANY_TIMESLOTS": {
-                "BEGIN": "Wähle",
-                "HIGHLIGHT": "mehrere Zeitfenster",
-                "END": "aus und erhöhe deine Chancen auf einen Termin!"
+                "BEGIN": "Füge hinzu",
+                "HIGHLIGHT": "deine Verfügbarkeit",
+                "END": "und erhöhe deine Chancen auf einen Termin!"
             },
             "SELECT_MANY_DAYS": {
                 "BEGIN": "Vielleicht sogar noch",

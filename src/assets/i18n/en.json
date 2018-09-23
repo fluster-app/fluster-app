@@ -203,13 +203,13 @@
         "PROPOSAL": "{{who}} offers you {{howmany}} possible time slots, select one of them to accept the request",
         "PROPOSAL_SINGLE": "{{who}} offers you this time slot",
         "CONFIRM": "Accept",
-        "NO_APPOINTMENTS_FOUND": "Unfortunately, none of the proposed time slots fit your calendar.",
         "RESCHEDULE_IN_PROGRESS": "You requested a viewing from {{who}}",
         "CANCELLED": "You declined {{who}}'s request",
         "APPOINTMENT_IN_THE_PAST": "The viewing with {{who}} already took place",
         "APPOINTMENT_IN_THE_FUTURE": "The viewing with {{who}} is the following date",
         "NEW_REQUEST_TITLE": "{{who}} has applied for a viewing, would you like to accept the request?",
         "ACCEPT_REQUEST": "<strong>Accept</strong> and select the viewing",
+        "ACCEPT_REQUEST_CHAT": "Accept and <strong>chat</strong> to schedule a viewing",
         "REJECT_REQUEST": "Reject",
         "NO_SELECTED_TIME": "Select a time slot to accept the request",
         "APPOINTMENT_SCHEDULED_FOR": {
@@ -219,7 +219,7 @@
         "ACTION_SHEET": {
             "ACCEPT": "Accept this request",
             "DECLINE": "Decline this request",
-            "ASK_RESCHEDULE": "Request new viewings' time slots",
+            "ASK_RESCHEDULE": "Accept and chat to schedule a viewing",
             "FOUND_SOMEONE_ELSE": "Sorry, I found someone else",
             "NOT_ENOUGH_DETAILS": "The profile does not contain enough information",
             "NO_REASON": "I rather like to meet other candidates",
@@ -643,7 +643,7 @@
         "VIEWING_WHEN_TEXT_SHARE": "When can you visit {{who}}'s flat?",
         "VIEWING_WHEN_TEXT_FLAT": "When can you visit {{who}}'s flat?",
         "SELECTED_COUNT": {
-            "NO_SELECTED_BROWSE": "Pick one or many time slots to increase your chances to get a viewing",
+            "NO_SELECTED_BROWSE": "Pick one or many time slots to get a viewing",
             "SELECTED_COUNT_AVAILABILITY": {
                 "SINGULAR": "<strong>{{count}} potential time slot</strong>",
                 "PLURAL": "<strong>{{count}} potential time slots</strong>"
@@ -651,7 +651,7 @@
             "NO_SPECIAL_AVAILABILITY": "You are <strong>flexible</strong> and have no special dates"
         },
         "CONFIRM": "Confirm",
-        "SEND": "Send",
+        "SEND": "Send now",
         "MISSING_PHONE": {
             "TITLE": "Your phone number",
             "SUB_TITLE": "The persons with whom you have an appointment can reach you at this number",
@@ -660,8 +660,8 @@
         },
         "TIPS": {
             "SELECT_MANY_TIMESLOTS": {
-                "BEGIN": "Select",
-                "HIGHLIGHT": "multiple time slots",
+                "BEGIN": "Add",
+                "HIGHLIGHT": "your availabilities",
                 "END": "to increase your chances of getting a viewing!"
             },
             "SELECT_MANY_DAYS": {

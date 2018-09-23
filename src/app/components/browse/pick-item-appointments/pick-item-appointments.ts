@@ -67,11 +67,11 @@ export class PickItemAppointmentsComponent extends AbstractItemsPage {
     schedule(selectedAppointmentStartTimes: number[]) {
         this.selectedAppointmentStartTimes = selectedAppointmentStartTimes;
 
-        this.subscriptionService.couldAddLike().then((result: boolean) => {
+        this.subscriptionService.couldAddLike().then(async (result: boolean) => {
             if (result) {
-                this.initAndDoSchedule();
+                await this.initAndDoSchedule();
             } else {
-                this.showProductModal(this.doProductCallback);
+                await this.showProductModal(this.doProductCallback);
             }
         });
     }
