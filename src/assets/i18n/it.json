@@ -643,7 +643,7 @@
         "VIEWING_WHEN_TEXT_SHARE": "Quando puoi visitare la stanza di {{who}}?",
         "VIEWING_WHEN_TEXT_FLAT": "Quando puoi visitare l'appartamento di {{who}}?",
         "SELECTED_COUNT": {
-            "NO_SELECTED_BROWSE": "Scegliendo una o più finestre temporali per ottenere un appuntamento",
+            "NO_SELECTED_BROWSE": "{{who}} vuole ricevere una o più finestre temporali per fissare un appuntamento",
             "SELECTED_COUNT_AVAILABILITY": {
                 "SINGULAR": "Hai scelto <strong>{{count}} potenziale appuntamento</strong>",
                 "PLURAL": "Hai scelto <strong>{{count}} potenziali appuntamenti</strong>"

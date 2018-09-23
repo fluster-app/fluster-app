@@ -643,7 +643,7 @@
         "VIEWING_WHEN_TEXT_SHARE": "When can you visit {{who}}'s flat?",
         "VIEWING_WHEN_TEXT_FLAT": "When can you visit {{who}}'s flat?",
         "SELECTED_COUNT": {
-            "NO_SELECTED_BROWSE": "Pick one or many time slots to get a viewing",
+            "NO_SELECTED_BROWSE": "{{who}} would like to receive one or many time slots to schedule the viewing",
             "SELECTED_COUNT_AVAILABILITY": {
                 "SINGULAR": "<strong>{{count}} potential time slot</strong>",
                 "PLURAL": "<strong>{{count}} potential time slots</strong>"

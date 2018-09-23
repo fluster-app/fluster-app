@@ -643,7 +643,7 @@
         "VIEWING_WHEN_TEXT_SHARE": "Quand peux-tu visiter la colocation de {{who}}?",
         "VIEWING_WHEN_TEXT_FLAT": "Quand peux-tu visiter l'appartement de {{who}}?",
         "SELECTED_COUNT": {
-            "NO_SELECTED_BROWSE": "Sélectionne une ou plusieurs propositions de créneau horaire pour obtenir un rendez-vous",
+            "NO_SELECTED_BROWSE": "{{who}} souhaite recevoir une ou plusieurs propositions de créneau horaire pour fixer le rendez-vous",
             "SELECTED_COUNT_AVAILABILITY": {
                 "SINGULAR": "Tu as sélectionné <strong>{{count}} créneau horaire</strong>",
                 "PLURAL": "Tu as sélectionné <strong>{{count}} créneaux horaires</strong>"

@@ -643,7 +643,7 @@
         "VIEWING_WHEN_TEXT_SHARE": "Wann kannst du die WG von {{who}} besichtigen?",
         "VIEWING_WHEN_TEXT_FLAT": "Wann kannst du die Wohnung von {{who}} besichtigen?",
         "SELECTED_COUNT": {
-            "NO_SELECTED_BROWSE": "Wähle eine oder mehrere Zeitfenster aus, um den Termin zu vereinbaren",
+            "NO_SELECTED_BROWSE": "{{who}} möchte eine oder mehrere Zeitfenster erhalten, um den Termin zu vereinbaren",
             "SELECTED_COUNT_AVAILABILITY": {
                 "SINGULAR": "Du hast <strong>{{count}} möglichen Termin</strong> ausgewählt",
                 "PLURAL": "Du hast <strong>{{count}} mögliche Termine</strong> ausgewählt"
