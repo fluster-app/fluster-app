@@ -50,8 +50,8 @@ export abstract class AbstractApplicantSelectionPage extends AbstractPage {
     protected reschedule() {
         this.gaTrackEvent(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.ADS.ADS, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.ADS.APPLICANT.APPLICANT_RESCHEDULE);
 
-        this.setAllStatusCancelled().then(() => {
-            this.updateApplication(this.RESOURCES.APPLICANT.STATUS.TO_RESCHEDULE, null);
+        this.setAllStatusCancelled().then(async () => {
+            await this.updateApplication(this.RESOURCES.APPLICANT.STATUS.TO_RESCHEDULE, null);
         });
     }
 
@@ -81,8 +81,8 @@ export abstract class AbstractApplicantSelectionPage extends AbstractPage {
                     this.exportToCalendar(self.user, self.item, updatedApplicant, newStatus, previousStatus, previousDate, loading);
                 });
             }, (errorResponse: HttpErrorResponse) => {
-                loading.dismiss().then(() => {
-                    this.errorMsg(this.toastController, this.translateService, 'ERRORS.APPLICANT_SELECTION.NOT_UPDATED');
+                loading.dismiss().then(async () => {
+                    await this.errorMsg(this.toastController, this.translateService, 'ERRORS.APPLICANT_SELECTION.NOT_UPDATED');
                 });
             });
         });
@@ -155,11 +155,11 @@ export abstract class AbstractApplicantSelectionPage extends AbstractPage {
         });
     }
 
-    protected updateAndExportToCalendar(newStatus: string, previousDate: Date) {
+    protected async updateAndExportToCalendar(newStatus: string, previousDate: Date) {
         if (this.user.userParams.appSettings.calendarExport === null && this.ENV_CORDOVA) {
             this.askUserAndExportIfNeeded(newStatus, previousDate);
         } else {
-            this.updateApplication(newStatus, previousDate);
+            await this.updateApplication(newStatus, previousDate);
         }
     }
 
@@ -179,14 +179,14 @@ export abstract class AbstractApplicantSelectionPage extends AbstractPage {
                         buttons: [
                             {
                                 text: data[3],
-                                handler: () => {
-                                    this.updateUserAndUpdateApplication(false, newStatus, previousDate);
+                                handler: async () => {
+                                    await this.updateUserAndUpdateApplication(false, newStatus, previousDate);
                                 }
                             },
                             {
                                 text: data[2],
-                                handler: () => {
-                                    this.updateUserAndUpdateApplication(true, newStatus, previousDate);
+                                handler: async () => {
+                                    await this.updateUserAndUpdateApplication(true, newStatus, previousDate);
                                 }
                             }
                         ]
@@ -194,15 +194,15 @@ export abstract class AbstractApplicantSelectionPage extends AbstractPage {
 
                     confirm.present();
                 } else {
-                    this.updateUserAndUpdateApplication(false, newStatus, previousDate);
+                    await this.updateUserAndUpdateApplication(false, newStatus, previousDate);
                 }
             }
         );
     }
 
-    private updateUserAndUpdateApplication(choice: boolean, newStatus: string, previousDate: Date) {
+    private async updateUserAndUpdateApplication(choice: boolean, newStatus: string, previousDate: Date) {
         this.saveUserChoice(choice);
-        this.updateApplication(newStatus, previousDate);
+        await this.updateApplication(newStatus, previousDate);
     }
 
     private saveUserChoice(choice: boolean) {

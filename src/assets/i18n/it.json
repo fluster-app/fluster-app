@@ -203,13 +203,13 @@
         "PROPOSAL": "{{who}} ti offre {{howmany}} possibili appuntamenti, selezionane uno per accettare la richiesta",
         "PROPOSAL_SINGLE": "{{who}} ti offre questo appuntamento",
         "CONFIRM": "Accetta",
-        "NO_APPOINTMENTS_FOUND": "Purtroppo nessuno degli appuntamenti proposti è compatibile con il tuo calendario",
         "RESCHEDULE_IN_PROGRESS": "Hai richiesto un appuntamento a {{who}} ",
         "CANCELLED": "Hai rifiutato la richiesta di visita di {{who}}",
         "APPOINTMENT_IN_THE_PAST": "Hai già effettuato la visita con {{who}}",
         "APPOINTMENT_IN_THE_FUTURE": "La visita con {{who}} si terrà il giorno seguente",
         "NEW_REQUEST_TITLE": "{{who}} è interessato a una visita, vuoi accettare la richiesta?",
         "ACCEPT_REQUEST": "<strong>Accetta</strong> e scegli l'appuntamento",
+        "ACCEPT_REQUEST_CHAT": "Accetta e <strong>chatta<strong> per fissare un appuntamento",
         "REJECT_REQUEST": "Rifiuta",
         "NO_SELECTED_TIME": "Scegli un appuntamento per accettare la richiesta",
         "APPOINTMENT_SCHEDULED_FOR": {
@@ -217,9 +217,9 @@
             "END": ""
         },
         "ACTION_SHEET": {
-            "ACCEPT": "Accetta questa richiesta di visita",
-            "DECLINE": "Rifiuta questa richiesta di visita",
-            "ASK_RESCHEDULE": "Rihiedi nuovi appuntamenti",
+            "ACCEPT": "Accetta questa richiesta",
+            "DECLINE": "Rifiuta questa richiesta",
+            "ASK_RESCHEDULE": "Accetta e chatta per fissare un appuntamento",
             "FOUND_SOMEONE_ELSE": "Mi dispiace, ho già trovato qualcuno",
             "NOT_ENOUGH_DETAILS": "Questo profilo non contiene abbastanza informazioni",
             "NO_REASON": "Preferirei conoscere altri candidati",
@@ -643,7 +643,7 @@
         "VIEWING_WHEN_TEXT_SHARE": "Quando puoi visitare la stanza di {{who}}?",
         "VIEWING_WHEN_TEXT_FLAT": "Quando puoi visitare l'appartamento di {{who}}?",
         "SELECTED_COUNT": {
-            "NO_SELECTED_BROWSE": "Scegliendo una o più finestre temporali, aumenterai le tue possibilità di ottenere un appuntamento",
+            "NO_SELECTED_BROWSE": "Scegliendo una o più finestre temporali per ottenere un appuntamento",
             "SELECTED_COUNT_AVAILABILITY": {
                 "SINGULAR": "Hai scelto <strong>{{count}} potenziale appuntamento</strong>",
                 "PLURAL": "Hai scelto <strong>{{count}} potenziali appuntamenti</strong>"
@@ -651,7 +651,7 @@
             "NO_SPECIAL_AVAILABILITY": "Nessun appuntamento specifico, sei del tutto <strong>flessibile</strong>"
         },
         "CONFIRM": "Conferma",
-        "SEND": "Invia",
+        "SEND": "Invia ora",
         "MISSING_PHONE": {
             "TITLE": "Il tuo numero di telefono",
             "SUB_TITLE": "Le persone con cui hai un appuntamento ti potranno contattare a questo numero",
@@ -660,8 +660,8 @@
         },
         "TIPS": {
             "SELECT_MANY_TIMESLOTS": {
-                "BEGIN": "Scegliendo",
-                "HIGHLIGHT": "più finestre temporali",
+                "BEGIN": "Imposta",
+                "HIGHLIGHT": "la tua disponibilità",
                 "END": ", aumenti le tue possibilità di ottenere un appuntamento"
             },
             "SELECT_MANY_DAYS": {
@@ -680,6 +680,12 @@
                 "HIGHLIGHT": "una",
                 "END": "finestra temporale per ottenere un appuntamento"
             }
+        },
+        "BUTTONS": {
+            "ADD": "Aggiunger",
+            "LOCK": "Occupato/a",
+            "REJECTED": "Rifiutato",
+            "AVAILABLE": "Disponibile"
         }
     },
     "MY_APPOINTMENTS": {

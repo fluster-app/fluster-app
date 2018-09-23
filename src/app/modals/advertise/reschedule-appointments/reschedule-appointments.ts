@@ -79,7 +79,7 @@ export class RescheduleAppointmentsModal extends AbstractApplicantSelectionPage 
         this.updatedSchedule = selectedDate;
     }
 
-    doReschedule() {
+    async doReschedule() {
         if (this.updatedSchedule == null) {
             this.displayAlertAtLeastOneAppointment();
             return;
@@ -89,7 +89,7 @@ export class RescheduleAppointmentsModal extends AbstractApplicantSelectionPage 
         const previousSelectedDate: Date = this.applicant.selected;
         this.applicant.selected = this.updatedSchedule;
 
-        this.updateAndExportToCalendar(this.RESOURCES.APPLICANT.STATUS.ACCEPTED, previousSelectedDate);
+        await this.updateAndExportToCalendar(this.RESOURCES.APPLICANT.STATUS.ACCEPTED, previousSelectedDate);
     }
 
     isApplicantReschedule(): boolean {

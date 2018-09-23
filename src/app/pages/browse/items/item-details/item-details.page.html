@@ -38,6 +38,7 @@
   <ion-toolbar role="buttons" *ngIf="item != null && isAppointmentActionAllowed() && displayButtons" padding-start padding-end>
     <ion-button expand="full" shape="round" (click)="navigateToAppointment()" [disabled]="actionInProgress">
       {{'ITEM_APPOINTMENTS.VIEWING_REQUEST_TITLE' | translate}}
+      <ion-icon slot="end" name="send"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-footer>

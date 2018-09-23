@@ -41,8 +41,7 @@
     </ion-card>
 
     <div *ngIf="isStatusNew() && userProfileLoaded && availableDatesLoaded" padding-start padding-end id="newApplicantTitle">
-      <h3 padding-start padding-end *ngIf="!hasSelectedDates()">{{'APPLICANT_SELECTION.NO_APPOINTMENTS_FOUND' | translate}}</h3>
-      <h3 padding-start padding-end *ngIf="hasSelectedDates()">{{ 'APPLICANT_SELECTION.NEW_REQUEST_TITLE' | translate:{who: applicant.user.facebook.firstName} }}</h3>
+      <h3 padding>{{ 'APPLICANT_SELECTION.NEW_REQUEST_TITLE' | translate:{who: applicant.user.facebook.firstName} }}</h3>
     </div>
 
     <div *ngIf="isStatusNew() && userProfileLoaded && availableDatesLoaded" id="actions-buttons" padding margin-bottom>
@@ -54,6 +53,11 @@
       <app-big-button (clicked)="openApplicantAppointmentsModal()" [adDisplay]="true"
                       [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true" *ngIf="hasSelectedDates()"
                       [icon]="'checkmark'" [label]="'APPLICANT_SELECTION.ACCEPT_REQUEST'">
+      </app-big-button>
+
+      <app-big-button (clicked)="doReschedule()" [adDisplay]="true"
+                      [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true" *ngIf="!hasSelectedDates()"
+                      [icon]="'checkmark'" [label]="'APPLICANT_SELECTION.ACCEPT_REQUEST_CHAT'">
       </app-big-button>
     </div>
 

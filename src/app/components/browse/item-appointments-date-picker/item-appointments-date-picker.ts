@@ -31,7 +31,6 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
     @Input() unavailableAppointmentDates: number[];
     @Input() rejectedAppointmentDates: number[]; // In case of to_reschedule appointments
 
-    // Output
     selectedAppointmentsStartTime: number[] = new Array();
 
     manyPossibleTimeSlots: boolean = true;
@@ -122,11 +121,13 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
         });
     }
 
-    selectAppointments() {
-        if (this.hasSelectedAppointments()) {
-            this.notifiySelected.emit(this.selectedAppointmentsStartTime);
+    async selectAppointments() {
+        // User could send viewings requests without any dates selected
+        // as long as advertiser did not specified particular dates
+        if (!this.hasSelectedAppointments() && this.hasFavoritesDates()) {
+            await this.displayAlertAtLeastOneAppointment();
         } else {
-            this.displayAlertAtLeastOneAppointment();
+            this.notifiySelected.emit(this.selectedAppointmentsStartTime);
         }
     }
 
@@ -148,7 +149,17 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
         } else if (this.isAppointmentRejected(currentAppointment)) {
             return 'close';
         } else {
-            return currentAppointment.selected ? 'checkmark-circle' : 'radio-button-off';
+            return 'basket';
+        }
+    }
+
+    actionToDisplay(currentAppointment: PickAppointmentTime): string {
+        if (this.isAppointmentAlreadyTaken(currentAppointment)) {
+            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.LOCK');
+        } else if (this.isAppointmentRejected(currentAppointment)) {
+            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.REJECTED');
+        } else {
+            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.ADD');
         }
     }
 
@@ -234,6 +245,10 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
 
     private hasSelectedAppointments(): boolean {
         return Comparator.hasElements(this.selectedAppointmentsStartTime);
+    }
+
+    private hasFavoritesDates(): boolean {
+        return Comparator.hasElements(this.favoriteDates);
     }
 
     swipeDatePicker($event: any) {

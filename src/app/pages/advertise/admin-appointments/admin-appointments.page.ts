@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {LoadingController, NavController, Platform, Slides, ToastController} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -24,13 +24,14 @@ import {AppointmentService} from '../../../services/core/appointment/appointment
 import {AdsService} from '../../../services/advertise/ads-service';
 import {GoogleAnalyticsNativeService} from '../../../services/native/analytics/google-analytics-native-service';
 import {AdminAppointmentsNavParams, NavParamsService} from '../../../services/core/navigation/nav-params-service';
+import {AdminAppointmentsService, AdminScheduledDates} from '../../../services/core/appointment/admin-appoinments-service';
 
 @Component({
     selector: 'app-admin-appointments',
     templateUrl: './admin-appointments.page.html',
     styleUrls: ['./admin-appointments.page.scss'],
 })
-export class AdminAppointmentsPage extends AbstractPage {
+export class AdminAppointmentsPage extends AbstractPage implements OnInit {
 
     @ViewChild('adsAdminAppointmentsSlider') slider: Slides;
 
@@ -53,6 +54,10 @@ export class AdminAppointmentsPage extends AbstractPage {
     extendDateDisplay: string;
     itemEndThePast: boolean = false;
 
+    adminScheduledDates: AdminScheduledDates;
+
+    loaded: boolean = false;
+
     constructor(private platform: Platform,
                 private navController: NavController,
                 private loadingController: LoadingController,
@@ -61,25 +66,34 @@ export class AdminAppointmentsPage extends AbstractPage {
                 private appointmentService: AppointmentService,
                 private adsService: AdsService,
                 private googleAnalyticsNativeService: GoogleAnalyticsNativeService,
-                private navParamsService: NavParamsService) {
+                private navParamsService: NavParamsService,
+                private adminAppointmentsService: AdminAppointmentsService) {
         super();
 
         this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.ADS_CLOSE);
     }
 
+    async ngOnInit() {
+        this.item = await this.initItem();
+
+        if (this.item != null) {
+            this.appointment = this.item.appointment;
+
+            const promises = new Array();
+            promises.push(this.computeExtendDates());
+            promises.push(this.adminAppointmentsService.init(this.item, this.appointment));
+
+            forkJoin(promises).subscribe(([empty, adminScheduledDates]: [void, AdminScheduledDates]) => {
+                this.adminScheduledDates = adminScheduledDates;
+
+                this.loaded = true;
+            });
+        } else {
+            this.loaded = true;
+        }
+    }
+
     async ionViewWillEnter() {
-        this.initItem().then((item: Item) => {
-            this.item = item;
-
-            if (this.item != null) {
-                this.appointment = this.item.appointment;
-
-                this.computeExtendDates().then(() => {
-                    // Do nothing
-                });
-            }
-        });
-
         this.overrideHardwareBackAction();
 
         await this.displayMenuToggle();
@@ -145,8 +159,8 @@ export class AdminAppointmentsPage extends AbstractPage {
         }
     }
 
-    private initItem(): Promise<{}> {
-        return new Promise((resolve) => {
+    private initItem(): Promise<Item> {
+        return new Promise<Item>((resolve) => {
             // Always refresh the item to be sure to have the last one
             this.adsService.findAdsItems().then((items: Item[]) => {
                 resolve(Comparator.isEmpty(items) ? null : items[0]);
@@ -156,8 +170,8 @@ export class AdminAppointmentsPage extends AbstractPage {
         });
     }
 
-    private computeExtendDates(): Promise<{}> {
-        return new Promise((resolve) => {
+    private computeExtendDates(): Promise<void> {
+        return new Promise<void>((resolve) => {
             this.itemEndCouldBeExtended = ItemsComparator.isItemExpiringSoon(this.item);
 
             let today: Date = new Date();

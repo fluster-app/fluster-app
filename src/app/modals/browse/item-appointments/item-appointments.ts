@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 import {Card} from 'ionic-swing';
 
@@ -17,14 +17,15 @@ import {ItemsComparator} from '../../../services/core/utils/items-utils';
 // Services
 import {LastItemsService} from '../../../services/browse/last-items-service';
 import {GoogleAnalyticsNativeService} from '../../../services/native/analytics/google-analytics-native-service';
-import {ModalController, NavParams, Platform} from '@ionic/angular';
+import {ModalController, NavParams, Platform, Slides} from '@ionic/angular';
+import {InitScheduledDates, ItemAppointmentService} from '../../../services/core/appointment/item-appointment-service';
 
 @Component({
     templateUrl: 'item-appointments.html',
     styleUrls: ['./item-appointments.scss'],
     selector: 'app-item-appointments'
 })
-export class ItemAppointmentsModal extends AbstractModal {
+export class ItemAppointmentsModal extends AbstractModal implements OnInit {
 
     item: Item;
     itemUser: ItemUser;
@@ -34,19 +35,28 @@ export class ItemAppointmentsModal extends AbstractModal {
 
     alreadyBookmarked: boolean = false;
 
+    initScheduledDates: InitScheduledDates;
+
+    loaded: boolean = false;
+
     constructor(private platform: Platform,
                 private navParams: NavParams,
                 private modalController: ModalController,
                 private lastItemsService: LastItemsService,
-                private googleAnalyticsNativeService: GoogleAnalyticsNativeService) {
+                private googleAnalyticsNativeService: GoogleAnalyticsNativeService,
+                private itemAppointmentService: ItemAppointmentService) {
 
         super();
 
         this.gaTrackEvent(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.MODAL, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.BROWSE.ITEM_APPOINTMENTS);
     }
 
-    ionViewWillEnter() {
+    async ngOnInit() {
         this.initItem();
+
+        this.initScheduledDates = await this.itemAppointmentService.init(this.item, this.existingApplicant);
+
+        this.loaded = true;
     }
 
     private initItem() {
@@ -89,5 +99,4 @@ export class ItemAppointmentsModal extends AbstractModal {
     useUserTitle(): boolean {
         return !Comparator.isEmpty(this.item) && !Comparator.isEmpty(this.item.user.facebook) && !Comparator.isStringEmpty(this.item.user.facebook.firstName);
     }
-
 }

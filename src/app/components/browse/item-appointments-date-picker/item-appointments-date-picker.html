@@ -39,10 +39,13 @@
 
 <div #datePickerScrollY scrollY="true" id="datePickerScrollY">
     <ion-list no-padding (swipe)="swipeDatePicker($event)">
-        <ion-item *ngFor="let currentAppointment of currentAppointments;" tappable (click)="selectUnselectAppointment(currentAppointment)" text-center>
-            <p [class.appointment-already-taken]="isAppointmentAlreadyTaken(currentAppointment) || isAppointmentRejected(currentAppointment)" [class.appointment-in-the-past]="!isInTheFuture(currentAppointment)" [class.appointment-selected]="currentAppointment.selected">
-                <ion-icon slot="start" name="{{iconToDisplay(currentAppointment)}}"></ion-icon>
-                <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.startTime"></app-display-date> - <app-display-date [pattern]="'LT'" [displayDate]="currentAppointment.endTime"></app-display-date>
+        <ion-item *ngFor="let currentAppointment of currentAppointments;" text-center>
+            <p>
+                <app-display-date [calendarDisplay]="true" [displayDate]="currentAppointment.startTime" padding-end [class.appointment-already-taken]="isAppointmentAlreadyTaken(currentAppointment) || isAppointmentRejected(currentAppointment)" [class.appointment-in-the-past]="!isInTheFuture(currentAppointment)" [class.appointment-selected]="currentAppointment.selected"></app-display-date>
+                <ion-button shape="round" fill="{{!currentAppointment.selected ? 'outline' : 'solid'}}" size="default" color="medium" [class.appointment-selected]="currentAppointment.selected" (click)="selectUnselectAppointment(currentAppointment)" [disabled]="isAppointmentAlreadyTaken(currentAppointment) || isAppointmentRejected(currentAppointment) || !isInTheFuture(currentAppointment)">
+                    <ion-icon slot="start" name="{{iconToDisplay(currentAppointment)}}"></ion-icon>
+                    <ion-label>{{actionToDisplay(currentAppointment)}}</ion-label>
+                </ion-button>
             </p>
         </ion-item>
     </ion-list>

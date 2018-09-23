@@ -12,14 +12,21 @@
 
 <ion-content role="browse" [scrollY]="false" padding>
 
-    <h2 text-center *ngIf="isItemFlat()" padding>
-        {{ 'ITEM_APPOINTMENTS.VIEWING_WHEN_TEXT_FLAT' | translate:{who: item.user.facebook.firstName == null ? '' : item.user.facebook.firstName} }}
-    </h2>
+    <ng-container *ngIf="loaded">
+        <h2 text-center *ngIf="isItemFlat()" padding no-margin>
+            {{ 'ITEM_APPOINTMENTS.VIEWING_WHEN_TEXT_FLAT' | translate:{who: item.user.facebook.firstName == null ? '' : item.user.facebook.firstName} }}
+        </h2>
 
-    <h2 text-center *ngIf="isItemShare()" padding>
-        {{ 'ITEM_APPOINTMENTS.VIEWING_WHEN_TEXT_SHARE' | translate:{who: item.user.facebook.firstName == null ? '' : item.user.facebook.firstName} }}
-    </h2>
+        <h2 text-center *ngIf="isItemShare()" padding no-margin>
+            {{ 'ITEM_APPOINTMENTS.VIEWING_WHEN_TEXT_SHARE' | translate:{who: item.user.facebook.firstName == null ? '' : item.user.facebook.firstName} }}
+        </h2>
 
-    <app-pick-item-appointments [item]="item" [itemUser]="itemUser" [existingApplicant]="existingApplicant" [alreadyBookmarked]="alreadyBookmarked" (notifiyScheduled)="navigateToItems()"></app-pick-item-appointments>
+        <app-pick-item-appointments [item]="item" [itemUser]="itemUser" [existingApplicant]="existingApplicant" [alreadyBookmarked]="alreadyBookmarked" [initScheduledDates]="initScheduledDates" (notifiyScheduled)="navigateToItems()"></app-pick-item-appointments>
+    </ng-container>
+
+    <div class="spinner-loading" padding text-center *ngIf="!loaded">
+        <ion-spinner color="primary"></ion-spinner>
+    </div>
 
 </ion-content>
+

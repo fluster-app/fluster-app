@@ -1,17 +1,10 @@
-div {
-    height: 100%
-}
+@import "../../../../theme/spinner";
 
-#item-summary {
-    h1 {
-        color: inherit;
+ion-slides {
+    height: 100%;
+
+    div.flex-content {
+        width: 100%;
+        display: block;
     }
-}
-
-p {
-    font-size: 1.4rem;
-}
-
-h1 {
-    font-size: 2.4rem;
 }
