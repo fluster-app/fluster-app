@@ -209,7 +209,7 @@
         "APPOINTMENT_IN_THE_FUTURE": "Die Besichtigung mit {{who}} ist an folgendem Tag",
         "NEW_REQUEST_TITLE": "{{who}} möchte deine Wohnung besichtigen – möchtest du die Anfrage annehmen?",
         "ACCEPT_REQUEST": "<strong>Annehmen</strong> und Termin wählen",
-        "ACCEPT_REQUEST_CHAT": "Annehmen und <strong>chatten</strong>, um einen Termin zu vereinbaren",
+        "ACCEPT_REQUEST_CHAT": "<strong>Chat-Anfrage</strong> annehmen, um einen Termin zu vereinbaren",
         "REJECT_REQUEST": "Ablehnen",
         "NO_SELECTED_TIME": "Wähle einen Besichtigungstermin, um die Anfrage anzunehmen",
         "APPOINTMENT_SCHEDULED_FOR": {
@@ -660,9 +660,9 @@
         },
         "TIPS": {
             "SELECT_MANY_TIMESLOTS": {
-                "BEGIN": "Füge hinzu",
+                "BEGIN": "Füge",
                 "HIGHLIGHT": "deine Verfügbarkeit",
-                "END": "und erhöhe deine Chancen auf einen Termin!"
+                "END": "hinzu und erhöhe deine Chancen auf einen Termin!"
             },
             "SELECT_MANY_DAYS": {
                 "BEGIN": "Vielleicht sogar noch",
