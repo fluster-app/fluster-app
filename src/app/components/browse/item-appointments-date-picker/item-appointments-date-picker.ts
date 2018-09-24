@@ -10,10 +10,13 @@ import {TranslateService} from '@ngx-translate/core';
 
 import * as moment from 'moment';
 
+// Model
+import {PickAppointmentTime} from '../../../services/model/utils/pickAppointments';
+import {User} from '../../../services/model/user/user';
+
 // Resources and utils
 import {Comparator} from '../../../services/core/utils/utils';
 import {AbstractPickAppointments} from '../../core/pick-appointments/abstract-pick-appointments';
-import {PickAppointmentTime} from '../../../services/model/utils/pickAppointments';
 
 @Component({
     templateUrl: 'item-appointments-date-picker.html',
@@ -31,6 +34,8 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
     @Input() unavailableAppointmentDates: number[];
     @Input() rejectedAppointmentDates: number[]; // In case of to_reschedule appointments
     @Input() prefillAppointmentsStartTimes: number[];
+
+    @Input() itemUser: User;
 
     selectedAppointmentsStartTime: number[] = new Array();
 
@@ -72,7 +77,7 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
         promises.push(this.hasManyPossibleDays());
 
         forkJoin(promises).subscribe(
-            async(data: boolean[]) => {
+            async (data: boolean[]) => {
                 this.manyPossibleTimeSlots = data[0];
                 this.manyPossibleDays = data[1];
 
@@ -153,7 +158,7 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
     }
 
     private async displayAlertAtLeastOneAppointment() {
-        const header: string = this.translateService.instant('ITEM_APPOINTMENTS.SELECTED_COUNT.NO_SELECTED_BROWSE');
+        const header: string = this.translateService.instant('ITEM_APPOINTMENTS.SELECTED_COUNT.NO_SELECTED_BROWSE', {who: !Comparator.isEmpty(this.itemUser) && !Comparator.isEmpty(this.itemUser.facebook) ? this.itemUser.facebook.firstName : ''});
         const ok: string = this.translateService.instant('CORE.OK');
 
         const alert: HTMLIonAlertElement = await this.alertController.create({

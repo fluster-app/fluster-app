@@ -2,4 +2,5 @@
                                    [unavailableAppointmentDates]="initScheduledDates?.unavailableAppointmentDates"
                                    [rejectedAppointmentDates]="initScheduledDates?.rejectedAppointmentDates"
                                    [prefillAppointmentsStartTimes]="initScheduledDates?.previousSelectedAppointmentsStartTimes"
+                                   [itemUser]="item?.user"
                                    (notifiySelected)="schedule($event)"></app-item-appointments-date-picker>
