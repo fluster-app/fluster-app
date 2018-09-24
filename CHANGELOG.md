@@ -4,7 +4,7 @@
 ### Features
 
 * help users by prefilling automatically their schedule when requesting viewings ([#12](https://github.com/fluster/fluster-app/issues/12))
-* make viewings requests more flexible, allow requests without scedule ([#2](https://github.com/fluster/fluster-app/issues/2))
+* make viewings requests more flexible, allow requests without schedule ([#2](https://github.com/fluster/fluster-app/issues/2))
 * remove step appointments from wizard ([#6](https://github.com/fluster/fluster-app/issues/6))
 
 ### UX
