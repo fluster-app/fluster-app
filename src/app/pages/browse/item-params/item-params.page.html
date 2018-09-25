@@ -23,12 +23,12 @@
       <ion-row>
         <ion-col size="12">
           <ion-list no-margin>
-            <ion-item *ngIf="isAddressNotDefined()" tappable (click)="navigateToSearchLocation()" class="fluster-text-input-placeholder">
+            <ion-item *ngIf="isAddressNotDefined()" button (click)="navigateToSearchLocation()" class="fluster-text-input-placeholder">
               <ion-icon name="pin" slot="start"></ion-icon>
               <ion-label>{{'ITEM_PARAMS.LOCATION.LOCATION_PLACEHOLDER' | translate}}</ion-label>
             </ion-item>
 
-            <ion-item *ngIf="!isAddressNotDefined()" tappable (click)="navigateToSearchLocation()">
+            <ion-item *ngIf="!isAddressNotDefined()" button (click)="navigateToSearchLocation()">
               <ion-icon name="pin" slot="start"></ion-icon>
               <div text-wrap>
                 <ion-label>{{user.userParams.address.addressName}}</ion-label>

@@ -16,7 +16,7 @@
     <p text-center>{{'SELECT_ATTRIBUTES.FLOOR_TEXT' | translate}}</p>
 
     <ion-list padding-top>
-        <ion-item *ngFor="let selectedValue of floors" tappable (click)="selectAndNavigate(selectedValue)">
+        <ion-item *ngFor="let selectedValue of floors" button (click)="selectAndNavigate(selectedValue)">
             <app-display-floor [floor]="selectedValue"></app-display-floor>
         </ion-item>
     </ion-list>

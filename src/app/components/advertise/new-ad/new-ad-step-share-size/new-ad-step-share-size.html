@@ -9,11 +9,11 @@
         <div *ngIf="newItem != null && newItem.itemDetail != null && newItem.attributes != null">
             <ion-list class="padding-top-average" [formGroup]="sizeFormGroup">
                 <!-- How many rooms shared -->
-                <ion-item *ngIf="!isSharedroomsSelected()" tappable (click)="navigateToSharedRoomsSelection()" class="fluster-text-input-placeholder">
+                <ion-item *ngIf="!isSharedroomsSelected()" button (click)="navigateToSharedRoomsSelection()" class="fluster-text-input-placeholder">
                     <ion-label>{{'NEW_AD.STEP_SHARE_SIZE.SHAREDROOMS' | translate}}</ion-label>
                 </ion-item>
 
-                <ion-item *ngIf="isSharedroomsSelected()" tappable (click)="navigateToSharedRoomsSelection()">
+                <ion-item *ngIf="isSharedroomsSelected()" button (click)="navigateToSharedRoomsSelection()">
                     <ion-label>{{newItem.attributes.sharedRooms}} <app-label-singular-plural [value]="newItem.attributes.sharedRooms" [keyPlural]="'SELECT_ATTRIBUTES.SHARED_ROOMS'" [keySingular]="'SELECT_ATTRIBUTES.SHARED_ROOM'"></app-label-singular-plural></ion-label>
                 </ion-item>
 

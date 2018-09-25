@@ -6,7 +6,7 @@
 </div>
 
 <ion-list>
-    <ion-item *ngFor="let result of results" tappable (click)="selectLocation(result, result.geometry.location.lat, result.geometry.location.lng)">
+    <ion-item *ngFor="let result of results" button (click)="selectLocation(result, result.geometry.location.lat, result.geometry.location.lng)">
         <div text-wrap>
             <ion-label>{{result.formatted_address}}</ion-label>
         </div>

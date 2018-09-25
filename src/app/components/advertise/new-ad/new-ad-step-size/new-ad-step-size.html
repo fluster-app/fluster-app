@@ -11,11 +11,11 @@
         <div *ngIf="newItem != null && newItem.itemDetail != null && newItem.attributes != null" [formGroup]="sizeFormGroup">
             <ion-list class="padding-top-small">
                 <!-- Rooms in flat -->
-                <ion-item *ngIf="!isRoomsSelected()" tappable (click)="navigateToRoomSelection()" class="fluster-text-input-placeholder">
+                <ion-item *ngIf="!isRoomsSelected()" button (click)="navigateToRoomSelection()" class="fluster-text-input-placeholder">
                     <ion-label>{{'NEW_AD.STEP_SIZE.ROOMS' | translate}}</ion-label>
                 </ion-item>
 
-                <ion-item *ngIf="isRoomsSelected()" tappable (click)="navigateToRoomSelection()">
+                <ion-item *ngIf="isRoomsSelected()" button (click)="navigateToRoomSelection()">
                     <ion-label>{{newItem.attributes.rooms}} <app-label-singular-plural [value]="newItem.attributes.rooms" [keyPlural]="'SELECT_ATTRIBUTES.ROOMS'" [keySingular]="'SELECT_ATTRIBUTES.ROOM'"></app-label-singular-plural></ion-label>
                 </ion-item>
 
@@ -26,29 +26,29 @@
                 </ion-item>
 
                 <!-- Bathrooms -->
-                <ion-item *ngIf="!isBathroomsSelected()" tappable (click)="navigateToBathroomsSelection()" class="fluster-text-input-placeholder">
+                <ion-item *ngIf="!isBathroomsSelected()" button (click)="navigateToBathroomsSelection()" class="fluster-text-input-placeholder">
                     <ion-label>{{'NEW_AD.STEP_SIZE.BATHROOMS' | translate}}</ion-label>
                 </ion-item>
 
-                <ion-item *ngIf="isBathroomsSelected()" tappable (click)="navigateToBathroomsSelection()">
+                <ion-item *ngIf="isBathroomsSelected()" button (click)="navigateToBathroomsSelection()">
                     <ion-label>{{newItem.itemDetail.bathrooms}} <app-label-singular-plural [value]="newItem.itemDetail.bathrooms" [keyPlural]="'SELECT_ATTRIBUTES.BATHROOMS'" [keySingular]="'SELECT_ATTRIBUTES.BATHROOM'"></app-label-singular-plural></ion-label>
                 </ion-item>
 
                 <!-- How many people in shared flat -->
-                <ion-item *ngIf="isItemShare() && !isFlatmateSelected()" tappable (click)="navigateToFlatmateSelection()" class="fluster-text-input-placeholder">
+                <ion-item *ngIf="isItemShare() && !isFlatmateSelected()" button (click)="navigateToFlatmateSelection()" class="fluster-text-input-placeholder">
                     <ion-label>{{'NEW_AD.STEP_SHARE_SIZE.FLATMATE' | translate}}</ion-label>
                 </ion-item>
 
-                <ion-item *ngIf="isItemShare() && isFlatmateSelected()" tappable (click)="navigateToFlatmateSelection()">
+                <ion-item *ngIf="isItemShare() && isFlatmateSelected()" button (click)="navigateToFlatmateSelection()">
                     <ion-label>{{newItem.itemDetail.flatmate}} <app-label-singular-plural [value]="newItem.itemDetail.flatmate" [keyPlural]="'SELECT_ATTRIBUTES.FLATMATES'" [keySingular]="'SELECT_ATTRIBUTES.FLATMATE'"></app-label-singular-plural></ion-label>
                 </ion-item>
 
                 <!-- Flat's floor -->
-                <ion-item *ngIf="!isFloorSelected()" tappable (click)="navigateToFloorSelection()" class="fluster-text-input-placeholder">
+                <ion-item *ngIf="!isFloorSelected()" button (click)="navigateToFloorSelection()" class="fluster-text-input-placeholder">
                     <ion-label>{{'NEW_AD.STEP_SIZE.FLOOR' | translate}}</ion-label>
                 </ion-item>
 
-                <ion-item *ngIf="isFloorSelected()" tappable (click)="navigateToFloorSelection()">
+                <ion-item *ngIf="isFloorSelected()" button (click)="navigateToFloorSelection()">
                     <ion-label><app-display-floor [floor]="newItem.itemDetail.floor"></app-display-floor></ion-label>
                 </ion-item>
 

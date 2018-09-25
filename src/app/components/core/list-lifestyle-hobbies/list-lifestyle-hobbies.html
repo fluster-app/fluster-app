@@ -1,36 +1,36 @@
 <ion-list [class.list-ad-display]="adDisplay">
     <!-- Gender -->
-    <ion-item tappable (click)="navigateToGenderSelection()">
+    <ion-item button (click)="navigateToGenderSelection()">
         <ion-label position="fixed">{{'USER_PROFILE.LIFESTYLE.GENDER.TITLE' | translate}}</ion-label>
         <ion-label><app-display-lifestyle [key]="'GENDER'" [keyValue]="user.facebook.gender"></app-display-lifestyle></ion-label>
     </ion-item>
 
     <!-- Clean -->
-    <ion-item tappable (click)="navigateToCleanlinessSelection()">
+    <ion-item button (click)="navigateToCleanlinessSelection()">
         <ion-label position="fixed">{{'USER_PROFILE.LIFESTYLE.CLEANLINESS.TITLE' | translate}}</ion-label>
         <ion-label><app-display-lifestyle [key]="'CLEANLINESS'" [keyValue]="user.description?.lifestyle?.cleanliness"></app-display-lifestyle></ion-label>
     </ion-item>
 
     <!-- Guest -->
-    <ion-item tappable (click)="navigateToGuestsSelection()">
+    <ion-item button (click)="navigateToGuestsSelection()">
         <ion-label position="fixed">{{'USER_PROFILE.LIFESTYLE.GUESTS.TITLE' | translate}}</ion-label>
         <ion-label><app-display-lifestyle [key]="'GUESTS'" [keyValue]="user.description?.lifestyle?.guests"></app-display-lifestyle></ion-label>
     </ion-item>
 
     <!-- Party -->
-    <ion-item tappable (click)="navigateToPartySelection()">
+    <ion-item button (click)="navigateToPartySelection()">
         <ion-label position="fixed">{{'USER_PROFILE.LIFESTYLE.PARTY.TITLE' | translate}}</ion-label>
         <ion-label><app-display-lifestyle [key]="'PARTY'" [keyValue]="user.description?.lifestyle?.party"></app-display-lifestyle></ion-label>
     </ion-item>
 
     <!-- Food -->
-    <ion-item tappable (click)="navigateToFoodSelection()">
+    <ion-item button (click)="navigateToFoodSelection()">
         <ion-label position="fixed">{{'USER_PROFILE.LIFESTYLE.FOOD.TITLE' | translate}}</ion-label>
         <ion-label><app-display-lifestyle [key]="'FOOD'" [keyValue]="user.description?.lifestyle?.food"></app-display-lifestyle></ion-label>
     </ion-item>
 
     <!-- Hobbies -->
-    <ion-item tappable (click)="navigateToHobbiesSelection()">
+    <ion-item button (click)="navigateToHobbiesSelection()">
         <ion-label position="fixed">{{'USER_PROFILE.HOBBIES.TITLE' | translate}}</ion-label>
         <ion-label *ngIf="!hasHobbies()"><app-display-lifestyle></app-display-lifestyle></ion-label>
         <ion-label *ngIf="hasHobbies()">{{hobbiesSummary}}</ion-label>

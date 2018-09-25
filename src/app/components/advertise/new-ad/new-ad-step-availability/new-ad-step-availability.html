@@ -14,12 +14,12 @@
                 <ion-toggle [checked]="availableNow" (ionChange)="updateAvailableNow()"></ion-toggle>
             </ion-item>
 
-            <ion-item *ngIf="!isBeginDateSelected() && !availableNow" tappable (click)="openModal(true)" class="fluster-text-input-placeholder">
+            <ion-item *ngIf="!isBeginDateSelected() && !availableNow" button (click)="openModal(true)" class="fluster-text-input-placeholder">
                 <ion-icon name="calendar" slot="start"></ion-icon>
                 <ion-label>{{'NEW_AD.STEP_AVAILABILITY.PICK_DATE' | translate}}</ion-label>
             </ion-item>
 
-            <ion-item *ngIf="isBeginDateSelected() && !availableNow" tappable (click)="openModal(true)">
+            <ion-item *ngIf="isBeginDateSelected() && !availableNow" button (click)="openModal(true)">
                 <ion-icon name="calendar" slot="start"></ion-icon>
                 <ion-label><app-display-date [displayDate]="newItem.attributes.availability.begin"></app-display-date></ion-label>
             </ion-item>
@@ -30,12 +30,12 @@
                 <ion-toggle [checked]="unlimited"  (ionChange)="updateUnlimited()"></ion-toggle>
             </ion-item>
 
-            <ion-item *ngIf="!isEndDateSelected() && !unlimited" tappable (click)="openModal(false)" class="fluster-text-input-placeholder">
+            <ion-item *ngIf="!isEndDateSelected() && !unlimited" button (click)="openModal(false)" class="fluster-text-input-placeholder">
                 <ion-icon name="calendar" slot="start"></ion-icon>
                 <ion-label>{{'NEW_AD.STEP_AVAILABILITY.PICK_DATE' | translate}}</ion-label>
             </ion-item>
 
-            <ion-item *ngIf="isEndDateSelected() && !unlimited" tappable (click)="openModal(false)">
+            <ion-item *ngIf="isEndDateSelected() && !unlimited" button (click)="openModal(false)">
                 <ion-icon name="calendar" slot="start"></ion-icon>
                 <ion-label><app-display-date [displayDate]="newItem.attributes.availability.end"></app-display-date></ion-label>
             </ion-item>

@@ -24,7 +24,7 @@ ion-split-pane[class*="split-pane"].split-pane-visible ion-menu[menuid="menuAdve
 ion-content[role="ad"] {
     ion-item.in-list, ion-item-group ion-item {
         background-color: $fluster-midnight-blue;
-        border-color: $fluster-midnight-blue;
+        --background: $fluster-midnight-blue;
 
         ion-icon {
             color: $fluster-peach3;

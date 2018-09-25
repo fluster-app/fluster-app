@@ -99,12 +99,12 @@
                 <div class="padding-top-big sub-title">{{'ITEM_PARAMS.INTERESTS.ADDRESS_TITLE' | translate}}</div>
 
                 <ion-list *ngIf="interest != null" padding-top>
-                    <ion-item *ngIf="isInterestAddressNotDefined()" tappable (click)="changeLocation()" class="fluster-text-input-placeholder">
+                    <ion-item *ngIf="isInterestAddressNotDefined()" button (click)="changeLocation()" class="fluster-text-input-placeholder">
                         <ion-icon name="pin" slot="start"></ion-icon>
                         {{'ITEM_PARAMS.INTERESTS.ADDRESS_PLACEHOLDER' | translate}}
                     </ion-item>
 
-                    <ion-item *ngIf="!isInterestAddressNotDefined()" tappable (click)="changeLocation()">
+                    <ion-item *ngIf="!isInterestAddressNotDefined()" button (click)="changeLocation()">
                         <ion-icon name="pin" slot="start"></ion-icon>
                         {{interest.addressName}}
                     </ion-item>

@@ -15,13 +15,13 @@
 
     <ion-card *ngIf="hasUser()" id="school-work" no-shadow no-margin padding-start padding-end>
       <ion-list>
-        <ion-item tappable (click)="navigateToSelectWorkSchool(true)">
+        <ion-item button (click)="navigateToSelectWorkSchool(true)">
           <ion-label position="fixed">{{'USER_PROFILE.SELECT_WORK' | translate}}</ion-label>
           <ion-label *ngIf="hasWork()">{{user.description.employer}}</ion-label>
           <ion-label *ngIf="!hasWork()" class="inactive-school-work">{{'SELECT_SCHOOL_WORK.NONE' | translate}}</ion-label>
         </ion-item>
 
-        <ion-item tappable (click)="navigateToSelectWorkSchool(false)">
+        <ion-item button (click)="navigateToSelectWorkSchool(false)">
           <ion-label position="fixed">{{'USER_PROFILE.SELECT_SCHOOL' | translate}}</ion-label>
           <ion-label *ngIf="hasEducation()">{{user.description.school}}</ion-label>
           <ion-label *ngIf="!hasEducation()" class="inactive-school-work">{{'SELECT_SCHOOL_WORK.NONE' | translate}}</ion-label>
@@ -35,7 +35,7 @@
       </ion-card-header>
 
       <ion-list>
-        <ion-item tappable (click)="navigateToLang()">
+        <ion-item button (click)="navigateToLang()">
           <ion-label *ngIf="!hasLanguages()" class="language-empty">{{'USER_PROFILE.LIFESTYLE.NONE' | translate}}</ion-label>
           <ion-label *ngIf="hasLanguages()">{{languages}}</ion-label>
         </ion-item>
