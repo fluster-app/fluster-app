@@ -69,15 +69,7 @@ export class PickAdsAppointmentsComponent extends AbstractPickAppointments imple
         if (this.isAppointmentAlreadyTaken(currentAppointment)) {
             return 'lock';
         } else {
-            return currentAppointment.selected ? 'checkmark-circle' : 'radio-button-off';
-        }
-    }
-
-    actionToDisplay(currentAppointment: PickAppointmentTime): string {
-        if (this.isAppointmentAlreadyTaken(currentAppointment)) {
-            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.LOCK');
-        } else {
-            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.AVAILABLE');
+            return 'calendar';
         }
     }
 

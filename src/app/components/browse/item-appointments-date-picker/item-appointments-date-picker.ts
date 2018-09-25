@@ -179,16 +179,6 @@ export class ItemAppointmentsDatePickerComponent extends AbstractPickAppointment
         }
     }
 
-    actionToDisplay(currentAppointment: PickAppointmentTime): string {
-        if (this.isAppointmentAlreadyTaken(currentAppointment)) {
-            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.LOCK');
-        } else if (this.isAppointmentRejected(currentAppointment)) {
-            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.REJECTED');
-        } else {
-            return this.translateService.instant('ITEM_APPOINTMENTS.BUTTONS.ADD');
-        }
-    }
-
     isAppointmentAlreadyTaken(currentAppointment: PickAppointmentTime): boolean {
         return !Comparator.isEmpty(this.unavailableAppointmentDates) &&
             this.unavailableAppointmentDates.indexOf(currentAppointment.startTime.getTime()) > -1;

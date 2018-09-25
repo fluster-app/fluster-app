@@ -9,6 +9,12 @@ div.date-picker-scroller {
                     font-weight: $font-weight-normal;
                 }
             }
+
+            &.has-appointment:not(.selected-date) {
+                p {
+                    color: $fluster-peach3;
+                }
+            }
         }
 
         div {

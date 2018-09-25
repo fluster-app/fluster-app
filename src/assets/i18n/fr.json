@@ -680,12 +680,6 @@
                 "HIGHLIGHT": "une proposition",
                 "END": "de créneau horaire afin d'obtenir un rendez-vous"
             }
-        },
-        "BUTTONS": {
-            "ADD": "Ajouter",
-            "LOCK": "Occupé",
-            "REJECTED": "Refusé",
-            "AVAILABLE": "Disponible"
         }
     },
     "MY_APPOINTMENTS": {
