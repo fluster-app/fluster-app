@@ -20,7 +20,7 @@
     <ion-list padding (swipe)="swipeDatePicker($event)">
         <ion-item *ngFor="let currentAppointment of currentAppointments;" text-center>
             <p>
-                <app-display-date [calendarDisplay]="true" [displayDate]="currentAppointment.startTime" margin-end [class.appointment-already-taken]="isAppointmentAlreadyTaken(currentAppointment)" [class.appointment-in-the-past]="!isInTheFuture(currentAppointment)" [class.appointment-selected]="currentAppointment.selected"></app-display-date>
+                <app-display-date text-center [calendarDisplay]="true" [displayDate]="currentAppointment.startTime" margin-end [class.appointment-already-taken]="isAppointmentAlreadyTaken(currentAppointment)" [class.appointment-in-the-past]="!isInTheFuture(currentAppointment)" [class.appointment-selected]="currentAppointment.selected"></app-display-date>
                 <ion-button shape="round" fill="{{!currentAppointment.selected ? 'outline' : 'solid'}}" size="default" color="{{isAppointmentAlreadyTaken(currentAppointment) ? 'tertiary' : 'primary'}}" [class.appointment-selected]="currentAppointment.selected" (click)="selectUnselectAppointment(currentAppointment)" [disabled]="isAppointmentAlreadyTaken(currentAppointment) || !isInTheFuture(currentAppointment)">
                     <ion-icon slot="start" name="{{iconToDisplay(currentAppointment)}}"></ion-icon>
                     <ion-label>{{actionToDisplay(currentAppointment)}}</ion-label>

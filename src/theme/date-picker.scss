@@ -5,7 +5,9 @@ div.date-picker-scroller {
 
         > div {
             &.has-appointment {
-                color: $fluster-peach3;
+                p {
+                    font-weight: $font-weight-normal;
+                }
             }
         }
 
@@ -28,6 +30,7 @@ div.date-picker-scroller {
                     display: block;
                 }
             }
+
 
             span.triangle {
                 display: none;
