@@ -23,41 +23,31 @@ div.date-picker-scroller {
     ion-item {
       p {
         color: white;
+        font-size: $fluster-text-big;
 
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
 
-        app-display-date {
-          width: 40%;
-        }
-
-        ion-button {
-          --height: initial;
-          --border-width: 1px;
-          width: 60%;
-          --width: 94%;
-
-          &[fill="outline"] ion-icon {
-            color: inherit;
-          }
-
-          &[fill="solid"] ion-icon {
-            color: white;
-          }
-        }
-
-        .appointment-selected, &.appointment-selected.appointment-in-the-past {
+        &.appointment-selected, &.appointment-selected.appointment-in-the-past {
+          color: $fluster-peach3;
           font-weight: $font-weight-normal;
         }
 
-        .appointment-in-the-past {
+        &.appointment-in-the-past {
           color: $fluster-dark-blue;
         }
 
-        .appointment-already-taken, .appointment-selected.appointment-already-taken, .appointment-selected.appointment-in-the-past.appointment-already-taken {
+        &.appointment-already-taken, &.appointment-selected.appointment-already-taken, &.appointment-selected.appointment-in-the-past.appointment-already-taken {
           color: $fluster-peach1;
+        }
+
+        ion-icon {
+          vertical-align: middle;
+          margin-right: 8px;
+          font-size: 3rem;
+          color: inherit;
         }
       }
     }
