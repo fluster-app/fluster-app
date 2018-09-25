@@ -19,15 +19,11 @@ export class DisplayDateComponent {
 
     @Input() dateOrTime: boolean = false;
 
-    constructor() {
-
-    }
-
     getFormattedDate(): string {
         this.displayDate = Converter.getDateObj(this.displayDate);
 
         if (this.calendarDisplay) {
-            return this.displayDate != null ? moment(this.displayDate).calendar() : '';
+            return this.displayDate != null ? moment(this.displayDate).calendar(null, {sameElse : 'lll'}) : '';
         } else if (this.dateOrTime) {
             if (this.displayDate == null) {
                 return '';
