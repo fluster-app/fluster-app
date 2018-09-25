@@ -49,6 +49,7 @@
 <div #datePickerScrollY scrollY="true" id="datePickerScrollY">
     <ion-list no-padding (swipe)="swipeDatePicker($event)">
         <ion-item *ngFor="let currentAppointment of currentAppointments;" button (click)="selectUnselectAppointment(currentAppointment)" text-center>
+            <ion-ripple-effect></ion-ripple-effect>
             <p [class.appointment-already-taken]="isAppointmentAlreadyTaken(currentAppointment) || isAppointmentRejected(currentAppointment)" [class.appointment-in-the-past]="!isInTheFuture(currentAppointment)" [class.appointment-selected]="currentAppointment.selected">
                 <ion-icon slot="start" name="{{iconToDisplay(currentAppointment)}}"></ion-icon>
                 <app-display-date [calendarDisplay]="true" [displayDate]="currentAppointment.startTime"></app-display-date>
