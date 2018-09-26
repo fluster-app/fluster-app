@@ -16,7 +16,7 @@
     <p text-center>{{title | translate}}</p>
 
     <ion-list padding-top>
-        <ion-item *ngFor="let selectedValue of attributes" button (click)="selectAndNavigate(selectedValue)">
+        <ion-item *ngFor="let selectedValue of attributes" button detail="false" (click)="selectAndNavigate(selectedValue)">
             {{selectedValue}}&nbsp;<app-label-singular-plural [value]="selectedValue" [keyPlural]="labelPlural" [keySingular]="labelSingular"></app-label-singular-plural>
         </ion-item>
     </ion-list>
