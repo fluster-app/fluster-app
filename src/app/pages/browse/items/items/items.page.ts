@@ -521,18 +521,19 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
                             {
                                 text: data[2],
                                 handler: () => {
+                                    this.zone.run(() => {
+                                        if (like) {
+                                            this.likeInfoMsg = true;
+                                        } else {
+                                            this.dislikeInfoMsg = true;
+                                        }
 
-                                    if (like) {
-                                        this.likeInfoMsg = true;
-                                    } else {
-                                        this.dislikeInfoMsg = true;
-                                    }
+                                        const promise = like ? this.storageService.saveLikeInfoSeenOnce(true) : this.storageService.saveDislikeInfoSeenOnce(true);
 
-                                    const promise = like ? this.storageService.saveLikeInfoSeenOnce(true) : this.storageService.saveDislikeInfoSeenOnce(true);
+                                        promise.then(() => {
 
-                                    promise.then(() => {
-
-                                        this.likeDislike(like);
+                                            this.likeDislike(like);
+                                        });
                                     });
                                 }
                             }
