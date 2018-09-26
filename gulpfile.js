@@ -258,6 +258,10 @@ gulp.task('resources', function () {
         recursive: false,
         silent: false
     });
+
+    gulp.src('/Users/daviddalbusco/Documents/projects/reedrichards/resources/build.json')
+        .pipe(gulp.dest('./'));
+
 });
 
 // Switch index.html to PWA or Cordova
