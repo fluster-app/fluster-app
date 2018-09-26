@@ -1,5 +1,5 @@
 <a name="5.0.0-beta.7"></a>
-# [5.0.0-beta.7](https://github.com/fluster/fluster-app/v5.0.0-beta.6...v5.0.0-beta.7) (2018-09-26)
+# [5.0.0-beta.7](https://github.com/fluster/fluster-app/compare/v5.0.0-beta.6...v5.0.0-beta.7) (2018-09-26)
 
 ### UX
 
