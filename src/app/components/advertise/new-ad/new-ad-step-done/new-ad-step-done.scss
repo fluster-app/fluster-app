@@ -1,29 +1,6 @@
 @import "../new-ad.component";
 @import "../../../../../theme/fluster-variables";
 
-#infoMsgProfile {
-    h1, h2 {
-        font-family: 'Shadows Into Light';
-        color: $fluster-peach1;
-    }
-
-    h2 {
-        position: absolute;
-        top: 30px;
-        left: 72px;
-    }
-
-    div {
-        border-left: 3px solid $fluster-peach1;
-        height: 30px;
-        width: 40px;
-        border-radius: 0 0 0 100%;
-        position: absolute;
-        top: 12px;
-        left: 28px;
-    }
-}
-
 #rewardlegal {
     font-size: $fluster-text-normal;
     font-weight: $font-weight-light;
