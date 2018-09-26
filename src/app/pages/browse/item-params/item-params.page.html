@@ -43,7 +43,7 @@
               </ion-label>
             </ion-list-header>
 
-            <ion-item class="item-range">
+            <ion-item class="item-no-background">
               <ion-range [(ngModel)]="distance" min="15" max="99" debounce="300" (ionChange)="onDistanceChange($event)"></ion-range>
             </ion-item>
           </ion-list>
@@ -79,7 +79,7 @@
               <ion-label *ngIf="!hasPriceRange()">{{'ITEM_PARAMS.PRICE.EVERYTHING' | translate}}</ion-label>
             </ion-list-header>
 
-            <ion-item class="item-range">
+            <ion-item class="item-no-background">
               <ion-range [(ngModel)]="price" min="0" max="3999" debounce="300" (ionChange)="onPriceChange($event)"></ion-range>
             </ion-item>
           </ion-list>

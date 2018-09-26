@@ -153,6 +153,10 @@ ion-content[role="browse"], ion-content[role="ad"] {
 
     ion-item.in-list, ion-item-group ion-item {
         margin-bottom: 3px;
+
+        &.item-no-background {
+            --background: transparent;
+        }
     }
 
     ion-item {
