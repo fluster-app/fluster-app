@@ -141,7 +141,7 @@ gulp.task('revert-staging', function () {
 
 // Inject secret keys
 
-const replaceResources = ['./src/app/services/core/utils/resources.ts', './config.xml', './package.json'];
+const replaceResources = ['./src/app/services/core/utils/resources.ts', './config.xml', './package.json', './build.json'];
 const replaceLoginMockup = ['./src/app/pages/core/login/login.page.ts'];
 
 gulp.task('resources', function () {
@@ -228,8 +228,8 @@ gulp.task('resources', function () {
     });
 
     replace({
-        regex: "{{BRANCH_IOS_TEAM_RELEASE}}",
-        replacement: resources.BRANCH.IOS_TEAM_RELEASE,
+        regex: "{{IOS_TEAM_RELEASE}}",
+        replacement: resources.IOS.TEAM_RELEASE,
         paths: replaceResources,
         recursive: false,
         silent: false
@@ -258,9 +258,6 @@ gulp.task('resources', function () {
         recursive: false,
         silent: false
     });
-
-    gulp.src('/Users/daviddalbusco/Documents/projects/reedrichards/resources/build.json')
-        .pipe(gulp.dest('./'));
 
 });
 
