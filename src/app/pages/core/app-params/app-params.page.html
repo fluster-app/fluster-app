@@ -37,7 +37,7 @@
     </ion-card>
 
     <ion-card id="content" no-shadow>
-      <ion-item button (click)="openGithub()">
+      <ion-item button detail="false" (click)="openGithub()">
         <ion-label text-wrap text-center>Fluster is <strong>open source</strong>, released under the GNU Affero General Public License</ion-label>
       </ion-item>
 
@@ -76,7 +76,7 @@
 
     <ion-card no-shadow padding-top id="legal">
       <ion-item>
-        <a (click)="openTermsOfuser()">
+        <a (click)="openTermsOfuser()" no-margin>
           <ion-label text-wrap text-center>{{'APP_PARAMS.LEGAL' | translate}}</ion-label>
         </a>
       </ion-item>

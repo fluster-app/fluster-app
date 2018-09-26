@@ -32,7 +32,7 @@
 
 <ion-content padding role="browse">
 
-    <ion-slides #interestSlider pager="false" [options]="slideOptsOnlyExternal" (ionSlidesDidLoad)="sliderFirstSlide()" (ionSlideDidChange)="sliderFirstSlide()">
+    <ion-slides #interestSlider pager="false" [class.full-height]="firstSlide" [options]="slideOptsOnlyExternal" (ionSlidesDidLoad)="sliderFirstSlide()" (ionSlideDidChange)="sliderFirstSlide()">
         <ion-slide *ngIf="currentInterest == null">
             <div class="flex-content">
                 <ion-grid class="flex-grid" margin-bottom padding-bottom>
@@ -43,42 +43,42 @@
                     </ion-row>
 
                     <ion-row class="flex2">
-                        <ion-col size="6" size-sm="4" text-center>
+                        <ion-col size="6" size-xs="4" text-center>
                             <app-big-button (click)="selectTypeWork()"
                                             [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
                                             [icon]="'briefcase'" [label]="'ITEM_PARAMS.INTERESTS.WORK'">
                             </app-big-button>
                         </ion-col>
 
-                        <ion-col size="6" size-sm="4" text-center>
+                        <ion-col size="6" size-xs="4" text-center>
                             <app-big-button (click)="selectTypeTrain()"
                                             [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
                                             [icon]="'train'" [label]="'ITEM_PARAMS.INTERESTS.TRAIN_STATION'">
                             </app-big-button>
                         </ion-col>
 
-                        <ion-col size="6" size-sm="4" text-center>
+                        <ion-col size="6" size-xs="4" text-center>
                             <app-big-button (click)="selectTypeSchool()"
                                             [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
                                             [icon]="'book'" [label]="'ITEM_PARAMS.INTERESTS.SCHOOL'">
                             </app-big-button>
                         </ion-col>
 
-                        <ion-col size="6" size-sm="4" text-center>
+                        <ion-col size="6" size-xs="4" text-center>
                             <app-big-button (click)="selectTypeAirport()"
                                             [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
                                             [icon]="'airplane'" [label]="'ITEM_PARAMS.INTERESTS.AIRPORT'">
                             </app-big-button>
                         </ion-col>
 
-                        <ion-col size="6" size-sm="4" text-center>
+                        <ion-col size="6" size-xs="4" text-center>
                             <app-big-button (click)="selectTypeLove()"
                                             [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
                                             [icon]="'heart'" [label]="'ITEM_PARAMS.INTERESTS.LOVE'">
                             </app-big-button>
                         </ion-col>
 
-                        <ion-col size="6" size-sm="4" text-center>
+                        <ion-col size="6" size-xs="4" text-center>
                             <app-big-button (click)="selectTypeTraining()"
                                             [bigButton]="false" [mediumButton]="true" [mediumButtonItem]="true"
                                             [icon]="'trophy'" [label]="'ITEM_PARAMS.INTERESTS.TRAINING'">

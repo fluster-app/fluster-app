@@ -39,6 +39,7 @@
 <ion-footer role="ad">
   <ion-toolbar role="buttons" *ngIf="hasItem() && loaded" class="actions-buttons" padding-start padding-end>
     <ion-button expand="full" shape="round" (click)="shareAd()">
+      <ion-icon slot="start" name="share"></ion-icon>
       {{'ITEM_DETAILS.POPOVER.SHARE' | translate}}
     </ion-button>
   </ion-toolbar>

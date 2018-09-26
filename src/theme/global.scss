@@ -13,6 +13,7 @@ ion-content[role="menuad"], ion-content[role="menubrowse"] {
         ion-menu-toggle {
             ion-item {
                 --background: transparent;
+                --background-activated: transparent;
                 font-size: 2.6rem;
                 font-weight: $font-weight-light;
 
@@ -153,6 +154,10 @@ ion-content[role="browse"], ion-content[role="ad"] {
 
     ion-item.in-list, ion-item-group ion-item {
         margin-bottom: 3px;
+
+        &.item-no-background {
+            --background: transparent;
+        }
     }
 
     ion-item {

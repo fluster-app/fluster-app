@@ -40,12 +40,6 @@
     </ion-grid>
 </div>
 
-<div id="infoMsgProfile" *ngIf="!isEdit() && ENV_CORDOVA">
-    <h2>{{ 'ITEMS.FIRST_ACCESS.PROFILE' | translate }}</h2>
-
-    <div></div>
-</div>
-
 <div *ngIf="!ENV_CORDOVA">
     <app-web-social-share [show]="pwaShowShare" [share]="pwaShareOptions" (closed)="sharePWAClose()"></app-web-social-share>
 </div>

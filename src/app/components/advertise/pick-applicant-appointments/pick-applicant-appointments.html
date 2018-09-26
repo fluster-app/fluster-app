@@ -22,7 +22,7 @@
 
 <div #datePickerScrollY scrollY="true" id="datePickerScrollY">
     <ion-list no-padding (swipe)="swipeDatePicker($event)">
-        <ion-item *ngFor="let currentAppointment of currentAppointments;" button (click)="selectUnselectAppointment(currentAppointment)" text-center>
+        <ion-item *ngFor="let currentAppointment of currentAppointments;" button detail="false" (click)="selectUnselectAppointment(currentAppointment)" text-center>
             <ion-ripple-effect></ion-ripple-effect>
             <p [class.appointment-selected]="currentAppointment.selected">
                 <ion-icon slot="start" name="{{currentAppointment.selected ? 'checkmark-circle' : 'radio-button-off'}}"></ion-icon>

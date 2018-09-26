@@ -35,7 +35,7 @@ export class UserProfileInputBioComponent {
 
     private addContentPadding = (event: any) => {
         if (this.content && this.userBio) {
-            this.content.scrollToPoint(0, this.userBio.nativeElement.offsetTop - 80);
+            this.content.scrollToPoint(0, this.userBio.nativeElement.offsetParent.offsetTop - 80);
         }
     }
 

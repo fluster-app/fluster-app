@@ -1,10 +1,10 @@
 {
   "ios": {
     "debug": {
-      "developmentTeam": "BE88ABJS2W"
+      "developmentTeam": "{{IOS_TEAM_RELEASE}}"
     },
     "release": {
-      "developmentTeam": "BE88ABJS2W"
+      "developmentTeam": "{{IOS_TEAM_RELEASE}}"
     }
   }
 }

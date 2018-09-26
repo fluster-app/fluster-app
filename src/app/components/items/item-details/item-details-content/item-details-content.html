@@ -212,7 +212,7 @@
             </span>
 
             <ion-list *ngIf="yelpBusinesses != null && hasYelpData()" no-lines id="yelp-businesses-list">
-                <ion-item *ngFor="let yelpBusiness of yelpBusinesses | orderYelpBusinessesByDistance" text-wrap tappable (click)="openYelpModal(yelpBusiness)">
+                <ion-item *ngFor="let yelpBusiness of yelpBusinesses | orderYelpBusinessesByDistance" text-wrap button detail="false" (click)="openYelpModal(yelpBusiness)" class="item-no-background">
 
                     <ion-thumbnail slot="start" text-center>
                         <ion-icon name="pin"></ion-icon>
