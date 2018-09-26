@@ -29,6 +29,10 @@ ion-content[role="browse"] {
     ion-item.in-list, ion-item-group ion-item {
         background-color: $fluster-light-grey;
         --background: #{$fluster-light-grey};
+
+      &.item-range {
+        --background: transparent;
+      }
     }
 
     ion-searchbar input.searchbar-input {
