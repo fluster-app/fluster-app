@@ -3,7 +3,10 @@
 @import "../../../../theme/mixins";
 
 ion-slides {
-    height: 100%;
+
+    &.full-height {
+      height: 100%;
+    }
 
     div.flex-content {
         width: 100%;
