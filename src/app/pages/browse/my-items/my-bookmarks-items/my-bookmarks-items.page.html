@@ -23,7 +23,7 @@
   <div *ngIf="hasItems()" class="big-screen-content">
     <ion-list #slidingList>
       <ion-item-sliding *ngFor="let itemCard of itemCards; let i=index;">
-        <ion-item class="my-bookmarks" [class.unavailable]="!itemStillAvalaible(itemCard.item) || itemEnded(itemCard)" button (click)="navigateToDetail(itemCard, i, '/my-bookmarks-items')">
+        <ion-item class="my-bookmarks" [class.unavailable]="!itemStillAvalaible(itemCard.item) || itemEnded(itemCard)" button (click)="navigateToDetail(itemCard, i, '/my-bookmarks-items')" class="item-no-background">
             <ion-avatar slot="start" class="big-avatar">
                 <app-user-profile-img-list *ngIf="isItemShare(itemCard)" [facebook]="itemCard.item.user.facebook" [google]="itemCard.item.user.google" [starred]="isItemStarred(itemCard)"></app-user-profile-img-list>
                 <app-image-loader *ngIf="!isItemShare(itemCard)" [src]="RESOURCES.AWS.S3_URL + '/' + itemCard.item.source + '/' + itemCard.item.hashId + '/' + itemCard.item.mainPhoto"></app-image-loader>

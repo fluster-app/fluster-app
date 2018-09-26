@@ -7,7 +7,7 @@ ion-content[role="ad"], ion-content[role="menuad"] {
 // menu
 
 ion-content[role="menuad"], ion-content[role="ad"] {
-    background: $fluster-dark-blue;
+    --background: #{$fluster-dark-blue};
     color: white;
 
     ion-list {
@@ -25,6 +25,7 @@ ion-content[role="ad"] {
     ion-item.in-list, ion-item-group ion-item {
         background-color: $fluster-midnight-blue;
         --background: #{$fluster-midnight-blue};
+        --background-activated: #{$fluster-midnight-blue};
         --detail-push-color: #{$fluster-grey-blue};
 
         ion-icon {
