@@ -386,6 +386,9 @@ export class SelectInterestModal extends AbstractModal {
 
         const activeIndex: number = await this.slider.getActiveIndex();
         this.displayFooterButtons = (activeIndex === (this.currentInterest == null ? 1 : 0));
+
+        // TODO: Remove once https://github.com/ionic-team/ionic/issues/15766 is solved
+        await this.slider.stopAutoplay();
     }
 
 }

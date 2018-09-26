@@ -13,6 +13,7 @@ ion-content[role="menuad"], ion-content[role="menubrowse"] {
         ion-menu-toggle {
             ion-item {
                 --background: transparent;
+                --background-activated: transparent;
                 font-size: 2.6rem;
                 font-weight: $font-weight-light;
 

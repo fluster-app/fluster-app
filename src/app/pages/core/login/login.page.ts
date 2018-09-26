@@ -1,6 +1,6 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
-import {MenuController, ToastController, Platform, NavController} from '@ionic/angular';
+import {MenuController, ToastController, Platform, NavController, Slides} from '@ionic/angular';
 
 import {Subscription} from 'rxjs';
 
@@ -42,6 +42,8 @@ import {LoginNavParams, NavParamsService} from '../../../services/core/navigatio
     styleUrls: ['./login.page.scss']
 })
 export class LoginPage extends AbstractDeepLinkingNavigationPage implements OnInit {
+
+    @ViewChild('loginSlider') slider: Slides;
 
     notAuthorized: boolean = false;
 
@@ -252,6 +254,11 @@ export class LoginPage extends AbstractDeepLinkingNavigationPage implements OnIn
 
     private googleLoginError = (error: any) => {
         this.displayError(error, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.ERROR_LOGIN.GOOGLE_LOGIN);
+    }
+
+    // TODO: Remove once https://github.com/ionic-team/ionic/issues/15766 is solved
+    async stopSlideAutoplay() {
+        await this.slider.stopAutoplay();
     }
 
 }

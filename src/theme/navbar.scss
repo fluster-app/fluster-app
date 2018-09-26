@@ -12,10 +12,14 @@ ion-header ion-toolbar {
   ion-button {
     --color: white;
     --ion-color-primary: white;
+
+    &.activated {
+      --opacity: 0.6;
+    }
   }
 
   ion-back-button[class*="sc-ion-back-button"] {
-    --ion-color-base: white;
+    --color: white;
   }
 
   ion-buttons[class*="sc-ion-buttons-ios"] {

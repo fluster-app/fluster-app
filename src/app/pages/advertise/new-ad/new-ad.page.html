@@ -19,7 +19,7 @@
 
 <ion-content role="ad" [forceOverscroll]="true">
 
-  <ion-slides #newAdSlider pager="false" [options]="slideOptsOnlyExternal">
+  <ion-slides #newAdSlider pager="false" [options]="slideOptsOnlyExternal" (ionSlidesDidLoad)="stopSlideAutoplay()">
     <ion-slide *ngIf="!isEditMode()">
       <app-new-ad-step-type [slider]="slider" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-type>
     </ion-slide>
