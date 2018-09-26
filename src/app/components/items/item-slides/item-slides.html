@@ -1,5 +1,5 @@
 <div class="slides-container">
-    <ion-slides #itemSlider pager="true" [options]="sliderOnlyExternal ? slideOptsProgressbarOnlyExternal : slideOptsProgressbar" id="itemSlider" *ngIf="renderSlides" (ionSlideTap)="prevNextPhotos($event)" (ionSlideTransitionEnd)="nextSlide()" [class.expired]="isItemExpire()" [class.slide-advertiser]="displayAdvertiserSlide && isItemShare() && !displayAdvertiserAvatar" [class.max-slide-height]="displayLimitedAndLightbox">
+    <ion-slides #itemSlider pager="true" [options]="sliderOnlyExternal ? slideOptsProgressbarOnlyExternal : slideOptsProgressbar" id="itemSlider" *ngIf="renderSlides" (ionSlidesDidLoad)="stopSlideAutoplay()" (ionSlideTap)="prevNextPhotos($event)" (ionSlideTransitionEnd)="nextSlide()" [class.expired]="isItemExpire()" [class.slide-advertiser]="displayAdvertiserSlide && isItemShare() && !displayAdvertiserAvatar" [class.max-slide-height]="displayLimitedAndLightbox">
 
         <ion-slide *ngIf="displayAdvertiserSlide && isItemShare()">
             <app-advertiser-info-slide [user]="item.user" [starred]="isItemStarred()"></app-advertiser-info-slide>
