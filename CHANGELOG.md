@@ -1,3 +1,15 @@
+<a name="5.0.0-rc.0"></a>
+# [5.0.0-rc.0](https://github.com/fluster/fluster-app/compare/v5.0.0-beta.7...v5.0.0-rc.0) (2018-09-27)
+
+### UX
+
+* add ripple effect to date picker ([#14](https://github.com/fluster/fluster-app/issues/14))
+* on Android, don't apply the parallax effect on item details ([#1](https://github.com/fluster/fluster-app/issues/1))
+
+### Fixes
+
+* better handle some uncatched promises return ([#19](https://github.com/fluster/fluster-app/issues/19))
+
 <a name="5.0.0-beta.7"></a>
 # [5.0.0-beta.7](https://github.com/fluster/fluster-app/compare/v5.0.0-beta.6...v5.0.0-beta.7) (2018-09-26)
 
