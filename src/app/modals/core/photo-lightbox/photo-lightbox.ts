@@ -78,9 +78,6 @@ export class PhotoLightboxModal extends AbstractModal {
         this.begin = await this.slides.isBeginning();
 
         this.end = await this.slides.isEnd();
-
-        // TODO: Remove once https://github.com/ionic-team/ionic/issues/15766 is solved
-        await this.slides.stopAutoplay();
     }
 
 }

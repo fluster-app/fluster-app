@@ -282,9 +282,4 @@ export class NewAdPage extends AbstractPage implements OnInit {
         // Slider need to be updated when slide are manually added or removed
         await this.slider.update();
     }
-
-    // TODO: Remove once https://github.com/ionic-team/ionic/issues/15766 is solved
-    async stopSlideAutoplay() {
-        await this.slider.stopAutoplay();
-    }
 }

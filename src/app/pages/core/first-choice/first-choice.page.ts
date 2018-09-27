@@ -284,9 +284,4 @@ export class FirstChoicePage extends AbstractPage {
         this.firstSlide = true;
     }
 
-    // TODO: Remove once https://github.com/ionic-team/ionic/issues/15766 is solved
-    async stopSlideAutoplay() {
-        await this.slider.stopAutoplay();
-    }
-
 }

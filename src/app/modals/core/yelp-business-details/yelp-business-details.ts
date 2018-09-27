@@ -1,6 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
-import {Slides} from '@ionic/angular';
 
 // Model
 import {Item} from '../../../services/model/item/item';
@@ -22,8 +21,6 @@ import {ModalController, NavParams, Platform} from '@ionic/angular';
     selector: 'app-yelp-business-details'
 })
 export class YelpBusinessDetailsModal extends AbstractModal {
-
-    @ViewChild('yelpSlider') slider: Slides;
 
     item: Item;
 
@@ -85,10 +82,5 @@ export class YelpBusinessDetailsModal extends AbstractModal {
 
     hasPhone(): boolean {
         return this.yelpBusiness != null && !Comparator.isStringEmpty(this.yelpBusiness.phone);
-    }
-
-    // TODO: Remove once https://github.com/ionic-team/ionic/issues/15766 is solved
-    async stopSlideAutoplay() {
-        await this.slider.stopAutoplay();
     }
 }

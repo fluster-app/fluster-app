@@ -270,9 +270,4 @@ export class AdminAppointmentsPage extends AbstractPage implements OnInit {
         });
     }
 
-    // TODO: Remove once https://github.com/ionic-team/ionic/issues/15766 is solved
-    async stopSlideAutoplay() {
-        await this.slider.stopAutoplay();
-    }
-
 }

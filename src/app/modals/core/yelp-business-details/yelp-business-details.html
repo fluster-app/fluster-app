@@ -16,7 +16,7 @@
         <ion-spinner ion-text color="primary"></ion-spinner>
     </div>
 
-    <ion-slides #yelpSlider pager="true" *ngIf="yelpImages != null" (ionSlidesDidLoad)="stopSlideAutoplay()">
+    <ion-slides #yelpSlider pager="true" *ngIf="yelpImages != null" [options]="slideOptsProgressbar">
         <ion-slide *ngFor="let yelpImgUrl of yelpImages;">
             <app-image-loader [src]="yelpImgUrl"></app-image-loader>
         </ion-slide>

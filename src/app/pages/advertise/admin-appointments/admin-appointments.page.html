@@ -22,7 +22,7 @@
 
   <div ion-fixed *ngIf="loaded">
 
-    <ion-slides #adsAdminAppointmentsSlider pager="false" [options]="slideOptsOnlyExternal" (ionSlidesDidLoad)="stopSlideAutoplay()">
+    <ion-slides #adsAdminAppointmentsSlider pager="false" [options]="slideOptsOnlyExternal">
       <ion-slide *ngIf="itemEndCouldBeExtended && item != null">
         <div padding class="flex-content big-screen-content">
 

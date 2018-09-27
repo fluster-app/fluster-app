@@ -217,9 +217,4 @@ export class ItemSlidesComponent extends AbstractPage implements OnChanges {
         await modal.present();
     }
 
-    // TODO: Remove once https://github.com/ionic-team/ionic/issues/15766 is solved
-    async stopSlideAutoplay() {
-        await this.slides.stopAutoplay();
-    }
-
 }
