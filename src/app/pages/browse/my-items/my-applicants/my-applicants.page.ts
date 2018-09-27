@@ -100,7 +100,7 @@ export class MyApplicantsPage extends MyItemsPage {
                 }
             });
 
-            modal.present();
+            await modal.present();
         }
     }
 

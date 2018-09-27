@@ -144,7 +144,7 @@ export class UserProfilePage extends AbstractPage {
             this.initLanguages();
         });
 
-        modal.present();
+        await modal.present();
     }
 
     hasLikes(): boolean {
@@ -181,7 +181,7 @@ export class UserProfilePage extends AbstractPage {
             }
         });
 
-        modal.present();
+        await modal.present();
     }
 
     updateSpotify(userSpotify: UserDescriptionSpotify) {

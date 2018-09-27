@@ -238,7 +238,7 @@ export class ItemDetailsPage extends AbstractItemsPage {
             }
         });
 
-        modal.present();
+        await modal.present();
     }
 
     private async removeItemAndNavigate(removeItem: boolean) {

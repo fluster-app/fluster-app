@@ -523,7 +523,7 @@ export class ChatPage extends AbstractPage implements OnInit {
             // Do nothing
         });
 
-        modal.present();
+        await modal.present();
     }
 
     async presentActionSheet(ev) {

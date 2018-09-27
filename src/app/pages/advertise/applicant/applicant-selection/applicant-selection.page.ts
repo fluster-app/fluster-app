@@ -309,7 +309,7 @@ export class ApplicantSelectionPage extends AbstractApplicantSelectionPage {
             }
         });
 
-        modal.present();
+        await modal.present();
     }
 
     doReschedule() {

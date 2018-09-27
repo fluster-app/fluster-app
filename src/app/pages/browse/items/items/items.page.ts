@@ -361,7 +361,7 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
                 this.actionJobIsDone();
             });
 
-            modal.present();
+            await modal.present();
         }
     }
 
@@ -625,7 +625,7 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
             this.displayInfoCompleteProfile();
         });
 
-        modal.present();
+        await modal.present();
     }
 
     private redoStack() {
@@ -709,7 +709,7 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
                 }
             });
 
-            modal.present();
+            await modal.present();
         }
     }
 

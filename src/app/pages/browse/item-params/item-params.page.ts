@@ -114,7 +114,7 @@ export class ItemParamsPage extends AbstractItemsPage implements OnInit {
             }
         });
 
-        modal.present();
+        await modal.present();
     }
 
     private updateUserParamsAddress(currentLocation: Address) {
