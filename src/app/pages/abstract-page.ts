@@ -227,9 +227,9 @@ export abstract class AbstractPage {
         return title;
     }
 
-    protected enableMenu(menuController: MenuController, menuBrowse: boolean, menuAdvertise: boolean) {
-        menuController.enable(menuBrowse, 'menuBrowse');
-        menuController.enable(menuAdvertise, 'menuAdvertise');
+    protected async enableMenu(menuController: MenuController, menuBrowse: boolean, menuAdvertise: boolean) {
+        await menuController.enable(menuBrowse, 'menuBrowse');
+        await menuController.enable(menuAdvertise, 'menuAdvertise');
     }
 
     protected gaTrackView(platform: Platform, googleAnalyticsNativeService: GoogleAnalyticsNativeService, viewName: string) {
