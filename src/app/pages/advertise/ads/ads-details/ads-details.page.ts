@@ -66,8 +66,8 @@ export class AdsDetailsPage extends AbstractAdsPage {
         this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.ADS_DETAILS);
     }
 
-    ionViewWillEnter() {
-        this.enableMenu(this.menuController, false, true);
+    async ionViewWillEnter() {
+        await this.enableMenu(this.menuController, false, true);
 
         this.initAdsItems();
     }

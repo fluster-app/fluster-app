@@ -49,12 +49,12 @@ export class MyAppointmentsItemsPage extends MyItemsPage {
         this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ITEMS.MY_APPOINTMENTS);
     }
 
-    ionViewWillEnter() {
+    async ionViewWillEnter() {
         super.init();
 
         this.hideSplashScreen(this.platform, this.splashScreen, this.loginService);
 
-        this.enableMenu(this.menuController, true, false);
+        await this.enableMenu(this.menuController, true, false);
     }
 
     doSaveUserIfNeeded() {

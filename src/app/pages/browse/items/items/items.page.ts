@@ -152,10 +152,10 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
         });
     }
 
-    ionViewWillEnter() {
+    async ionViewWillEnter() {
         this.hideSplashScreen(this.platform, this.splashScreen, this.loginService);
 
-        this.enableMenu(this.menuController, true, false);
+        await this.enableMenu(this.menuController, true, false);
 
         this.user = this.userSessionService.getUser();
 

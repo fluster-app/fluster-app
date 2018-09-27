@@ -85,7 +85,7 @@ export class LoginPage extends AbstractDeepLinkingNavigationPage implements OnIn
             this.notAuthorized = true;
         }
 
-        this.enableMenu(this.menuController, false, false);
+        await this.enableMenu(this.menuController, false, false);
 
         this.loginInteractingSubscription = this.loginService.watchLoginInteracting().subscribe((loginInteracting: boolean) => {
             this.interacting = loginInteracting;

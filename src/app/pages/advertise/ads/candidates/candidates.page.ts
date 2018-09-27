@@ -88,8 +88,8 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
         }
     }
 
-    ionViewWillEnter() {
-        this.enableMenu(this.menuController, false, true);
+    async ionViewWillEnter() {
+        await this.enableMenu(this.menuController, false, true);
     }
 
     private findCandidates(): Promise<{}> {

@@ -116,7 +116,7 @@ export class ItemDetailsPage extends AbstractItemsPage {
             const itemDetailsNavParams: ItemDetailsNavParams = await this.navParamsService.getItemDetailsNavParams();
             const deeplink: boolean = itemDetailsNavParams.deeplink;
             if (deeplink != null && deeplink) {
-                this.enableMenu(this.menuController, true, false);
+                await this.enableMenu(this.menuController, true, false);
                 this.srcDeeplink = true;
             }
 

@@ -86,12 +86,12 @@ export class ApplicantsPage extends AbstractAdsPage {
         this.initialized = false;
     }
 
-    ionViewWillEnter() {
+    async ionViewWillEnter() {
         this.init();
 
         this.hideSplashScreen(this.platform, this.splashScreen, this.loginService);
 
-        this.enableMenu(this.menuController, false, true);
+        await this.enableMenu(this.menuController, false, true);
     }
 
     ionViewDidEnter() {

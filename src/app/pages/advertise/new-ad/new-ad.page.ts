@@ -68,8 +68,8 @@ export class NewAdPage extends AbstractPage implements OnInit {
         super();
     }
 
-    ngOnInit() {
-        this.initNavigation();
+    async ngOnInit() {
+        await this.initNavigation();
 
         this.overrideHardwareBackAction();
     }
@@ -87,7 +87,7 @@ export class NewAdPage extends AbstractPage implements OnInit {
     async ionViewDidEnter() {
         if (this.newItemService.isDone()) {
             // We may comeback from profile
-            this.enableMenu(this.menuController, false, true);
+            await this.enableMenu(this.menuController, false, true);
             return;
         }
 
@@ -118,13 +118,13 @@ export class NewAdPage extends AbstractPage implements OnInit {
     private overrideHardwareBackAction() {
         this.platform.ready().then(() => {
             this.customBackActionSubscription = this.platform.backButton.subscribe(() => {
-                this.modalController.getTop().then((element: HTMLIonModalElement) => {
+                this.modalController.getTop().then(async (element: HTMLIonModalElement) => {
                     // A modal might be open, in such a case we are closing it with the back button we don't need to navigate
                     if (!element) {
                         const activeView: string = this.location.path();
 
                         if (activeView != null && activeView.indexOf('/new-ad') > -1) {
-                            this.backToPreviousSlide();
+                            await this.backToPreviousSlide();
                         } else {
                             this.location.back();
                         }
@@ -134,9 +134,9 @@ export class NewAdPage extends AbstractPage implements OnInit {
         });
     }
 
-    private initNavigation() {
+    private async initNavigation() {
         // Disable menu
-        this.enableMenu(this.menuController, false, false);
+        await this.enableMenu(this.menuController, false, false);
     }
 
     async backToPreviousSlide() {
@@ -183,11 +183,11 @@ export class NewAdPage extends AbstractPage implements OnInit {
             const user: User = this.userSessionService.getUser();
 
             this.userProfileService.saveIfModified(user).then((updatedUser: User) => {
-                this.newItemService.saveNewItem().then(() => {
+                this.newItemService.saveNewItem().then(async () => {
                     // Save new item in actual session
                     this.adsService.setSelectedItem(this.newItemService.getNewItem());
 
-                    this.navigateToDone();
+                    await this.navigateToDone();
                 }, (errorResponse: HttpErrorResponse) => {
                     this.displayPublishError(errorResponse);
                 });
@@ -213,13 +213,13 @@ export class NewAdPage extends AbstractPage implements OnInit {
         }
     }
 
-    private navigateToDone() {
+    private async navigateToDone() {
         if (this.ENV_CORDOVA) {
             // On big screen the slide not gonna be displayed correctly
-            this.enableMenu(this.menuController, false, true);
+            await this.enableMenu(this.menuController, false, true);
         }
 
-        this.updateSlider();
+        await this.updateSlider();
 
         this.loading.dismiss().then(() => {
             this.slider.slideNext();
@@ -239,7 +239,7 @@ export class NewAdPage extends AbstractPage implements OnInit {
     async navigateToAdminAppointments() {
         this.navParamsService.setAdminAppointmentsNavParams({menuToggle: true});
         await this.navController.navigateRoot('/admin-appointments', true);
-        this.enableMenu(this.menuController, false, true);
+        await this.enableMenu(this.menuController, false, true);
     }
 
     // HACK: Fck it, Load incrementaly these steps for devices with small memory which could not handle a important load on load of the slides

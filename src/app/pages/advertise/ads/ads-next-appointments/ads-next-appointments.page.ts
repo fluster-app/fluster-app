@@ -76,12 +76,12 @@ export class AdsNextAppointmentsPage extends AbstractAdsPage {
         this.lastPageReached = false;
     }
 
-    ionViewWillEnter() {
+    async ionViewWillEnter() {
         this.initAdsItems();
 
         this.hideSplashScreen(this.platform, this.splashScreen, this.loginService);
 
-        this.enableMenu(this.menuController, false, true);
+        await this.enableMenu(this.menuController, false, true);
     }
 
     ionViewWillLeave() {
