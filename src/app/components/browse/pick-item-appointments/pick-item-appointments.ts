@@ -86,12 +86,12 @@ export class PickItemAppointmentsComponent extends AbstractItemsPage {
         const loading: HTMLIonLoadingElement = await this.loadingController.create({});
 
         loading.present().then(() => {
-            this.doSchedule().then(() => {
+            this.doSchedule().then(async () => {
                 this.notifiyScheduled.emit();
-                loading.dismiss();
-            }, (error: HttpErrorResponse) => {
-                loading.dismiss();
-                this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEMS.ACTION_ERROR');
+                await loading.dismiss();
+            }, async (error: HttpErrorResponse) => {
+                await loading.dismiss();
+                await this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEMS.ACTION_ERROR');
             });
         });
     }

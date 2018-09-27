@@ -64,24 +64,24 @@ export abstract class AbstractAdsPage extends AbstractPage {
     protected navigateToWizard(loading: HTMLIonLoadingElement) {
         if (this.platform.is('cordova')) {
             this.localFilesService.removeDir().then(() => {
-                this.navController.navigateForward('/new-ad').then(() => {
-                    loading.dismiss();
-                }, (err: any) => {
-                    loading.dismiss();
+                this.navController.navigateForward('/new-ad').then(async () => {
+                    await loading.dismiss();
+                }, async (err: any) => {
+                    await loading.dismiss();
                 });
             }, (err: any) => {
                 // We could live if the directory and tmp files weren't deleted
-                this.navController.navigateForward('/new-ad').then(() => {
-                    loading.dismiss();
-                }, (error: any) => {
-                    loading.dismiss();
+                this.navController.navigateForward('/new-ad').then(async () => {
+                    await loading.dismiss();
+                }, async (error: any) => {
+                    await loading.dismiss();
                 });
             });
         } else {
-            this.navController.navigateForward('/new-ad').then(() => {
-                loading.dismiss();
-            }, (err: any) => {
-                loading.dismiss();
+            this.navController.navigateForward('/new-ad').then(async () => {
+                await loading.dismiss();
+            }, async (err: any) => {
+                await loading.dismiss();
             });
         }
     }

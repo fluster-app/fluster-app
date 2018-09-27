@@ -202,12 +202,12 @@ export class ChatPage extends AbstractPage implements OnInit {
                         // New chat, there is no last msg to read
                         this.lastMsgUpdated = true;
                     });
-                }, (err: HttpErrorResponse) => {
-                    this.errorMsg(this.toastController, this.translateService, 'ERRORS.CHAT.NOT_LOADED');
+                }, async (err: HttpErrorResponse) => {
+                    await this.errorMsg(this.toastController, this.translateService, 'ERRORS.CHAT.NOT_LOADED');
                 });
             }
-        }, (err: HttpErrorResponse) => {
-            this.errorMsg(this.toastController, this.translateService, 'ERRORS.CHAT.NOT_LOADED');
+        }, async (err: HttpErrorResponse) => {
+            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.CHAT.NOT_LOADED');
         });
     }
 
@@ -258,8 +258,8 @@ export class ChatPage extends AbstractPage implements OnInit {
                 this.message = null;
 
                 resolve();
-            }, (err: HttpErrorResponse) => {
-                this.errorMsg(this.toastController, this.translateService, 'ERRORS.CHAT.NOT_SENT');
+            }, async (err: HttpErrorResponse) => {
+                await this.errorMsg(this.toastController, this.translateService, 'ERRORS.CHAT.NOT_SENT');
                 resolve();
             });
         });
@@ -312,8 +312,8 @@ export class ChatPage extends AbstractPage implements OnInit {
 
                 this.loading = false;
                 resolve();
-            }, (err: HttpErrorResponse) => {
-                this.errorMsg(this.toastController, this.translateService, 'ERRORS.CHAT.NOTHING_FOUND');
+            }, async (err: HttpErrorResponse) => {
+                await this.errorMsg(this.toastController, this.translateService, 'ERRORS.CHAT.NOTHING_FOUND');
                 this.lastPageReached = true;
                 this.loading = false;
                 resolve();

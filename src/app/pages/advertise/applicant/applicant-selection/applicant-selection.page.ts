@@ -453,8 +453,8 @@ export class ApplicantSelectionPage extends AbstractApplicantSelectionPage {
     private createComplaint(reason: string) {
         this.complaintService.userComplaint(this.applicant.user, reason).then((result: boolean) => {
             // Do nothing
-        }, (response: HttpErrorResponse) => {
-            this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEM_DETAILS.COMPLAINT');
+        }, async (response: HttpErrorResponse) => {
+            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEM_DETAILS.COMPLAINT');
         });
     }
 

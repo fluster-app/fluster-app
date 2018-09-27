@@ -124,20 +124,20 @@ export class CandidateDetailsPage extends AbstractPage {
                 this.isCandidateAlreadyApplicant().then((resultAlready: boolean) => {
                     if (!resultAlready) {
                         this.sendNotification().then(() => {
-                            this.navBack().then(() => {
-                                loading.dismiss();
+                            this.navBack().then(async () => {
+                                await loading.dismiss();
                             });
                         });
                     } else {
                         // We don't want to send a notification in case the applicant already have send his application
-                        this.navBack().then(() => {
-                            loading.dismiss();
+                        this.navBack().then(async () => {
+                            await loading.dismiss();
                         });
                     }
                 });
-            }, (response: HttpErrorResponse) => {
-                this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEMS.ACTION_ERROR');
-                loading.dismiss();
+            }, async (response: HttpErrorResponse) => {
+                await loading.dismiss();
+                await this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEMS.ACTION_ERROR');
             });
         });
     }

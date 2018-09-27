@@ -107,8 +107,8 @@ export class MyBookmarksItemsPage extends MyItemsPage {
 
         this.likeService.likeDislike(selectedItemCard.item._id, false).then(async () => {
             await this.removeItemAndCloseSlidingList(index);
-        }, (response: HttpErrorResponse) => {
-            this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEMS.ACTION_ERROR');
+        }, async (response: HttpErrorResponse) => {
+            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEMS.ACTION_ERROR');
         });
     }
 

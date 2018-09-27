@@ -333,14 +333,14 @@ export class PhotoPickerModal extends AbstractWizardModal {
             }).toDataURL(this.RESOURCES.PHOTO.MIME_TYPE, this.RESOURCES.PHOTO.JPG_QUALITY);
 
             this.localFilesService.writeFile(croppedImgURI).then((localImgURI: string) => {
-                this.modalController.dismiss({imgURI: localImgURI, index: this.index}).then(() => {
+                this.modalController.dismiss({imgURI: localImgURI, index: this.index}).then(async () => {
                     this.unregisterBackAction();
                     this.cleanup();
-                    loading.dismiss();
+                    await loading.dismiss();
                 });
-            }, (err: any) => {
-                loading.dismiss();
-                this.errorMsg(this.toastController, this.translateService, 'ERRORS.WIZARD.PHOTO_NOT_WRITTEN');
+            }, async (err: any) => {
+                await loading.dismiss();
+                await this.errorMsg(this.toastController, this.translateService, 'ERRORS.WIZARD.PHOTO_NOT_WRITTEN');
             });
         });
     }

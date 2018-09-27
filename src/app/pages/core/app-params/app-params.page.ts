@@ -147,8 +147,8 @@ export class AppParamsPage extends AbstractPage implements OnInit {
 
         this.userProfileService.anonymize(this.user).then((succcess: Communication.AnonymizeUser) => {
             this.doLogout(true);
-        }, (response: HttpErrorResponse) => {
-            this.errorMsg(this.toastController, this.translateService, 'ERRORS.USER.SAVE_ERROR');
+        }, async (response: HttpErrorResponse) => {
+            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.USER.SAVE_ERROR');
         });
     }
 

@@ -356,15 +356,15 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
         const loading: HTMLIonLoadingElement = await this.loadingController.create({});
 
         loading.present().then(() => {
-            this.userProfileService.saveIfModified(this.user).then((updatedUser: User) => {
+            this.userProfileService.saveIfModified(this.user).then(async (updatedUser: User) => {
                 if (!Comparator.isEmpty(updatedUser)) {
                     this.user = updatedUser;
                 }
 
-                loading.dismiss();
-            }, (response: HttpErrorResponse) => {
-                loading.dismiss();
-                this.errorMsg(this.toastController, this.translateService, 'ERRORS.USER.SAVE_ERROR');
+                await loading.dismiss();
+            }, async (response: HttpErrorResponse) => {
+                await loading.dismiss();
+                await this.errorMsg(this.toastController, this.translateService, 'ERRORS.USER.SAVE_ERROR');
             });
         });
     }

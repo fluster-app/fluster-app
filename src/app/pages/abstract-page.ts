@@ -265,8 +265,8 @@ export abstract class AbstractPage {
                 if (!Comparator.isEmpty(updatedUser)) {
                     user = updatedUser;
                 }
-            }, (response: HttpErrorResponse) => {
-                this.errorMsg(toastController, translateService, 'ERRORS.USER.SAVE_ERROR');
+            }, async (response: HttpErrorResponse) => {
+                await this.errorMsg(toastController, translateService, 'ERRORS.USER.SAVE_ERROR');
             });
         });
     }

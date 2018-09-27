@@ -320,8 +320,8 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
             } else {
                 this.goToNextItem(false);
             }
-        }, (response: HttpErrorResponse) => {
-            this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEMS.ACTION_ERROR');
+        }, async (response: HttpErrorResponse) => {
+            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEMS.ACTION_ERROR');
         });
     }
 

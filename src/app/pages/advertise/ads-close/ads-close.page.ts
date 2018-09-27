@@ -161,14 +161,14 @@ export class AdsClosePage extends AbstractPage {
                         });
                     },
                     (err: any) => {
-                        loading.dismiss().then(() => {
-                            this.errorMsg(this.toastController, this.translateService, 'ERRORS.ADS.CLOSE');
+                        loading.dismiss().then(async () => {
+                            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.ADS.CLOSE');
                         });
                     }
                 );
             }, (response: HttpErrorResponse) => {
-                loading.dismiss().then(() => {
-                    this.errorMsg(this.toastController, this.translateService, 'ERRORS.ADS.CLOSE');
+                loading.dismiss().then(async () => {
+                    await this.errorMsg(this.toastController, this.translateService, 'ERRORS.ADS.CLOSE');
                 });
             });
         });

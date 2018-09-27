@@ -244,18 +244,18 @@ export class FirstChoicePage extends AbstractPage {
 
         this.userProfileService.saveIfModified(user).then((data: User) => {
             this.currencyService.initDefaultCurrency(user.userParams.address.country).then(() => {
-                this.navController.navigateRoot(page).then(() => {
+                this.navController.navigateRoot(page).then(async () => {
                     if (loading) {
-                        loading.dismiss();
+                        await loading.dismiss();
                     }
                 });
             });
-        }, (response: HttpErrorResponse) => {
+        }, async (response: HttpErrorResponse) => {
             if (loading) {
-                loading.dismiss();
+                await loading.dismiss();
             }
 
-            this.errorMsg(this.toastController, this.translateService, 'ERRORS.USER.SAVE_ERROR');
+            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.USER.SAVE_ERROR');
         });
     }
 

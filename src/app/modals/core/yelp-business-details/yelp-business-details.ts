@@ -76,8 +76,8 @@ export class YelpBusinessDetailsModal extends AbstractModal {
         }
     }
 
-    close() {
-        this.modalController.dismiss();
+    async close() {
+        await this.modalController.dismiss();
     }
 
     hasPhone(): boolean {

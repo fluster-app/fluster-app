@@ -198,9 +198,9 @@ export class AdminAppointmentsPage extends AbstractPage implements OnInit {
         loading.present().then(() => {
             this.doUpdateAppointment().then(() => {
                 this.refreshItemAndGoBack(loading);
-            }, (error: HttpErrorResponse) => {
-                loading.dismiss();
-                this.errorMsg(this.toastController, this.translateService, 'ERRORS.WIZARD.NOT_ADDED');
+            }, async (error: HttpErrorResponse) => {
+                await loading.dismiss();
+                await this.errorMsg(this.toastController, this.translateService, 'ERRORS.WIZARD.NOT_ADDED');
             });
         });
     }
@@ -235,9 +235,9 @@ export class AdminAppointmentsPage extends AbstractPage implements OnInit {
                     this.item = data[0];
                     this.refreshItemAndGoBack(loading);
                 },
-                (err: any) => {
-                    loading.dismiss();
-                    this.errorMsg(this.toastController, this.translateService, 'ERRORS.WIZARD.NOT_ADDED');
+                async (err: any) => {
+                    await loading.dismiss();
+                    await this.errorMsg(this.toastController, this.translateService, 'ERRORS.WIZARD.NOT_ADDED');
                 }
             );
         });
@@ -262,10 +262,10 @@ export class AdminAppointmentsPage extends AbstractPage implements OnInit {
                 this.adsService.setSelectedItem(item);
             }
 
-            this.getNavigationToDetails().then(() => {
-                loading.dismiss();
-            }, (err: any) => {
-                loading.dismiss();
+            this.getNavigationToDetails().then(async () => {
+                await loading.dismiss();
+            }, async (err: any) => {
+                await loading.dismiss();
             });
         });
     }

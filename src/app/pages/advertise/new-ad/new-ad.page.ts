@@ -198,8 +198,8 @@ export class NewAdPage extends AbstractPage implements OnInit {
     }
 
     private displayPublishError(err: HttpErrorResponse) {
-        this.loading.dismiss().then(() => {
-            this.errorMsg(this.toastController, this.translateService, 'ERRORS.WIZARD.NOT_ADDED');
+        this.loading.dismiss().then(async () => {
+            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.WIZARD.NOT_ADDED');
 
             this.gaTrackError();
         });

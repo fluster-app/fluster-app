@@ -121,9 +121,9 @@ export abstract class AbstractApplicantSelectionPage extends AbstractPage {
     }
 
     private dismissLoading(updatedApplicant: Applicant, loading: HTMLIonLoadingElement, showCalendarWarning: boolean) {
-        loading.dismiss().then(() => {
+        loading.dismiss().then(async () => {
             if (showCalendarWarning) {
-                this.errorMsg(this.toastController, this.translateService, 'ERRORS.APPLICANT_SELECTION.CALENDAR_EXPORT');
+                await this.errorMsg(this.toastController, this.translateService, 'ERRORS.APPLICANT_SELECTION.CALENDAR_EXPORT');
             }
 
             this.finishUpdateApplication(updatedApplicant);

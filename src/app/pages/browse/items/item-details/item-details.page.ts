@@ -213,8 +213,8 @@ export class ItemDetailsPage extends AbstractItemsPage {
             } else {
                 await this.removeItemAndNavigate(true);
             }
-        }, (response: HttpErrorResponse) => {
-            this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEMS.ACTION_ERROR');
+        }, async (response: HttpErrorResponse) => {
+            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEMS.ACTION_ERROR');
             this.actionJobIsDone();
         });
     }
@@ -427,8 +427,8 @@ export class ItemDetailsPage extends AbstractItemsPage {
     private createComplaint(reason: string) {
         this.complaintService.itemComplaint(this.item, reason).then((result: boolean) => {
             // Do nothing
-        }, (response: HttpErrorResponse) => {
-            this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEM_DETAILS.COMPLAINT');
+        }, async (response: HttpErrorResponse) => {
+            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEM_DETAILS.COMPLAINT');
         });
     }
 
