@@ -35,6 +35,10 @@ ion-content[role="browse"], ion-content[role="ad"] {
 
         }
     }
+
+    ion-toolbar {
+        z-index: 1;
+    }
 }
 
 ion-content[role="browse"] {

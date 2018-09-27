@@ -1,4 +1,5 @@
 import {Directive, ElementRef, HostListener, Input} from '@angular/core';
+import {Platform} from '@ionic/angular';
 
 // Utils
 import {Comparator} from '../../../services/core/utils/utils';
@@ -14,11 +15,15 @@ export class NavbarOnScrollDirective {
     // which would cause a fast draw/redraw (quirk) of the header even if the scroll position doesn't change
     private scrollTop: number;
 
-    constructor() {
+    constructor(private platform: Platform) {
     }
 
     @HostListener('ionScroll', ['$event'])
     hideNavbarOnScroll($event: any) {
+
+        if (this.platform.is('android')) {
+            return;
+        }
 
         if ($event != null && this.header != null && this.header.nativeElement != null &&
             !Comparator.isNumberNullOrZero(this.header.nativeElement.clientHeight) &&
