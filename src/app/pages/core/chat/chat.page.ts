@@ -331,7 +331,7 @@ export class ChatPage extends AbstractPage implements OnInit {
     private doScrolltoBottom(duration?: number) {
         setTimeout(() => {
             this.chatContent.scrollToBottom(duration);
-        }, 20);
+        }, 100);
     }
 
     isInitialized(): boolean {
