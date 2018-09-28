@@ -1,3 +1,24 @@
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/fluster/fluster-app/releases/tag/v5.0.0) (2018-09-28)
+
+Hooray, here is Fluster v5 🎉 
+
+### Features
+
+-	You could now send requests without any viewing dates or timeframes
+-	If you do select timeframes, Fluster will assist you better by prefilling your availabilities, letting you spare even more time in the communication process
+-	The wizard to publish your flatshares is now shorter and therefore faster
+-	The integration of the photo filters is more user friendly
+-	Some interactions have been improved to make the overall experience friendlier
+
+### Tech
+
+-	Fluster is now powered by Ionic v4 and Angular v6 which has for effect that the app is smoooooooooother
+
+Hope you will enjoy this version, let me know if you face any issues or have improvements ideas 😃🤘
+
+David
+
 <a name="5.0.0-rc.0"></a>
 # [5.0.0-rc.0](https://github.com/fluster/fluster-app/compare/v5.0.0-beta.7...v5.0.0-rc.0) (2018-09-27)
 
