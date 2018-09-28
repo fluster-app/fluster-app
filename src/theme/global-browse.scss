@@ -59,19 +59,19 @@ ion-content[role="browse"] {
 
             ion-item-option.primary-sliding {
                 color: white;
-                --ion-color-base: #{$fluster-peach2};
+                background: $fluster-peach2;
 
                 &.activated {
-                    --ion-color-base: #{$fluster-peach1};
+                    background: $fluster-peach1;
                 }
             }
 
             ion-item-option.secondary-sliding {
                 color: inherit;
-                --ion-color-base: #{$fluster-light-grey};
+                background: $fluster-light-grey;
 
                 &.activated {
-                    --ion-color-base: #{$fluster-medium-grey};
+                    background: $fluster-medium-grey;
                 }
             }
         }
