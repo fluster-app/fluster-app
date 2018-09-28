@@ -23,6 +23,8 @@ export class UserProfileInputBioComponent {
     private bioMaxLength: number = 500;
     bioLengthLeft: number = 500;
 
+    private extraScroll: number = 80;
+
     addKeyboardListener() {
         window.addEventListener('keyboardDidShow', this.addContentPadding);
         window.addEventListener('keyboardDidHide', this.removeContentPadding);
@@ -35,13 +37,15 @@ export class UserProfileInputBioComponent {
 
     private addContentPadding = (event: any) => {
         if (this.content && this.userBio) {
-            this.content.scrollToPoint(0, this.userBio.nativeElement.offsetParent.offsetTop - 80);
+            this.content.scrollToPoint(0, this.userBio.nativeElement.offsetParent.offsetTop - this.extraScroll);
         }
     }
 
     private removeContentPadding = () => {
-        // https://github.com/ionic-team/ionic/issues/14793
-        // this.content.clearScrollPaddingFocusOut();
+        // TODO: Replace with clearScrollPaddingFocusOut once implemented in https://github.com/ionic-team/ionic/issues/14793
+        if (this.content && this.userBio) {
+            this.content.scrollToPoint(0, this.userBio.nativeElement.offsetParent.offsetTop + this.extraScroll);
+        }
     }
 
     countCharactersLeft() {
