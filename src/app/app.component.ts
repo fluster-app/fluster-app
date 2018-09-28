@@ -318,53 +318,57 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
         this.navController.navigateRoot(url);
     }
 
-    navigateToBrowse() {
+    async navigateToBrowse() {
         if (this.navigateSideInProgress) {
             return;
         }
 
         this.navigateSideInProgress = true;
 
-        this.navigateSide(true, '/items');
+        await this.navigateSide(true, '/items');
     }
 
-    navigateToAds() {
+    async navigateToAds() {
         if (this.navigateSideInProgress) {
             return;
         }
 
         this.navigateSideInProgress = true;
 
-        this.navigateSide(false, '/ads-next-appointments');
+        await this.navigateSide(false, '/ads-next-appointments');
     }
 
-    private navigateSide(browse: boolean, page: string) {
+    private async navigateSide(browse: boolean, page: string) {
         this.user.userParams.appSettings.browsing = browse;
         this.user.updatedAt = new Date();
         this.userSessionService.setUserToSave(this.user);
 
-        this.saveUser().then(() => {
-            this.navController.navigateRoot(page).then(() => {
-                this.menu.close().then((result: boolean) => {
-                    this.navigateSideInProgress = false;
-                });
-            });
+        const loading: HTMLIonLoadingElement = await this.loadingController.create({});
+
+        await loading.present();
+
+        this.saveUser().then(async () => {
+            this.navigateSideInProgress = false;
+
+            await this.navController.navigateRoot(page);
+            await this.menu.close();
+            await loading.dismiss();
+        }, async (response: HttpErrorResponse) => {
+            await loading.dismiss();
+            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.USER.SAVE_ERROR');
         });
     }
 
-    private async saveUser() {
-        const loading: HTMLIonLoadingElement = await this.loadingController.create({});
-
-        loading.present().then(() => {
+    private async saveUser(): Promise<void> {
+        return new Promise<void>(async (resolve, reject) => {
             this.userProfileService.saveIfModified(this.user).then(async (updatedUser: User) => {
                 if (!Comparator.isEmpty(updatedUser)) {
                     this.user = updatedUser;
                 }
 
-                await loading.dismiss();
+                resolve();
             }, async (response: HttpErrorResponse) => {
-                await loading.dismiss();
-                await this.errorMsg(this.toastController, this.translateService, 'ERRORS.USER.SAVE_ERROR');
+                reject(response);
             });
         });
     }
