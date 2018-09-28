@@ -228,7 +228,7 @@
     },
     "USER_PROFILE": {
         "WHAT_ELSE": "What else",
-        "PLACEHOLDER_PHONE": "My phone number",
+        "PLACEHOLDER_PHONE": "My phone number *",
         "PLACEHOLDER_BIO": "Some words about myself...",
         "SELECT_SCHOOL": "Education",
         "SELECT_WORK": "Job",
@@ -653,10 +653,7 @@
         "CONFIRM": "Confirm",
         "SEND": "Send now",
         "MISSING_PHONE": {
-            "TITLE": "Your phone number",
-            "SUB_TITLE": "The persons with whom you have an appointment can reach you at this number",
-            "REMARK": "Your phone number is only visible to persons who have an accepted viewing with",
-            "REMARK_OPTIONAL": "Your phone number is optional and would only be visible to persons with whom you would have a viewing"
+            "REMARK_OPTIONAL": "* Your phone number is optional and would only be visible to persons with whom you would have a viewing"
         },
         "TIPS": {
             "SELECT_MANY_TIMESLOTS": {

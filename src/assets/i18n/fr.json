@@ -228,7 +228,7 @@
     },
     "USER_PROFILE": {
         "WHAT_ELSE": "Mais encore",
-        "PLACEHOLDER_PHONE": "Mon numéro de téléphone",
+        "PLACEHOLDER_PHONE": "Mon numéro de téléphone *",
         "PLACEHOLDER_BIO": "Quelques mots à mon sujet...",
         "SELECT_SCHOOL": "Études",
         "SELECT_WORK": "Job",
@@ -653,10 +653,7 @@
         "CONFIRM": "Confirmer",
         "SEND": "Envoyer maintenant",
         "MISSING_PHONE": {
-            "TITLE": "Ton numéro de téléphone",
-            "SUB_TITLE": "Les personnes avec lesquelles tu as un rendez-vous peuvent te joindre à ce numéro",
-            "REMARK": "Ton numéro de téléphone est uniquement visible pour les personnes avec lesquelles tu as un rendez-vous",
-            "REMARK_OPTIONAL": "Ton numéro de téléphone est optionnel et serait uniquement visible pour les personnes avec lesquelles tu aurais un rendez-vous"
+            "REMARK_OPTIONAL": "* Ton numéro de téléphone est optionnel et serait uniquement visible pour les personnes avec lesquelles tu aurais un rendez-vous"
         },
         "TIPS": {
             "SELECT_MANY_TIMESLOTS": {

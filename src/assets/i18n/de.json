@@ -228,7 +228,7 @@
     },
     "USER_PROFILE": {
         "WHAT_ELSE": "Was sonst",
-        "PLACEHOLDER_PHONE": "Meine Telefonnumer",
+        "PLACEHOLDER_PHONE": "Meine Telefonnumer *",
         "PLACEHOLDER_BIO": "Ein paar Worte über mich...",
         "SELECT_SCHOOL": "Ausbildung",
         "SELECT_WORK": "Job",
@@ -653,10 +653,7 @@
         "CONFIRM": "Bestätigen",
         "SEND": "Jetzt senden",
         "MISSING_PHONE": {
-            "TITLE": "Deine Telefonnummer",
-            "SUB_TITLE": "Unter dieser Nummer, die Personen mit denen du eine vereinbarte Besichtigung hast, können dich erreichen",
-            "REMARK": "Die Angabe deiner Telefonnummer ist optionnal und nur für Personen sichtbar, mit denen du eine Besichtigungstermin hast",
-            "REMARK_OPTIONAL": "Die Angabe deiner Telefonnummer ist optional und nur für Personen sichtbar, mit denen du eine Besichtigungstermin hast"
+            "REMARK_OPTIONAL": "* Die Angabe deiner Telefonnummer ist optional und nur für Personen sichtbar, mit denen du eine Besichtigungstermin hast"
         },
         "TIPS": {
             "SELECT_MANY_TIMESLOTS": {

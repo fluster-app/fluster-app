@@ -70,8 +70,8 @@
 
       <app-user-profile-input-phone [user]="user"></app-user-profile-input-phone>
 
-      <ion-item text-wrap id="display-last-name" padding-start *ngIf="!user.userParams.appSettings.browsing">
-        <ion-label>{{'USER_PROFILE.DISPLAY_LAST_NAME' | translate}}</ion-label>
+      <ion-item text-wrap id="display-last-name" *ngIf="!user.userParams.appSettings.browsing" class="item-toggle">
+        <ion-label text-wrap>{{'USER_PROFILE.DISPLAY_LAST_NAME' | translate}}</ion-label>
         <ion-toggle [(ngModel)]="user.description.displayName" checked="{{user.description.displayName}}"></ion-toggle>
       </ion-item>
     </ion-list>
