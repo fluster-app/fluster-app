@@ -26,7 +26,7 @@ export class NewAdStepLifestyleComponent extends AbstractNewAdComponent {
 
     @Output() notifyPrev: EventEmitter<{}> = new EventEmitter<{}>();
 
-    @Output() notifyNext: EventEmitter<{}> = new EventEmitter<{}>();
+    @Output() notifiyPublishCall: EventEmitter<void> = new EventEmitter<void>();
 
     @ViewChild(TargetedUsersComponent) public targetedUsers: TargetedUsersComponent;
 
@@ -59,9 +59,7 @@ export class NewAdStepLifestyleComponent extends AbstractNewAdComponent {
             this.userSessionService.setUserToSave(this.user);
         }
 
-        this.notifyNext.emit();
-
-        this.slider.slideNext();
+        this.notifiyPublishCall.emit();
 
         this.gaTrackEventOnce(this.platform, this.googleAnalyticsNativeService,
             this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.ADS.WIZARD,

@@ -53,11 +53,11 @@
     </ion-slide>
 
     <ion-slide *ngIf="loadSlideLifestyle">
-      <app-new-ad-step-lifestyle [slider]="slider" (notifyNext)="publish()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-lifestyle>
+      <app-new-ad-step-lifestyle [slider]="slider" (notifiyPublishCall)="publish()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-lifestyle>
     </ion-slide>
 
     <ion-slide *ngIf="loadSlideAttendance">
-      <app-new-ad-step-attendance [slider]="slider" (notifyNext)="publish()"></app-new-ad-step-attendance>
+      <app-new-ad-step-attendance [slider]="slider" (notifiyPublishCall)="publish()"></app-new-ad-step-attendance>
     </ion-slide>
 
     <ion-slide *ngIf="loadSlideDone">
