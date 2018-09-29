@@ -39,7 +39,7 @@ const routes: Routes = [
     {path: 'ads-close', loadChildren: './pages/advertise/ads-close/ads-close.module#AdsClosePageModule'},
     {
         path: 'admin-appointments',
-        loadChildren: './pages/advertise/admin-appointments/admin-appointments.module#AdminAppointmentsPageModule'
+        loadChildren: './pages/advertise/admin/admin-appointments/admin-appointments.module#AdminAppointmentsPageModule'
     },
     {path: 'candidates', loadChildren: './pages/advertise/ads/candidates/candidates.module#CandidatesPageModule'},
     {path: 'candidate-details', loadChildren: './pages/advertise/candidate-details/candidate-details.module#CandidateDetailsPageModule'}
