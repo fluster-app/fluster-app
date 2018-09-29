@@ -130,6 +130,7 @@ export class AdsDetailsPage extends AbstractAdsPage {
 
                     buttons.push({
                         text: data[0],
+                        role: 'destructive',
                         handler: async () => {
                             await this.adminAppointments();
                         }
