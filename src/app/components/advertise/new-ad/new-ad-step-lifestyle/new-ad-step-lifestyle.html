@@ -16,6 +16,7 @@
         <ion-button expand="full" shape="round" class="sticky-buttons-flex" (click)="next()">
             <span *ngIf="!isEdit() || isActivation()">{{'NEW_AD.STEP_USER.PUBLISH' | translate}}</span>
             <span *ngIf="isEdit() && !isActivation()">{{'NEW_AD.STEP_USER.EDIT' | translate}}</span>
+            <ion-icon slot="end" name="send"></ion-icon>
         </ion-button>
     </div>
 </div>
