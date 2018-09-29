@@ -116,6 +116,8 @@ export class AdminLimitationPage extends AbstractAdminPage implements OnInit {
     }
 
     async updateAd() {
+        this.gaTrackEvent(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.ADS.ADS, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.ADS.EDIT_LIMITATION);
+
         const loading: HTMLIonLoadingElement = await this.loadingController.create({});
 
         await loading.present();
