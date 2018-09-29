@@ -65,7 +65,7 @@
     </ion-slide>
 
     <ion-slide *ngIf="loadSlideDone">
-      <app-new-ad-step-done [slider]="slider" (notifiyGoToAdDetailCall)="navigateToAdDetail()" (notifiyGoToAdminAppointments)="navigateToAdminAppointments()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-done>
+      <app-new-ad-step-done [slider]="slider" (notifiyGoToAdDetailCall)="navigateToAdDetail()" (notifiyGoToAdminAppointments)="navigateToAdminAppointments()" (notifiyGoToAdminLimitation)="navigateToAdminLimitation()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-done>
     </ion-slide>
 
   </ion-slides>
