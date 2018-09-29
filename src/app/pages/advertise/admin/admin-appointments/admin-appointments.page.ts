@@ -9,29 +9,29 @@ import {TranslateService} from '@ngx-translate/core';
 import * as moment from 'moment';
 
 // Page
-import {AbstractPage} from '../../abstract-page';
+import {AbstractAdminPage} from '../abstract-admin';
 
 // Model
-import {Appointment} from '../../../services/model/appointment/appointment';
-import {Item} from '../../../services/model/item/item';
+import {Appointment} from '../../../../services/model/appointment/appointment';
+import {Item} from '../../../../services/model/item/item';
 
 // Utils
-import {Converter, Comparator} from '../../../services/core/utils/utils';
-import {ItemsComparator} from '../../../services/core/utils/items-utils';
+import {Converter, Comparator} from '../../../../services/core/utils/utils';
+import {ItemsComparator} from '../../../../services/core/utils/items-utils';
 
 // Services
-import {AppointmentService} from '../../../services/core/appointment/appointment-service';
-import {AdsService} from '../../../services/advertise/ads-service';
-import {GoogleAnalyticsNativeService} from '../../../services/native/analytics/google-analytics-native-service';
-import {AdminAppointmentsNavParams, NavParamsService} from '../../../services/core/navigation/nav-params-service';
-import {AdminAppointmentsService, AdminScheduledDates} from '../../../services/core/appointment/admin-appoinments-service';
+import {AppointmentService} from '../../../../services/core/appointment/appointment-service';
+import {AdsService} from '../../../../services/advertise/ads-service';
+import {GoogleAnalyticsNativeService} from '../../../../services/native/analytics/google-analytics-native-service';
+import {AdminAppointmentsNavParams, NavParamsService} from '../../../../services/core/navigation/nav-params-service';
+import {AdminAppointmentsService, AdminScheduledDates} from '../../../../services/core/appointment/admin-appoinments-service';
 
 @Component({
     selector: 'app-admin-appointments',
     templateUrl: './admin-appointments.page.html',
     styleUrls: ['./admin-appointments.page.scss'],
 })
-export class AdminAppointmentsPage extends AbstractPage implements OnInit {
+export class AdminAppointmentsPage extends AbstractAdminPage implements OnInit {
 
     @ViewChild('adsAdminAppointmentsSlider') slider: Slides;
 
@@ -39,7 +39,6 @@ export class AdminAppointmentsPage extends AbstractPage implements OnInit {
 
     itemEndCouldBeExtended: boolean = false;
 
-    item: Item;
     appointment: Appointment;
 
     // First slide
@@ -59,16 +58,16 @@ export class AdminAppointmentsPage extends AbstractPage implements OnInit {
     loaded: boolean = false;
 
     constructor(private platform: Platform,
-                private navController: NavController,
+                protected navController: NavController,
                 private loadingController: LoadingController,
                 private toastController: ToastController,
                 private translateService: TranslateService,
                 private appointmentService: AppointmentService,
-                private adsService: AdsService,
+                protected adsService: AdsService,
                 private googleAnalyticsNativeService: GoogleAnalyticsNativeService,
-                private navParamsService: NavParamsService,
+                protected navParamsService: NavParamsService,
                 private adminAppointmentsService: AdminAppointmentsService) {
-        super();
+        super(navController, adsService, navParamsService);
 
         this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.ADS_CLOSE);
     }
@@ -121,7 +120,7 @@ export class AdminAppointmentsPage extends AbstractPage implements OnInit {
 
             if (activeIndex > 0) {
                 this.slider.slidePrev();
-                this.displayMenuToggle();
+                await this.displayMenuToggle();
             } else {
                 await this.navigateToDetails();
             }
@@ -148,26 +147,6 @@ export class AdminAppointmentsPage extends AbstractPage implements OnInit {
 
     private async navigateToDetails() {
         await this.getNavigationToDetails();
-    }
-
-    private async getNavigationToDetails(): Promise<boolean> {
-        const navParams: AdminAppointmentsNavParams = await this.navParamsService.getAdminAppointmentsNavParams();
-        if (navParams && navParams.menuToggle) {
-            return this.navController.navigateRoot('/ads-details');
-        } else {
-            return this.navController.navigateBack('/ads-details');
-        }
-    }
-
-    private initItem(): Promise<Item> {
-        return new Promise<Item>((resolve) => {
-            // Always refresh the item to be sure to have the last one
-            this.adsService.findAdsItems().then((items: Item[]) => {
-                resolve(Comparator.isEmpty(items) ? null : items[0]);
-            }, (err: any) => {
-                resolve(null);
-            });
-        });
     }
 
     private computeExtendDates(): Promise<void> {

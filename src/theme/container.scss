@@ -1,11 +1,11 @@
-@import "../../../../theme/media-queries";
-@import "../../../../theme/mixins";
+@import "media-queries";
+@import "mixins";
 
-.new-ad-container {
+.sticky-container {
   height: 100%;
 }
 
-.new-ad-content {
+.sticky-content {
   min-height: 100%;
   height: auto;
   margin-bottom: -118px;
@@ -16,16 +16,16 @@
   }
 }
 
-.new-ad-buttons, .new-ad-content:after {
+.sticky-buttons, .sticky-content:after {
   height: 118px;
 }
 
 @include iphoneX {
-  .new-ad-content {
+  .sticky-content {
     margin-bottom: -136px;
   }
 
-  .new-ad-buttons, .new-ad-content:after {
+  .sticky-buttons, .sticky-content:after {
     height: 136px;
   }
 
@@ -34,12 +34,12 @@
   }
 }
 
-.new-ad-buttons-flex {
+.sticky-buttons-flex {
   margin-bottom: 28px;
   width: 100%;
 }
 
-.new-ad-buttons {
+.sticky-buttons {
   ion-button {
     width: 100%;
     margin-bottom: 16px;

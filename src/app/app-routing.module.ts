@@ -39,10 +39,11 @@ const routes: Routes = [
     {path: 'ads-close', loadChildren: './pages/advertise/ads-close/ads-close.module#AdsClosePageModule'},
     {
         path: 'admin-appointments',
-        loadChildren: './pages/advertise/admin-appointments/admin-appointments.module#AdminAppointmentsPageModule'
+        loadChildren: './pages/advertise/admin/admin-appointments/admin-appointments.module#AdminAppointmentsPageModule'
     },
+    {path: 'admin-limitation', loadChildren: './pages/advertise/admin/admin-limitation/admin-limitation.module#AdminLimitationPageModule'},
     {path: 'candidates', loadChildren: './pages/advertise/ads/candidates/candidates.module#CandidatesPageModule'},
-    {path: 'candidate-details', loadChildren: './pages/advertise/candidate-details/candidate-details.module#CandidateDetailsPageModule'}
+    {path: 'candidate-details', loadChildren: './pages/advertise/candidate-details/candidate-details.module#CandidateDetailsPageModule'},
 ];
 
 @NgModule({

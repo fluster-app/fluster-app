@@ -17,7 +17,6 @@ import {NewAdStepSizeModule} from '../../../components/advertise/new-ad/new-ad-s
 import {NewAdStepPriceModule} from '../../../components/advertise/new-ad/new-ad-step-price/new-ad-step-price.module';
 import {NewAdStepAttributesModule} from '../../../components/advertise/new-ad/new-ad-step-attributes/new-ad-step-attributes.module';
 import {NewAdStepAttendanceModule} from '../../../components/advertise/new-ad/new-ad-step-attendance/new-ad-step-attendance.module';
-import {NewAdStepLimitationModule} from '../../../components/advertise/new-ad/new-ad-step-limitation/new-ad-step-limitation.module';
 import {NewAdStepDoneModule} from '../../../components/advertise/new-ad/new-ad-step-done/new-ad-step-done.module';
 import {NewAdStepTypeModule} from '../../../components/advertise/new-ad/new-ad-step-type/new-ad-step-type.module';
 import {NewAdStepLifestyleModule} from '../../../components/advertise/new-ad/new-ad-step-lifestyle/new-ad-step-lifestyle.module';
@@ -45,7 +44,6 @@ const routes: Routes = [
         NewAdStepPriceModule,
         NewAdStepAttributesModule,
         NewAdStepAttendanceModule,
-        NewAdStepLimitationModule,
         NewAdStepDoneModule,
         NewAdStepLifestyleModule
     ],

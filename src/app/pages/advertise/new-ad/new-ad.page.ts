@@ -45,7 +45,6 @@ export class NewAdPage extends AbstractPage implements OnInit {
     loadSlideAttributes: boolean = false;
     loadSlideLifestyle: boolean = false;
     loadSlideAttendance: boolean = false;
-    loadSlideLimitation: boolean = false;
     loadSlideDone: boolean = false;
 
     // Use to trigger the opening of the photo picker modal in case of android restart
@@ -242,6 +241,12 @@ export class NewAdPage extends AbstractPage implements OnInit {
         await this.enableMenu(this.menuController, false, true);
     }
 
+    async navigateToAdminLimitation() {
+        this.navParamsService.setAdminAppointmentsNavParams({menuToggle: true});
+        await this.navController.navigateRoot('/admin-limitation', true);
+        await this.enableMenu(this.menuController, false, true);
+    }
+
     // HACK: Fck it, Load incrementaly these steps for devices with small memory which could not handle a important load on load of the slides
 
     loadNextSlidePrice() {
@@ -261,11 +266,6 @@ export class NewAdPage extends AbstractPage implements OnInit {
             this.loadSlideLifestyle = true;
         }
 
-        this.updateSlider();
-    }
-
-    loadNextSlideLimitation() {
-        this.loadSlideLimitation = true;
         this.updateSlider();
     }
 

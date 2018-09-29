@@ -85,8 +85,9 @@ export class ItemDetailsContentComponent extends AbstractPage implements OnChang
     }
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
-
-        this.category = this.getFirstCategory();
+        if (Comparator.isStringEmpty(this.category) || this.category === 'who') {
+            this.category = this.getFirstCategory();
+        }
 
         this.loadData();
 

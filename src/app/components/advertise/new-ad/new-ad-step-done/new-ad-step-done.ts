@@ -36,6 +36,8 @@ export class NewAdStepDoneComponent extends AbstractNewAdComponent implements Af
 
     @Output() notifiyGoToAdminAppointments: EventEmitter<void> = new EventEmitter<void>();
 
+    @Output() notifiyGoToAdminLimitation: EventEmitter<void> = new EventEmitter<void>();
+
     @Input() slider: Slides;
 
     confetti: number[];
@@ -78,6 +80,10 @@ export class NewAdStepDoneComponent extends AbstractNewAdComponent implements Af
 
     navigateToAdminAppointments() {
         this.notifiyGoToAdminAppointments.emit();
+    }
+
+    navigateToAdminLimitation() {
+        this.notifiyGoToAdminLimitation.emit();
     }
 
     shareAd() {

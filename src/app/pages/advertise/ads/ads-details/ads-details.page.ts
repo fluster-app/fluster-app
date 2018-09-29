@@ -105,8 +105,12 @@ export class AdsDetailsPage extends AbstractAdsPage {
         this.navController.navigateForward('/ads-close');
     }
 
-    adminAppointments() {
-        this.navController.navigateForward('/admin-appointments');
+    async adminAppointments() {
+        await this.navController.navigateForward('/admin-appointments');
+    }
+
+    async limitAd() {
+        await this.navController.navigateForward('/admin-limitation');
     }
 
     presentActionSheet(ev) {
@@ -117,6 +121,7 @@ export class AdsDetailsPage extends AbstractAdsPage {
         promises.push(this.translateService.get('ADS.ACTIONS.CLOSE'));
         promises.push(this.translateService.get('ITEM_DETAILS.POPOVER.SHARE'));
         promises.push(this.translateService.get('CORE.CANCEL'));
+        promises.push(this.translateService.get('ADS.ACTIONS.LIMIT_ADS'));
 
         forkJoin(promises).subscribe(
             async (data: string[]) => {
@@ -125,9 +130,15 @@ export class AdsDetailsPage extends AbstractAdsPage {
 
                     buttons.push({
                         text: data[0],
-                        role: 'destructive',
-                        handler: () => {
-                            this.adminAppointments();
+                        handler: async () => {
+                            await this.adminAppointments();
+                        }
+                    });
+
+                    buttons.push({
+                        text: data[5],
+                        handler: async () => {
+                            await this.limitAd();
                         }
                     });
 

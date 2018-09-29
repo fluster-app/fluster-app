@@ -1,35 +1,50 @@
 <div class="flex-content big-screen-content" padding-start padding-end>
     <ion-grid class="flex-grid">
 
-        <ion-row class="flex4">
-            <ion-col size="12">
+        <ion-row>
+            <ion-col col-12 text-center>
                 <h1 text-center class="padding-top-average">{{'NEW_AD.STEP_DONE.TITLE' | translate}}</h1>
 
                 <h2 text-center *ngIf="!hasReward()">{{'NEW_AD.STEP_DONE.SUB_TITLE' | translate}}</h2>
                 <h2 text-center *ngIf="hasReward()">{{'NEW_AD.STEP_DONE.SUB_TITLE_REWARD' | translate}}</h2>
+            </ion-col>
+        </ion-row>
 
-                <div class="padding-top-average new-ad-done-actions">
-                    <app-big-button (clicked)="navigateToAdDetail()" [adDisplay]="true"
-                                    [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true"
-                                    [icon]="'home'" [label]="'NEW_AD.STEP_DONE.DISPLAY'">
-                    </app-big-button>
+        <ion-row class="flex4">
+            <ion-col size="6" text-center>
+                <app-big-button (clicked)="navigateToAdminAppointments()" [adDisplay]="true"
+                                [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true"
+                                [icon]="'calendar'" [label]="'NEW_AD.STEP_DONE.APPOINTMENTS'">
+                </app-big-button>
+            </ion-col>
 
-                    <app-big-button (clicked)="navigateToAdminAppointments()" [adDisplay]="true"
-                                    [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true"
-                                    [icon]="'calendar'" [label]="'NEW_AD.STEP_DONE.APPOINTMENTS'">
-                    </app-big-button>
 
-                    <app-big-button (clicked)="shareAd()" [adDisplay]="true"
-                                    [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true"
-                                    [icon]="'share'" [label]="'NEW_AD.STEP_DONE.SHARE'">
-                    </app-big-button>
-                </div>
+            <ion-col size="6" text-center>
+                <app-big-button (clicked)="navigateToAdminLimitation()" [adDisplay]="true"
+                                [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true"
+                                [icon]="'funnel'" [label]="'ADS.ACTIONS.LIMIT_ADS'">
+                </app-big-button>
+            </ion-col>
+
+
+            <ion-col size="6" text-center>
+                <app-big-button (clicked)="navigateToAdDetail()" [adDisplay]="true"
+                                [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true"
+                                [icon]="'home'" [label]="'NEW_AD.STEP_DONE.DISPLAY'">
+                </app-big-button>
+            </ion-col>
+
+            <ion-col size="6" text-center>
+                <app-big-button (clicked)="shareAd()" [adDisplay]="true"
+                                [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true"
+                                [icon]="'share'" [label]="'NEW_AD.STEP_DONE.SHARE'">
+                </app-big-button>
             </ion-col>
         </ion-row>
 
         <ion-row class="flex-end">
             <ion-col size="12" no-padding>
-                <div class="padding-top-very-small new-ad-buttons-flex">
+                <div class="padding-top-very-small sticky-buttons-flex">
                     <div *ngIf="hasReward()" text-center id="rewardlegal" padding-top>
                         <a (click)="openTermsOfConditions()">{{'NEW_AD.STEP_DONE.REWARD_LEGAL' | translate}}</a>
                     </div>

@@ -1,0 +1,28 @@
+@import "../../../../../theme/fluster-variables";
+@import "../../../../../theme/container";
+
+#selectGender {
+  ion-item {
+    background: transparent;
+    padding-left: 0;
+  }
+}
+
+ion-label {
+  font-weight: $font-weight-light;
+}
+
+ion-range {
+  div[slot="start"], div[slot="end"] {
+    font-size: $fluster-text-normal;
+    font-weight: $font-weight-light;
+  }
+
+  div[slot="start"] {
+    margin-right: 24px;
+  }
+
+  div[slot="end"] {
+    margin-left: 24px;
+  }
+}

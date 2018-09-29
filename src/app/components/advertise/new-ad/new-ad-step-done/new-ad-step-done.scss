@@ -1,4 +1,4 @@
-@import "../new-ad.component";
+@import "../../../../../theme/container";
 @import "../../../../../theme/fluster-variables";
 
 #rewardlegal {
@@ -7,17 +7,6 @@
 
     a {
         color: inherit;
-    }
-}
-
-div.new-ad-done-actions {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    app-big-button {
-        margin-left: 8px;
-        margin-right: 8px;
     }
 }
 

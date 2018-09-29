@@ -17,7 +17,7 @@
         "DISCOVER": "Mein neues Zuhause <strong>entdecken</strong>",
         "ADVERTISE": "Eine WG oder eine Wohnung <strong>inserieren</strong>",
         "GENDER": {
-            "YOU_ARE": "Eine lezte Angabe",
+            "YOU_ARE": "Eine letzte Angabe",
             "WHY_GENDER": "Um dein Gesuch zu personalisieren",
             "MALE": "Ich bin ein <strong>Mann</strong>",
             "FEMALE": "Ich bin eine <strong>Frau</strong>",
@@ -43,7 +43,8 @@
             "UNDO": "wieder herstellen",
             "EDIT_APPOINTMENTS": "Meine Verfügbarkeiten verwalten",
             "EDIT_ADS": "Mein Inserat verwalten",
-            "CLOSE": "Mein Inserat löschen"
+            "CLOSE": "Mein Inserat löschen",
+            "LIMIT_ADS": "Wer kann mein Inserat sehen?"
         }
     },
     "NEW_AD": {
@@ -145,7 +146,7 @@
             "APPOINTMENTS": "Trage deine Verfügbarkeit ein"
         },
         "STEP_ATTENDANCE": {
-            "TITLE": "Besuch",
+            "TITLE": "Eine letzte Angabe bevor die Publikation",
             "SUB_TITLE": "Können mehrere Personen zu der gleichen Besichtigung teilnehmen?",
             "SINGLE": "Eine Person pro Besichtigung",
             "MULTIPLE": "Mehrere Personen, offene Türen"

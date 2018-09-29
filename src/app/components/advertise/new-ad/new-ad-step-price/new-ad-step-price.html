@@ -1,5 +1,5 @@
-<div padding-start padding-end class="new-ad-container big-screen-content">
-    <div class="new-ad-content" (swipe)="swipeSlide($event)">
+<div padding-start padding-end class="sticky-container big-screen-content">
+    <div class="sticky-content" (swipe)="swipeSlide($event)">
         <h1 text-center class="padding-top-big">{{'NEW_AD.STEP_PRICE.TITLE' | translate}}</h1>
 
         <h2 text-center *ngIf="isItemFlat()">{{'NEW_AD.STEP_PRICE.SUB_TITLE' | translate}}</h2>
@@ -34,13 +34,13 @@
         </div>
     </div>
 
-    <div class="new-ad-buttons" (swipe)="swipeSlide($event)">
+    <div class="sticky-buttons" (swipe)="swipeSlide($event)">
 
         <app-targeted-users [item]="newItem"
                         [msgLocation]="false">
         </app-targeted-users>
 
-        <ion-button expand="full" shape="round" class="new-ad-buttons-flex" (click)="next()">
+        <ion-button expand="full" shape="round" class="sticky-buttons-flex" (click)="next()">
             {{'CORE.NEXT' | translate}}
             <ion-icon slot="end" name="arrow-forward"></ion-icon>
         </ion-button>
