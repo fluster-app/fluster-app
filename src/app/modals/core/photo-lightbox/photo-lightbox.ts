@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {ModalController, NavParams, Slides} from '@ionic/angular';
 
 // Abstract
@@ -12,7 +12,7 @@ import {Comparator} from '../../../services/core/utils/utils';
     styleUrls: ['./photo-lightbox.scss'],
     selector: 'app-photo-lightbox'
 })
-export class PhotoLightboxModal extends AbstractModal {
+export class PhotoLightboxModal extends AbstractModal implements AfterViewInit {
 
     @ViewChild('photoLightboxSlider') private slides: Slides;
 
@@ -30,7 +30,7 @@ export class PhotoLightboxModal extends AbstractModal {
         super();
     }
 
-    ionViewDidEnter() {
+    ngAfterViewInit() {
         // Workaround in order to not display briefly the arrow back when opening modal
         setTimeout(() => {
             this.viewEntered = true;

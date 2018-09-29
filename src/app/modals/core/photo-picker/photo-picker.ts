@@ -95,9 +95,7 @@ export class PhotoPickerModal extends AbstractWizardModal {
         this.resetPicked();
 
         this.retrievePendingAndroidRecovery();
-    }
 
-    ionViewDidEnter() {
         this.loadFileImage();
     }
 

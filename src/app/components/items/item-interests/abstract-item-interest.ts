@@ -73,8 +73,8 @@ export abstract class AbstractItemInterestComponent extends AbstractPage {
         });
 
         modal.onDidDismiss().then((detail: OverlayEventDetail) => {
-            if (!Comparator.isEmpty(detail) && !Comparator.isEmpty(detail.data) && !Comparator.isEmpty(detail.data.updateInterest)) {
-                this.notifiyUpdated.emit(detail.data.updateInterest);
+            if (!Comparator.isEmpty(detail) && !Comparator.isEmpty(detail.data)) {
+                this.notifiyUpdated.emit(detail.data);
             }
         });
 

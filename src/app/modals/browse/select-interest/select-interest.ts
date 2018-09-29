@@ -1,10 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
-import {LoadingController, ModalController, NavParams, Platform, Slides, ToastController} from '@ionic/angular';
+import {LoadingController, ModalController, NavParams, Platform, Slides} from '@ionic/angular';
 
 import {Subscription} from 'rxjs';
-
-import {TranslateService} from '@ngx-translate/core';
 
 // Modal
 import {AbstractModal} from '../../core/abstract-modal';
@@ -20,7 +18,6 @@ import {Comparator} from '../../../services/core/utils/utils';
 // Services
 import {UserSessionService} from '../../../services/core/user/user-session-service';
 import {GoogleAnalyticsNativeService} from '../../../services/native/analytics/google-analytics-native-service';
-import {UserProfileService} from '../../../services/core/user/user-profile-service';
 import {UserInterestsService} from '../../../services/core/user/user-interetsts-service';
 
 @Component({
@@ -51,11 +48,8 @@ export class SelectInterestModal extends AbstractModal {
     constructor(private platform: Platform,
                 private navParams: NavParams,
                 private modalController: ModalController,
-                private toastController: ToastController,
                 private loadingController: LoadingController,
-                private translateService: TranslateService,
                 private userSessionService: UserSessionService,
-                private userProfileService: UserProfileService,
                 private googleAnalyticsNativeService: GoogleAnalyticsNativeService,
                 private userInterestsService: UserInterestsService) {
         super();
@@ -78,14 +72,8 @@ export class SelectInterestModal extends AbstractModal {
         }
 
         this.initTravelTime();
-    }
 
-    ionViewDidEnter() {
         this.overrideHardwareBackAction();
-    }
-
-    ionViewDidLeave() {
-        this.saveUserIfNeeded(this.toastController, this.loadingController, this.translateService, this.userProfileService, this.userSessionService, this.user);
     }
 
     private initTravelTime() {
