@@ -9,7 +9,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {AdminAppointmentsPage} from './admin-appointments.page';
 
-import {PickAdsAppointmentsModule} from '../../../components/advertise/pick-ads-appointments/pick-ads-appointments.module';
+import {PickAdsAppointmentsModule} from '../../../../components/advertise/pick-ads-appointments/pick-ads-appointments.module';
 
 const routes: Routes = [
     {

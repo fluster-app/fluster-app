@@ -9,22 +9,22 @@ import {TranslateService} from '@ngx-translate/core';
 import * as moment from 'moment';
 
 // Page
-import {AbstractPage} from '../../abstract-page';
+import {AbstractPage} from '../../../abstract-page';
 
 // Model
-import {Appointment} from '../../../services/model/appointment/appointment';
-import {Item} from '../../../services/model/item/item';
+import {Appointment} from '../../../../services/model/appointment/appointment';
+import {Item} from '../../../../services/model/item/item';
 
 // Utils
-import {Converter, Comparator} from '../../../services/core/utils/utils';
-import {ItemsComparator} from '../../../services/core/utils/items-utils';
+import {Converter, Comparator} from '../../../../services/core/utils/utils';
+import {ItemsComparator} from '../../../../services/core/utils/items-utils';
 
 // Services
-import {AppointmentService} from '../../../services/core/appointment/appointment-service';
-import {AdsService} from '../../../services/advertise/ads-service';
-import {GoogleAnalyticsNativeService} from '../../../services/native/analytics/google-analytics-native-service';
-import {AdminAppointmentsNavParams, NavParamsService} from '../../../services/core/navigation/nav-params-service';
-import {AdminAppointmentsService, AdminScheduledDates} from '../../../services/core/appointment/admin-appoinments-service';
+import {AppointmentService} from '../../../../services/core/appointment/appointment-service';
+import {AdsService} from '../../../../services/advertise/ads-service';
+import {GoogleAnalyticsNativeService} from '../../../../services/native/analytics/google-analytics-native-service';
+import {AdminAppointmentsNavParams, NavParamsService} from '../../../../services/core/navigation/nav-params-service';
+import {AdminAppointmentsService, AdminScheduledDates} from '../../../../services/core/appointment/admin-appoinments-service';
 
 @Component({
     selector: 'app-admin-appointments',
