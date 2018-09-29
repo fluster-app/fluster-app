@@ -115,7 +115,8 @@
             "ADD_PHOTO": "Foto hinzufügen",
             "FROM_GALLERY": "Aus Album wählen",
             "FROM_CAMERA": "Foto aufnehmen",
-            "AT_LEAST_ONE_PHOTO": "Bitte füge mindestens ein Foto hinzu, um dein Gesuch interessanter zu machen"
+            "AT_LEAST_ONE_PHOTO_FLAT": "Bitte füge mindestens ein Foto deiner Wohnung hinzu, um dein Gesuch interessanter zu machen",
+            "AT_LEAST_ONE_PHOTO_SHARE": "Bitte füge mindestens ein Foto deiner WG hinzu, um dein Gesuch interessanter zu machen"
         },
         "STEP_LIMITATION": {
             "TITLE": "Bewerber",

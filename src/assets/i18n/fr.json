@@ -115,7 +115,8 @@
             "ADD_PHOTO": "Ajouter une photo",
             "FROM_GALLERY": "Sélectionner à partir d'un album",
             "FROM_CAMERA": "Prendre une photo",
-            "AT_LEAST_ONE_PHOTO": "Ajoute au moins une photo pour rendre ton annonce attrayante"
+            "AT_LEAST_ONE_PHOTO_FLAT": "Ajoute au moins une photo de ton appartement pour rendre ton annonce attrayante",
+            "AT_LEAST_ONE_PHOTO_SHARE": "Ajoute au moins une photo de ta colocation pour rendre ton annonce attrayante"
         },
         "STEP_LIMITATION": {
             "TITLE": "Candidats",

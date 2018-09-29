@@ -115,7 +115,8 @@
             "ADD_PHOTO": "Add image",
             "FROM_GALLERY": "Choose from album",
             "FROM_CAMERA": "Take image",
-            "AT_LEAST_ONE_PHOTO": "Please upload at least one photo to make your ad attractive"
+            "AT_LEAST_ONE_PHOTO_FLAT": "Please upload at least one photo of your flat to make your ad attractive",
+            "AT_LEAST_ONE_PHOTO_SHARE": "Please upload at least one photo of your flatshare to make your ad attractive"
         },
         "STEP_LIMITATION": {
             "TITLE": "Candidates",

@@ -115,7 +115,8 @@
             "ADD_PHOTO": "Aggiungi una foto",
             "FROM_GALLERY": "Scegli da un album",
             "FROM_CAMERA": "Scatta una foto",
-            "AT_LEAST_ONE_PHOTO": "Aggiungi almeno una foto per mettere in risalto il tuo annuncio"
+            "AT_LEAST_ONE_PHOTO_FLAT": "Aggiungi almeno una foto dal tuo appartamento per mettere in risalto il tuo annuncio",
+            "AT_LEAST_ONE_PHOTO_SHARE": "Aggiungi almeno una foto della stanza per mettere in risalto il tuo annuncio"
         },
         "STEP_LIMITATION": {
             "TITLE": "Candidato",

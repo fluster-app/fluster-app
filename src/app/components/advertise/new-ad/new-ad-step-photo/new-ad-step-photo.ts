@@ -18,6 +18,7 @@ import {AbstractNewAdComponent} from '../abstract-new-ad';
 
 // Resources
 import {Comparator} from '../../../../services/core/utils/utils';
+import {ItemsComparator} from '../../../../services/core/utils/items-utils';
 
 // Services
 import {NewItemService} from '../../../../services/advertise/new-item-service';
@@ -246,7 +247,9 @@ export class NewAdStepPhotoComponent extends AbstractNewAdComponent implements O
     }
 
     private async showWarningOnePhoto() {
-        const header: string = this.translateService.instant('NEW_AD.STEP_PHOTO.AT_LEAST_ONE_PHOTO');
+        const labelKey: string = this.isItemFlat() ? 'NEW_AD.STEP_PHOTO.AT_LEAST_ONE_PHOTO_FLAT' : 'NEW_AD.STEP_PHOTO.AT_LEAST_ONE_PHOTO_SHARE';
+
+        const header: string = this.translateService.instant(labelKey);
         const ok: string = this.translateService.instant('CORE.OK');
 
         const alert: HTMLIonAlertElement = await this.alertController.create({
@@ -328,5 +331,9 @@ export class NewAdStepPhotoComponent extends AbstractNewAdComponent implements O
         if (fileList && fileList.length > 0) {
             this.openPhotoPicker(this.pwaIndex, fileList[0]);
         }
+    }
+
+    private isItemFlat() {
+        return ItemsComparator.isItemFlat(this.newItem);
     }
 }
