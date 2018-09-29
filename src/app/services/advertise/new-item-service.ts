@@ -357,7 +357,7 @@ export class NewItemService {
         });
     }
 
-    updateItem(itemToUpdate: Item): Promise<{}> {
+    updateItem(itemToUpdate: Item): Promise<Item> {
         return new Promise(async (resolve, reject) => {
             try {
                 const headers: HttpHeaders = new HttpHeaders();

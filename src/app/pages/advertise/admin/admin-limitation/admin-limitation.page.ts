@@ -6,6 +6,9 @@ import {TranslateService} from '@ngx-translate/core';
 // Abstract
 import {AbstractAdminPage} from '../abstract-admin';
 
+// Model
+import {Item} from '../../../../services/model/item/item';
+
 // Utils
 import {ItemsComparator} from '../../../../services/core/utils/items-utils';
 import {Comparator} from '../../../../services/core/utils/utils';
@@ -116,7 +119,8 @@ export class AdminLimitationPage extends AbstractAdminPage implements OnInit {
         try {
             this.updateItemGender();
 
-            await this.newItemService.updateItem(this.item);
+            const updatedItem: Item = await this.newItemService.updateItem(this.item);
+            this.adsService.setSelectedItem(updatedItem);
 
             await this.getNavigationToDetails();
 
