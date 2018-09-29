@@ -17,8 +17,8 @@
 
 <ion-content role="ad" [forceOverscroll]="true">
 
-    <div class="new-ad-container big-screen-content" *ngIf="loaded">
-        <div class="new-ad-content" padding>
+    <div class="sticky-container big-screen-content" *ngIf="loaded">
+        <div class="sticky-content" padding>
             <h1 text-center class="padding-top-big">{{'NEW_AD.STEP_LIMITATION.TITLE' | translate}}</h1>
 
             <h2 text-center *ngIf="isItemShare()">{{'NEW_AD.STEP_LIMITATION.SUB_TITLE_SHARE' | translate}}</h2>
@@ -63,7 +63,7 @@
             </ion-grid>
         </div>
 
-        <div class="new-ad-buttons" padding-start padding-end>
+        <div class="sticky-buttons" padding-start padding-end>
 
             <div class="spacer"></div>
 

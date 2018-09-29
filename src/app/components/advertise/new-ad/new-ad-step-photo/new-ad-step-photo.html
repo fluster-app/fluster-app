@@ -1,6 +1,6 @@
-<div padding-start padding-end class="new-ad-container big-screen-content">
+<div padding-start padding-end class="sticky-container big-screen-content">
     <!-- Pictures -->
-    <div id="container-photo" class="new-ad-content" padding-top (swipe)="swipeSlide($event)">
+    <div id="container-photo" class="sticky-content" padding-top (swipe)="swipeSlide($event)">
         <div id="main-photo">
             <div id="picture0" tappable (click)="navigateToPhotoPicker($event, 0)">
                 <img *ngIf="hasPhoto(0)" [src]="wkWebViewFileURI(photos[0].imgURI)">
@@ -130,7 +130,7 @@
         </div>
     </div>
 
-    <div class="new-ad-buttons" (swipe)="swipeSlide($event)">
+    <div class="sticky-buttons" (swipe)="swipeSlide($event)">
 
         <app-targeted-users [item]="newItem"
                         [msgLocation]="true">

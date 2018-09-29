@@ -1,5 +1,5 @@
-<div padding-start padding-end class="new-ad-container big-screen-content">
-    <div class="new-ad-content" (swipe)="swipeSlide($event)">
+<div padding-start padding-end class="sticky-container big-screen-content">
+    <div class="sticky-content" (swipe)="swipeSlide($event)">
         <h1 text-center class="padding-top-big">{{'NEW_AD.STEP_AVAILABILITY.TITLE' | translate}}</h1>
 
         <h2 *ngIf="isItemFlat()" text-center>{{'NEW_AD.STEP_AVAILABILITY.SUB_TITLE_FLAT' | translate}}</h2>
@@ -43,13 +43,13 @@
         </ion-list>
     </div>
 
-    <div class="new-ad-buttons" (swipe)="swipeSlide($event)">
+    <div class="sticky-buttons" (swipe)="swipeSlide($event)">
 
         <app-targeted-users [item]="newItem"
                         [msgLocation]="false">
         </app-targeted-users>
 
-        <ion-button expand="full" shape="round" class="new-ad-buttons-flex" (click)="next()" [disabled]="!isNextAllowed()">
+        <ion-button expand="full" shape="round" class="sticky-buttons-flex" (click)="next()" [disabled]="!isNextAllowed()">
             {{'CORE.NEXT' | translate}}
             <ion-icon slot="end" name="arrow-forward"></ion-icon>
         </ion-button>
