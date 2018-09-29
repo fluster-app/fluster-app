@@ -343,7 +343,7 @@ export class NewItemService {
                 try {
                     await this.uploadPhotos(this.newItem.hashId, this.newItem.mainPhoto, this.newItem.itemDetail.otherPhotos);
 
-                    this.updateNewItem().then((updatedItem: Item) => {
+                    this.updateItem(this.newItem).then((updatedItem: Item) => {
                         this.newItem = updatedItem;
                         this.done = true;
                         resolve();
@@ -357,16 +357,16 @@ export class NewItemService {
         });
     }
 
-    private updateNewItem(): Promise<{}> {
+    updateItem(itemToUpdate: Item): Promise<{}> {
         return new Promise(async (resolve, reject) => {
             try {
                 const headers: HttpHeaders = new HttpHeaders();
                 headers.append('Content-Type', 'application/json');
 
                 const body: AccessTokenBody = await this.accessTokenService.getRequestBody();
-                body['item'] = this.newItem;
+                body['item'] = itemToUpdate;
 
-                this.httpClient.put(Resources.Constants.API.ITEMS + this.newItem._id, body, {headers: headers})
+                this.httpClient.put(Resources.Constants.API.ITEMS + itemToUpdate._id, body, {headers: headers})
                     .subscribe((item: Item) => {
                         resolve(item);
                     }, (errorResponse: HttpErrorResponse) => {

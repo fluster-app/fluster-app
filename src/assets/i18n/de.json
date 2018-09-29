@@ -43,7 +43,8 @@
             "UNDO": "wieder herstellen",
             "EDIT_APPOINTMENTS": "Meine Verfügbarkeiten verwalten",
             "EDIT_ADS": "Mein Inserat verwalten",
-            "CLOSE": "Mein Inserat löschen"
+            "CLOSE": "Mein Inserat löschen",
+            "LIMIT_ADS": "Wer kann mein Inserat sehen?"
         }
     },
     "NEW_AD": {

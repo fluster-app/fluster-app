@@ -43,7 +43,8 @@
             "UNDO": "Rétablir",
             "EDIT_APPOINTMENTS": "Administrer mes disponibilités",
             "EDIT_ADS": "Modifier mon annonce",
-            "CLOSE": "Supprimer mon annonce"
+            "CLOSE": "Supprimer mon annonce",
+            "LIMIT_ADS": "Qui peut voir mon annonce?"
         }
     },
     "NEW_AD": {

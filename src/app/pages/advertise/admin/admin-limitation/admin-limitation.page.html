@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-toggle *ngIf="menuToggle">
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+
+      <ion-back-button *ngIf="!menuToggle"></ion-back-button>
+
+    </ion-buttons>
+
+    <ion-title>FLUSTER</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content role="ad" [fullscreen]="true" padding>
+
+  <div class="big-screen-content" *ngIf="loaded">
+    <h1 text-center class="padding-top-big">{{'NEW_AD.STEP_LIMITATION.TITLE' | translate}}</h1>
+
+    <h2 text-center *ngIf="isItemShare()">{{'NEW_AD.STEP_LIMITATION.SUB_TITLE_SHARE' | translate}}</h2>
+
+    <h2 text-center *ngIf="isItemFlat()">{{'NEW_AD.STEP_LIMITATION.SUB_TITLE_FLAT' | translate}}</h2>
+
+    <ion-grid class="padding-top-small">
+      <ion-row>
+        <ion-col size="12" text-left>
+          <ion-label *ngIf="isItemShare()">{{'NEW_AD.STEP_LIMITATION.AGE_SHARE' | translate}}</ion-label>
+          <ion-label *ngIf="isItemFlat()">{{'NEW_AD.STEP_LIMITATION.AGE_FLAT' | translate}}</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-range [dualKnobs]="true" [pin]="false" [(ngModel)]="ages" [min]="18" [max]="99" (ionChange)="onAgeChange($event)">
+            <div slot="start">{{ages?.lower}}</div>
+            <div slot="end">{{ages?.upper}}</div>
+          </ion-range>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid id="selectGender" margin-bottom>
+      <ion-row>
+        <ion-col size="6" text-left>
+          <ion-item>
+            <ion-checkbox checked="{{male}}" [(ngModel)]="male" (ionChange)="onGenderChange()"></ion-checkbox>
+            <ion-label>{{'NEW_AD.STEP_LIMITATION.MALE' | translate}}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6" text-left>
+          <ion-item>
+            <ion-checkbox checked="{{female}}" [(ngModel)]="female" (ionChange)="onGenderChange()"></ion-checkbox>
+            <ion-label>{{'NEW_AD.STEP_LIMITATION.FEMALE' | translate}}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="spinner-loading" padding text-center *ngIf="!loaded">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+
+</ion-content>
+
+<ion-footer role="ad">
+  <ion-toolbar role="buttons" class="actions-buttons" padding-start padding-end>
+    <ion-button expand="full" shape="round" (click)="updateAd()">
+      {{'ADMIN_APPOINTMENTS.APPOINTMENTS.CONFIRM' | translate}}
+      <ion-icon slot="end" name="checkmark"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -43,7 +43,8 @@
             "UNDO": "restore",
             "EDIT_APPOINTMENTS": "Manage my availabilities",
             "EDIT_ADS": "Manage my ad",
-            "CLOSE": "Delete my ad"
+            "CLOSE": "Delete my ad",
+            "LIMIT_ADS": "Who can see my ad?"
         }
     },
     "NEW_AD": {
