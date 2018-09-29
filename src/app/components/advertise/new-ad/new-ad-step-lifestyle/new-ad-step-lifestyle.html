@@ -14,8 +14,8 @@
         <div class="spacer"></div>
 
         <ion-button expand="full" shape="round" class="sticky-buttons-flex" (click)="next()">
-            {{'CORE.NEXT' | translate}}
-            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            <span *ngIf="!isEdit() || isActivation()">{{'NEW_AD.STEP_USER.PUBLISH' | translate}}</span>
+            <span *ngIf="isEdit() && !isActivation()">{{'NEW_AD.STEP_USER.EDIT' | translate}}</span>
         </ion-button>
     </div>
 </div>

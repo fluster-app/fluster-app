@@ -146,7 +146,7 @@
             "APPOINTMENTS": "Set your availabilities"
         },
         "STEP_ATTENDANCE": {
-            "TITLE": "Attendance",
+            "TITLE": "One last info before publishing",
             "SUB_TITLE": "Could several people participate to the same viewing?",
             "SINGLE": "Single person viewing",
             "MULTIPLE": "Several people, open door"

@@ -27,4 +27,8 @@ export abstract class AbstractNewAdComponent extends AbstractPage {
         return this.newItemService.isEdit();
     }
 
+    isActivation(): boolean {
+        return this.newItemService.isActivation();
+    }
+
 }
