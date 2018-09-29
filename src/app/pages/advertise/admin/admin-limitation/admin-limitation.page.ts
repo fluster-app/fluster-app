@@ -16,9 +16,13 @@ import {Comparator} from '../../../../services/core/utils/utils';
 // Services
 import {AdsService} from '../../../../services/advertise/ads-service';
 import {AdminAppointmentsNavParams, NavParamsService} from '../../../../services/core/navigation/nav-params-service';
-import {SelectedAges} from '../../../../components/advertise/new-ad/new-ad-step-limitation/new-ad-step-limitation';
 import {GoogleAnalyticsNativeService} from '../../../../services/native/analytics/google-analytics-native-service';
 import {NewItemService} from '../../../../services/advertise/new-item-service';
+
+interface SelectedAges {
+    lower: number;
+    upper: number;
+}
 
 @Component({
     selector: 'app-admin-limitation',
