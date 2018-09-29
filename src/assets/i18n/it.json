@@ -113,7 +113,8 @@
             "KIDS_WELCOMED": "Bambini benvenuti"
         },
         "STEP_PHOTO": {
-            "ADD_PHOTO": "Aggiungi una foto",
+            "ADD_PHOTO_SHARE": "Aggiungi una foto della stanza",
+            "ADD_PHOTO_FLAT": "Aggiungi una foto dal tuo appartamento",
             "FROM_GALLERY": "Scegli da un album",
             "FROM_CAMERA": "Scatta una foto",
             "AT_LEAST_ONE_PHOTO_FLAT": "Aggiungi almeno una foto dal tuo appartamento per mettere in risalto il tuo annuncio",

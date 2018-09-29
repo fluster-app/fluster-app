@@ -20,7 +20,8 @@
                         <ion-icon name="add"></ion-icon>
                     </ion-fab-button>
 
-                    <ion-label>{{'NEW_AD.STEP_PHOTO.ADD_PHOTO' | translate}}</ion-label>
+                    <ion-label *ngIf="isItemShare()" text-wrap>{{'NEW_AD.STEP_PHOTO.ADD_PHOTO_SHARE' | translate}}</ion-label>
+                    <ion-label *ngIf="isItemFlat()" text-wrap>{{'NEW_AD.STEP_PHOTO.ADD_PHOTO_FLAT' | translate}}</ion-label>
                 </div>
 
                 <div *ngIf="sourceIndex != null && !isSelectedAsSource(0) && hasPhoto(0)" class="photoSelector photoTarget" tappable (click)="navigateToPhotoPicker($event, 0)">

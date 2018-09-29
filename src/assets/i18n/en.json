@@ -113,7 +113,8 @@
             "KIDS_WELCOMED": "With kids welcomed"
         },
         "STEP_PHOTO": {
-            "ADD_PHOTO": "Add image",
+            "ADD_PHOTO_SHARE": "Add an image of your flatshare",
+            "ADD_PHOTO_FLAT": "Add an image of your flat",
             "FROM_GALLERY": "Choose from album",
             "FROM_CAMERA": "Take image",
             "AT_LEAST_ONE_PHOTO_FLAT": "Please upload at least one photo of your flat to make your ad attractive",

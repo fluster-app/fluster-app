@@ -333,7 +333,11 @@ export class NewAdStepPhotoComponent extends AbstractNewAdComponent implements O
         }
     }
 
-    private isItemFlat() {
+    isItemFlat() {
         return ItemsComparator.isItemFlat(this.newItem);
+    }
+
+    isItemShare() {
+        return ItemsComparator.isItemShare(this.newItem);
     }
 }
