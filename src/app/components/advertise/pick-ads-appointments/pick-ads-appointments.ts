@@ -5,8 +5,6 @@ import {
 
 import * as moment from 'moment';
 
-import {TranslateService} from '@ngx-translate/core';
-
 // Abstract
 import {AbstractPickAppointments} from '../../core/pick-appointments/abstract-pick-appointments';
 
@@ -34,7 +32,7 @@ export class PickAdsAppointmentsComponent extends AbstractPickAppointments imple
     unavailableAppointmentDates: number[];
     selectedAppointmentsStartTime: number[];
 
-    constructor(private translateService: TranslateService) {
+    constructor() {
         super();
         this.onlySelectedDates = false;
     }
