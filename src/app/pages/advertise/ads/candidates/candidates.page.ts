@@ -69,13 +69,17 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
     ngOnInit() {
         this.user = this.userSessionService.getUser();
 
+        this.firstAccessMsg();
+    }
+
+    async ionViewWillEnter() {
+        await this.enableMenu(this.menuController, false, true);
+
+        this.reset();
+
         this.item = this.adsService.getSelectedItem();
 
-        this.firstAccessMsg();
-
         if (!this.hasItem()) {
-            this.starredCandidates = null;
-            this.candidates = null;
             this.loaded = true;
         } else {
             const promises = new Array();
@@ -89,8 +93,13 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
         }
     }
 
-    async ionViewWillEnter() {
-        await this.enableMenu(this.menuController, false, true);
+    private reset() {
+        this.starredCandidates = null;
+        this.candidates = null;
+        this.loaded = false;
+
+        this.pageIndex = 0;
+        this.lastPageReached = false;
     }
 
     private findCandidates(): Promise<{}> {
