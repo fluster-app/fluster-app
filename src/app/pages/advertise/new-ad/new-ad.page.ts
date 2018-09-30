@@ -50,6 +50,8 @@ export class NewAdPage extends AbstractPage implements OnInit {
     // Use to trigger the opening of the photo picker modal in case of android restart
     pendingAndroidPhoto: boolean = false;
 
+    enteredAsDone: boolean = false;
+
     constructor(private navController: NavController,
                 private menuController: MenuController,
                 private platform: Platform,
@@ -77,6 +79,9 @@ export class NewAdPage extends AbstractPage implements OnInit {
         // In case new user who selected directly ad in first-choice
         const newAdNavParams: NewAdNavParams = await this.navParamsService.getNewAdNavParams();
         this.fistChoice = this.isFirstChoice(newAdNavParams);
+
+        this.enteredAsDone = this.newItemService.isDone();
+        this.loadSlideDone = this.enteredAsDone;
     }
 
     private isFirstChoice(newAdNavParams: NewAdNavParams) {
@@ -84,12 +89,6 @@ export class NewAdPage extends AbstractPage implements OnInit {
     }
 
     async ionViewDidEnter() {
-        if (this.newItemService.isDone()) {
-            // We may comeback from profile
-            await this.enableMenu(this.menuController, false, true);
-            return;
-        }
-
         if (this.newItemService.hasPendingAndroidPhotoRecoveryURI()) {
             // There was a restart on Android because of low memory
             await this.slider.slideTo(this.newItemService.isEdit() ? 1 : 2, 0);
@@ -236,15 +235,13 @@ export class NewAdPage extends AbstractPage implements OnInit {
     }
 
     async navigateToAdminAppointments() {
-        this.navParamsService.setAdminAppointmentsNavParams({menuToggle: true});
+        this.navParamsService.setAdminAdsNavParams({backToWizard: true});
         await this.navController.navigateRoot('/admin-appointments', true);
-        await this.enableMenu(this.menuController, false, true);
     }
 
     async navigateToAdminLimitation() {
-        this.navParamsService.setAdminAppointmentsNavParams({menuToggle: true});
+        this.navParamsService.setAdminAdsNavParams({backToWizard: true});
         await this.navController.navigateRoot('/admin-limitation', true);
-        await this.enableMenu(this.menuController, false, true);
     }
 
     // HACK: Fck it, Load incrementaly these steps for devices with small memory which could not handle a important load on load of the slides

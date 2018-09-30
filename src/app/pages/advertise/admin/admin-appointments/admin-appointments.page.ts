@@ -23,7 +23,7 @@ import {ItemsComparator} from '../../../../services/core/utils/items-utils';
 import {AppointmentService} from '../../../../services/core/appointment/appointment-service';
 import {AdsService} from '../../../../services/advertise/ads-service';
 import {GoogleAnalyticsNativeService} from '../../../../services/native/analytics/google-analytics-native-service';
-import {AdminAppointmentsNavParams, NavParamsService} from '../../../../services/core/navigation/nav-params-service';
+import {NavParamsService} from '../../../../services/core/navigation/nav-params-service';
 import {AdminAppointmentsService, AdminScheduledDates} from '../../../../services/core/appointment/admin-appoinments-service';
 
 @Component({
@@ -44,7 +44,6 @@ export class AdminAppointmentsPage extends AbstractAdminPage implements OnInit {
     // First slide
 
     updatedSchedule: number[];
-    menuToggle: boolean = false;
 
     // Second slide
 
@@ -94,16 +93,12 @@ export class AdminAppointmentsPage extends AbstractAdminPage implements OnInit {
 
     async ionViewWillEnter() {
         this.overrideHardwareBackAction();
-
-        await this.displayMenuToggle();
     }
 
     ionViewDidLeave() {
         if (this.customBackActionSubscription) {
             this.customBackActionSubscription.unsubscribe();
         }
-
-        this.navParamsService.setAdminAppointmentsNavParams(null);
     }
 
     private overrideHardwareBackAction() {
@@ -120,33 +115,12 @@ export class AdminAppointmentsPage extends AbstractAdminPage implements OnInit {
 
             if (activeIndex > 0) {
                 this.slider.slidePrev();
-                await this.displayMenuToggle();
             } else {
-                await this.navigateToDetails();
+                await this.navigateBack();
             }
         } else {
-            await this.navigateToDetails();
+            await this.navigateBack();
         }
-    }
-
-    private async displayMenuToggle() {
-        let activeIndex: number = 0;
-
-        try {
-            if (this.slider) {
-                activeIndex = await this.slider.getActiveIndex();
-            }
-        } catch (err) {
-            // On init the slider may not exist yet
-        }
-
-        const navParams: AdminAppointmentsNavParams = await this.navParamsService.getAdminAppointmentsNavParams();
-
-        this.menuToggle = activeIndex === 0 && navParams && navParams.menuToggle;
-    }
-
-    private async navigateToDetails() {
-        await this.getNavigationToDetails();
     }
 
     private computeExtendDates(): Promise<void> {
@@ -241,7 +215,7 @@ export class AdminAppointmentsPage extends AbstractAdminPage implements OnInit {
                 this.adsService.setSelectedItem(item);
             }
 
-            this.getNavigationToDetails().then(async () => {
+            this.navigateBack().then(async () => {
                 await loading.dismiss();
             }, async (err: any) => {
                 await loading.dismiss();

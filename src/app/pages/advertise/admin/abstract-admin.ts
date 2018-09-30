@@ -11,7 +11,7 @@ import {Comparator} from '../../../services/core/utils/utils';
 
 // Services
 import {AdsService} from '../../../services/advertise/ads-service';
-import {AdminAppointmentsNavParams, NavParamsService} from '../../../services/core/navigation/nav-params-service';
+import {AdminAdsNavParams, NavParamsService} from '../../../services/core/navigation/nav-params-service';
 
 export abstract class AbstractAdminPage extends AbstractPage {
 
@@ -35,10 +35,10 @@ export abstract class AbstractAdminPage extends AbstractPage {
         });
     }
 
-    protected async getNavigationToDetails(): Promise<boolean> {
-        const navParams: AdminAppointmentsNavParams = await this.navParamsService.getAdminAppointmentsNavParams();
-        if (navParams && navParams.menuToggle) {
-            return this.navController.navigateRoot('/ads-details');
+    protected async navigateBack(): Promise<boolean> {
+        const navParams: AdminAdsNavParams = await this.navParamsService.getAdminAdsNavParams();
+        if (navParams && navParams.backToWizard) {
+            return this.navController.navigateBack('/new-ad');
         } else {
             return this.navController.navigateBack('/ads-details');
         }

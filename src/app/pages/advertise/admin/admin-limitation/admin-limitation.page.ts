@@ -15,7 +15,7 @@ import {Comparator} from '../../../../services/core/utils/utils';
 
 // Services
 import {AdsService} from '../../../../services/advertise/ads-service';
-import {AdminAppointmentsNavParams, NavParamsService} from '../../../../services/core/navigation/nav-params-service';
+import {NavParamsService} from '../../../../services/core/navigation/nav-params-service';
 import {GoogleAnalyticsNativeService} from '../../../../services/native/analytics/google-analytics-native-service';
 import {NewItemService} from '../../../../services/advertise/new-item-service';
 
@@ -30,8 +30,6 @@ interface SelectedAges {
     styleUrls: ['./admin-limitation.page.scss'],
 })
 export class AdminLimitationPage extends AbstractAdminPage implements OnInit {
-
-    menuToggle: boolean = false;
 
     ages: SelectedAges = {
         lower: this.RESOURCES.ITEM.USER_RESTRICTIONS.AGE.MIN,
@@ -63,12 +61,6 @@ export class AdminLimitationPage extends AbstractAdminPage implements OnInit {
         this.init();
 
         this.loaded = true;
-    }
-
-    async ionViewWillEnter() {
-        const navParams: AdminAppointmentsNavParams = await this.navParamsService.getAdminAppointmentsNavParams();
-
-        this.menuToggle = navParams && navParams.menuToggle;
     }
 
     private init() {
@@ -128,13 +120,17 @@ export class AdminLimitationPage extends AbstractAdminPage implements OnInit {
             const updatedItem: Item = await this.newItemService.updateItem(this.item);
             this.adsService.setSelectedItem(updatedItem);
 
-            await this.getNavigationToDetails();
+            await this.navigateBack();
 
             await loading.dismiss();
         } catch (err) {
             await loading.dismiss();
             await this.errorMsg(this.toastController, this.translateService, 'ERRORS.WIZARD.NOT_ADDED');
         }
+    }
+
+    async customBack() {
+        await this.navigateBack();
     }
 
 }

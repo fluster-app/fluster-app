@@ -32,6 +32,7 @@ import {LocalFilesService} from '../../../../services/native/localfiles/local-fi
 import {CurrencyService} from '../../../../services/core/currency/currency-service';
 import {NotificationWatcherService} from '../../../../services/core/notification/notification-watcher-service';
 import {CandidatesService} from '../../../../services/advertise/candidates-service';
+import {NavParamsService} from '../../../../services/core/navigation/nav-params-service';
 
 @Component({
     selector: 'app-ads-details',
@@ -60,6 +61,7 @@ export class AdsDetailsPage extends AbstractAdsPage {
                 private actionSheetController: ActionSheetController,
                 private currencyService: CurrencyService,
                 private notificationWatcherService: NotificationWatcherService,
+                private navParamsService: NavParamsService,
                 protected candidatesService: CandidatesService) {
         super(platform, loadingController, navController, toastController, translateService, googleAnalyticsNativeService, adsService, newItemService, localFilesService, candidatesService);
 
@@ -68,6 +70,8 @@ export class AdsDetailsPage extends AbstractAdsPage {
 
     async ionViewWillEnter() {
         await this.enableMenu(this.menuController, false, true);
+
+        this.navParamsService.setAdminAdsNavParams({backToWizard: false});
 
         this.initAdsItems();
     }

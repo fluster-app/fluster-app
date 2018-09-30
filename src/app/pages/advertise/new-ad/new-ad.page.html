@@ -20,43 +20,43 @@
 <ion-content role="ad" [forceOverscroll]="true">
 
   <ion-slides #newAdSlider pager="false" [options]="slideOptsOnlyExternal">
-    <ion-slide *ngIf="!isEditMode()">
+    <ion-slide *ngIf="!isEditMode() && !enteredAsDone">
       <app-new-ad-step-type [slider]="slider" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-type>
     </ion-slide>
 
-    <ion-slide>
+    <ion-slide *ngIf="!enteredAsDone">
       <app-new-ad-step-location [slider]="slider" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-location>
     </ion-slide>
 
-    <ion-slide>
+    <ion-slide *ngIf="!enteredAsDone">
       <app-new-ad-step-photo [slider]="slider" [openPicker]="pendingAndroidPhoto" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-photo>
     </ion-slide>
 
-    <ion-slide>
+    <ion-slide *ngIf="!enteredAsDone">
       <app-new-ad-step-availability [slider]="slider" (notifyNext)="loadNextSlidePrice()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-availability>
     </ion-slide>
 
-    <ion-slide *ngIf="isItemShare()">
+    <ion-slide *ngIf="isItemShare() && !enteredAsDone">
       <app-new-ad-step-share-size [slider]="slider" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-share-size>
     </ion-slide>
 
-    <ion-slide>
+    <ion-slide *ngIf="!enteredAsDone">
       <app-new-ad-step-size [slider]="slider" (notifyNext)="loadNextSlideAttributes()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-size>
     </ion-slide>
 
-    <ion-slide *ngIf="loadSlidePrice">
+    <ion-slide *ngIf="loadSlidePrice && !enteredAsDone">
       <app-new-ad-step-price [slider]="slider" (notifyNext)="loadNextSlidesFromPrice()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-price>
     </ion-slide>
 
-    <ion-slide *ngIf="loadSlideAttributes">
+    <ion-slide *ngIf="loadSlideAttributes && !enteredAsDone">
       <app-new-ad-step-attributes [slider]="slider" (notifyNext)="loadNextSlideDone()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-attributes>
     </ion-slide>
 
-    <ion-slide *ngIf="loadSlideLifestyle">
+    <ion-slide *ngIf="loadSlideLifestyle && !enteredAsDone">
       <app-new-ad-step-lifestyle [slider]="slider" (notifiyPublishCall)="publish()" (notifyPrev)="backToPreviousSlide()"></app-new-ad-step-lifestyle>
     </ion-slide>
 
-    <ion-slide *ngIf="loadSlideAttendance">
+    <ion-slide *ngIf="loadSlideAttendance && !enteredAsDone">
       <app-new-ad-step-attendance [slider]="slider" (notifiyPublishCall)="publish()"></app-new-ad-step-attendance>
     </ion-slide>
 

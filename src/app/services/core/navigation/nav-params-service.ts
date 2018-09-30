@@ -59,8 +59,8 @@ export interface CandidateDetailsNavParams {
     starredCandidateCallCallback: Function;
 }
 
-export interface AdminAppointmentsNavParams {
-    menuToggle: boolean;
+export interface AdminAdsNavParams {
+    backToWizard: boolean;
 }
 
 @Injectable({
@@ -74,7 +74,7 @@ export class NavParamsService {
     private loginNavParams: LoginNavParams;
     private applicantSelectionNavParams: ApplicantSelectionNavParams;
     private candidateDetailsNavParams: CandidateDetailsNavParams;
-    private adminAppointmentsNavParams: AdminAppointmentsNavParams;
+    private adminAdsNavParams: AdminAdsNavParams;
 
     getItemDetailsNavParams(): Promise<ItemDetailsNavParams> {
         return new Promise<ItemDetailsNavParams>((resolve, reject) => {
@@ -152,13 +152,13 @@ export class NavParamsService {
         this.candidateDetailsNavParams = navParams;
     }
 
-    getAdminAppointmentsNavParams(): Promise<AdminAppointmentsNavParams> {
-        return new Promise<AdminAppointmentsNavParams>((resolve) => {
-            resolve(this.adminAppointmentsNavParams);
+    getAdminAdsNavParams(): Promise<AdminAdsNavParams> {
+        return new Promise<AdminAdsNavParams>((resolve) => {
+            resolve(this.adminAdsNavParams);
         });
     }
 
-    setAdminAppointmentsNavParams(navParams: AdminAppointmentsNavParams) {
-        this.adminAppointmentsNavParams = navParams;
+    setAdminAdsNavParams(navParams: AdminAdsNavParams) {
+        this.adminAdsNavParams = navParams;
     }
 }

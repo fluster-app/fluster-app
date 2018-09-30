@@ -1,17 +1,9 @@
 <ion-header>
   <ion-toolbar>
-
     <ion-buttons slot="start">
-      <ion-menu-toggle *ngIf="menuToggle">
-        <ion-button>
-          <ion-icon slot="icon-only" name="menu"></ion-icon>
-        </ion-button>
-      </ion-menu-toggle>
-
-      <ion-button (click)="backToPreviousSlide()" *ngIf="!menuToggle" class="custom-back-button">
+      <ion-button (click)="backToPreviousSlide()" class="custom-back-button">
         <ion-icon name="arrow-back"></ion-icon>
       </ion-button>
-
     </ion-buttons>
 
     <ion-title>FLUSTER</ion-title>
