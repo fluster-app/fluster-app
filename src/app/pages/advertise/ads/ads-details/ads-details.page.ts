@@ -71,7 +71,8 @@ export class AdsDetailsPage extends AbstractAdsPage {
     async ionViewWillEnter() {
         await this.enableMenu(this.menuController, false, true);
 
-        this.navParamsService.setAdminAdsNavParams({backToWizard: false});
+        // Default is /ads-details
+        this.navParamsService.setAdminAdsNavParams(null);
 
         this.initAdsItems();
     }
@@ -113,10 +114,6 @@ export class AdsDetailsPage extends AbstractAdsPage {
         await this.navController.navigateForward('/admin-appointments');
     }
 
-    async limitAd() {
-        await this.navController.navigateForward('/admin-limitation');
-    }
-
     presentActionSheet(ev) {
 
         const promises = new Array();
@@ -143,7 +140,7 @@ export class AdsDetailsPage extends AbstractAdsPage {
                     buttons.push({
                         text: data[5],
                         handler: async () => {
-                            await this.limitAd();
+                            await this.navigateToAdminLimitation();
                         }
                     });
 

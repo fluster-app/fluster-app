@@ -60,7 +60,7 @@ export interface CandidateDetailsNavParams {
 }
 
 export interface AdminAdsNavParams {
-    backToWizard: boolean;
+    backToPageUrl: string;
 }
 
 @Injectable({

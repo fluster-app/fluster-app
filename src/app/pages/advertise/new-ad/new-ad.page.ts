@@ -230,13 +230,17 @@ export class NewAdPage extends AbstractPage implements OnInit {
     }
 
     async navigateToAdminAppointments() {
-        this.navParamsService.setAdminAdsNavParams({backToWizard: true});
+        this.navigateToAdminSetBackPage();
         await this.navController.navigateRoot('/admin-appointments', true);
     }
 
     async navigateToAdminLimitation() {
-        this.navParamsService.setAdminAdsNavParams({backToWizard: true});
+        this.navigateToAdminSetBackPage();
         await this.navController.navigateRoot('/admin-limitation', true);
+    }
+
+    private navigateToAdminSetBackPage() {
+        this.navParamsService.setAdminAdsNavParams({backToPageUrl: '/new-ad'});
     }
 
     // HACK: Fck it, Load incrementaly these steps for devices with small memory which could not handle a important load on load of the slides

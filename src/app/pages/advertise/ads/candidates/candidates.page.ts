@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LoadingController, MenuController, NavController, Platform, ToastController} from '@ionic/angular';
+import {LoadingController, MenuController, NavController, Platform, ToastController, ActionSheetController} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
 import {TranslateService} from '@ngx-translate/core';
@@ -51,6 +51,7 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
                 private menuController: MenuController,
                 protected loadingController: LoadingController,
                 protected toastController: ToastController,
+                private actionSheetController: ActionSheetController,
                 protected translateService: TranslateService,
                 private storageService: StorageService,
                 protected adsService: AdsService,
@@ -68,13 +69,17 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
     ngOnInit() {
         this.user = this.userSessionService.getUser();
 
+        this.firstAccessMsg();
+    }
+
+    async ionViewWillEnter() {
+        await this.enableMenu(this.menuController, false, true);
+
+        this.reset();
+
         this.item = this.adsService.getSelectedItem();
 
-        this.firstAccessMsg();
-
         if (!this.hasItem()) {
-            this.starredCandidates = null;
-            this.candidates = null;
             this.loaded = true;
         } else {
             const promises = new Array();
@@ -88,8 +93,13 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
         }
     }
 
-    async ionViewWillEnter() {
-        await this.enableMenu(this.menuController, false, true);
+    private reset() {
+        this.starredCandidates = null;
+        this.candidates = null;
+        this.loaded = false;
+
+        this.pageIndex = 0;
+        this.lastPageReached = false;
     }
 
     private findCandidates(): Promise<{}> {
@@ -183,6 +193,37 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
 
     closeFirstAccessMsg() {
         this.displayFirstAccessMsg = false;
+    }
+
+    async presentActionSheet(ev) {
+        const cancelText: string = this.translateService.instant('CORE.CANCEL');
+        const limitAdsText: string = this.translateService.instant('ADS.ACTIONS.LIMIT_ADS');
+
+        const buttons = new Array();
+
+        buttons.push({
+            text: limitAdsText,
+            role: 'destructive',
+            handler: async () => {
+                this.navParamsService.setAdminAdsNavParams({backToPageUrl: '/candidates'});
+                await this.navigateToAdminLimitation();
+            }
+        });
+
+        buttons.push({
+            text: cancelText,
+            role: 'cancel',
+            handler: () => {
+                // Do nothing
+            }
+        });
+
+
+        const actionSheet: HTMLIonActionSheetElement = await this.actionSheetController.create({
+            buttons: buttons
+        });
+
+        await actionSheet.present();
     }
 
 }
