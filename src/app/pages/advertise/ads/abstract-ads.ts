@@ -101,4 +101,8 @@ export abstract class AbstractAdsPage extends AbstractPage {
             });
         });
     }
+
+    protected async limitAd() {
+        await this.navController.navigateForward('/admin-limitation');
+    }
 }

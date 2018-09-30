@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LoadingController, MenuController, NavController, Platform, ToastController} from '@ionic/angular';
+import {LoadingController, MenuController, NavController, Platform, ToastController, ActionSheetController} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
 import {TranslateService} from '@ngx-translate/core';
@@ -51,6 +51,7 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
                 private menuController: MenuController,
                 protected loadingController: LoadingController,
                 protected toastController: ToastController,
+                private actionSheetController: ActionSheetController,
                 protected translateService: TranslateService,
                 private storageService: StorageService,
                 protected adsService: AdsService,
@@ -183,6 +184,36 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
 
     closeFirstAccessMsg() {
         this.displayFirstAccessMsg = false;
+    }
+
+    async presentActionSheet(ev) {
+        const cancelText: string = this.translateService.instant('CORE.CANCEL');
+        const limitAdsText: string = this.translateService.instant('ADS.ACTIONS.LIMIT_ADS');
+
+        const buttons = new Array();
+
+        buttons.push({
+            text: limitAdsText,
+            role: 'destructive',
+            handler: async () => {
+                await this.limitAd();
+            }
+        });
+
+        buttons.push({
+            text: cancelText,
+            role: 'cancel',
+            handler: () => {
+                // Do nothing
+            }
+        });
+
+
+        const actionSheet: HTMLIonActionSheetElement = await this.actionSheetController.create({
+            buttons: buttons
+        });
+
+        await actionSheet.present();
     }
 
 }

@@ -113,10 +113,6 @@ export class AdsDetailsPage extends AbstractAdsPage {
         await this.navController.navigateForward('/admin-appointments');
     }
 
-    async limitAd() {
-        await this.navController.navigateForward('/admin-limitation');
-    }
-
     presentActionSheet(ev) {
 
         const promises = new Array();
