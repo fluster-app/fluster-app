@@ -98,7 +98,7 @@ export class AdminLimitationPage extends AbstractAdminPage implements OnInit {
     }
 
     private updateItemGender() {
-        if (this.male && this.female) {
+        if ((this.male && this.female) || (!this.male && !this.female)) {
             this.item.userLimitations.gender = this.RESOURCES.ITEM.USER_RESTRICTIONS.GENDER.IRRELEVANT;
         } else if (this.male) {
             this.item.userLimitations.gender = this.RESOURCES.ITEM.USER_RESTRICTIONS.GENDER.MALE;
