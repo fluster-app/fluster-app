@@ -212,11 +212,6 @@ export class NewAdPage extends AbstractPage implements OnInit {
     }
 
     private async navigateToDone() {
-        if (this.ENV_CORDOVA) {
-            // On big screen the slide not gonna be displayed correctly
-            await this.enableMenu(this.menuController, false, true);
-        }
-
         await this.updateSlider();
 
         this.loading.dismiss().then(() => {
@@ -246,29 +241,29 @@ export class NewAdPage extends AbstractPage implements OnInit {
 
     // HACK: Fck it, Load incrementaly these steps for devices with small memory which could not handle a important load on load of the slides
 
-    loadNextSlidePrice() {
+    async loadNextSlidePrice() {
         this.loadSlidePrice = true;
-        this.updateSlider();
+        await this.updateSlider();
     }
 
-    loadNextSlideAttributes() {
+    async loadNextSlideAttributes() {
         this.loadSlideAttributes = true;
-        this.updateSlider();
+        await this.updateSlider();
     }
 
-    loadNextSlidesFromPrice() {
+    async loadNextSlidesFromPrice() {
         if (this.isItemFlat()) {
             this.loadSlideAttendance = true;
         } else {
             this.loadSlideLifestyle = true;
         }
 
-        this.updateSlider();
+        await this.updateSlider();
     }
 
-    loadNextSlideDone() {
+    async loadNextSlideDone() {
         this.loadSlideDone = true;
-        this.updateSlider();
+        await this.updateSlider();
     }
 
     isDone(): boolean {
@@ -278,5 +273,14 @@ export class NewAdPage extends AbstractPage implements OnInit {
     private async updateSlider() {
         // Slider need to be updated when slide are manually added or removed
         await this.slider.update();
+    }
+
+    async stopSliderAutoplay() {
+        if (!this.slider) {
+            return;
+        }
+
+        // Force the slider to stop, weird bug on iPad not using the configuration
+        await this.slider.stopAutoplay();
     }
 }
