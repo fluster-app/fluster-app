@@ -102,7 +102,7 @@ export abstract class AbstractAdsPage extends AbstractPage {
         });
     }
 
-    protected async limitAd() {
+    protected async navigateToAdminLimitation() {
         await this.navController.navigateForward('/admin-limitation');
     }
 }

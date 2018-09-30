@@ -196,7 +196,8 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
             text: limitAdsText,
             role: 'destructive',
             handler: async () => {
-                await this.limitAd();
+                this.navParamsService.setAdminAdsNavParams({backToPageUrl: '/candidates'});
+                await this.navigateToAdminLimitation();
             }
         });
 

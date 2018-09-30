@@ -37,8 +37,8 @@ export abstract class AbstractAdminPage extends AbstractPage {
 
     protected async navigateBack(): Promise<boolean> {
         const navParams: AdminAdsNavParams = await this.navParamsService.getAdminAdsNavParams();
-        if (navParams && navParams.backToWizard) {
-            return this.navController.navigateBack('/new-ad');
+        if (navParams && !Comparator.isStringEmpty(navParams.backToPageUrl)) {
+            return this.navController.navigateBack(navParams.backToPageUrl);
         } else {
             return this.navController.navigateBack('/ads-details');
         }
