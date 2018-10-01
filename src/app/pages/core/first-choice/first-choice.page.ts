@@ -226,7 +226,6 @@ export class FirstChoicePage extends AbstractPage {
             } else {
                 // We go to the dashboard
                 this.navController.navigateRoot('/ads-next-appointments').then(async () => {
-                    // Do nothing
                     await this.loading.dismiss();
                 });
             }
