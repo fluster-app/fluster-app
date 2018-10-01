@@ -220,7 +220,7 @@ export class FirstChoicePage extends AbstractPage {
 
                 // We go to the wizard
                 this.navParamsService.setNewAdNavParams({
-                    fistChoice: true
+                    backToPageUrl: '/first-choice'
                 });
                 this.activateUserAndNavigate(this.loading, this.user, '/new-ad');
             } else {

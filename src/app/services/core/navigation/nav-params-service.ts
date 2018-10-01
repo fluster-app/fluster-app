@@ -36,7 +36,7 @@ export interface ChatNavParams extends Navigation {
 }
 
 export interface NewAdNavParams {
-    fistChoice: boolean;
+    backToPageUrl: string;
 }
 
 export interface LoginNavParams {

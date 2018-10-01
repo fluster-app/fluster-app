@@ -224,7 +224,7 @@ export abstract class AbstractDeepLinkingNavigationPage extends AbstractPage {
             // There was a restart on Android because of low memory
             this.newItemService.recover().then(() => {
                 this.navParamsService.setNewAdNavParams({
-                    fistChoice: true
+                    backToPageUrl: '/first-choice'
                 });
 
                 this.navController.navigateRoot('/new-ad').then(() => {

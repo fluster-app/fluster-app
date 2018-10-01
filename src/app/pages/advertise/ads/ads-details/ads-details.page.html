@@ -33,7 +33,7 @@
     <ion-spinner ion-text color="primary"></ion-spinner>
   </div>
 
-  <app-no-ads *ngIf="!hasItem() && loaded" (notifyNavigateNewItem)="navigateNewItem()"></app-no-ads>
+  <app-no-ads *ngIf="!hasItem() && loaded" (notifyNavigateNewItem)="navigateNewItem('/ads-details')"></app-no-ads>
 </ion-content>
 
 <ion-footer role="ad">

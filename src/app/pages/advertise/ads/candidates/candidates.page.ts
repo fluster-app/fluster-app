@@ -60,8 +60,8 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
                 protected localFilesService: LocalFilesService,
                 protected candidatesService: CandidatesService,
                 private userSessionService: UserSessionService,
-                private navParamsService: NavParamsService) {
-        super(platform, loadingController, navController, toastController, translateService, googleAnalyticsNativeService, adsService, newItemService, localFilesService, candidatesService);
+                protected navParamsService: NavParamsService) {
+        super(platform, loadingController, navController, toastController, translateService, googleAnalyticsNativeService, adsService, newItemService, localFilesService, candidatesService, navParamsService);
 
         this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.CANDIDATES.CANDIDATES);
     }
