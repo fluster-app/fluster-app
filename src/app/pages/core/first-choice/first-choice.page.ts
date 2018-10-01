@@ -162,8 +162,8 @@ export class FirstChoicePage extends AbstractPage {
                 });
             } else {
                 this.currencyService.initDefaultCurrency(this.user.userParams.address.country).then(() => {
-                    this.navController.navigateRoot('/items').then(() => {
-                        // Do nothing
+                    this.navController.navigateRoot('/items').then(async () => {
+                        await this.loading.dismiss();
                     });
                 });
             }
@@ -225,8 +225,9 @@ export class FirstChoicePage extends AbstractPage {
                 this.activateUserAndNavigate(this.loading, this.user, '/new-ad');
             } else {
                 // We go to the dashboard
-                this.navController.navigateRoot('/ads-next-appointments').then(() => {
+                this.navController.navigateRoot('/ads-next-appointments').then(async () => {
                     // Do nothing
+                    await this.loading.dismiss();
                 });
             }
         });
