@@ -61,7 +61,7 @@
     <ion-spinner color="primary"></ion-spinner>
   </div>
 
-  <app-no-ads *ngIf="!hasItem() && loaded" (notifyNavigateNewItem)="navigateNewItem()"></app-no-ads>
+  <app-no-ads *ngIf="!hasItem() && loaded" (notifyNavigateNewItem)="navigateNewItem('/candidates')"></app-no-ads>
 
   <app-no-ads-users [label]="'CANDIDATES.NO_CANDIDATES'" *ngIf="hasItem() && !hasCandidates() && loaded"></app-no-ads-users>
 

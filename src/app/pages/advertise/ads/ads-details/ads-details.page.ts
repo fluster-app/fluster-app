@@ -61,9 +61,9 @@ export class AdsDetailsPage extends AbstractAdsPage {
                 private actionSheetController: ActionSheetController,
                 private currencyService: CurrencyService,
                 private notificationWatcherService: NotificationWatcherService,
-                private navParamsService: NavParamsService,
+                protected navParamsService: NavParamsService,
                 protected candidatesService: CandidatesService) {
-        super(platform, loadingController, navController, toastController, translateService, googleAnalyticsNativeService, adsService, newItemService, localFilesService, candidatesService);
+        super(platform, loadingController, navController, toastController, translateService, googleAnalyticsNativeService, adsService, newItemService, localFilesService, candidatesService, navParamsService);
 
         this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.ADS_DETAILS);
     }
@@ -102,7 +102,7 @@ export class AdsDetailsPage extends AbstractAdsPage {
         this.showPopupPageChange().then((loading: HTMLIonLoadingElement) => {
             this.newItemService.load(this.item, this.item.appointment);
 
-            this.navigateToWizard(loading);
+            this.navigateToWizard(loading, '/ads-details');
         });
     }
 

@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {LoadingController, MenuController, ModalController, NavController, Platform, Slides, ToastController} from '@ionic/angular';
-import {Location} from '@angular/common';
 
 import {Subscription} from 'rxjs';
 
@@ -17,6 +16,7 @@ import {User} from '../../../services/model/user/user';
 
 // Resources and utils
 import {ItemsComparator} from '../../../services/core/utils/items-utils';
+import {Comparator} from '../../../services/core/utils/utils';
 
 // Services
 import {NewItemService} from '../../../services/advertise/new-item-service';
@@ -34,8 +34,6 @@ import {NavParamsService, NewAdNavParams} from '../../../services/core/navigatio
 export class NewAdPage extends AbstractPage implements OnInit {
 
     @ViewChild('newAdSlider') slider: Slides;
-
-    fistChoice: boolean = false;
 
     private customBackActionSubscription: Subscription;
 
@@ -58,7 +56,6 @@ export class NewAdPage extends AbstractPage implements OnInit {
                 private loadingController: LoadingController,
                 private toastController: ToastController,
                 private modalController: ModalController,
-                private location: Location,
                 private translateService: TranslateService,
                 private newItemService: NewItemService,
                 private adsService: AdsService,
@@ -76,16 +73,8 @@ export class NewAdPage extends AbstractPage implements OnInit {
     }
 
     async ionViewWillEnter() {
-        // In case new user who selected directly ad in first-choice
-        const newAdNavParams: NewAdNavParams = await this.navParamsService.getNewAdNavParams();
-        this.fistChoice = this.isFirstChoice(newAdNavParams);
-
         this.enteredAsDone = this.newItemService.isDone();
         this.loadSlideDone = this.enteredAsDone;
-    }
-
-    private isFirstChoice(newAdNavParams: NewAdNavParams) {
-        return newAdNavParams && newAdNavParams.fistChoice === true;
     }
 
     async ionViewDidEnter() {
@@ -119,13 +108,7 @@ export class NewAdPage extends AbstractPage implements OnInit {
                 this.modalController.getTop().then(async (element: HTMLIonModalElement) => {
                     // A modal might be open, in such a case we are closing it with the back button we don't need to navigate
                     if (!element) {
-                        const activeView: string = this.location.path();
-
-                        if (activeView != null && activeView.indexOf('/new-ad') > -1) {
-                            await this.backToPreviousSlide();
-                        } else {
-                            this.location.back();
-                        }
+                        await this.backToPreviousSlide(true);
                     }
                 });
             });
@@ -137,23 +120,23 @@ export class NewAdPage extends AbstractPage implements OnInit {
         await this.enableMenu(this.menuController, false, false);
     }
 
-    async backToPreviousSlide() {
+    async backToPreviousSlide(fromHardwareBackButton: boolean = false) {
         const index: number = await this.slider.getActiveIndex();
+
+        // TODO: Remove once https://github.com/ionic-team/ionic/issues/15820 solved
+        if (index > 0 && !fromHardwareBackButton) {
+            history.back(1);
+        }
 
         if (index > 0 && !this.newItemService.isDone()) {
             await this.slider.slidePrev();
-        } else {
+        } else if (!fromHardwareBackButton) {
             const newAdNavParams: NewAdNavParams = await this.navParamsService.getNewAdNavParams();
-            if (this.isFirstChoice(newAdNavParams)) {
-                newAdNavParams.fistChoice = false;
-            }
 
-            if (this.fistChoice) {
-                this.navController.navigateRoot('/ads-next-appointments').then(() => {
-                    // Do nothing
-                });
+            if (!newAdNavParams || Comparator.isStringEmpty(newAdNavParams.backToPageUrl) || newAdNavParams.backToPageUrl === '/first-choice') {
+                await this.navController.navigateRoot('/ads-next-appointments');
             } else {
-                this.location.back();
+                await this.navController.navigateBack(newAdNavParams.backToPageUrl);
             }
         }
     }
@@ -279,12 +262,22 @@ export class NewAdPage extends AbstractPage implements OnInit {
         await this.slider.update();
     }
 
-    async stopSliderAutoplay() {
+    async initAfterSliderLoad() {
         if (!this.slider) {
             return;
         }
 
         // Force the slider to stop, weird bug on iPad not using the configuration
         await this.slider.stopAutoplay();
+    }
+
+    // TODO: Remove once https://github.com/ionic-team/ionic/issues/15820 solved
+    async pushHistoryState() {
+        if (!this.slider) {
+            return;
+        }
+
+        const sliderIndex: number = await this.slider.getActiveIndex();
+        history.pushState({newAd: sliderIndex}, document.title);
     }
 }

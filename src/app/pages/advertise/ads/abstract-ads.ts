@@ -19,6 +19,7 @@ import {GoogleAnalyticsNativeService} from '../../../services/native/analytics/g
 import {NewItemService} from '../../../services/advertise/new-item-service';
 import {LocalFilesService} from '../../../services/native/localfiles/local-files-service';
 import {CandidatesService} from '../../../services/advertise/candidates-service';
+import {NavParamsService} from '../../../services/core/navigation/nav-params-service';
 
 export abstract class AbstractAdsPage extends AbstractPage {
 
@@ -35,7 +36,8 @@ export abstract class AbstractAdsPage extends AbstractPage {
                 protected adsService: AdsService,
                 protected newItemService: NewItemService,
                 protected localFilesService: LocalFilesService,
-                protected candidatesService: CandidatesService) {
+                protected candidatesService: CandidatesService,
+                protected navParamsService: NavParamsService) {
         super();
     }
 
@@ -43,11 +45,11 @@ export abstract class AbstractAdsPage extends AbstractPage {
         return !Comparator.isEmpty(this.item);
     }
 
-    navigateNewItem() {
+    navigateNewItem(backToPageUrl: string) {
         this.showPopupPageChange().then((loading: HTMLIonLoadingElement) => {
             this.newItemService.init();
 
-            this.navigateToWizard(loading);
+            this.navigateToWizard(loading, backToPageUrl);
         });
     }
 
@@ -61,7 +63,9 @@ export abstract class AbstractAdsPage extends AbstractPage {
         });
     }
 
-    protected navigateToWizard(loading: HTMLIonLoadingElement) {
+    protected navigateToWizard(loading: HTMLIonLoadingElement, backToPageUrl: string) {
+        this.navParamsService.setNewAdNavParams({backToPageUrl: backToPageUrl});
+
         if (this.platform.is('cordova')) {
             this.localFilesService.removeDir().then(() => {
                 this.navController.navigateForward('/new-ad').then(async () => {

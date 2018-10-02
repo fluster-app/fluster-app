@@ -78,5 +78,5 @@
     </ion-infinite-scroll>
   </div>
 
-  <app-no-ads *ngIf="isApplicantsLoaded() && !hasItem()" (notifyNavigateNewItem)="navigateNewItem()"></app-no-ads>
+  <app-no-ads *ngIf="isApplicantsLoaded() && !hasItem()" (notifyNavigateNewItem)="navigateNewItem('/ads-next-appointments')"></app-no-ads>
 </ion-content>

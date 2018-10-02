@@ -21,7 +21,7 @@
     <ion-spinner color="primary"></ion-spinner>
   </div>
 
-  <app-no-ads *ngIf="!hasItem() && applicants != null" (notifyNavigateNewItem)="navigateNewItem()"></app-no-ads>
+  <app-no-ads *ngIf="!hasItem() && applicants != null" (notifyNavigateNewItem)="navigateNewItem('/applicants')"></app-no-ads>
 
   <div *ngIf="hasItem() && applicants != null" class="big-screen-content">
 
