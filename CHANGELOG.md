@@ -1,3 +1,11 @@
+<a name="5.0.1"></a>
+# [5.0.1](https://github.com/fluster/fluster-app/compare/v5.0.0...v5.0.1) (2018-10-02)
+
+### Fixes for Android and PWA
+
+* loading not dismissed if user go back and forth to first-choice page ([#29](https://github.com/fluster/fluster-app/issues/29))
+* hardware back button support improved for the wizard ([#28](https://github.com/fluster/fluster-app/issues/28)) 
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/fluster/fluster-app/releases/tag/v5.0.0) (2018-09-28)
 
