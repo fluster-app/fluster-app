@@ -4,7 +4,7 @@
 ### Fixes for Android and PWA
 
 * loading not dismissed if user go back and forth to first-choice page ([#29](https://github.com/fluster/fluster-app/issues/29))
-* hardware back button support improved for the wizard ([#28](https://github.com/fluster/fluster-app/issues/28)) 
+* hardware back button support improved for the wizard and modals ([#28](https://github.com/fluster/fluster-app/issues/28) and [#30](https://github.com/fluster/fluster-app/issues/30)) 
 
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/fluster/fluster-app/releases/tag/v5.0.0) (2018-09-28)
