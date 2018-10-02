@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {LoadingController, MenuController, ModalController, NavController, Platform, Slides, ToastController} from '@ionic/angular';
 
 import {Subscription} from 'rxjs';
@@ -69,7 +69,8 @@ export class NewAdPage extends AbstractPage implements OnInit {
     async ngOnInit() {
         await this.initNavigation();
 
-        this.overrideHardwareBackAction();
+        // TODO: Uncomment for Ionic v4-beta.13
+        // this.overrideHardwareBackAction();
     }
 
     async ionViewWillEnter() {
@@ -102,15 +103,29 @@ export class NewAdPage extends AbstractPage implements OnInit {
         return this.newItemService.isEdit();
     }
 
-    private overrideHardwareBackAction() {
-        this.platform.ready().then(() => {
-            this.customBackActionSubscription = this.platform.backButton.subscribe(() => {
-                this.modalController.getTop().then(async (element: HTMLIonModalElement) => {
-                    // A modal might be open, in such a case we are closing it with the back button we don't need to navigate
-                    if (!element) {
-                        await this.backToPreviousSlide(true);
-                    }
-                });
+    // TODO: Uncomment for Ionic v4-beta.13
+    // private overrideHardwareBackAction() {
+    //     this.platform.ready().then(() => {
+    //         this.customBackActionSubscription = this.platform.backButton.subscribeWithPriority(() => {
+    //             this.modalController.getTop().then(async (element: HTMLIonModalElement) => {
+    //                 // A modal might be open, in such a case we are closing it with the back button we don't need to navigate
+    //                 if (!element) {
+    //                     await this.backToPreviousSlide();
+    //                 }
+    //             });
+    //         });
+    //     });
+    // }
+
+    // TODO: Remove for Ionic v4-beta.13
+    @HostListener('document:ionBackButton', ['$event'])
+    private overrideHardwareBackAction($event: any) {
+        $event.detail.register(100, async () => {
+            this.modalController.getTop().then(async (element: HTMLIonModalElement) => {
+                // A modal might be open, in such a case we are closing it with the back button we don't need to navigate
+                if (!element) {
+                    await this.backToPreviousSlide();
+                }
             });
         });
     }
@@ -120,17 +135,12 @@ export class NewAdPage extends AbstractPage implements OnInit {
         await this.enableMenu(this.menuController, false, false);
     }
 
-    async backToPreviousSlide(fromHardwareBackButton: boolean = false) {
+    async backToPreviousSlide() {
         const index: number = await this.slider.getActiveIndex();
-
-        // TODO: Remove once https://github.com/ionic-team/ionic/issues/15820 solved
-        if (index > 0 && !fromHardwareBackButton) {
-            history.back(1);
-        }
 
         if (index > 0 && !this.newItemService.isDone()) {
             await this.slider.slidePrev();
-        } else if (!fromHardwareBackButton) {
+        } else {
             const newAdNavParams: NewAdNavParams = await this.navParamsService.getNewAdNavParams();
 
             if (!newAdNavParams || Comparator.isStringEmpty(newAdNavParams.backToPageUrl) || newAdNavParams.backToPageUrl === '/first-choice') {
@@ -269,15 +279,5 @@ export class NewAdPage extends AbstractPage implements OnInit {
 
         // Force the slider to stop, weird bug on iPad not using the configuration
         await this.slider.stopAutoplay();
-    }
-
-    // TODO: Remove once https://github.com/ionic-team/ionic/issues/15820 solved
-    async pushHistoryState() {
-        if (!this.slider) {
-            return;
-        }
-
-        const sliderIndex: number = await this.slider.getActiveIndex();
-        history.pushState({newAd: sliderIndex}, document.title);
     }
 }

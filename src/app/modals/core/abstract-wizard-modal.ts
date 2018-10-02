@@ -1,4 +1,5 @@
 import {Platform} from '@ionic/angular';
+import {HostListener} from '@angular/core';
 
 import {Subscription} from 'rxjs';
 
@@ -12,15 +13,23 @@ export abstract class AbstractWizardModal extends AbstractModal {
     constructor(protected platform: Platform) {
         super();
 
-        this.overrideHardwareBackAction();
+        // TODO: Uncomment for Ionic v4-beta.13
+        // this.overrideHardwareBackAction();
     }
 
-    private overrideHardwareBackAction() {
-        this.platform.ready().then(() => {
-            this.customBackActionSubscription = this.platform.backButton.subscribe(() => {
-                this.close();
-            });
-        });
+    // TODO: Uncomment for Ionic v4-beta.13
+    // private overrideHardwareBackAction() {
+    //     this.platform.ready().then(() => {
+    //         this.customBackActionSubscription = this.platform.backButton.subscribeWithPriority(() => {
+    //             this.close();
+    //         });
+    //     });
+    // }
+
+    // TODO: Remove for Ionic v4-beta.13
+    @HostListener('document:ionBackButton', ['$event'])
+    private overrideHardwareBackAction($event: any) {
+        this.close();
     }
 
     protected unregisterBackAction() {
