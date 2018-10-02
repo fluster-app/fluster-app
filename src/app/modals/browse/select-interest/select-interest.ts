@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, HostListener, ViewChild} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
 import {LoadingController, ModalController, NavParams, Platform, Slides} from '@ionic/angular';
 
@@ -73,7 +73,8 @@ export class SelectInterestModal extends AbstractModal {
 
         this.initTravelTime();
 
-        this.overrideHardwareBackAction();
+        // TODO: Uncomment for Ionic v4-beta.13
+        // this.overrideHardwareBackAction();
     }
 
     private initTravelTime() {
@@ -226,18 +227,33 @@ export class SelectInterestModal extends AbstractModal {
         return !Comparator.isStringEmpty(this.interest.addressName);
     }
 
-    private overrideHardwareBackAction() {
-        this.platform.ready().then(() => {
-            this.customBackActionSubscription = this.platform.backButton.subscribe(async () => {
+    // TODO: Uncomment for Ionic v4-beta.13
+    // private overrideHardwareBackAction() {
+    //     this.platform.ready().then(() => {
+    //         this.customBackActionSubscription = this.platform.backButton.subscribeWithPriority(async () => {
+    //
+    //             const isFirstSlide: boolean = await this.slider.isBeginning();
+    //
+    //             if (!isFirstSlide) {
+    //                 this.backToPreviousSlide();
+    //             } else {
+    //                 this.close();
+    //             }
+    //         });
+    //     });
+    // }
 
-                const isFirstSlide: boolean = await this.slider.isBeginning();
+    // TODO: Remove for Ionic v4-beta.13
+    @HostListener('document:ionBackButton', ['$event'])
+    private overrideHardwareBackAction($event: any) {
+        $event.detail.register(100, async () => {
+            const isFirstSlide: boolean = await this.slider.isBeginning();
 
-                if (!isFirstSlide) {
-                    this.backToPreviousSlide();
-                } else {
-                    this.close();
-                }
-            });
+            if (!isFirstSlide) {
+                this.backToPreviousSlide();
+            } else {
+                this.close();
+            }
         });
     }
 

@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {LoadingController, NavController, Platform, Slides, ToastController} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -92,7 +92,8 @@ export class AdminAppointmentsPage extends AbstractAdminPage implements OnInit {
     }
 
     async ionViewWillEnter() {
-        this.overrideHardwareBackAction();
+        // TODO: Uncomment for Ionic v4-beta.13
+        // this.overrideHardwareBackAction();
     }
 
     ionViewDidLeave() {
@@ -101,11 +102,20 @@ export class AdminAppointmentsPage extends AbstractAdminPage implements OnInit {
         }
     }
 
-    private overrideHardwareBackAction() {
-        this.platform.ready().then(() => {
-            this.customBackActionSubscription = this.platform.backButton.subscribe(() => {
-                this.backToPreviousSlide();
-            });
+    // TODO: Uncomment for Ionic v4-beta.13
+    // private overrideHardwareBackAction() {
+    //     this.platform.ready().then(() => {
+    //         this.customBackActionSubscription = this.platform.backButton.subscribeWithPriority(async () => {
+    //             await this.backToPreviousSlide();
+    //         });
+    //     });
+    // }
+
+    // TODO: Remove for Ionic v4-beta.13
+    @HostListener('document:ionBackButton', ['$event'])
+    private overrideHardwareBackAction($event: any) {
+        $event.detail.register(100, async () => {
+            await this.backToPreviousSlide();
         });
     }
 
