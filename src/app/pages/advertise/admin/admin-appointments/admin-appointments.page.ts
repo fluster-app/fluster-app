@@ -68,7 +68,7 @@ export class AdminAppointmentsPage extends AbstractAdminPage implements OnInit {
                 private adminAppointmentsService: AdminAppointmentsService) {
         super(navController, adsService, navParamsService);
 
-        this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.ADS_CLOSE);
+        this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.ADMIN.APPOINTMENTS);
     }
 
     async ngOnInit() {

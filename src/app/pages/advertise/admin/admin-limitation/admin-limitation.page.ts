@@ -52,7 +52,7 @@ export class AdminLimitationPage extends AbstractAdminPage implements OnInit {
                 private googleAnalyticsNativeService: GoogleAnalyticsNativeService) {
         super(navController, adsService, navParamsService);
 
-        this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.ADS_CLOSE);
+        this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.ADMIN.LIMITATION);
     }
 
     async ngOnInit() {

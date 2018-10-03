@@ -173,6 +173,10 @@ export class Resources {
                                 WIZARD: {
                                     NEW_AD: 'new_ad',
                                     EDIT_AD: 'edit_ad'
+                                },
+                                ADMIN: {
+                                    APPOINTMENTS: 'admin_appointments',
+                                    LIMITATION: 'admin_limitation'
                                 }
                             },
                             FIRST_CHOICE: 'first_choice',
