@@ -20,7 +20,7 @@
                 <!-- Size -->
                 <ion-item>
                     <ion-label position="stacked">{{'NEW_AD.STEP_SHARE_SIZE.SHAREDROOMSSIZE' | translate}}</ion-label>
-                    <ion-input type="tel" #shareRoomSize [value]="newItem.attributes.sharedRoomsSize" formControlName="sharedSizeValidator" (ionChange)="updateSharedRoomsSize(shareRoomSize.value)"></ion-input>
+                    <ion-input type="tel" #shareRoomSize formControlName="sharedSizeValidator" (ionChange)="updateSharedRoomsSize(shareRoomSize.value)"></ion-input>
                 </ion-item>
 
                 <ion-item [class.fluster-text-input-placeholder]="!newItem.attributes.furnished">

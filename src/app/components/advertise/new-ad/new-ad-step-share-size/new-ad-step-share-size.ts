@@ -45,6 +45,10 @@ export class NewAdStepShareSizeComponent extends AbstractNewAdComponent {
         });
 
         this.newItem = this.newItemService.getNewItem();
+
+        if (this.newItem && this.newItem.attributes && this.newItem.attributes.sharedRoomsSize > 0) {
+            this.sizeFormGroup.setValue({'sharedSizeValidator': this.newItem.attributes.sharedRoomsSize}, {emitEvent: false});
+        }
     }
 
     isSharedroomsSelected() {

@@ -22,7 +22,7 @@
                 <!-- Size -->
                 <ion-item>
                     <ion-label position="stacked">{{'NEW_AD.STEP_SIZE.SIZE' | translate}}</ion-label>
-                    <ion-input type="tel" #size [value]="newItem.attributes.size" formControlName="sizeValidator" (ionChange)="updateSize(size.value)"></ion-input>
+                    <ion-input type="tel" #size formControlName="sizeValidator" (ionChange)="updateSize(size.value)"></ion-input>
                 </ion-item>
 
                 <!-- Bathrooms -->

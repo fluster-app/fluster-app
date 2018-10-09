@@ -49,6 +49,10 @@ export class NewAdStepSizeComponent extends AbstractNewAdComponent {
         });
 
         this.newItem = this.newItemService.getNewItem();
+
+        if (this.newItem && this.newItem.attributes && this.newItem.attributes.size > 0) {
+            this.sizeFormGroup.setValue({'sizeValidator': this.newItem.attributes.size}, {emitEvent: false});
+        }
     }
 
     isItemShare() {
