@@ -1,5 +1,4 @@
-<div class="targetedUsers">
-    <ion-icon slot="start" color="primary" name="person"></ion-icon>
+<div class="targetedUsers" text-center>
     <span class="targetedUsersCount" *ngIf="countTargetedUsers < MIN_TARGETED_USERS">&#60;50</span>
     <span class="targetedUsersCount" *ngIf="countTargetedUsers >= MIN_TARGETED_USERS && countTargetedUsers < MAX_TARGETED_USERS">{{countTargetedUsers}}</span>
     <span class="targetedUsersCount" *ngIf="countTargetedUsers >= MAX_TARGETED_USERS">&#62;1&#39;000</span>

@@ -5,9 +5,11 @@ import {Routes, RouterModule} from '@angular/router';
 
 import {IonicModule} from '@ionic/angular';
 
+import {TranslateModule} from '@ngx-translate/core';
+
 import {AdminLimitationPage} from './admin-limitation.page';
 
-import {TranslateModule} from '@ngx-translate/core';
+import {TargetedUsersModule} from '../../../../components/advertise/new-ad/targeted-users/targeted-users.module';
 
 const routes: Routes = [
     {
@@ -22,7 +24,8 @@ const routes: Routes = [
         FormsModule,
         IonicModule,
         RouterModule.forChild(routes),
-        TranslateModule.forChild()
+        TranslateModule.forChild(),
+        TargetedUsersModule
     ],
     declarations: [AdminLimitationPage]
 })

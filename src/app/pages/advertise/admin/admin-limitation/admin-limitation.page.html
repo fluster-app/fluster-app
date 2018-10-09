@@ -60,7 +60,10 @@
 
         <div class="sticky-buttons" padding-start padding-end>
 
-            <div class="spacer"></div>
+            <app-targeted-users [item]="item" [ageMin]="ages?.lower" [ageMax]="ages?.upper"
+                                [gender]="item?.userLimitations?.gender"
+                                [admin]="true">
+            </app-targeted-users>
 
             <ion-button expand="full" shape="round" (click)="updateAd()">
                 {{'ADMIN_APPOINTMENTS.APPOINTMENTS.CONFIRM' | translate}}

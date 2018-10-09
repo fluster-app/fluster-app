@@ -7,6 +7,10 @@
 .targetedUsers * {
     font-size: $fluster-text-normal;
     font-weight: $font-weight-light;
+
+    &.targetedUsersCount {
+        font-weight: $font-weight-normal;
+    }
 }
 
 .targetedUsers ion-icon {
