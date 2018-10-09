@@ -869,7 +869,7 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
         });
     }
 
-    updateBirthday($event: any) {
+    async updateBirthday($event: any) {
         if (Comparator.isEmpty($event) || Comparator.isEmpty(this.user) || Comparator.isEmpty(this.user.facebook)) {
             return;
         }
@@ -883,7 +883,7 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
         this.user.facebook.birthday = moment().year(year).month(month - 1).date(day).toDate();
 
         this.userSessionService.setUserToSave(this.user);
-        this.saveUserIfNeeded(this.toastController, this.loadingController, this.translateService, this.userProfileService, this.userSessionService, this.user);
+        await this.saveUserIfNeeded(this.toastController, this.loadingController, this.translateService, this.userProfileService, this.userSessionService, this.user);
 
         this.reset();
         this.findItems(false);

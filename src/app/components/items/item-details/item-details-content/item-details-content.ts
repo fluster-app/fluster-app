@@ -1,9 +1,9 @@
-import {Component, Input, OnChanges, SimpleChange, AfterViewInit, Output, EventEmitter} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChange, AfterViewInit, Output, EventEmitter, OnDestroy} from '@angular/core';
 import {ModalController, Platform} from '@ionic/angular';
 import {SafeUrl, DomSanitizer} from '@angular/platform-browser';
 import {HttpErrorResponse} from '@angular/common/http';
 
-import {forkJoin} from 'rxjs';
+import {forkJoin, Subscription} from 'rxjs';
 
 // Abstract
 import {AbstractPage} from '../../../../pages/abstract-page';
@@ -32,7 +32,7 @@ import {UserProfileService} from '../../../../services/core/user/user-profile-se
     styleUrls: ['./item-details-content.scss'],
     selector: 'app-item-details-content'
 })
-export class ItemDetailsContentComponent extends AbstractPage implements OnChanges, AfterViewInit {
+export class ItemDetailsContentComponent extends AbstractPage implements OnChanges, AfterViewInit, OnDestroy {
 
     RESOURCES: any = Resources.Constants;
 
@@ -64,6 +64,8 @@ export class ItemDetailsContentComponent extends AbstractPage implements OnChang
 
     advertiserLoaded: boolean = false;
 
+    private watchSavedUser: Subscription;
+
     constructor(private platform: Platform,
                 private modalController: ModalController,
                 private sanitizer: DomSanitizer,
@@ -82,6 +84,14 @@ export class ItemDetailsContentComponent extends AbstractPage implements OnChang
         this.loadData();
 
         this.initExternalMapUrl();
+
+        this.watchSavedUser = this.userProfileService.watchSavedUser().subscribe(async (updateUser: User) => {
+            // We only need to refresh the advertiser data on the ads side
+            if (this.isAdDisplay) {
+                this.advertiserInitializationStarted = false;
+                await this.loadAdvertiserPublicProfile();
+            }
+        });
     }
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
@@ -92,6 +102,12 @@ export class ItemDetailsContentComponent extends AbstractPage implements OnChang
         this.loadData();
 
         this.initExternalMapUrl();
+    }
+
+    ngOnDestroy() {
+        if (this.watchSavedUser) {
+            this.watchSavedUser.unsubscribe();
+        }
     }
 
     getFirstCategory(): string {

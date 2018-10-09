@@ -252,9 +252,9 @@ export abstract class AbstractPage {
         inAppBrowser.create(this.RESOURCES.TERMS_OF_USE.URL, '_blank', 'location=no');
     }
 
-    protected saveUserIfNeeded(toastController: ToastController, loadingController: LoadingController, translateService: TranslateService, userProfileService: UserProfileService, userSessionService: UserSessionService, user: User) {
+    protected async saveUserIfNeeded(toastController: ToastController, loadingController: LoadingController, translateService: TranslateService, userProfileService: UserProfileService, userSessionService: UserSessionService, user: User) {
         if (userSessionService.shouldUserBeSaved()) {
-            this.saveModifiedUser(toastController, loadingController, translateService, userProfileService, user);
+            await this.saveModifiedUser(toastController, loadingController, translateService, userProfileService, user);
         }
     }
 

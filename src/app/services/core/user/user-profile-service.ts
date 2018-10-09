@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/common/http';
 
+import {Observable, Subject} from 'rxjs';
+
 // Model
 import {AccessToken, User} from '../../model/user/user';
 
@@ -16,6 +18,8 @@ import {AccessTokenBody, AccessTokenService} from './access-token-service';
     providedIn: 'root'
 })
 export class UserProfileService {
+
+    private savedUser: Subject<User> = new Subject<User>();
 
     constructor(private httpClient: HttpClient,
                 private userSessionService: UserSessionService,
@@ -61,6 +65,7 @@ export class UserProfileService {
         return new Promise((resolve, reject) => {
             if (this.userSessionService.shouldUserBeSaved()) {
                 this.save(user).then((updatedUser: User) => {
+                    this.savedUser.next(updatedUser);
                     resolve(updatedUser);
                 }, (response: HttpErrorResponse) => {
                     reject(response);
@@ -69,6 +74,10 @@ export class UserProfileService {
                 resolve(user);
             }
         });
+    }
+
+    watchSavedUser(): Observable<User> {
+        return this.savedUser.asObservable();
     }
 
     findPublicProfile(userId: string): Promise<{}> {

@@ -57,9 +57,9 @@ export class MyAppointmentsItemsPage extends MyItemsPage {
         await this.enableMenu(this.menuController, true, false);
     }
 
-    doSaveUserIfNeeded() {
+    async doSaveUserIfNeeded() {
         const user: User = this.userSessionService.getUser();
-        this.saveUserIfNeeded(this.toastController, this.loadingController, this.translateService, this.userProfileService, this.userSessionService, user);
+        await this.saveUserIfNeeded(this.toastController, this.loadingController, this.translateService, this.userProfileService, this.userSessionService, user);
     }
 
     ionViewWillLeave() {

@@ -15,11 +15,11 @@ import {TranslateService} from '@ngx-translate/core';
 
 import {SocialSharing} from '@ionic-native/social-sharing/ngx';
 
-// Model
-import {Item} from '../../../../services/model/item/item';
-
 // Pages
 import {AbstractAdsPage} from '../abstract-ads';
+
+// Model
+import {Item} from '../../../../services/model/item/item';
 
 // Resources and utils
 import {Comparator} from '../../../../services/core/utils/utils';

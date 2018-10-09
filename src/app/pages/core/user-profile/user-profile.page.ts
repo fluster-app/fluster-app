@@ -78,8 +78,8 @@ export class UserProfilePage extends AbstractPage {
         }
     }
 
-    ionViewDidLeave() {
-        this.saveUserIfNeeded(this.toastController, this.loadingController, this.translateService, this.userProfileService, this.userSessionService, this.user);
+    async ionViewDidLeave() {
+        await this.saveUserIfNeeded(this.toastController, this.loadingController, this.translateService, this.userProfileService, this.userSessionService, this.user);
 
         this.saveProfileCompletedOnce();
     }

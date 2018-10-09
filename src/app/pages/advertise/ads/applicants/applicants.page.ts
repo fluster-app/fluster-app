@@ -94,9 +94,9 @@ export class ApplicantsPage extends AbstractAdsPage {
         await this.enableMenu(this.menuController, false, true);
     }
 
-    ionViewDidEnter() {
+    async ionViewDidEnter() {
         const user: User = this.userSessionService.getUser();
-        this.saveUserIfNeeded(this.toastController, this.loadingController, this.translateService, this.userProfileService, this.userSessionService, user);
+        await this.saveUserIfNeeded(this.toastController, this.loadingController, this.translateService, this.userProfileService, this.userSessionService, user);
     }
 
     ionViewWillLeave() {
