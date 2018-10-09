@@ -36,6 +36,7 @@ export abstract class AbstractPage {
 
     slideOptsProgressbar: SwiperOptions = {
         autoplay: false,
+        zoom: false,
         pagination: {
             el: '.swiper-pagination',
             type: 'custom',
@@ -47,11 +48,13 @@ export abstract class AbstractPage {
 
     slideOptsOnlyExternal: SwiperOptions = {
         autoplay: false,
+        zoom: false,
         allowTouchMove: false
     };
 
     slideOptsProgressbarOnlyExternal: SwiperOptions = {
         autoplay: false,
+        zoom: false,
         pagination: {
             el: '.swiper-pagination',
             type: 'custom',
