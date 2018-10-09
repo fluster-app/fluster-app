@@ -5,7 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {TranslateModule} from '@ngx-translate/core';
 
-import {TargetedUsersModule} from '../targeted-users/targeted-users.module';
+import {TargetedUsersModule} from '../../targeted-users/targeted-users.module';
 import {NewAdStepPriceComponent} from './new-ad-step-price';
 import {DisplayCurrencyModule} from '../../../core/display-currency/display-currency.module';
 import {NewAdStepPriceTotalModule} from './new-ad-step-price-total.module';

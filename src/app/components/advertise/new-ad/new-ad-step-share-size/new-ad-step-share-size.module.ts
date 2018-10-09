@@ -5,7 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {TranslateModule} from '@ngx-translate/core';
 
-import {TargetedUsersModule} from '../targeted-users/targeted-users.module';
+import {TargetedUsersModule} from '../../targeted-users/targeted-users.module';
 import {NewAdStepShareSizeComponent} from './new-ad-step-share-size';
 import {LabelSingularPluralModule} from '../../../core/label-singular-plural/label-singular-plural.module';
 import {SelectAttributesModalModule} from '../../../../modals/advertise/select-attributes/select-attributes.module';

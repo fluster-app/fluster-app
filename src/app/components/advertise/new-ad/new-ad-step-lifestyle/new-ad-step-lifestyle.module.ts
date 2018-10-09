@@ -4,7 +4,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {TranslateModule} from '@ngx-translate/core';
 
-import {TargetedUsersModule} from '../targeted-users/targeted-users.module';
+import {TargetedUsersModule} from '../../targeted-users/targeted-users.module';
 import {NewAdStepLifestyleComponent} from './new-ad-step-lifestyle';
 import {LabelSingularPluralModule} from '../../../core/label-singular-plural/label-singular-plural.module';
 import {ListLifestyleHobbiesModule} from '../../../core/list-lifestyle-hobbies/list-lifestyle.module-hobbies';

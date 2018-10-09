@@ -10,7 +10,7 @@ import {Comparator} from '../../../../services/core/utils/utils';
 
 // Pages
 import {AbstractNewAdComponent} from '../abstract-new-ad';
-import {TargetedUsersComponent} from '../targeted-users/targeted-users';
+import {TargetedUsersComponent} from '../../targeted-users/targeted-users';
 
 // Service
 import {NewItemService} from '../../../../services/advertise/new-item-service';

@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 
 import {TranslateModule} from '@ngx-translate/core';
 
-import {TargetedUsersModule} from '../targeted-users/targeted-users.module';
+import {TargetedUsersModule} from '../../targeted-users/targeted-users.module';
 import {NewAdStepAvailabilityComponent} from './new-ad-step-availability';
 import {DisplayDateModule} from '../../../core/display-date/display-date.module';
 import {DatePickerModalModule} from '../../../../modals/core/date-picker/date-picker.module';

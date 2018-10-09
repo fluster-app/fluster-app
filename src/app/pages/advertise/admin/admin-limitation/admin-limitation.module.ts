@@ -9,7 +9,7 @@ import {TranslateModule} from '@ngx-translate/core';
 
 import {AdminLimitationPage} from './admin-limitation.page';
 
-import {TargetedUsersModule} from '../../../../components/advertise/new-ad/targeted-users/targeted-users.module';
+import {TargetedUsersModule} from '../../../../components/advertise/targeted-users/targeted-users.module';
 
 const routes: Routes = [
     {

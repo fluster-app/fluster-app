@@ -5,7 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {TranslateModule} from '@ngx-translate/core';
 
-import {TargetedUsersModule} from '../targeted-users/targeted-users.module';
+import {TargetedUsersModule} from '../../targeted-users/targeted-users.module';
 import {NewAdStepSizeComponent} from './new-ad-step-size';
 import {DisplayFloorModule} from '../../../core/display-floor/display-floor.module';
 import {LabelSingularPluralModule} from '../../../core/label-singular-plural/label-singular-plural.module';

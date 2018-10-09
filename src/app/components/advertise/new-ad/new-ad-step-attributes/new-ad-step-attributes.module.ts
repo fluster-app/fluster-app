@@ -6,7 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
 
 import {NewAdStepAttributesComponent} from './new-ad-step-attributes';
-import {TargetedUsersModule} from '../targeted-users/targeted-users.module';
+import {TargetedUsersModule} from '../../targeted-users/targeted-users.module';
 
 @NgModule({
     declarations: [

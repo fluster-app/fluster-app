@@ -16,7 +16,7 @@ import {ItemsComparator} from '../../../../services/core/utils/items-utils';
 
 // Pages
 import {AbstractNewAdComponent} from '../abstract-new-ad';
-import {TargetedUsersComponent} from '../targeted-users/targeted-users';
+import {TargetedUsersComponent} from '../../targeted-users/targeted-users';
 
 // Service
 import {NewItemService} from '../../../../services/advertise/new-item-service';

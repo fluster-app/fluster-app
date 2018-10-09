@@ -3,16 +3,16 @@ import {Component, Input, OnChanges, SimpleChange, OnDestroy} from '@angular/cor
 import {Subscription} from 'rxjs';
 
 // Model
-import {Item} from '../../../../services/model/item/item';
-import {Location} from '../../../../services/model/location/location';
+import {Item} from '../../../services/model/item/item';
+import {Location} from '../../../services/model/location/location';
 
 // Resources and utils
-import {Resources} from '../../../../services/core/utils/resources';
-import {Comparator} from '../../../../services/core/utils/utils';
-import {ItemsComparator} from '../../../../services/core/utils/items-utils';
+import {Resources} from '../../../services/core/utils/resources';
+import {Comparator} from '../../../services/core/utils/utils';
+import {ItemsComparator} from '../../../services/core/utils/items-utils';
 
 // Services
-import {AdsStatisticsService} from '../../../../services/advertise/ads-statistics-service';
+import {AdsStatisticsService} from '../../../services/advertise/ads-statistics-service';
 
 @Component({
     templateUrl: 'targeted-users.html',

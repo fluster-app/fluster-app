@@ -19,7 +19,7 @@ import {ItemsComparator} from '../../../../services/core/utils/items-utils';
 import {NewItemService} from '../../../../services/advertise/new-item-service';
 import {FormGroup, FormControl} from '@angular/forms';
 import {GoogleAnalyticsNativeService} from '../../../../services/native/analytics/google-analytics-native-service';
-import {TargetedUsersComponent} from '../targeted-users/targeted-users';
+import {TargetedUsersComponent} from '../../targeted-users/targeted-users';
 
 @Component({
     templateUrl: 'new-ad-step-price.html',

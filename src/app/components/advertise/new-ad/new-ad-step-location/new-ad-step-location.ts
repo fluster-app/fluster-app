@@ -12,7 +12,7 @@ import {SearchLocationModal} from '../../../../modals/core/search-location/searc
 
 // Pages
 import {AbstractNewAdComponent} from '../abstract-new-ad';
-import {TargetedUsersComponent} from '../targeted-users/targeted-users';
+import {TargetedUsersComponent} from '../../targeted-users/targeted-users';
 
 // Model
 import {Item, ItemAddress} from '../../../../services/model/item/item';
