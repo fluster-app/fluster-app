@@ -65,8 +65,10 @@ export class ItemSlidesComponent extends AbstractPage implements OnChanges {
     }
 
     async ngOnChanges(changes: { [propName: string]: SimpleChange }) {
-        if (!Comparator.isEmpty(changes['item']) && changes['item'].currentValue != null) {
+        if (!Comparator.isEmpty(changes['item']) && !Comparator.isEmpty(changes['item'].currentValue) && !Comparator.equals(changes['item'].currentValue, changes['item'].previousValue)) {
             this.itemImages = await this.concatImages();
+
+            await this.updateSlider();
 
             this.itemExpired = !Comparator.isEmpty(this.item) && ItemsComparator.isItemExpired(this.item);
             this.itemExpiringSoon = !Comparator.isEmpty(this.item) && ItemsComparator.isItemExpiringSoon(this.item);
@@ -75,7 +77,7 @@ export class ItemSlidesComponent extends AbstractPage implements OnChanges {
 
     private concatImages(): Promise<string[]> {
         return new Promise<string[]>((resolve) => {
-            if (!this.renderSlides || Comparator.isEmpty(this.item) || Comparator.hasElements(this.itemImages)) {
+            if (!this.renderSlides || Comparator.isEmpty(this.item)) {
                 resolve(this.itemImages);
             } else {
                 let result: string[] = new Array();
@@ -98,6 +100,24 @@ export class ItemSlidesComponent extends AbstractPage implements OnChanges {
                 resolve(result);
             }
         });
+    }
+
+    // HACK: For a weird reason, when we update an ad and go back to the detail of the ad
+    // The slider doesn't pick the removed photos. For example if we had 3 photos and removed one
+    // The slider will still display 3 slides with an empty one instead of two
+    // Furthermore we can't wait for an event or so, we have to add a small delay to let the slider
+    // pick the update
+    private async updateSlider() {
+        if (this.slides && Comparator.hasElements(this.itemImages)) {
+            const length: number = await this.slides.length();
+            const lengthShould: number = this.displayAdvertiserSlide && this.isItemShare() ? this.itemImages.length + 1 : this.itemImages.length;
+
+            if (length > lengthShould) {
+                setTimeout(() => {
+                    this.slides.update();
+                }, 100);
+            }
+        }
     }
 
     async prevNextPhotos($event: any) {
