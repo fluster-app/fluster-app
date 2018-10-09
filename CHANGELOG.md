@@ -1,3 +1,20 @@
+<a name="5.1.0"></a>
+# [5.1.0](https://github.com/fluster/fluster-app/compare/v5.0.1...v5.1.0) (2018-10-09)
+
+### Features
+
+* on the page where users could select who could see theirs ads, add the information about how many users could be reached ([#33](https://github.com/fluster/fluster-app/issues/33))
+* when users would refresh their profile, refresh the details of their ads ([#23](https://github.com/fluster/fluster-app/issues/23))
+
+### UX
+
+* block double tap on sliders' images ([#35](https://github.com/fluster/fluster-app/issues/35))
+
+### Fixes
+
+* display of the photos were not updated after an ad would have been updated with the wizard ([#32](https://github.com/fluster/fluster-app/issues/32))
+* square meters weren't displaying when editing an ad with the wizard ([#36](https://github.com/fluster/fluster-app/issues/36))
+
 <a name="5.0.1"></a>
 # [5.0.1](https://github.com/fluster/fluster-app/compare/v5.0.0...v5.0.1) (2018-10-02)
 
