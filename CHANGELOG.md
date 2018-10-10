@@ -1,3 +1,10 @@
+<a name="5.1.1"></a>
+# [5.1.1](https://github.com/fluster/fluster-app/compare/v5.1.0...v5.1.1) (2018-10-10)
+
+### UX
+
+* don't display action sheet to select who could view a flatshare or flat if there isn't an ad yet ([#38](https://github.com/fluster/fluster-app/issues/38))
+
 <a name="5.1.0"></a>
 # [5.1.0](https://github.com/fluster/fluster-app/compare/v5.0.1...v5.1.0) (2018-10-09)
 
