@@ -11,7 +11,7 @@
 
     <ion-title>{{'MENU.AD.CANDIDATES' | translate}}</ion-title>
 
-    <ion-buttons slot="end" *ngIf="loaded">
+    <ion-buttons slot="end" *ngIf="loaded && hasItem()">
       <ion-button (click)="presentActionSheet($event)">
         <ion-icon slot="icon-only" name="more"></ion-icon>
       </ion-button>
