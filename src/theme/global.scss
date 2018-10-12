@@ -14,6 +14,10 @@ ion-content[role="menuad"], ion-content[role="menubrowse"] {
             ion-item {
                 --background: transparent;
                 --background-activated: transparent;
+
+                --ion-item-background-color: transparent;
+                --ion-item-background-color-active: transparent;
+
                 font-size: 2.6rem;
                 font-weight: $font-weight-light;
 

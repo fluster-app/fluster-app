@@ -6,7 +6,7 @@ button.button-round {
   }
 }
 
-ion-button.facebook.button {
+ion-button.facebook.button, ion-button.facebook.button.sc-ion-button-md-h {
   --color: white;
   --background: var(--facebook);
   --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -15,7 +15,7 @@ ion-button.facebook.button {
   --color-activated: var(--facebook);
 }
 
-ion-button.google.button {
+ion-button.google.button, ion-button.google.button.sc-ion-button-md-h {
   --color: initial;
   --background: white;
   --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -30,7 +30,7 @@ ion-button.google.button {
   }
 }
 
-ion-button {
+ion-button, ion-button.sc-ion-button-md-h {
 
   &.button-solid {
     --color: white;
