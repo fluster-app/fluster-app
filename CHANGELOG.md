@@ -1,3 +1,15 @@
+<a name="5.1.2"></a>
+# [5.1.2](https://github.com/fluster/fluster-app/compare/v5.1.1...v5.1.2) (2018-10-12)
+
+### UX
+
+* add a parallax effect on the navigation bar on Android too ([#40](https://github.com/fluster/fluster-app/issues/40))
+* favorite artists' name were shrinked, display them properly ([#37](https://github.com/fluster/fluster-app/issues/37))
+
+### Fixes
+
+* some styles were not properly applied in Firefox ([#41](https://github.com/fluster/fluster-app/issues/41))
+
 <a name="5.1.1"></a>
 # [5.1.1](https://github.com/fluster/fluster-app/compare/v5.1.0...v5.1.1) (2018-10-10)
 
