@@ -1,5 +1,5 @@
-<ion-header #itemDetailsHeader>
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar #itemDetailsHeaderToolbar>
 
     <ion-buttons slot="start">
       <ion-menu-toggle *ngIf="srcDeeplink">
@@ -25,7 +25,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content appNavbarOnScroll [header]="detailsHeader" role="browse" [fullscreen]="true" id="item-details-content" [forceOverscroll]="true" [scrollEvents]="true">
+<ion-content appNavbarOnScroll [toolbar]="detailsHeaderToolbar" role="browse" [fullscreen]="true" id="item-details-content" [forceOverscroll]="true" [scrollEvents]="true">
 
   <app-content-browse-notification [displayOnInit]="false"></app-content-browse-notification>
 

@@ -1,5 +1,5 @@
-<ion-header #adsDetailsHeader id="ads-details-header">
-  <ion-toolbar>
+<ion-header id="ads-details-header">
+  <ion-toolbar #adsDetailsHeaderToolbar>
 
     <ion-buttons slot="start">
       <ion-menu-toggle>
@@ -21,7 +21,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content appNavbarOnScroll [header]="detailsHeader" role="ad" id="ads-details-content" [fullscreen]="true" [forceOverscroll]="true" [scrollEvents]="true">
+<ion-content appNavbarOnScroll [toolbar]="detailsHeaderToolbar" role="ad" id="ads-details-content" [fullscreen]="true" [forceOverscroll]="true" [scrollEvents]="true">
 
   <app-content-advertise-notification [displayOnInit]="false"></app-content-advertise-notification>
 

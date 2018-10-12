@@ -53,7 +53,7 @@ import {ItemDetailsNavParams, NavParamsService} from '../../../../services/core/
 })
 export class ItemDetailsPage extends AbstractItemsPage {
 
-    @ViewChild('itemDetailsHeader', {read: ElementRef}) detailsHeader: ElementRef;
+    @ViewChild('itemDetailsHeaderToolbar', {read: ElementRef}) detailsHeaderToolbar: ElementRef;
 
     item: Item;
     itemUser: ItemUser;

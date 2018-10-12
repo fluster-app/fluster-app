@@ -41,7 +41,7 @@ import {NavParamsService} from '../../../../services/core/navigation/nav-params-
 })
 export class AdsDetailsPage extends AbstractAdsPage {
 
-    @ViewChild('adsDetailsHeader', {read: ElementRef}) detailsHeader: ElementRef;
+    @ViewChild('adsDetailsHeaderToolbar', {read: ElementRef}) detailsHeaderToolbar: ElementRef;
 
     item: Item;
 
