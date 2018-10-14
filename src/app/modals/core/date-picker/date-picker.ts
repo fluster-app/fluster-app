@@ -111,7 +111,7 @@ export class DatePickerModal extends AbstractWizardModal {
     // private
     dismiss(selectedDate: Date) {
         this.modalController.dismiss(selectedDate).then(() => {
-            this.unregisterBackAction();
+            // Do nothing
         });
     }
 

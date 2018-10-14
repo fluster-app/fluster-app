@@ -2,8 +2,6 @@ import {Component, HostListener, ViewChild} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
 import {LoadingController, ModalController, NavParams, Platform, Slides} from '@ionic/angular';
 
-import {Subscription} from 'rxjs';
-
 // Modal
 import {AbstractModal} from '../../core/abstract-modal';
 
@@ -26,8 +24,6 @@ import {UserInterestsService} from '../../../services/core/user/user-interetsts-
     selector: 'app-select-interest'
 })
 export class SelectInterestModal extends AbstractModal {
-
-    private customBackActionSubscription: Subscription;
 
     @ViewChild('interestSlider') slider: Slides;
 
@@ -72,9 +68,6 @@ export class SelectInterestModal extends AbstractModal {
         }
 
         this.initTravelTime();
-
-        // TODO: Uncomment for Ionic v4-beta.13
-        // this.overrideHardwareBackAction();
     }
 
     private initTravelTime() {
@@ -93,7 +86,7 @@ export class SelectInterestModal extends AbstractModal {
 
     close() {
         this.modalController.dismiss().then(() => {
-            this.unregisterBackAction();
+            // Do nothing
         });
     }
 
@@ -116,7 +109,7 @@ export class SelectInterestModal extends AbstractModal {
         }
 
         this.modalController.dismiss(this.interest).then(() => {
-            this.unregisterBackAction();
+            // Do nothing
         });
     }
 
@@ -227,23 +220,6 @@ export class SelectInterestModal extends AbstractModal {
         return !Comparator.isStringEmpty(this.interest.addressName);
     }
 
-    // TODO: Uncomment for Ionic v4-beta.13
-    // private overrideHardwareBackAction() {
-    //     this.platform.ready().then(() => {
-    //         this.customBackActionSubscription = this.platform.backButton.subscribeWithPriority(async () => {
-    //
-    //             const isFirstSlide: boolean = await this.slider.isBeginning();
-    //
-    //             if (!isFirstSlide) {
-    //                 this.backToPreviousSlide();
-    //             } else {
-    //                 this.close();
-    //             }
-    //         });
-    //     });
-    // }
-
-    // TODO: Remove for Ionic v4-beta.13
     @HostListener('document:ionBackButton', ['$event'])
     private overrideHardwareBackAction($event: any) {
         $event.detail.register(100, async () => {
@@ -364,7 +340,7 @@ export class SelectInterestModal extends AbstractModal {
         }
 
         this.modalController.dismiss(this.interest).then(() => {
-            this.unregisterBackAction();
+            // Do nothing
         });
     }
 
@@ -372,12 +348,6 @@ export class SelectInterestModal extends AbstractModal {
         if (this.doSave) {
             // Will allow us to detect the modification to update the user
             this.userSessionService.setUserToSave(this.user);
-        }
-    }
-
-    private unregisterBackAction() {
-        if (this.customBackActionSubscription) {
-            this.customBackActionSubscription.unsubscribe();
         }
     }
 

@@ -35,8 +35,6 @@ export class AdminAppointmentsPage extends AbstractAdminPage implements OnInit {
 
     @ViewChild('adsAdminAppointmentsSlider') slider: Slides;
 
-    private customBackActionSubscription: Subscription;
-
     itemEndCouldBeExtended: boolean = false;
 
     appointment: Appointment;
@@ -91,27 +89,6 @@ export class AdminAppointmentsPage extends AbstractAdminPage implements OnInit {
         }
     }
 
-    async ionViewWillEnter() {
-        // TODO: Uncomment for Ionic v4-beta.13
-        // this.overrideHardwareBackAction();
-    }
-
-    ionViewDidLeave() {
-        if (this.customBackActionSubscription) {
-            this.customBackActionSubscription.unsubscribe();
-        }
-    }
-
-    // TODO: Uncomment for Ionic v4-beta.13
-    // private overrideHardwareBackAction() {
-    //     this.platform.ready().then(() => {
-    //         this.customBackActionSubscription = this.platform.backButton.subscribeWithPriority(async () => {
-    //             await this.backToPreviousSlide();
-    //         });
-    //     });
-    // }
-
-    // TODO: Remove for Ionic v4-beta.13
     @HostListener('document:ionBackButton', ['$event'])
     private overrideHardwareBackAction($event: any) {
         $event.detail.register(100, async () => {

@@ -113,7 +113,7 @@ export class SelectHobbiesModal extends AbstractWizardModal {
         };
 
         this.modalController.dismiss(result).then(() => {
-            this.unregisterBackAction();
+            // Do nothing
         });
     }
 }

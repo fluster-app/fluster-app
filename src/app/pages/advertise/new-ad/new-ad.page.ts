@@ -1,8 +1,6 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {LoadingController, MenuController, ModalController, NavController, Platform, Slides, ToastController} from '@ionic/angular';
 
-import {Subscription} from 'rxjs';
-
 import {HttpErrorResponse} from '@angular/common/http';
 
 import {TranslateService} from '@ngx-translate/core';
@@ -35,8 +33,6 @@ export class NewAdPage extends AbstractPage implements OnInit {
 
     @ViewChild('newAdSlider') slider: Slides;
 
-    private customBackActionSubscription: Subscription;
-
     private loading: HTMLIonLoadingElement;
 
     loadSlidePrice: boolean = false;
@@ -68,9 +64,6 @@ export class NewAdPage extends AbstractPage implements OnInit {
 
     async ngOnInit() {
         await this.initNavigation();
-
-        // TODO: Uncomment for Ionic v4-beta.13
-        // this.overrideHardwareBackAction();
     }
 
     async ionViewWillEnter() {
@@ -93,31 +86,10 @@ export class NewAdPage extends AbstractPage implements OnInit {
         }
     }
 
-    ionViewDidLeave() {
-        if (this.customBackActionSubscription) {
-            this.customBackActionSubscription.unsubscribe();
-        }
-    }
-
     isEditMode(): boolean {
         return this.newItemService.isEdit();
     }
 
-    // TODO: Uncomment for Ionic v4-beta.13
-    // private overrideHardwareBackAction() {
-    //     this.platform.ready().then(() => {
-    //         this.customBackActionSubscription = this.platform.backButton.subscribeWithPriority(() => {
-    //             this.modalController.getTop().then(async (element: HTMLIonModalElement) => {
-    //                 // A modal might be open, in such a case we are closing it with the back button we don't need to navigate
-    //                 if (!element) {
-    //                     await this.backToPreviousSlide();
-    //                 }
-    //             });
-    //         });
-    //     });
-    // }
-
-    // TODO: Remove for Ionic v4-beta.13
     @HostListener('document:ionBackButton', ['$event'])
     private overrideHardwareBackAction($event: any) {
         $event.detail.register(100, async () => {

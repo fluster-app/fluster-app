@@ -332,7 +332,6 @@ export class PhotoPickerModal extends AbstractWizardModal {
 
             this.localFilesService.writeFile(croppedImgURI).then((localImgURI: string) => {
                 this.modalController.dismiss({imgURI: localImgURI, index: this.index}).then(async () => {
-                    this.unregisterBackAction();
                     this.cleanup();
                     await loading.dismiss();
                 });
@@ -345,7 +344,6 @@ export class PhotoPickerModal extends AbstractWizardModal {
 
     close() {
         this.modalController.dismiss().then(() => {
-            this.unregisterBackAction();
             this.cleanup();
         });
     }

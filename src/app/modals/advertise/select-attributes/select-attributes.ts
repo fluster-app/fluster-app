@@ -57,13 +57,13 @@ export class SelectAttributesModal extends AbstractWizardModal {
 
     selectAndNavigate(selectedValue: number) {
         this.modalController.dismiss(selectedValue).then(() => {
-            this.unregisterBackAction();
+            // Do nothing
         });
     }
 
     close() {
         this.modalController.dismiss(this.initialValue).then(() => {
-            this.unregisterBackAction();
+            // Do nothing
         });
     }
 }

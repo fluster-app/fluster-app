@@ -106,7 +106,7 @@ export class SelectLanguagesModal extends AbstractWizardModal implements OnInit 
 
     close() {
         this.modalController.dismiss(this.userLanguages).then(() => {
-            this.unregisterBackAction();
+            // Do nothing
         });
     }
 

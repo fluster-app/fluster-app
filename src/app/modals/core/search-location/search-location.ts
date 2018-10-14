@@ -33,13 +33,13 @@ export class SearchLocationModal extends AbstractWizardModal {
         const results: SearchLocationResults = {selectedLocation: selectedLocation};
 
         this.modalController.dismiss(results).then(() => {
-            this.unregisterBackAction();
+            // Do nothing
         });
     }
 
     close() {
         this.modalController.dismiss(null).then(() => {
-            this.unregisterBackAction();
+            // Do nothing
         });
     }
 

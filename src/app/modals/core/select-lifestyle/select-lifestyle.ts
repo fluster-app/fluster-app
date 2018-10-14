@@ -50,7 +50,7 @@ export class SelectLifestyleModal extends AbstractWizardModal implements OnInit 
 
     close() {
         this.modalController.dismiss(Comparator.isStringEmpty(this.selected) ? null : this.selected).then(() => {
-            this.unregisterBackAction();
+            // Do nothing
         });
     }
 
