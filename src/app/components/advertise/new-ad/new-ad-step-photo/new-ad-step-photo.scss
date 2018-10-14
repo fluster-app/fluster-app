@@ -212,8 +212,8 @@ ion-fab-button.button-remove-small {
 }
 
 ion-fab-button.button-add-big {
-    height: 12vh;
-    width: 12vh;
+    --height: 12vh;
+    --width: 12vh;
     --size: 12vh;
 
     ion-icon {
@@ -222,8 +222,8 @@ ion-fab-button.button-add-big {
 }
 
 ion-fab-button.button-add-small {
-    height: 6vh;
-    width: 6vh;
+    --height: 6vh;
+    --width: 6vh;
     --size: 6vh;
 
     ion-icon {
@@ -239,6 +239,8 @@ ion-fab-button.button-remove-big, ion-fab-button.button-remove-small {
 ion-fab-button.button-add-big, ion-fab-button.button-add-small {
     @include fluster-linear-gradient-variable(to right, $fluster-peach1, $fluster-peach3);
     color: white;
+
+    @include fluster-linear-gradient-variable-activated(to bottom right, $fluster-peach1, $fluster-peach3);
 }
 
 // PWA

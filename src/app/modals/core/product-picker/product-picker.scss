@@ -63,9 +63,7 @@ ion-slides {
         --size: 12vh;
         padding: 16px;
 
-        &.activated {
-            --background: #{$fluster-medium-grey};
-        }
+        --background-activated: #{$fluster-medium-grey};
     }
 }
 
