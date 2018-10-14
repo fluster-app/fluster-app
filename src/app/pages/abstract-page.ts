@@ -31,11 +31,7 @@ import {UserSessionService} from '../services/core/user/user-session-service';
 
 export abstract class AbstractPage {
 
-    // TODO: autoplay could be removed once Ionic v4.0.0-beta.13 will be out
-    // https://github.com/ionic-team/ionic/issues/15766 is solved
-
     slideOptsProgressbar: SwiperOptions = {
-        autoplay: false,
         zoom: false,
         pagination: {
             el: '.swiper-pagination',
@@ -47,13 +43,11 @@ export abstract class AbstractPage {
     };
 
     slideOptsOnlyExternal: SwiperOptions = {
-        autoplay: false,
         zoom: false,
         allowTouchMove: false
     };
 
     slideOptsProgressbarOnlyExternal: SwiperOptions = {
-        autoplay: false,
         zoom: false,
         pagination: {
             el: '.swiper-pagination',
