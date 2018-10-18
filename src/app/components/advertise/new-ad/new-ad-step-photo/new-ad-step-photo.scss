@@ -40,8 +40,8 @@
 
         .removePhoto {
             position: inherit;
-            top: -3%;
-            right: -2%;
+            top: 0;
+            right: 0;
         }
     }
 }
@@ -80,8 +80,8 @@
 
         .removePhoto {
             position: absolute;
-            top: -8%;
-            right: -6%;
+            top: -10px;
+            right: -10px;
         }
 
         img {
@@ -197,6 +197,8 @@
 
 ion-fab-button.button-remove-big {
     --size: 40px;
+    --width: 40px;
+    --height: 40px;
 
     ion-icon {
         font-size: 3vh;
@@ -205,6 +207,8 @@ ion-fab-button.button-remove-big {
 
 ion-fab-button.button-remove-small {
     --size: 28px;
+    --width: 28px;
+    --height: 28px;
 
     ion-icon {
         font-size: 2.4vh;
