@@ -423,18 +423,18 @@
             "PARAMETERS": "Einstellungen"
         },
         "BROWSE": {
-            "DISCOVER": "Entdecken",
-            "MY_APPOINTMENTS": "Meine Termine",
+            "DISCOVER": "Suchen",
+            "MY_APPOINTMENTS": "Chat & Termine",
             "MY_BOOKMARKS": "Favoriten",
             "MY_APPLICANTS": "Anfragen",
-            "ADVERTISE": "Inserieren"
+            "ADVERTISE": "Inserat inserieren"
         },
         "AD": {
             "MY_APPOINTMENTS": "Nächste Termine",
-            "APPLICANTS": "Meine Bewerber",
+            "APPLICANTS": "Chat & Bewerber",
             "MY_AD": "Mein Inserat",
             "CANDIDATES": "Finde Mitbewohner",
-            "DISCOVER": "Entdecken"
+            "DISCOVER": "Suchen"
         }
     },
     "CALENDAR": {

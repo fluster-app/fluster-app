@@ -424,14 +424,14 @@
         },
         "BROWSE": {
             "DISCOVER": "Découvrir",
-            "MY_APPOINTMENTS": "Mes rendez-vous",
+            "MY_APPOINTMENTS": "Chat & rendez-vous",
             "MY_BOOKMARKS": "Favoris",
             "MY_APPLICANTS": "Demandes",
-            "ADVERTISE": "Publier"
+            "ADVERTISE": "Publier une annonce"
         },
         "AD": {
             "MY_APPOINTMENTS": "Rendez-vous",
-            "APPLICANTS": "Mes candidats",
+            "APPLICANTS": "Chat & candidats",
             "MY_AD": "Mon annonce",
             "CANDIDATES": "Trouve des colocs",
             "DISCOVER": "Découvrir"
