@@ -424,14 +424,14 @@
         },
         "BROWSE": {
             "DISCOVER": "Trova",
-            "MY_APPOINTMENTS": "I miei appuntamenti",
+            "MY_APPOINTMENTS": "Chat & incontri",
             "MY_BOOKMARKS": "I miei preferiti",
             "MY_APPLICANTS": "Richieste",
-            "ADVERTISE": "Pubblica"
+            "ADVERTISE": "Pubblica un annuncio"
         },
         "AD": {
             "MY_APPOINTMENTS": "I miei appuntamenti",
-            "APPLICANTS": "I miei candidati",
+            "APPLICANTS": "Chat & candidati",
             "MY_AD": "Il mio annuncio",
             "CANDIDATES": "Trova coinquilini",
             "DISCOVER": "Trova"

@@ -424,14 +424,14 @@
         },
         "BROWSE": {
             "DISCOVER": "Discover",
-            "MY_APPOINTMENTS": "My viewings",
+            "MY_APPOINTMENTS": "Chat & viewings",
             "MY_BOOKMARKS": "Bookmarks",
             "MY_APPLICANTS": "Requests",
-            "ADVERTISE": "Publish ad"
+            "ADVERTISE": "Post a free ad"
         },
         "AD": {
             "MY_APPOINTMENTS": "Viewings",
-            "APPLICANTS": "My candidates",
+            "APPLICANTS": "Chat & candidates",
             "MY_AD": "My ad",
             "CANDIDATES": "Find roommates",
             "DISCOVER": "Discover"
