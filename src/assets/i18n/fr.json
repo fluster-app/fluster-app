@@ -14,8 +14,8 @@
     "FIRST_CHOICE": {
         "LETS_GO": "On y va !",
         "WHAT_DO_YOU_WANT_TO_DO": "Tu recherches ou tu proposes un logement?",
-        "DISCOVER": "<strong>Découvrir</strong> mon nouveau logement",
-        "ADVERTISE": "<strong>Publier</strong> une colocation ou un appart",
+        "DISCOVER": "<strong>Trouver</strong> mon nouveau logement",
+        "ADVERTISE": "<strong>Publier</strong> une annonce de coloc ou d'appart gratuitement",
         "GENDER": {
             "YOU_ARE": "Une dernière info",
             "WHY_GENDER": "Pour personnaliser ta recherche",

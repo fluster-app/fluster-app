@@ -13,9 +13,9 @@
     },
     "FIRST_CHOICE": {
         "LETS_GO": "Let's go!",
-        "WHAT_DO_YOU_WANT_TO_DO": "Do you need or do you offer a new home?",
-        "DISCOVER": "<strong>Discover</strong> my new home",
-        "ADVERTISE": "<strong>Advertise</strong> a room or a flat to rent",
+        "WHAT_DO_YOU_WANT_TO_DO": "Do you need a home or are you offering one?",
+        "DISCOVER": "<strong>Find</strong> my new home",
+        "ADVERTISE": "<strong>Advertise</strong> a room or a flat to rent for free",
         "GENDER": {
             "YOU_ARE": "One last info",
             "WHY_GENDER": "To customize your request",
