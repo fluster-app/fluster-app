@@ -35,7 +35,7 @@ export class Resources {
         const spotifyClientId: string = '{{SPOTIFY_CLIENT_ID}}';
 
         return {
-            APP_VERSION: '5.1.2',
+            APP_VERSION: '5.1.3',
 
             GITHUB: {
                 URL: 'https://github.com/fluster/fluster-app'

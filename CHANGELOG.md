@@ -1,3 +1,15 @@
+<a name="5.1.3"></a>
+# [5.1.3](https://github.com/fluster/fluster-app/compare/v5.1.2...v5.1.3) (2018-10-18)
+
+### UX
+
+* improve menu wording ([#44](https://github.com/fluster/fluster-app/issues/44))
+* improve first choice page ([#43](https://github.com/fluster/fluster-app/issues/43))
+
+### Fixes
+
+* read correctly the value of picked birthday ([#42](https://github.com/fluster/fluster-app/issues/42))
+
 <a name="5.1.2"></a>
 # [5.1.2](https://github.com/fluster/fluster-app/compare/v5.1.1...v5.1.2) (2018-10-12)
 
