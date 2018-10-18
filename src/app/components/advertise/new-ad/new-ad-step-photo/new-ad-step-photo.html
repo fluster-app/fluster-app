@@ -11,7 +11,7 @@
                     </div>
                 </div>
 
-                <ion-fab-button no-padding (click)="removePhoto($event, 0)" *ngIf="isRemovable(0)" class="removePhoto button-remove-big">
+                <ion-fab-button no-padding no-margin (click)="removePhoto($event, 0)" *ngIf="isRemovable(0)" class="removePhoto button-remove-big">
                     <ion-icon name="close"></ion-icon>
                 </ion-fab-button>
 
@@ -20,8 +20,8 @@
                         <ion-icon name="add"></ion-icon>
                     </ion-fab-button>
 
-                    <ion-label *ngIf="isItemShare()" text-wrap>{{'NEW_AD.STEP_PHOTO.ADD_PHOTO_SHARE' | translate}}</ion-label>
-                    <ion-label *ngIf="isItemFlat()" text-wrap>{{'NEW_AD.STEP_PHOTO.ADD_PHOTO_FLAT' | translate}}</ion-label>
+                    <ion-label padding-top *ngIf="isItemShare()" text-wrap>{{'NEW_AD.STEP_PHOTO.ADD_PHOTO_SHARE' | translate}}</ion-label>
+                    <ion-label padding-top *ngIf="isItemFlat()" text-wrap>{{'NEW_AD.STEP_PHOTO.ADD_PHOTO_FLAT' | translate}}</ion-label>
                 </div>
 
                 <div *ngIf="sourceIndex != null && !isSelectedAsSource(0) && hasPhoto(0)" class="photoSelector photoTarget" tappable (click)="navigateToPhotoPicker($event, 0)">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-                <ion-fab-button no-padding (click)="removePhoto($event, 1)" *ngIf="isRemovable(1)" class="removePhoto button-remove-small">
+                <ion-fab-button no-padding no-margin (click)="removePhoto($event, 1)" *ngIf="isRemovable(1)" class="removePhoto button-remove-small">
                     <ion-icon name="close"></ion-icon>
                 </ion-fab-button>
 
@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-                <ion-fab-button no-padding (click)="removePhoto($event, 2)" *ngIf="isRemovable(2)" class="removePhoto button-remove-small">
+                <ion-fab-button no-padding no-margin (click)="removePhoto($event, 2)" *ngIf="isRemovable(2)" class="removePhoto button-remove-small">
                     <ion-icon name="close"></ion-icon>
                 </ion-fab-button>
 
@@ -90,7 +90,7 @@
                     </div>
                 </div>
 
-                <ion-fab-button no-padding (click)="removePhoto($event, 3)" *ngIf="isRemovable(3)" class="removePhoto button-remove-small">
+                <ion-fab-button no-padding no-margin (click)="removePhoto($event, 3)" *ngIf="isRemovable(3)" class="removePhoto button-remove-small">
                     <ion-icon name="close"></ion-icon>
                 </ion-fab-button>
 
@@ -114,7 +114,7 @@
                     </div>
                 </div>
 
-                <ion-fab-button no-padding (click)="removePhoto($event, 4)" *ngIf="isRemovable(4)" class="removePhoto button-remove-small">
+                <ion-fab-button no-padding no-margin (click)="removePhoto($event, 4)" *ngIf="isRemovable(4)" class="removePhoto button-remove-small">
                     <ion-icon name="close"></ion-icon>
                 </ion-fab-button>
 
