@@ -417,7 +417,7 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
 
     private doLikeCallback = () => {
         this.doLike();
-    }
+    };
 
     goToNextItem(like: boolean) {
         if (this.hasItems()) {
@@ -870,17 +870,14 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
     }
 
     async updateBirthday($event: any) {
-        if (Comparator.isEmpty($event) || Comparator.isEmpty(this.user) || Comparator.isEmpty(this.user.facebook)) {
+        if (Comparator.isEmpty($event) || Comparator.isEmpty($event.detail) || Comparator.isStringEmpty($event.detail.value) ||
+            Comparator.isEmpty(this.user) || Comparator.isEmpty(this.user.facebook)) {
             return;
         }
 
         this.gaTrackEvent(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.ITEMS, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.ITEMS.UPDATE_BIRTHDAY);
 
-        const day: number = $event.detail.value.day.value;
-        const month: number = $event.detail.value.month.value;
-        const year: number = $event.detail.value.year.value;
-
-        this.user.facebook.birthday = moment().year(year).month(month - 1).date(day).toDate();
+        this.user.facebook.birthday = moment($event.detail.value).toDate();
 
         this.userSessionService.setUserToSave(this.user);
         await this.saveUserIfNeeded(this.toastController, this.loadingController, this.translateService, this.userProfileService, this.userSessionService, this.user);
