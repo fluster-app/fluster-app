@@ -73,13 +73,11 @@ export class FirstChoicePage extends AbstractPage {
 
     ionViewWillEnter() {
         this.hideSplashScreen(this.platform, this.splashScreen, this.loginService);
-
-        this.user = this.userSessionService.getUser();
-
-        this.initDefaultUserLangue();
     }
 
-    initDefaultUserLangue() {
+    private initUser() {
+        this.user = this.userSessionService.getUser();
+
         if (this.user.description == null) {
             this.user.description = new UserDescription();
         }
@@ -102,6 +100,8 @@ export class FirstChoicePage extends AbstractPage {
         this.gaTrackEvent(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.FIRST_CHOICE, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.FIRST_CHOICE.BROWSE);
 
         this.pickBrowse();
+
+        this.initUser();
 
         if (!this.isUserGoogle() || this.isGenderAlreadySet()) {
             // In case the gender is already set or in case of Facebook user, we don't want to ask for the gender here again
@@ -212,6 +212,9 @@ export class FirstChoicePage extends AbstractPage {
         this.pickAd();
 
         this.displayLoading().then(() => {
+
+            this.initUser();
+
             this.saveUserBrowsing(false);
 
             if (Comparator.equals(this.user.status, this.RESOURCES.USER.STATUS.INITIALIZED)) {
