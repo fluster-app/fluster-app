@@ -125,7 +125,7 @@ export abstract class AbstractGoogleComponent {
                     this.map.setMapTypeId('map_style');
                 }
 
-                this.waitAndDddMarkers(position, text);
+                this.waitAndAddMarkers(position, text);
 
                 this.googleMapService.gmap = this.map;
             }
@@ -142,7 +142,7 @@ export abstract class AbstractGoogleComponent {
         this.addYelpMarkers();
     }
 
-    private waitAndDddMarkers(position: google.maps.LatLng, text: string) {
+    private waitAndAddMarkers(position: google.maps.LatLng, text: string) {
         // Allow map to be displayed around all markers not with the item centered
         this.bounds = new google.maps.LatLngBounds();
 
