@@ -225,15 +225,18 @@ export class ChatPage extends AbstractPage implements OnInit {
     }
 
     resizeTextarea() {
-        // 67 = 3 rows / 46 = 2 rows
-        if (this.msgInput.nativeElement.scrollHeight < 50) {
-            this.msgInput.nativeElement.style.height = 'auto';
-            this.msgInput.nativeElement.style.height = this.msgInput.nativeElement.scrollHeight + 'px';
-        }
+        // Expand till three lines
+        const expand: number = this.msgInput.nativeElement.scrollHeight < 76 ? this.msgInput.nativeElement.scrollHeight : 75;
+
+        this.msgInput.nativeElement.style.overflow = 'hidden';
+        this.msgInput.nativeElement.style.height = 'auto';
+        this.msgInput.nativeElement.style.height = expand + 'px';
     }
 
-    private resetSizeTextarea() {
-        this.msgInput.nativeElement.style.height = '25px';
+    resetSizeTextarea() {
+        if (Comparator.isStringEmpty(this.message)) {
+            this.msgInput.nativeElement.style.height = '25px';
+        }
     }
 
     sendMessage() {

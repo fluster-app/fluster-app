@@ -70,7 +70,8 @@
 <ion-footer [attr.role]="isAdDisplay ? 'ad' : 'browse'">
   <ion-toolbar padding-start padding-end *ngIf="isInitialized()">
     <ion-item>
-      <textarea #msgInput id="msgInput" spellcheck="true" autocomplete="on" rows="1" maxLength="500" (keyup)="resizeTextarea()" [(ngModel)]="message"></textarea>
+      <textarea #msgInput id="msgInput" spellcheck="true" autocomplete="on" rows="1" maxLength="500"
+                (blur)="resetSizeTextarea()" (keyup)="resizeTextarea()" [(ngModel)]="message"></textarea>
     </ion-item>
 
     <ion-buttons slot="end" no-shadow padding-start>
