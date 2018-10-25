@@ -65,7 +65,9 @@ export class ItemSlidesComponent extends AbstractPage implements OnChanges {
     }
 
     async ngOnChanges(changes: { [propName: string]: SimpleChange }) {
+
         if (!Comparator.isEmpty(changes['item']) && !Comparator.isEmpty(changes['item'].currentValue) && !Comparator.equals(changes['item'].currentValue, changes['item'].previousValue)) {
+
             this.itemImages = await this.concatImages();
 
             await this.updateSlider();
@@ -77,7 +79,7 @@ export class ItemSlidesComponent extends AbstractPage implements OnChanges {
 
     private concatImages(): Promise<string[]> {
         return new Promise<string[]>((resolve) => {
-            if (!this.renderSlides || Comparator.isEmpty(this.item)) {
+            if (Comparator.isEmpty(this.item)) {
                 resolve(this.itemImages);
             } else {
                 let result: string[] = new Array();
