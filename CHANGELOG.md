@@ -6,6 +6,7 @@
 * improve chat's textarea expand behavior ([#46](https://github.com/fluster/fluster-app/issues/46))
 * move more options from the navbar to the bottom toolbar in the chat ([#45](https://github.com/fluster/fluster-app/issues/45))
 * add ability to send a complaint from the chat ([#50](https://github.com/fluster/fluster-app/issues/50))
+* display district in card stack and address details in summary of the details ([#47](https://github.com/fluster/fluster-app/issues/47))
 
 ### Fixes
 
