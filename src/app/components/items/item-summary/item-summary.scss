@@ -1,6 +1,10 @@
 @import "../../../../theme/fluster-variables";
 @import "../../../../theme/media-queries";
 
+:host {
+    max-width: 100%;
+}
+
 #item-summary-availability, #item-summary-flat-content, #item-summary-share-content, #item-summary-type-flat, #item-summary-type-share-text, #item-summary-type-share-text-empty, #item-summary-type-share-notext, #item-summary-city {
     padding-bottom: 6px;
     margin-bottom: 0;

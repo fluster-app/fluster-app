@@ -29,7 +29,7 @@
 
   <app-content-browse-notification [displayOnInit]="false"></app-content-browse-notification>
 
-  <app-item-details-header [item]="item"></app-item-details-header>
+  <app-item-details-header [item]="item" [displayFullAddress]="true"></app-item-details-header>
 
   <app-item-details-content [item]="item" [applicant]="applicant" [itemUser]="itemUser" [isAdDisplay]="false" [displaySensitive]="displaySensitive" [noAppointmentAction]="!isAppointmentActionAllowed()" [displayChat]="!hideChat" (performAction)="navigateToAppointment()"></app-item-details-content>
 </ion-content>

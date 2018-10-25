@@ -53,7 +53,8 @@
 <!-- 4. Line -->
 
 <p *ngIf="hasCity(item)" id="item-summary-city" [class.bookmark]="bookmarkDisplay">
-    <span>{{item.address.city}}</span>
+    <span *ngIf="!displayFullAddress">{{item.address.city}}</span><span text-nowrap *ngIf="!displayFullAddress && item.address.district">, {{item.address.district}}</span>
+    <span *ngIf="displayFullAddress" text-nowrap>{{item.address.addressName}}</span>
 </p>
 
 <p *ngIf="isItemShare(item) && !displayShareType() && displayType && displayEmptyLine" id="item-summary-type-share-text-empty">

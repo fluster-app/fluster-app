@@ -18,7 +18,6 @@ export class ApplicantsComparator {
     static isAccepted(applicant: Applicant): boolean {
         return !Comparator.isEmpty(applicant) && (
             Comparator.equals(Resources.Constants.APPLICANT.STATUS.ACCEPTED, applicant.status) ||
-            Comparator.equals(Resources.Constants.APPLICANT.STATUS.SELECTED, applicant.status) ||
-            Comparator.equals(Resources.Constants.APPLICANT.STATUS.REJECTED, applicant.status));
+            Comparator.equals(Resources.Constants.APPLICANT.STATUS.SELECTED, applicant.status));
     }
 }

@@ -27,6 +27,8 @@ export class ItemSummaryComponent extends AbstractPage {
 
     @Input() bookmarkDisplay: boolean = false;
 
+    @Input() displayFullAddress: boolean = false;
+
     constructor(private translateService: TranslateService) {
         super();
     }

@@ -23,6 +23,8 @@ export class ItemDetailsHeaderComponent {
 
     @Input() adDisplay: boolean = false;
 
+    @Input() displayFullAddress: boolean = false;
+
     constructor() {
 
     }

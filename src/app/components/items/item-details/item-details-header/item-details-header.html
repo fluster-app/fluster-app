@@ -3,7 +3,7 @@
 <ion-grid class="big-screen-content" padding-start padding-end *ngIf="item != null">
     <ion-row id="item-summary-row">
         <ion-col size="12">
-            <app-item-summary [item]="item" [displayEmptyLine]="false"></app-item-summary>
+            <app-item-summary [item]="item" [displayEmptyLine]="false" [displayFullAddress]="displayFullAddress"></app-item-summary>
         </ion-col>
     </ion-row>
 </ion-grid>
