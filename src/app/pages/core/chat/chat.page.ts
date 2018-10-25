@@ -1,5 +1,5 @@
 import {Component, ElementRef, Input, NgZone, OnInit, ViewChild} from '@angular/core';
-import {ActionSheetController, Content, NavController, Platform, ToastController, ModalController} from '@ionic/angular';
+import {ActionSheetController, Content, NavController, Platform, ToastController, ModalController, AlertController} from '@ionic/angular';
 import {OverlayEventDetail} from '@ionic/core';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -34,6 +34,7 @@ import {ChatService} from '../../../services/core/chat/chat-service';
 import {SocketIoService} from '../../../services/core/notification/socket-io-service';
 import {ChatWatcherService} from '../../../services/core/notification/chat-watcher-service';
 import {ChatNavParams, NavParamsService} from '../../../services/core/navigation/nav-params-service';
+import {ComplaintService} from '../../../services/core/complaint/complaint-service';
 
 @Component({
     selector: 'app-chat',
@@ -77,6 +78,7 @@ export class ChatPage extends AbstractPage implements OnInit {
                 private zone: NgZone,
                 private toastController: ToastController,
                 private actionSheetController: ActionSheetController,
+                private alertController: AlertController,
                 private navController: NavController,
                 private modalController: ModalController,
                 private translateService: TranslateService,
@@ -85,7 +87,8 @@ export class ChatPage extends AbstractPage implements OnInit {
                 private socketIoService: SocketIoService,
                 private chatWatcherService: ChatWatcherService,
                 private googleAnalyticsNativeService: GoogleAnalyticsNativeService,
-                private navParamsService: NavParamsService) {
+                private navParamsService: NavParamsService,
+                private complaintService: ComplaintService) {
         super();
 
         this.gaTrackEvent(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.CATEGORY.MODAL, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.CHAT);
@@ -555,6 +558,13 @@ export class ChatPage extends AbstractPage implements OnInit {
         });
 
         buttons.push({
+            text: this.translateService.instant('APPLICANT_SELECTION.ACTION_SHEET.COMPLAIN'),
+            handler: () => {
+                this.presentComplaints();
+            }
+        });
+
+        buttons.push({
             text: this.translateService.instant('CORE.CANCEL'),
             role: 'cancel',
             handler: () => {
@@ -570,6 +580,65 @@ export class ChatPage extends AbstractPage implements OnInit {
             // Nothing to do on close
         });
 
+    }
+
+    private presentComplaints() {
+        const promises = new Array();
+        promises.push(this.translateService.get('COMPLAINT.TITLE'));
+        promises.push(this.translateService.get('COMPLAINT.INAPPROPRIATE'));
+        promises.push(this.translateService.get('COMPLAINT.FAKE'));
+        promises.push(this.translateService.get('CORE.CANCEL'));
+        promises.push(this.translateService.get('CORE.OK'));
+
+        forkJoin(promises).subscribe(
+            async (data: string[]) => {
+                if (!Comparator.isEmpty(data) && data.length === promises.length) {
+
+                    const inputs = new Array();
+
+                    inputs.push({
+                        type: 'radio',
+                        label: data[1],
+                        value: this.RESOURCES.COMPLAINT.INAPPROPRIATE,
+                        checked: true
+                    });
+
+                    inputs.push({
+                        type: 'radio',
+                        label: data[2],
+                        value: this.RESOURCES.COMPLAINT.FAKE,
+                        checked: false
+                    });
+
+                    const alert: HTMLIonAlertElement = await this.alertController.create({
+                        header: data[0],
+                        inputs: inputs,
+                        buttons: [
+                            {
+                                text: data[3],
+                                role: 'cancel'
+                            },
+                            {
+                                text: data[4],
+                                handler: (choice: string) => {
+                                    this.createComplaint(choice);
+                                }
+                            }
+                        ]
+                    });
+
+                    await alert.present();
+                }
+            }
+        );
+    }
+
+    private createComplaint(reason: string) {
+        this.complaintService.userComplaint(this.applicant.user, reason).then((result: boolean) => {
+            // Do nothing
+        }, async (response: HttpErrorResponse) => {
+            await this.errorMsg(this.toastController, this.translateService, 'ERRORS.ITEM_DETAILS.COMPLAINT');
+        });
     }
 
 }
