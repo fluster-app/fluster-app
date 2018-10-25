@@ -145,10 +145,14 @@ ion-footer[role="ad"] {
   ion-toolbar {
     --background: #{$fluster-dark-blue};
 
-    ion-item.item {
+    ion-item.item.chat-input {
       color: white;
       background-color: $fluster-midnight-blue;
       border-color: $fluster-midnight-blue;
+    }
+
+    ion-item.item.chat-blocked {
+      color: $fluster-peach3;
     }
   }
 }

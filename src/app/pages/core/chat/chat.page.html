@@ -65,17 +65,24 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-item>
-      <textarea #msgInput id="msgInput" spellcheck="true" autocomplete="on" rows="1" maxLength="500"
-                (blur)="resetSizeTextarea()" (keyup)="resizeTextarea()" [(ngModel)]="message"></textarea>
-    </ion-item>
+      <ng-container *ngIf="isOtherUserValid()">
+          <ion-item class="chat-input">
+                <textarea #msgInput id="msgInput" spellcheck="true" autocomplete="on" rows="1" maxLength="500"
+                          (blur)="resetSizeTextarea()" (keyup)="resizeTextarea()" [(ngModel)]="message"></textarea>
+          </ion-item>
 
-    <ion-buttons slot="end" no-shadow padding-start padding-end>
-      <ion-button *ngIf="!sendingMsg && lastMsgUpdated" [disabled]="isMessageEmpty()" (click)="sendMessage()" color="primary">
-        <ion-icon slot="icon-only" name="send"></ion-icon>
-      </ion-button>
+          <ion-buttons slot="end" no-shadow padding-start padding-end>
+              <ion-button *ngIf="!sendingMsg && lastMsgUpdated" [disabled]="isMessageEmpty()" (click)="sendMessage()"
+                          color="primary">
+                  <ion-icon slot="icon-only" name="send"></ion-icon>
+              </ion-button>
 
-      <ion-spinner *ngIf="sendingMsg || !lastMsgUpdated" ion-text color="primary"></ion-spinner>
-    </ion-buttons>
+              <ion-spinner *ngIf="sendingMsg || !lastMsgUpdated" ion-text color="primary"></ion-spinner>
+          </ion-buttons>
+      </ng-container>
+
+      <ion-item *ngIf="!isOtherUserValid()" class="chat-blocked">
+          <ion-label>{{ 'CHAT.OTHER_USER_INVALID' | translate }}</ion-label>
+      </ion-item>
   </ion-toolbar>
 </ion-footer>

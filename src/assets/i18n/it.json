@@ -768,7 +768,8 @@
             "ACCEPTED": "Modifica la data dell'appuntamento",
             "OPEN_AD": "L'annuncio di {{who}}",
             "OPEN_APPLICANT": "Il profilo di {{who}}"
-        }
+        },
+        "OTHER_USER_INVALID": "Utente bloccato o cancellato"
     },
     "PRODUCT": {
         "NO_PRODUCT": {

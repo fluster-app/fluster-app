@@ -768,7 +768,8 @@
             "ACCEPTED": "Reschedule the appointment",
             "OPEN_AD": "View {{who}}'s ad",
             "OPEN_APPLICANT": "{{who}}'s profile"
-        }
+        },
+        "OTHER_USER_INVALID": "User blocked or deleted"
     },
     "PRODUCT": {
         "NO_PRODUCT": {

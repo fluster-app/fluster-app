@@ -25,6 +25,7 @@ import {ItemUser} from '../../../services/model/item/item-user';
 
 // Utils and comparator
 import {Comparator, Converter} from '../../../services/core/utils/utils';
+import {UsersComparator} from '../../../services/core/utils/user-utils';
 
 // Service
 import {UserSessionService} from '../../../services/core/user/user-session-service';
@@ -406,6 +407,10 @@ export class ChatPage extends AbstractPage implements OnInit {
         return Comparator.equals(this.chat.userItem._id, this.user._id);
     }
 
+    isOtherUserValid(): boolean {
+        return UsersComparator.isValid(this.isCurrentUserItemUser() ? this.chat.userApplicant : this.chat.userItem);
+    }
+
     isApplicantReschedule(): boolean {
         return this.isCurrentUserItemUser() && !Comparator.isEmpty(this.applicant) && Comparator.equals(this.RESOURCES.APPLICANT.STATUS.TO_RESCHEDULE, this.applicant.status);
     }
@@ -532,7 +537,7 @@ export class ChatPage extends AbstractPage implements OnInit {
     async presentActionSheet(ev) {
         const buttons = new Array();
 
-        if (this.isAdDisplay && (this.isApplicantReschedule() || this.isApplicantAcceptedInTheFuture())) {
+        if (this.isAdDisplay && this.isOtherUserValid() && (this.isApplicantReschedule() || this.isApplicantAcceptedInTheFuture())) {
             buttons.push({
                 text: this.isApplicantReschedule() ? this.translateService.instant('CHAT.POPOVER.TO_RESCHEDULE') : this.translateService.instant('CHAT.POPOVER.ACCEPTED'),
                 role: 'destructive',

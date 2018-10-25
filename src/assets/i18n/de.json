@@ -768,7 +768,8 @@
             "ACCEPTED": "Ändere das Datums des Termins",
             "OPEN_AD": "Das Inserat von {{who}} ansehen",
             "OPEN_APPLICANT": "Das Profil von {{who}}"
-        }
+        },
+        "OTHER_USER_INVALID": "Benutzer gesperrt oder gelöscht"
     },
     "PRODUCT": {
         "NO_PRODUCT": {
