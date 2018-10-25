@@ -28,8 +28,8 @@
     <app-no-ads-users [label]="'APPLICANTS.NOTHING_YET'" (notifyNavigateCandidates)="goToCandidates()" *ngIf="!hasApplicants()"></app-no-ads-users>
 
     <ion-card *ngFor="let applicant of applicants | orderByApplicantStatus:subscriptionIds; let i=index;" no-shadow tappable (click)="navigate(applicant, i)" class="applicant">
-      <ion-item [class.avatarCancelled]="isStatusCancelled(applicant)">
-        <ion-avatar slot="start" class="big-avatar">
+      <ion-item>
+        <ion-avatar slot="start" class="big-avatar" [class.avatarCancelled]="isStatusCancelled(applicant) || !isUserValid(applicant.user)">
           <app-user-profile-img-list [facebook]="applicant.user.facebook" [google]="applicant.user.google" [starred]="isApplicantStarred(applicant)"></app-user-profile-img-list>
         </ion-avatar>
 

@@ -293,8 +293,8 @@ export class ItemDetailsPage extends AbstractItemsPage {
                         buttons.push({
                             text: data[0],
                             role: 'destructive',
-                            handler: () => {
-                                this.navigateToAppointment();
+                            handler: async () => {
+                                await this.navigateToAppointment();
                             }
                         });
 

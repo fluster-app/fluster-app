@@ -20,6 +20,7 @@ import {User} from '../../../../services/model/user/user';
 // Resources and utils
 import {Comparator} from '../../../../services/core/utils/utils';
 import {ApplicantsComparator} from '../../../../services/core/utils/applicant-utils';
+import {UsersComparator} from '../../../../services/core/utils/user-utils';
 
 // Services
 import {AppointmentService} from '../../../../services/core/appointment/appointment-service';
@@ -246,8 +247,8 @@ export class ApplicantsPage extends AbstractAdsPage {
         });
     }
 
-    private isUserValid(user: User): boolean {
-        return !Comparator.equals(user.status, this.RESOURCES.USER.STATUS.DELETED) && !Comparator.equals(user.status, this.RESOURCES.USER.STATUS.BLOCKED);
+    isUserValid(user: User): boolean {
+        return UsersComparator.isValid(user);
     }
 
     private buildApplicantsArray() {

@@ -20,6 +20,8 @@ import {AbstractAdsPage} from '../abstract-ads';
 
 // Resources and utils
 import {Comparator} from '../../../../services/core/utils/utils';
+import {User} from '../../../../services/model/user/user';
+import {UsersComparator} from '../../../../services/core/utils/user-utils';
 
 // Services
 import {AdsService} from '../../../../services/advertise/ads-service';
@@ -246,6 +248,10 @@ export class AdsNextAppointmentsPage extends AbstractAdsPage {
 
     goToCandidates() {
         this.navController.navigateRoot('/candidates');
+    }
+
+    isUserValid(user: User): boolean {
+        return UsersComparator.isValid(user);
     }
 
 }

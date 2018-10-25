@@ -1,15 +1,11 @@
 @import "../../../../../theme/fluster-variables";
 @import "../../../../../theme/spinner";
 
-ion-item {
+ion-avatar.avatarCancelled {
+  opacity: 0.6;
+}
 
-  &.avatarCancelled {
-    ion-avatar {
-      img {
-        opacity: 0.4;
-      }
-    }
-  }
+ion-item {
 
   p {
     font-weight: $font-weight-light;

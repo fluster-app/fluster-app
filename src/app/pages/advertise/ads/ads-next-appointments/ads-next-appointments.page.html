@@ -56,7 +56,7 @@
 
     <ion-card *ngFor="let applicant of applicants; let i=index;" no-shadow tappable (click)="navigateToChat(applicant, i)" class="applicant">
       <ion-item>
-        <ion-avatar slot="start" class="big-avatar">
+        <ion-avatar slot="start" class="big-avatar" [class.avatarCancelled]="!isUserValid(applicant.user)">
           <app-user-profile-img-list [facebook]="applicant.user.facebook" [google]="applicant.user.google" [starred]="isApplicantStarred(applicant)"></app-user-profile-img-list>
         </ion-avatar>
 

@@ -1,6 +1,10 @@
 @import "../../../../../theme/fluster-variables";
 @import "../../../../../theme/spinner";
 
+ion-avatar.avatarCancelled {
+    opacity: 0.6;
+}
+
 ion-icon.totalNewAdvertiseNotificationsBadge {
     font-size: 2.8rem;
     vertical-align: middle;
