@@ -589,6 +589,7 @@ export class ChatPage extends AbstractPage implements OnInit {
         promises.push(this.translateService.get('COMPLAINT.FAKE'));
         promises.push(this.translateService.get('CORE.CANCEL'));
         promises.push(this.translateService.get('CORE.OK'));
+        promises.push(this.translateService.get('COMPLAINT.DIDNT_SHOW_UP'));
 
         forkJoin(promises).subscribe(
             async (data: string[]) => {
@@ -609,6 +610,15 @@ export class ChatPage extends AbstractPage implements OnInit {
                         value: this.RESOURCES.COMPLAINT.FAKE,
                         checked: false
                     });
+
+                    if (this.isAdDisplay) {
+                        inputs.push({
+                            type: 'radio',
+                            label: data[5],
+                            value: this.RESOURCES.COMPLAINT.DIDNT_SHOW_UP,
+                            checked: false
+                        });
+                    }
 
                     const alert: HTMLIonAlertElement = await this.alertController.create({
                         header: data[0],
