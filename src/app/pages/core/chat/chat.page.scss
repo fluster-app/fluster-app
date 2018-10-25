@@ -108,6 +108,8 @@ ion-footer {
     padding-top: 8px;
     padding-bottom: 8px;
 
+    --ion-padding: 4px;
+
     --border-width: 0;
 
     &.input-has-focus:not(.ng-invalid) {
@@ -119,8 +121,6 @@ ion-footer {
     }
 
     ion-buttons {
-      width: 5rem;
-
       button[icon-only], button[icon-only]:hover:not(.disable-hover) {
         color: $fluster-peach3;
         font-size: 3rem;
@@ -180,18 +180,4 @@ ion-footer[role="ad"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#chatToReschedule {
-  position: absolute;
-  top: -4rem;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-
-  h2 {
-    max-width: 27rem;
-    top: 12vh;
-  }
-
 }

@@ -762,8 +762,7 @@
     },
     "CHAT": {
         "NO_MSG_TEXT": "You could have a chat here with {{who}}",
-        "TO_RESCHEDULE": "Set or reschedule the appointment with the calendar",
-        "ACCEPTED": "You could reschedule the appointment with the calendar",
+        "NO_MSG_TEXT_AND_TO_RESCHEDULE": "You could have a chat here with {{who}} and set the appointment with the calendar",
         "POPOVER": {
             "TO_RESCHEDULE": "Set the appointment",
             "ACCEPTED": "Reschedule the appointment",

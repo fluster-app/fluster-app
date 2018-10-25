@@ -762,8 +762,7 @@
     },
     "CHAT": {
         "NO_MSG_TEXT": "Du kannst hier mit {{who}} chatten",
-        "TO_RESCHEDULE": "Lege fest oder ändere das Datum des Termins mit dem Kalender",
-        "ACCEPTED": "Du könntest das Datum des Termins mit dem Kalender ändern",
+        "NO_MSG_TEXT_AND_TO_RESCHEDULE": "Du kannst hier mit {{who}} chatten und das Datum des Termins festlegen",
         "POPOVER": {
             "TO_RESCHEDULE": "Lege fest das Datums des Termins",
             "ACCEPTED": "Ändere das Datums des Termins",

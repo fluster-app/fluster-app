@@ -8,12 +8,6 @@
       <app-toolbar-user-title [display]="isInitialized()" [facebook]="getTitleUserFacebook()" [google]="getTitleUserGoogle()"></app-toolbar-user-title>
     </div>
 
-    <ion-buttons slot="end" *ngIf="isInitialized()">
-      <ion-button (click)="presentActionSheet($event)">
-        <ion-icon slot="icon-only" name="more"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
   </ion-toolbar>
 </ion-header>
 
@@ -32,15 +26,10 @@
       </div>
     </ion-avatar>
 
-    <h2>
-      {{ 'CHAT.NO_MSG_TEXT' | translate:{who: getTitleUserFacebook().firstName} }}
-    </h2>
-  </div>
+    <h2 *ngIf="!isAdDisplay">{{ 'CHAT.NO_MSG_TEXT' | translate:{who: getTitleUserFacebook().firstName} }}</h2>
 
-  <div id="chatToReschedule" *ngIf="isAdDisplay && isInitialized() && hasNoMessages() && (isApplicantReschedule() || isApplicantAcceptedInTheFuture())" padding text-center text-wrap class="below-navbar-info">
-    <h2 *ngIf="isApplicantReschedule()">{{'CHAT.TO_RESCHEDULE' | translate}}</h2>
-    <h2 *ngIf="isApplicantAcceptedInTheFuture()">{{'CHAT.ACCEPTED' | translate}}</h2>
-    <div></div>
+    <h2 *ngIf="isAdDisplay && isApplicantReschedule()">{{ 'CHAT.NO_MSG_TEXT_AND_TO_RESCHEDULE' | translate:{who: getTitleUserFacebook().firstName} }}</h2>
+    <h2 *ngIf="isAdDisplay && !isApplicantReschedule()">{{ 'CHAT.NO_MSG_TEXT' | translate:{who: getTitleUserFacebook().firstName} }}</h2>
   </div>
 
   <div *ngIf="isInitialized()" id="chatMessages" margin-bottom [class.hidden]="!scrollToBottomDone" class="big-screen-content">
@@ -69,12 +58,19 @@
 
 <ion-footer [attr.role]="isAdDisplay ? 'ad' : 'browse'">
   <ion-toolbar padding-start padding-end *ngIf="isInitialized()">
+
+    <ion-buttons slot="start" no-shadow padding-start padding-end>
+      <ion-button color="primary" [disabled]="!isInitialized()" (click)="presentActionSheet($event)">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
     <ion-item>
       <textarea #msgInput id="msgInput" spellcheck="true" autocomplete="on" rows="1" maxLength="500"
                 (blur)="resetSizeTextarea()" (keyup)="resizeTextarea()" [(ngModel)]="message"></textarea>
     </ion-item>
 
-    <ion-buttons slot="end" no-shadow padding-start>
+    <ion-buttons slot="end" no-shadow padding-start padding-end>
       <ion-button *ngIf="!sendingMsg && lastMsgUpdated" [disabled]="isMessageEmpty()" (click)="sendMessage()" color="primary">
         <ion-icon slot="icon-only" name="send"></ion-icon>
       </ion-button>

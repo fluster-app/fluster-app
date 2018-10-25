@@ -762,8 +762,7 @@
     },
     "CHAT": {
         "NO_MSG_TEXT": "Puoi parlarne qui con {{who}}",
-        "TO_RESCHEDULE": "Imposta o modifica la data dell'appuntamento con il calendario",
-        "ACCEPTED": "È possibile modificare la data dell'appuntamento con il calendario",
+        "NO_MSG_TEXT_AND_TO_RESCHEDULE": "Puoi parlarne qui con {{who}} e pmposta la data dell'appuntamento con il calendario",
         "POPOVER": {
             "TO_RESCHEDULE": "Imposta la data dell'appuntamento",
             "ACCEPTED": "Modifica la data dell'appuntamento",

@@ -18,9 +18,9 @@
 
     <div *ngIf="item != null && appointment != null && applicant != null" id="rescheduleAppointments">
 
-        <h2 padding text-center *ngIf="isApplicantAccepted()">{{'RESCHEDULE.SUB_TITLE_ACCEPTED' | translate:{who: applicant.user.facebook.firstName} }}</h2>
+        <h2 padding text-center *ngIf="isApplicantAccepted()" class="padding-top-small">{{'RESCHEDULE.SUB_TITLE_ACCEPTED' | translate:{who: applicant.user.facebook.firstName} }}</h2>
 
-        <h2 padding text-center *ngIf="isApplicantReschedule()">{{'RESCHEDULE.SUB_TITLE_RESCHEDULE' | translate:{who: applicant.user.facebook.firstName} }}</h2>
+        <h2 padding text-center *ngIf="isApplicantReschedule()" class="padding-top-small">{{'RESCHEDULE.SUB_TITLE_RESCHEDULE' | translate:{who: applicant.user.facebook.firstName} }}</h2>
 
         <app-pick-reschedule-appointments [item]="item" [appointment]="appointment" [applicant]="applicant" (notifiySelected)="select($event)"></app-pick-reschedule-appointments>
 
