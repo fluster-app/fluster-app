@@ -74,6 +74,8 @@ export class ChatPage extends AbstractPage implements OnInit {
 
     private newChatMessageSubscription: Subscription;
 
+    private keyboardOpen: boolean = false;
+
     constructor(private platform: Platform,
                 private zone: NgZone,
                 private toastController: ToastController,
@@ -477,6 +479,11 @@ export class ChatPage extends AbstractPage implements OnInit {
     }
 
     openInformation() {
+        if (this.keyboardOpen) {
+            // In case keyboard is open we don't want to navigate but just to close the keyboard
+            return;
+        }
+
         if (this.isAdDisplay) {
             this.openApplicantInfo();
         } else {
@@ -513,10 +520,12 @@ export class ChatPage extends AbstractPage implements OnInit {
     }
 
     private showKeyboardScrollToBottom = (event: any) => {
+        this.keyboardOpen = true;
         this.chatContent.scrollToBottom();
     }
 
     private hideKeyboardScrollToBottom = () => {
+        this.keyboardOpen = false;
         this.chatContent.scrollToBottom();
     }
 
