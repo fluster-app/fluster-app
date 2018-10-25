@@ -1,3 +1,17 @@
+<a name="5.2.0"></a>
+# [5.2.0](https://github.com/fluster/fluster-app/compare/v5.1.3...v5.2.0) (2018-10-25)
+
+### UX
+
+* improve chat's textarea expand behavior ([#46](https://github.com/fluster/fluster-app/issues/46))
+* move more options from the navbar to the bottom toolbar in the chat ([#45](https://github.com/fluster/fluster-app/issues/45))
+* add ability to send a complaint from the chat ([#50](https://github.com/fluster/fluster-app/issues/50))
+
+### Fixes
+
+* the "who" pane in the details was not displayed per default anymore in case of flatshare ([#48](https://github.com/fluster/fluster-app/issues/48))
+* images in the cards stack were not correctly displayed as the second cards ([#49](https://github.com/fluster/fluster-app/issues/49))
+
 <a name="5.1.3"></a>
 # [5.1.3](https://github.com/fluster/fluster-app/compare/v5.1.2...v5.1.3) (2018-10-18)
 

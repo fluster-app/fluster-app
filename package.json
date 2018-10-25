@@ -2,7 +2,7 @@
   "name": "fluster",
   "author": "Fluster",
   "homepage": "https://fluster.io",
-  "version": "5.1.3",
+  "version": "5.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ionic serve",
