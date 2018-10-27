@@ -69,7 +69,7 @@
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="21" />
-    <preference name="android-targetSdkVersion" value="23" />
+    <preference name="android-targetSdkVersion" value="26" />
     <preference name="deployment-target" value="10.0" />
     <preference name="orientation" value="portrait" />
     <preference name="BackupWebStorage" value="none" />
