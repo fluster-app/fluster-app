@@ -115,7 +115,8 @@ export class ConnectSpotifyComponent implements AfterViewInit, OnDestroy, OnChan
             location: 'no',
             clearcache: 'yes',
             clearsessioncache: 'yes',
-            closebuttoncaption: backButtonText
+            closebuttoncaption: backButtonText,
+            shouldPauseOnSuspend: 'yes'
         });
 
         this.spotifyInAppBrowser.on('exit').subscribe(() => {

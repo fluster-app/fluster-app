@@ -112,6 +112,6 @@ export class NewAdStepDoneComponent extends AbstractNewAdComponent implements Af
             return;
         }
 
-        this.inAppBrowser.create(reward.prize.termsUrl, '_blank', 'location=no');
+        this.inAppBrowser.create(reward.prize.termsUrl, '_blank', 'location=no,shouldPauseOnSuspend=yes');
     }
 }

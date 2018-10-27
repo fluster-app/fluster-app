@@ -243,7 +243,7 @@ export abstract class AbstractPage {
     }
 
     protected displayTermsOfuser(inAppBrowser: InAppBrowser) {
-        inAppBrowser.create(this.RESOURCES.TERMS_OF_USE.URL, '_blank', 'location=no');
+        inAppBrowser.create(this.RESOURCES.TERMS_OF_USE.URL, '_blank', 'location=no,shouldPauseOnSuspend=yes');
     }
 
     protected async saveUserIfNeeded(toastController: ToastController, loadingController: LoadingController, translateService: TranslateService, userProfileService: UserProfileService, userSessionService: UserSessionService, user: User) {

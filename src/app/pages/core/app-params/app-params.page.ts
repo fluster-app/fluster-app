@@ -209,7 +209,7 @@ export class AppParamsPage extends AbstractPage implements OnInit {
     }
 
     openGithub() {
-        this.inAppBrowser.create(this.RESOURCES.GITHUB.URL, '_blank', 'location=no');
+        this.inAppBrowser.create(this.RESOURCES.GITHUB.URL, '_blank', 'location=no,shouldPauseOnSuspend=yes');
     }
 
 }
