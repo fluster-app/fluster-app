@@ -1,3 +1,11 @@
+<a name="5.2.1"></a>
+# [5.2.1](https://github.com/fluster/fluster-app/compare/v5.2.0...v5.2.1) (2018-10-27)
+
+### Google Play
+
+* Google Play as of 1st November is requesting at least API level 26 as target ([#52](https://github.com/fluster/fluster-app/issues/52))
+* Try go solve weird Google Play issues regarding policy ([#51](https://github.com/fluster/fluster-app/issues/51))
+
 <a name="5.2.0"></a>
 # [5.2.0](https://github.com/fluster/fluster-app/compare/v5.1.3...v5.2.0) (2018-10-25)
 
