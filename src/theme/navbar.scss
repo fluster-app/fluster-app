@@ -1,8 +1,7 @@
 ion-header ion-toolbar, ion-header ion-toolbar.sc-ion-toolbar-md-h {
 
   @include fluster-linear-gradient-variable(to right, $fluster-peach1, $fluster-peach3);
-  --ion-toolbar-text-color: white;
-  --ion-color-base: white;
+  --color: white;
   text-transform: uppercase;
 
   ion-content, ion-title {

@@ -135,8 +135,7 @@ ion-footer[role="browse"] {
 
     ion-item.item {
       color: $fluster-dark-blue;
-      background-color: $fluster-light-grey;
-      border-color: $fluster-light-grey;
+      --background: #{$fluster-light-grey};
     }
   }
 }
@@ -147,8 +146,7 @@ ion-footer[role="ad"] {
 
     ion-item.item.chat-input {
       color: white;
-      background-color: $fluster-midnight-blue;
-      border-color: $fluster-midnight-blue;
+      --background: #{$fluster-midnight-blue};
     }
 
     ion-item.item.chat-blocked {

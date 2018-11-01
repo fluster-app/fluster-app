@@ -17,6 +17,7 @@ ion-slides, #loading-spinner {
         ion-label {
             color: inherit;
             font-size: $fluster-text-normal;
+            font-weight: $font-weight-light;
         }
 
         #yelp-phone {
@@ -36,6 +37,11 @@ ion-slides, #loading-spinner {
     #yelp-distance {
         color: $fluster-peach3;
     }
+
+    ion-label {
+        display: block;
+        font-weight: $font-weight-light;
+    }
 }
 
 .label-title {
@@ -45,6 +51,10 @@ ion-slides, #loading-spinner {
 
 #yelp-evaluation {
     ion-icon, span {
-        font-size: 4rem;
+        font-size: 3rem;
+    }
+
+    ion-label {
+        display: block;
     }
 }

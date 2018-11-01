@@ -3,16 +3,18 @@
 ion-label.adCategoryTitle, ion-label.adCategoryTitleSmall {
     color: $fluster-peach3;
     font-weight: $font-weight-light;
+    display: block;
+    padding-bottom: 8px;
 }
 
 ion-label.adCategoryTitleSmall {
     font-size: $fluster-text-small;
-    padding-top: 6px;
+    padding-top: 18px;
 }
 
 ion-label.adCategoryTitle {
     font-size: $fluster-text-normal;
-    padding-top: 4px;
+    padding-top: 16px;
 }
 
 #price-charges {

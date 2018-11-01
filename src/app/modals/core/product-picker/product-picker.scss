@@ -60,7 +60,8 @@ ion-slides {
         --background: #{$facebook};
         --box-shadow: none;
 
-        --size: 12vh;
+        --width: 12vh;
+        --height: 12vh;
         padding: 16px;
 
         --background-activated: #{$fluster-medium-grey};
