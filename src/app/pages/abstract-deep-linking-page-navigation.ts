@@ -239,7 +239,7 @@ export abstract class AbstractDeepLinkingNavigationPage extends AbstractPage {
     }
 
     private doNavigateAds(notifications: Notification[], chatMessages: ChatMessage[]) {
-        this.navigate(notifications, chatMessages, '/ads-next-appointments');
+        this.navigate(notifications, chatMessages, '/candidates');
     }
 
     private navigateBrowse(notifications: Notification[], chatMessages: ChatMessage[]) {

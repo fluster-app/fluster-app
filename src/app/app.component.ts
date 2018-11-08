@@ -126,10 +126,10 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
         ];
 
         this.advertisePages = [
-            {title: 'MENU.AD.MY_APPOINTMENTS', url: '/ads-next-appointments', displayNotifications: false},
+            {title: 'MENU.AD.CANDIDATES', url: '/candidates', displayNotifications: false},
             {title: 'MENU.AD.APPLICANTS', url: '/applicants', displayNotifications: true},
-            {title: 'MENU.AD.MY_AD', url: '/ads-details', displayNotifications: false},
-            {title: 'MENU.AD.CANDIDATES', url: '/candidates', displayNotifications: false}
+            {title: 'MENU.AD.MY_APPOINTMENTS', url: '/ads-next-appointments', displayNotifications: false},
+            {title: 'MENU.AD.MY_AD', url: '/ads-details', displayNotifications: false}
         ];
 
         this.userNotifierSubscription = this.userSessionService.userModified.subscribe(() => this.updateUser());
@@ -335,7 +335,7 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
 
         this.navigateSideInProgress = true;
 
-        await this.navigateSide(false, '/ads-next-appointments');
+        await this.navigateSide(false, '/candidates');
     }
 
     private async navigateSide(browse: boolean, page: string) {

@@ -68,8 +68,6 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
 
     ngOnInit() {
         this.user = this.userSessionService.getUser();
-
-        this.firstAccessMsg();
     }
 
     async ionViewWillEnter() {
@@ -77,11 +75,13 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
 
         this.reset();
 
-        this.item = this.adsService.getSelectedItem();
+        this.item = await this.initAdsItems();
 
         if (!this.hasItem()) {
             this.loaded = true;
         } else {
+            this.firstAccessMsg();
+
             const promises = new Array();
             promises.push(this.findCandidates());
             promises.push(this.findStarredCandidates());
@@ -91,6 +91,22 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
                     this.loaded = true;
                 });
         }
+    }
+
+    private initAdsItems(): Promise<Item> {
+        return new Promise<Item>((resolve) => {
+            if (!Comparator.isEmpty(this.adsService.getSelectedItem())) {
+                resolve(this.adsService.getSelectedItem());
+            } else {
+                this.adsService.findAdsItems().then((items: Item[]) => {
+                    const result: Item = Comparator.isEmpty(items) ? null : items[0];
+                    this.adsService.setSelectedItem(result);
+                    resolve(result);
+                }, (errorResponse: HttpErrorResponse) => {
+                    resolve(null);
+                });
+            }
+        });
     }
 
     private reset() {

@@ -228,7 +228,7 @@ export class FirstChoicePage extends AbstractPage {
                 this.activateUserAndNavigate(this.loading, this.user, '/new-ad');
             } else {
                 // We go to the dashboard
-                this.navController.navigateRoot('/ads-next-appointments').then(async () => {
+                this.navController.navigateRoot('/candidates').then(async () => {
                     await this.loading.dismiss();
                 });
             }

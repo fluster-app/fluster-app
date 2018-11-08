@@ -116,7 +116,7 @@ export class NewAdPage extends AbstractPage implements OnInit {
             const newAdNavParams: NewAdNavParams = await this.navParamsService.getNewAdNavParams();
 
             if (!newAdNavParams || Comparator.isStringEmpty(newAdNavParams.backToPageUrl) || newAdNavParams.backToPageUrl === '/first-choice') {
-                await this.navController.navigateRoot('/ads-next-appointments');
+                await this.navController.navigateRoot('/candidates');
             } else {
                 await this.navController.navigateBack(newAdNavParams.backToPageUrl);
             }
