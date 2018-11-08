@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {LoadingController, MenuController, NavController, Platform, ToastController, ActionSheetController} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
+import {SocialSharing} from '@ionic-native/social-sharing/ngx';
+
 import {TranslateService} from '@ngx-translate/core';
 
 import {forkJoin} from 'rxjs';
@@ -24,6 +26,7 @@ import {CandidatesService} from '../../../../services/advertise/candidates-servi
 import {StorageService} from '../../../../services/core/localstorage/storage-service';
 import {UserSessionService} from '../../../../services/core/user/user-session-service';
 import {NavParamsService} from '../../../../services/core/navigation/nav-params-service';
+import {CurrencyService} from '../../../../services/core/currency/currency-service';
 
 @Component({
     selector: 'app-candidates',
@@ -53,6 +56,7 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
                 protected toastController: ToastController,
                 private actionSheetController: ActionSheetController,
                 protected translateService: TranslateService,
+                private socialSharing: SocialSharing,
                 private storageService: StorageService,
                 protected adsService: AdsService,
                 protected newItemService: NewItemService,
@@ -60,7 +64,8 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
                 protected localFilesService: LocalFilesService,
                 protected candidatesService: CandidatesService,
                 private userSessionService: UserSessionService,
-                protected navParamsService: NavParamsService) {
+                protected navParamsService: NavParamsService,
+                private currencyService: CurrencyService) {
         super(platform, loadingController, navController, toastController, translateService, googleAnalyticsNativeService, adsService, newItemService, localFilesService, candidatesService, navParamsService);
 
         this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ADS.CANDIDATES.CANDIDATES);
@@ -214,6 +219,7 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
     async presentActionSheet(ev) {
         const cancelText: string = this.translateService.instant('CORE.CANCEL');
         const limitAdsText: string = this.translateService.instant('ADS.ACTIONS.LIMIT_ADS');
+        const shareAdText: string = this.translateService.instant('ITEM_DETAILS.POPOVER.SHARE');
 
         const buttons = new Array();
 
@@ -223,6 +229,13 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
             handler: async () => {
                 this.navParamsService.setAdminAdsNavParams({backToPageUrl: '/candidates'});
                 await this.navigateToAdminLimitation();
+            }
+        });
+
+        buttons.push({
+            text: shareAdText,
+            handler: async () => {
+                this.shareAd();
             }
         });
 
@@ -240,6 +253,17 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
         });
 
         await actionSheet.present();
+    }
+
+    shareAd() {
+        const item: Item = this.newItemService.getNewItem();
+
+        this.shareItem(this.platform, this.socialSharing, this.googleAnalyticsNativeService,
+            this.loadingController, this.translateService, this.currencyService, item).then(() => {
+            // Do nothing
+        }, (err: any) => {
+            // Do nothing
+        });
     }
 
 }

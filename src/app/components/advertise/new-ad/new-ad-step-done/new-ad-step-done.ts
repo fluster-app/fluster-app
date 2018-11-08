@@ -34,6 +34,8 @@ export class NewAdStepDoneComponent extends AbstractNewAdComponent implements Af
 
     @Output() notifiyGoToAdDetailCall: EventEmitter<void> = new EventEmitter<void>();
 
+    @Output() notifiyGoToCandidatesCall: EventEmitter<void> = new EventEmitter<void>();
+
     @Output() notifiyGoToAdminAppointments: EventEmitter<void> = new EventEmitter<void>();
 
     @Output() notifiyGoToAdminLimitation: EventEmitter<void> = new EventEmitter<void>();
@@ -47,12 +49,7 @@ export class NewAdStepDoneComponent extends AbstractNewAdComponent implements Af
     constructor(
         private platform: Platform,
         private inAppBrowser: InAppBrowser,
-        private socialSharing: SocialSharing,
-        private loadingController: LoadingController,
-        private translateService: TranslateService,
-        private googleAnalyticsNativeService: GoogleAnalyticsNativeService,
-        protected newItemService: NewItemService,
-        private currencyService: CurrencyService) {
+        protected newItemService: NewItemService) {
 
         super(newItemService);
     }
@@ -78,23 +75,16 @@ export class NewAdStepDoneComponent extends AbstractNewAdComponent implements Af
         this.notifiyGoToAdDetailCall.emit();
     }
 
+    navigateToCandidates() {
+        this.notifiyGoToCandidatesCall.emit();
+    }
+
     navigateToAdminAppointments() {
         this.notifiyGoToAdminAppointments.emit();
     }
 
     navigateToAdminLimitation() {
         this.notifiyGoToAdminLimitation.emit();
-    }
-
-    shareAd() {
-        const item: Item = this.newItemService.getNewItem();
-
-        this.shareItem(this.platform, this.socialSharing, this.googleAnalyticsNativeService,
-            this.loadingController, this.translateService, this.currencyService, item).then(() => {
-            // Do nothing
-        }, (err: any) => {
-            // Do nothing
-        });
     }
 
     hasReward(): boolean {

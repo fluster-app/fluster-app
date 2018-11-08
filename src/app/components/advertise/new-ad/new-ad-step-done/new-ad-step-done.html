@@ -26,7 +26,6 @@
                 </app-big-button>
             </ion-col>
 
-
             <ion-col size="6" text-center>
                 <app-big-button (clicked)="navigateToAdDetail()" [adDisplay]="true"
                                 [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true"
@@ -35,9 +34,9 @@
             </ion-col>
 
             <ion-col size="6" text-center>
-                <app-big-button (clicked)="shareAd()" [adDisplay]="true"
+                <app-big-button (clicked)="navigateToCandidates()" [adDisplay]="true"
                                 [bigButton]="false" [mediumButton]="true" [mediumButtonAds]="true"
-                                [icon]="'share'" [label]="'NEW_AD.STEP_DONE.SHARE'">
+                                [icon]="'people'" [label]="'NEW_AD.STEP_DONE.CANDIDATES'">
                 </app-big-button>
             </ion-col>
         </ion-row>

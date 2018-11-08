@@ -190,8 +190,12 @@ export class NewAdPage extends AbstractPage implements OnInit {
         });
     }
 
-    navigateToAdDetail() {
-        this.navController.navigateRoot('/ads-details', true);
+    async navigateToAdDetail() {
+        await this.navController.navigateRoot('/ads-details', true);
+    }
+
+    async navigateToCandidates() {
+        await this.navController.navigateRoot('/candidates', true);
     }
 
     async navigateToAdminAppointments() {
