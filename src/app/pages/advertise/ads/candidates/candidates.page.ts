@@ -3,6 +3,7 @@ import {LoadingController, MenuController, NavController, Platform, ToastControl
 import {HttpErrorResponse} from '@angular/common/http';
 
 import {SocialSharing} from '@ionic-native/social-sharing/ngx';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 
 import {TranslateService} from '@ngx-translate/core';
 
@@ -27,6 +28,7 @@ import {StorageService} from '../../../../services/core/localstorage/storage-ser
 import {UserSessionService} from '../../../../services/core/user/user-session-service';
 import {NavParamsService} from '../../../../services/core/navigation/nav-params-service';
 import {CurrencyService} from '../../../../services/core/currency/currency-service';
+import {LoginService} from '../../../../services/core/login/login-service';
 
 @Component({
     selector: 'app-candidates',
@@ -57,6 +59,7 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
                 private actionSheetController: ActionSheetController,
                 protected translateService: TranslateService,
                 private socialSharing: SocialSharing,
+                private splashScreen: SplashScreen,
                 private storageService: StorageService,
                 protected adsService: AdsService,
                 protected newItemService: NewItemService,
@@ -65,6 +68,7 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
                 protected candidatesService: CandidatesService,
                 private userSessionService: UserSessionService,
                 protected navParamsService: NavParamsService,
+                private loginService: LoginService,
                 private currencyService: CurrencyService) {
         super(platform, loadingController, navController, toastController, translateService, googleAnalyticsNativeService, adsService, newItemService, localFilesService, candidatesService, navParamsService);
 
@@ -76,6 +80,8 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
     }
 
     async ionViewWillEnter() {
+        this.hideSplashScreen(this.platform, this.splashScreen, this.loginService);
+
         await this.enableMenu(this.menuController, false, true);
 
         this.reset();
