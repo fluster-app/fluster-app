@@ -1,3 +1,14 @@
+<a name="5.3.0"></a>
+# [5.3.0](https://github.com/fluster/fluster-app/compare/v5.3.0...v5.3.0) (2018-11-09)
+
+### UX
+
+* if you offer a room or flat, per default the main view will be the one where you could look for candidates ([#53](https://github.com/fluster/fluster-app/issues/53))
+
+### Lib
+
+* update last version of Ionic and cordova-android
+
 <a name="5.2.1"></a>
 # [5.2.1](https://github.com/fluster/fluster-app/compare/v5.2.0...v5.2.1) (2018-10-27)
 
