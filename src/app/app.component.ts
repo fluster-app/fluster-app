@@ -207,11 +207,11 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
     // 400: bad request or 401: unauthorized should be forwarded to login mask
     // private
     httpRequestIntercepted() {
-        this.storageService.clear().then(() => {
-            this.navigateToLoginPage(false);
-        }, (err: string) => {
+        this.storageService.clear().then(async () => {
+            await this.navigateToLoginPage(false);
+        }, async (err: string) => {
             // In any case logout
-            this.navigateToLoginPage(false);
+            await this.navigateToLoginPage(false);
         });
     }
 
