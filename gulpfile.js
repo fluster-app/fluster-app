@@ -141,7 +141,7 @@ gulp.task('revert-staging', function () {
 
 // Inject secret keys
 
-const replaceResources = ['./src/app/services/core/utils/resources.ts', './config.xml', './package.json', './build.json', './index.html'];
+const replaceResources = ['./src/app/services/core/utils/resources.ts', './config.xml', './package.json', './build.json', './src/index.html'];
 const replaceLoginMockup = ['./src/app/pages/core/login/login.page.ts'];
 
 gulp.task('resources', function () {
