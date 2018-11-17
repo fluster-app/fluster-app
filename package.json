@@ -64,7 +64,7 @@
     "cropperjs": "^1.4.1",
     "es6-promise-plugin": "^4.2.2",
     "hammerjs": "^2.0.8",
-    "ionic-swing": "^3.0.0",
+    "ionic-swing": "^4.0.0",
     "moment": "^2.22.2",
     "phonegap-plugin-push": "^2.2.3",
     "raven-js": "^3.27.0",
