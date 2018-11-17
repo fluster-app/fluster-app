@@ -113,7 +113,7 @@
     "replace-in-file": "^3.4.2",
     "ts-node": "~7.0.1",
     "tslint": "~5.11.0",
-    "typescript": "~2.9.2"
+    "typescript": "^3.1.6"
   },
   "description": "Fluster",
   "cordova": {
