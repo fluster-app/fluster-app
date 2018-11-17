@@ -43,7 +43,7 @@
     "branch-cordova-sdk": "3.1.0",
     "cordova-android": "7.1.2",
     "cordova-ios": "4.5.5",
-    "cordova-plugin-calendar": "^5.1.2",
+    "cordova-plugin-calendar": "5.1.3",
     "cordova-plugin-camera": "^4.0.3",
     "cordova-plugin-customurlscheme": "^4.3.0",
     "cordova-plugin-device": "^2.0.2",
@@ -54,7 +54,7 @@
     "cordova-plugin-googleplus": "^5.3.2",
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
-    "cordova-plugin-ionic-webview": "2.2.1",
+    "cordova-plugin-ionic-webview": "2.2.3",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
@@ -140,9 +140,6 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-camera": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-calendar": {
-        "CALENDAR_USAGE_DESCRIPTION": "If you wish to export your viewings to your calendar, Fluster requires access to it"
-      },
       "cordova-plugin-x-socialsharing": {},
       "phonegap-plugin-push": {
         "ANDROID_SUPPORT_V13_VERSION": "27.+",
@@ -159,6 +156,9 @@
         "APP_ID": "{{FACEBOOK_APP_ID}}",
         "APP_NAME": "Fluster",
         "FACEBOOK_ANDROID_SDK_VERSION": "4.37.0"
+      },
+      "cordova-plugin-calendar": {
+        "CALENDAR_USAGE_DESCRIPTION": "If you wish to export your viewings to your calendar, Fluster requires access to it"
       },
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
