@@ -5,6 +5,10 @@
 
 * move feature to extend the availability of an ad to a separate page ([#54](https://github.com/fluster/fluster-app/issues/54))
 
+### Fix
+
+* improve scrolling performances on date picker ([#55](https://github.com/fluster/fluster-app/issues/55))
+
 ### Lib
 
 * update last version of Ionic and other Cordova's libs
