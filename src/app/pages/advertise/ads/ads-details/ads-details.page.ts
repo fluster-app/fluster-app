@@ -126,17 +126,23 @@ export class AdsDetailsPage extends AbstractAdsPage {
         promises.push(this.translateService.get('ADS.ACTIONS.LIMIT_ADS'));
         promises.push(this.translateService.get('ADS.ACTIONS.EXTEND'));
 
-        // TODO: #54 only if could be extended
-        // this.itemEndCouldBeExtended = ItemsComparator.isItemExpiringSoon(this.item);
-
         forkJoin(promises).subscribe(
             async (data: string[]) => {
                 if (!Comparator.isEmpty(data) && data.length === promises.length) {
                     const buttons = new Array();
 
+                    if (ItemsComparator.isItemExpiringSoon(this.item)) {
+                        buttons.push({
+                            text: data[6],
+                            role: 'destructive',
+                            handler: async () => {
+                                await this.navigateToAdminExtend();
+                            }
+                        });
+                    }
+
                     buttons.push({
                         text: data[0],
-                        role: 'destructive',
                         handler: async () => {
                             await this.adminAppointments();
                         }
@@ -146,13 +152,6 @@ export class AdsDetailsPage extends AbstractAdsPage {
                         text: data[5],
                         handler: async () => {
                             await this.navigateToAdminLimitation();
-                        }
-                    });
-
-                    buttons.push({
-                        text: data[6],
-                        handler: async () => {
-                            await this.navigateToAdminExtend();
                         }
                     });
 
