@@ -8,6 +8,7 @@
 ### Fix
 
 * improve scrolling performances on date picker ([#55](https://github.com/fluster/fluster-app/issues/55))
+* overscroll was not correct on the timeframe picker for advertiser ([#56](https://github.com/fluster/fluster-app/issues/56)) 
 
 ### Lib
 
