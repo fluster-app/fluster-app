@@ -1,3 +1,14 @@
+<a name="5.4.0"></a>
+# [5.4.0](https://github.com/fluster/fluster-app/compare/v5.3.0...v5.4.0) (2018-11-21)
+
+### UX
+
+* move feature to extend the availability of an ad to a separate page ([#54](https://github.com/fluster/fluster-app/issues/54))
+
+### Lib
+
+* update last version of Ionic and other Cordova's libs
+
 <a name="5.3.0"></a>
 # [5.3.0](https://github.com/fluster/fluster-app/compare/v5.3.0...v5.3.0) (2018-11-09)
 
