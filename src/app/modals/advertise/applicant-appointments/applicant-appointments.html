@@ -18,7 +18,7 @@
 
 <ion-content role="ad" [scrollY]="false" padding>
 
-    <div *ngIf="applicant != null && hasSelectedDates()">
+    <div *ngIf="applicant != null && hasSelectedDates()" ion-fixed>
         <h2 text-center *ngIf="availableDates != null && availableDates.length > 1" padding>
             {{ 'APPLICANT_SELECTION.PROPOSAL' | translate:{who: applicant.user.facebook.firstName, howmany: availableDates.length} }}
         </h2>
