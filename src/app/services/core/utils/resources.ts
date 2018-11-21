@@ -239,6 +239,7 @@ export class Resources {
                                     EXTEND: 'extend',
                                     EDIT_END: 'edit_end',
                                     EDIT_LIMITATION: 'edit_limitation',
+                                    EDIT_APPOINTMENTS: 'edit_appointments',
                                     UNDO: 'undo',
                                     APPLICANT: {
                                         APPLICANT_DETAILS: 'applicants_details',
