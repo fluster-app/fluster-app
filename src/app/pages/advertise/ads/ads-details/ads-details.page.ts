@@ -143,6 +143,7 @@ export class AdsDetailsPage extends AbstractAdsPage {
 
                     buttons.push({
                         text: data[0],
+                        role: ItemsComparator.isItemExpiringSoon(this.item) ? null : 'destructive',
                         handler: async () => {
                             await this.adminAppointments();
                         }
