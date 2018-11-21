@@ -44,7 +44,8 @@
             "EDIT_APPOINTMENTS": "Gestisci la mia disponibilità",
             "EDIT_ADS": "Gestisci il mio annuncio",
             "CLOSE": "Elimina il mio annuncio",
-            "LIMIT_ADS": "Chi può vedere il mio annuncio?"
+            "LIMIT_ADS": "Chi può vedere il mio annuncio?",
+            "EXTEND": "Estendi il mio annuncio"
         }
     },
     "NEW_AD": {

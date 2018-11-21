@@ -33,6 +33,7 @@ import {CurrencyService} from '../../../../services/core/currency/currency-servi
 import {NotificationWatcherService} from '../../../../services/core/notification/notification-watcher-service';
 import {CandidatesService} from '../../../../services/advertise/candidates-service';
 import {NavParamsService} from '../../../../services/core/navigation/nav-params-service';
+import {ItemsComparator} from '../../../../services/core/utils/items-utils';
 
 @Component({
     selector: 'app-ads-details',
@@ -123,6 +124,10 @@ export class AdsDetailsPage extends AbstractAdsPage {
         promises.push(this.translateService.get('ITEM_DETAILS.POPOVER.SHARE'));
         promises.push(this.translateService.get('CORE.CANCEL'));
         promises.push(this.translateService.get('ADS.ACTIONS.LIMIT_ADS'));
+        promises.push(this.translateService.get('ADS.ACTIONS.EXTEND'));
+
+        // TODO: #54 only if could be extended
+        // this.itemEndCouldBeExtended = ItemsComparator.isItemExpiringSoon(this.item);
 
         forkJoin(promises).subscribe(
             async (data: string[]) => {
@@ -141,6 +146,13 @@ export class AdsDetailsPage extends AbstractAdsPage {
                         text: data[5],
                         handler: async () => {
                             await this.navigateToAdminLimitation();
+                        }
+                    });
+
+                    buttons.push({
+                        text: data[6],
+                        handler: async () => {
+                            await this.navigateToAdminExtend();
                         }
                     });
 

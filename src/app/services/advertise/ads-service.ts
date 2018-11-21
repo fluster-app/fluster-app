@@ -74,8 +74,8 @@ export class AdsService {
         });
     }
 
-    setEnd(itemId: string, newEnd: Date): Promise<{}> {
-        return new Promise(async (resolve, reject) => {
+    setEnd(itemId: string, newEnd: Date): Promise<Item> {
+        return new Promise<Item>(async (resolve, reject) => {
             try {
                 const headers: HttpHeaders = new HttpHeaders();
                 headers.append('Content-Type', 'application/json');

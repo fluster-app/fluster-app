@@ -109,4 +109,8 @@ export abstract class AbstractAdsPage extends AbstractPage {
     protected async navigateToAdminLimitation() {
         await this.navController.navigateForward('/admin-limitation');
     }
+
+    protected async navigateToAdminExtend() {
+        await this.navController.navigateForward('/admin-extend');
+    }
 }

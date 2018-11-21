@@ -176,7 +176,8 @@ export class Resources {
                                 },
                                 ADMIN: {
                                     APPOINTMENTS: 'admin_appointments',
-                                    LIMITATION: 'admin_limitation'
+                                    LIMITATION: 'admin_limitation',
+                                    EXTEND: 'admin_extend',
                                 }
                             },
                             FIRST_CHOICE: 'first_choice',
