@@ -2,6 +2,10 @@ div[scrollx=true], div[scrolly=true] {
   position: relative;
   overflow: hidden;
 
+  -webkit-overflow-scrolling: touch;
+  will-change: scroll-position;
+  overscroll-behavior: contain;
+
   ::-webkit-scrollbar {
     display: none;
   }
