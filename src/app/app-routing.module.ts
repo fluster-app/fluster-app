@@ -42,6 +42,7 @@ const routes: Routes = [
         loadChildren: './pages/advertise/admin/admin-appointments/admin-appointments.module#AdminAppointmentsPageModule'
     },
     {path: 'admin-limitation', loadChildren: './pages/advertise/admin/admin-limitation/admin-limitation.module#AdminLimitationPageModule'},
+    {path: 'admin-extend', loadChildren: './pages/advertise/admin/admin-extend/admin-extend.module#AdminExtendPageModule'},
     {path: 'candidates', loadChildren: './pages/advertise/ads/candidates/candidates.module#CandidatesPageModule'},
     {path: 'candidate-details', loadChildren: './pages/advertise/candidate-details/candidate-details.module#CandidateDetailsPageModule'},
 ];

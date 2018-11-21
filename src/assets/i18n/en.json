@@ -44,7 +44,8 @@
             "EDIT_APPOINTMENTS": "Manage my availabilities",
             "EDIT_ADS": "Manage my ad",
             "CLOSE": "Delete my ad",
-            "LIMIT_ADS": "Who can see my ad?"
+            "LIMIT_ADS": "Who can see my ad?",
+            "EXTEND": "Extend my ad"
         }
     },
     "NEW_AD": {

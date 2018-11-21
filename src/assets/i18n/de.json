@@ -44,7 +44,8 @@
             "EDIT_APPOINTMENTS": "Meine Verfügbarkeiten verwalten",
             "EDIT_ADS": "Mein Inserat verwalten",
             "CLOSE": "Mein Inserat löschen",
-            "LIMIT_ADS": "Wer kann mein Inserat sehen?"
+            "LIMIT_ADS": "Wer kann mein Inserat sehen?",
+            "EXTEND": "Mein Inserat verlängern"
         }
     },
     "NEW_AD": {

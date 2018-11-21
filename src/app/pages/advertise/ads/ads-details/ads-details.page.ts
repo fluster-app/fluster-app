@@ -33,6 +33,7 @@ import {CurrencyService} from '../../../../services/core/currency/currency-servi
 import {NotificationWatcherService} from '../../../../services/core/notification/notification-watcher-service';
 import {CandidatesService} from '../../../../services/advertise/candidates-service';
 import {NavParamsService} from '../../../../services/core/navigation/nav-params-service';
+import {ItemsComparator} from '../../../../services/core/utils/items-utils';
 
 @Component({
     selector: 'app-ads-details',
@@ -123,15 +124,26 @@ export class AdsDetailsPage extends AbstractAdsPage {
         promises.push(this.translateService.get('ITEM_DETAILS.POPOVER.SHARE'));
         promises.push(this.translateService.get('CORE.CANCEL'));
         promises.push(this.translateService.get('ADS.ACTIONS.LIMIT_ADS'));
+        promises.push(this.translateService.get('ADS.ACTIONS.EXTEND'));
 
         forkJoin(promises).subscribe(
             async (data: string[]) => {
                 if (!Comparator.isEmpty(data) && data.length === promises.length) {
                     const buttons = new Array();
 
+                    if (ItemsComparator.isItemExpiringSoon(this.item)) {
+                        buttons.push({
+                            text: data[6],
+                            role: 'destructive',
+                            handler: async () => {
+                                await this.navigateToAdminExtend();
+                            }
+                        });
+                    }
+
                     buttons.push({
                         text: data[0],
-                        role: 'destructive',
+                        role: ItemsComparator.isItemExpiringSoon(this.item) ? null : 'destructive',
                         handler: async () => {
                             await this.adminAppointments();
                         }
