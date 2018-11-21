@@ -12,12 +12,12 @@
 
     <div class="sticky-container big-screen-content" *ngIf="loaded && item">
         <div class="sticky-content" padding>
-            <h1>{{'ADMIN_APPOINTMENTS.EXTEND.TITLE' | translate}}</h1>
+            <h1 text-center padding>{{'ADMIN_APPOINTMENTS.EXTEND.TITLE' | translate}}</h1>
 
-            <h2 *ngIf="!itemEndThePast">{{ 'ADMIN_APPOINTMENTS.EXTEND.EXPIRE_SOON' | translate:{when: extendDateDisplay} }}</h2>
-            <h2 *ngIf="itemEndThePast">{{ 'ADMIN_APPOINTMENTS.EXTEND.EXPIRED' | translate:{when: extendDateDisplay} }}</h2>
+            <h2 text-center *ngIf="!itemEndThePast">{{ 'ADMIN_APPOINTMENTS.EXTEND.EXPIRE_SOON' | translate:{when: extendDateDisplay} }}</h2>
+            <h2 text-center *ngIf="itemEndThePast">{{ 'ADMIN_APPOINTMENTS.EXTEND.EXPIRED' | translate:{when: extendDateDisplay} }}</h2>
 
-            <ion-grid class="padding-top-small">
+            <ion-grid class="padding-top-average">
                 <ion-row>
                     <ion-col col-12>
                         <ion-list>
@@ -36,13 +36,15 @@
                     </ion-col>
                 </ion-row>
             </ion-grid>
+        </div>
 
-            <div class="sticky-buttons" padding-start padding-end>
-                <ion-button expand="full" shape="round" (click)="updateAd()">
-                    {{'ADMIN_APPOINTMENTS.APPOINTMENTS.CONFIRM' | translate}}
-                    <ion-icon slot="end" name="checkmark"></ion-icon>
-                </ion-button>
-            </div>
+        <div class="sticky-buttons" padding-start padding-end>
+            <div class="spacer"></div>
+
+            <ion-button expand="full" shape="round" (click)="updateAd()">
+                {{'ADMIN_APPOINTMENTS.APPOINTMENTS.CONFIRM' | translate}}
+                <ion-icon slot="end" name="checkmark"></ion-icon>
+            </ion-button>
         </div>
 
         <div class="spinner-loading" padding text-center *ngIf="!loaded">

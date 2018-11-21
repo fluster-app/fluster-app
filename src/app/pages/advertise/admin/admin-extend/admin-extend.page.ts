@@ -52,6 +52,8 @@ export class AdminExtendPage extends AbstractAdminPage implements OnInit {
         this.item = await this.initItem();
 
         await this.computeExtendDates();
+
+        this.loaded = true;
     }
 
     private computeExtendDates(): Promise<void> {
