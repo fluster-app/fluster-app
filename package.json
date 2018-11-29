@@ -41,7 +41,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "branch-cordova-sdk": "3.1.3",
-    "cordova-android": "7.1.2",
+    "cordova-android": "7.1.4",
     "cordova-ios": "4.5.5",
     "cordova-plugin-calendar": "5.1.3",
     "cordova-plugin-camera": "^4.0.3",

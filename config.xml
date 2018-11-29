@@ -142,7 +142,7 @@
         <variable name="CALENDAR_USAGE_DESCRIPTION" value="If you wish to export your viewings to your calendar, Fluster requires access to it" />
     </plugin>
     <engine name="ios" spec="4.5.5" />
-    <engine name="android" spec="7.1.2" />
+    <engine name="android" spec="7.1.4" />
     <plugin name="cordova-plugin-ionic-webview" spec="2.2.5">
         <variable name="ANDROID_SUPPORT_ANNOTATIONS_VERSION" value="27.+" />
     </plugin>
