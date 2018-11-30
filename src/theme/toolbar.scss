@@ -7,10 +7,17 @@ ion-content[role="browse"] {
     }
 }
 
-ion-content[role="ad"] {
+ion-content[role="ad"], ion-footer[role="ad"] {
 
     ion-toolbar {
         --background: #{$fluster-dark-blue};
+    }
+}
+
+ion-footer[role="browse"] {
+
+    ion-toolbar {
+        --background: #{$fluster-light-grey};
     }
 }
 
@@ -73,42 +80,42 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
                 ion-segment-button {
                     height: 100%;
                 }
+
+                ion-segment-button {
+                    --border-color: transparent;
+                    color: $fluster-midnight-blue;
+                    font-size: $fluster-text-normal;
+                    --border-radius: 0;
+                    opacity: 1.0;
+                    --border-width: 0;
+
+                    ion-icon {
+                        padding-top: 4px;
+                    }
+
+                    span {
+                        display: block;
+                        text-transform: none;
+                        font-size: $fluster-text-small;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        padding: 4px;
+                    }
+
+                    &.segment-button-checked {
+                        @include fluster-linear-gradient-variable-checked(to bottom right, $fluster-peach1, $fluster-peach3);
+                        --border-color-checked: transparent;
+                        color: white;
+                    }
+
+
+                }
             }
 
             &.ion-segment-four-buttons {
                 ion-segment-button {
                     width: calc(100% / 4);
                 }
-            }
-
-            ion-segment-button {
-                --border-color: transparent;
-                color: $fluster-midnight-blue;
-                font-size: $fluster-text-normal;
-                --border-radius: 0;
-                opacity: 1.0;
-                --border-width: 0;
-
-                ion-icon {
-                    padding-top: 4px;
-                }
-
-                span {
-                    display: block;
-                    text-transform: none;
-                    font-size: $fluster-text-small;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    padding: 4px;
-                }
-
-                &.segment-button-checked {
-                    @include fluster-linear-gradient-variable-checked(to bottom right, $fluster-peach1, $fluster-peach3);
-                    --border-color-checked: transparent;
-                    color: white;
-                }
-
-
             }
         }
     }
