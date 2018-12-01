@@ -93,12 +93,13 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
                         padding-top: 4px;
                     }
 
-                    span {
+                    ion-label {
                         display: block;
                         text-transform: none;
                         font-size: $fluster-text-small;
                         text-overflow: ellipsis;
                         overflow: hidden;
+                        max-width: 100px;
                         padding: 4px;
                     }
 
@@ -115,6 +116,10 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
             &.ion-segment-four-buttons {
                 ion-segment-button {
                     width: calc(100% / 4);
+
+                    ion-label {
+                        max-width: calc(90vw / 4);
+                    }
                 }
             }
         }

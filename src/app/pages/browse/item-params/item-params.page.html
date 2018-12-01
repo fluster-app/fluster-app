@@ -134,17 +134,17 @@
 <ion-footer role="browse">
   <ion-toolbar *ngIf="category != null" no-padding>
     <ion-segment [(ngModel)]="category">
-      <ion-segment-button value="location">
+      <ion-segment-button value="location" layout="icon-top">
         <ion-icon name="pin"></ion-icon>
-        <span>{{'ITEM_PARAMS.LOCATION.TITLE' | translate}}</span>
+        <ion-label>{{'ITEM_PARAMS.LOCATION.TITLE' | translate}}</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="interests">
+      <ion-segment-button value="interests" layout="icon-top">
         <ion-icon name="timer"></ion-icon>
-        <span>{{'ITEM_PARAMS.INTERESTS.TITLE' | translate}}</span>
+        <ion-label>{{'ITEM_PARAMS.INTERESTS.TITLE' | translate}}</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="price">
+      <ion-segment-button value="price" layout="icon-top">
         <ion-icon name="cash"></ion-icon>
-        <span>{{'ITEM_PARAMS.PRICE.TITLE' | translate}}</span>
+        <ion-label>{{'ITEM_PARAMS.PRICE.TITLE' | translate}}</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>

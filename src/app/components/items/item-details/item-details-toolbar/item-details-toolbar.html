@@ -1,39 +1,29 @@
 <ion-toolbar margin-top  margin-bottom class="big-screen-content">
     <ion-segment [(ngModel)]="category" (ionChange)="segmentChange()" padding-start padding-end class="ion-segment-four-buttons">
 
-        <ion-segment-button value="who" *ngIf="itemShare">
-            <ion-icon name="person"></ion-icon>
-            <span>
-                {{'ITEM_DETAILS.CONTENT.WHO' | translate}}
-            </span>
+        <ion-segment-button value="who" *ngIf="itemShare" layout="icon-top">
+            <ion-icon name="person" no-margin></ion-icon>
+            <ion-label no-margin>{{'ITEM_DETAILS.CONTENT.WHO' | translate}}</ion-label>
         </ion-segment-button>
 
-        <ion-segment-button value="details">
-            <ion-icon name="home"></ion-icon>
-            <span>
-                {{'ITEM_DETAILS.CONTENT.SPECS' | translate}}
-            </span>
+        <ion-segment-button value="details" layout="icon-top">
+            <ion-icon name="home" no-margin></ion-icon>
+            <ion-label no-margin>{{'ITEM_DETAILS.CONTENT.SPECS' | translate}}</ion-label>
         </ion-segment-button>
 
-        <ion-segment-button value="neighborhood">
-            <ion-icon name="map"></ion-icon>
-            <span>
-                {{'ITEM_DETAILS.CONTENT.NEIGHBORHOOD' | translate}}
-            </span>
+        <ion-segment-button value="neighborhood" layout="icon-top">
+            <ion-icon name="map" no-margin></ion-icon>
+            <ion-label no-margin>{{'ITEM_DETAILS.CONTENT.NEIGHBORHOOD' | translate}}</ion-label>
         </ion-segment-button>
 
-        <ion-segment-button value="who" *ngIf="!itemShare">
-            <ion-icon name="person"></ion-icon>
-            <span>
-                {{'ITEM_DETAILS.CONTENT.WHO' | translate}}
-            </span>
+        <ion-segment-button value="who" *ngIf="!itemShare" layout="icon-top">
+            <ion-icon name="person" no-margin></ion-icon>
+            <ion-label no-margin>{{'ITEM_DETAILS.CONTENT.WHO' | translate}}</ion-label>
         </ion-segment-button>
 
-        <ion-segment-button value="chat" *ngIf="displayChat">
-            <ion-icon ios="ios-text" md="ios-text"></ion-icon>
-            <span>
-                {{'ITEM_DETAILS.CONTENT.MESSAGES' | translate}}
-            </span>
+        <ion-segment-button value="chat" *ngIf="displayChat" layout="icon-top">
+            <ion-icon ios="ios-text" md="ios-text" no-margin></ion-icon>
+            <ion-label no-margin>{{'ITEM_DETAILS.CONTENT.MESSAGES' | translate}}</ion-label>
         </ion-segment-button>
     </ion-segment>
 </ion-toolbar>
