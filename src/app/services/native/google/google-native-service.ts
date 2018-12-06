@@ -34,8 +34,7 @@ export class GoogleNativeService {
     tryAutomaticLogin(): Promise<any> {
         if (environment.cordova) {
             return this.googlePlus.trySilentLogin({
-                webClientId: Resources.Constants.GOOGLE.LOGIN.WEB_CLIENT_ID,
-                scopes: Resources.Constants.GOOGLE.LOGIN.SCOPES
+                webClientId: Resources.Constants.GOOGLE.LOGIN.WEB_CLIENT_ID
             });
         } else {
             return new Promise((resolve) => {
@@ -46,8 +45,7 @@ export class GoogleNativeService {
 
     private cordovaLogin(successCallback: any, errorCallback: any) {
         this.googlePlus.login({
-            webClientId: Resources.Constants.GOOGLE.LOGIN.WEB_CLIENT_ID,
-            scopes: Resources.Constants.GOOGLE.LOGIN.SCOPES
+            webClientId: Resources.Constants.GOOGLE.LOGIN.WEB_CLIENT_ID
         })
             .then(res => {
                 successCallback(res);
@@ -63,7 +61,7 @@ export class GoogleNativeService {
         this.storageService.saveLoginState({state: state, googleAuth: true}).then(() => {
             const googleUrl: string = Resources.Constants.GOOGLE.LOGIN.PWA.URL +
                 'client_id=' + Resources.Constants.GOOGLE.LOGIN.WEB_CLIENT_ID +
-                '&response_type=code&scope=openid%20profile%20email%20' + Resources.Constants.GOOGLE.LOGIN.SCOPES +
+                '&response_type=code&scope=openid%20profile%20email' +
                 '&redirect_uri=' + encodeURIComponent(Resources.Constants.GOOGLE.LOGIN.PWA.REDIRECT_URL) +
                 '&nonce=' + state + '&state=' + state;
 

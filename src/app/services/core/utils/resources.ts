@@ -144,7 +144,6 @@ export class Resources {
                 },
                 LOGIN: {
                     WEB_CLIENT_ID: googleWebClientId,
-                    SCOPES: 'https://www.googleapis.com/auth/user.birthday.read',
                     PWA: {
                         URL: 'https://accounts.google.com/o/oauth2/v2/auth?',
                         REDIRECT_URL: pwaUrl
