@@ -1,3 +1,19 @@
+<a name="5.5.0"></a>
+# [5.5.0](https://github.com/fluster/fluster-app/compare/v5.4.0...v5.5.0) (2018-12-07)
+
+### Features
+
+* Google login: remove scope birthday ([#61](https://github.com/fluster/fluster-app/issues/61))
+
+### Fix
+
+* improve calendar scrolling performance on mobile devices ([#55](https://github.com/fluster/fluster-app/issues/55))
+* overscroll on appointment picker ([#56](https://github.com/fluster/fluster-app/issues/56))
+
+### Libs
+
+* update all actual libs dependencies
+
 <a name="5.4.0"></a>
 # [5.4.0](https://github.com/fluster/fluster-app/compare/v5.3.0...v5.4.0) (2018-11-21)
 
