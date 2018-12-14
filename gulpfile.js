@@ -39,7 +39,7 @@ gulp.task('proxy', function () {
         silent: false
     });
 
-    replace({
+    return replace({
         regex: "https://api.fluster.io",
         replacement: "http://localhost:8100",
         paths: replaceFiles,
@@ -66,7 +66,7 @@ gulp.task('revert-proxy', function () {
         silent: false
     });
 
-    replace({
+    return replace({
         regex: "http://localhost:8100",
         replacement: "https://api.fluster.io",
         paths: replaceFiles,
@@ -89,7 +89,7 @@ gulp.task('local', function () {
         silent: false
     });
 
-    replace({
+    return replace({
         regex: "api.fluster.io",
         replacement: "localhost:3000",
         paths: replaceFilesTargetServer,
@@ -108,7 +108,7 @@ gulp.task('revert-local', function () {
         silent: false
     });
 
-    replace({
+    return replace({
         regex: "localhost:3000",
         replacement: "api.fluster.io",
         paths: replaceFilesTargetServer,
@@ -119,7 +119,7 @@ gulp.task('revert-local', function () {
 
 gulp.task('staging', function () {
 
-    replace({
+    return replace({
         regex: "fluster.io",
         replacement: "peterparker.tech",
         paths: replaceFilesTargetServer,
@@ -130,7 +130,7 @@ gulp.task('staging', function () {
 
 gulp.task('revert-staging', function () {
 
-    replace({
+    return replace({
         regex: "peterparker.tech",
         replacement: "fluster.io",
         paths: replaceFilesTargetServer,
@@ -251,7 +251,7 @@ gulp.task('resources', function () {
         silent: false
     });
 
-    replace({
+    return replace({
         regex: "{{MOCKUP_LOGIN_TOKEN_STEVE}}",
         replacement: resources.MOCKUP.LOGIN_TOKEN.STEVE,
         paths: replaceLoginMockup,
@@ -265,7 +265,7 @@ gulp.task('resources', function () {
 
 gulp.task('pwa', function () {
 
-    gulp.src('./src/index.html')
+    return gulp.src('./src/index.html')
         .pipe(removeCode({ pwa: true }))
         .pipe(gulp.dest('./src/'));
 
@@ -285,7 +285,7 @@ gulp.task('cordova', function () {
         .pipe(gulp.dest('./resources/android/'));
 
     // Copy Cordova iOS configuration
-    gulp.src('/Users/daviddalbusco/Documents/projects/reedrichards/resources/ios/GoogleService-Info.plist')
+    return gulp.src('/Users/daviddalbusco/Documents/projects/reedrichards/resources/ios/GoogleService-Info.plist')
         .pipe(gulp.dest('./resources/ios/'));
 
 });
@@ -352,7 +352,7 @@ gulp.task('rmmockup', function () {
         .pipe(removeCode({ production: true }))
         .pipe(gulp.dest('./src/app/services/native/analytics/'));
 
-    gulp.src('./src/app/pages/abstract-deep-linking-page-navigation.ts')
+    return gulp.src('./src/app/pages/abstract-deep-linking-page-navigation.ts')
         .pipe(removeCode({ production: true }))
         .pipe(gulp.dest('./src/app/pages/'));
 });
@@ -360,5 +360,5 @@ gulp.task('rmmockup', function () {
 // Moment workaround to avoid to load all locales with Angular v6 https://github.com/moment/moment/issues/2517 and https://github.com/moment/moment/issues/2373
 
 gulp.task('moment', function (cg) {
-    del(['./node_modules/moment/locale/*', '!./node_modules/moment/locale/fr.js', '!./node_modules/moment/locale/de.js', '!./node_modules/moment/locale/it.js', '!./node_modules/moment/locale/en.js']);
+    return del(['./node_modules/moment/locale/*', '!./node_modules/moment/locale/fr.js', '!./node_modules/moment/locale/de.js', '!./node_modules/moment/locale/it.js', '!./node_modules/moment/locale/en.js']);
 });
