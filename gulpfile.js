@@ -9,12 +9,14 @@ const fs = require('fs');
 
 // Copy Cordova APK to OneDrive
 
-gulp.task('copy-apk', function () {
+gulp.task('copy-apk', function (done) {
     gulp.src('./platforms/android/app/build/outputs/apk/debug/*-debug.apk')
         .pipe(gulp.dest('/Users/daviddalbusco/Documents/OneDrive/apk'));
 
     gulp.src('./platforms/android/app/build/outputs/apk/release/*-release.apk')
         .pipe(gulp.dest('/Users/daviddalbusco/Documents/OneDrive/apk'));
+
+    done();
 });
 
 // Enable proxy in index.html
