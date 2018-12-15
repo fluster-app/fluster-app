@@ -75,12 +75,12 @@ a {
 }
 
 // Loading
-ion-loading {
-    --ion-background-color-step-50: transparent;
+ion-loading[class*="sc-ion-loading"] {
+    --background: transparent;
     --ion-text-color: #{$fluster-peach3};
-    --ion-text-color-step-150: #{$fluster-peach3};
+    --spinner-color: #{$fluster-peach3};
 
-    &[class*="loading"] div.loading-wrapper {
+    div.loading-wrapper {
         box-shadow: none;
     }
 }
