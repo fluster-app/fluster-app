@@ -41,7 +41,7 @@ ion-button, ion-button.sc-ion-button-md-h {
   }
 
   &.button-solid, &.button-outline {
-    --height: 5.2rem;
+    height: 5.2rem;
     font-size: $fluster-text-big;
   }
 
@@ -60,18 +60,16 @@ ion-content[role="browse"] {
 // Fab buttons
 
 ion-fab-button.button-review {
-  --height: 8vh;
-  --width: 8vh;
-  --size: 8vh;
+  height: 8vh;
+  width: 8vh;
 
   ion-icon {
     font-size: 6vh;
   }
 
   &.big {
-    --height: 12vh;
-    --width: 12vh;
-    --size: 12vh;
+    height: 12vh;
+    width: 12vh;
 
     ion-icon {
       font-size: 11vh;
@@ -80,14 +78,12 @@ ion-fab-button.button-review {
 }
 
 ion-fab-button.button-bookmark, ion-fab-button.button-dislike, ion-fab-button.cancel-button, ion-fab-button.button-like, ion-fab-button.button-review-small {
-  --height: 6vh;
-  --width: 6vh;
-  --size: 6vh;
+  height: 6vh;
+  width: 6vh;
 
   &.big {
-    --height: 10vh;
-    --width: 10vh;
-    --size: 10vh;
+    height: 10vh;
+    width: 10vh;
 
     ion-icon {
       font-size: 8vh;
@@ -108,9 +104,8 @@ ion-fab-button.button-like {
 }
 
 ion-fab-button.button-fab-small, ion-fab-button.button-interest-small {
-  --height: 4vh;
-  --width: 4vh;
-  --size: 4vh;
+  height: 4vh;
+  width: 4vh;
 
   ion-icon {
     font-size: 3vh;

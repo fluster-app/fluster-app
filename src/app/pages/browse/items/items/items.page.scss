@@ -39,6 +39,18 @@
   }
 }
 
+#actions-buttons {
+  ion-fab-button {
+    &:not(first-of-type) {
+      margin-left: 8px;
+    }
+
+    &:not(last-of-type) {
+      margin-right: 8px;
+    }
+  }
+}
+
 #review-buttons-flex {
   display: flex;
 
