@@ -75,6 +75,7 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
         ion-segment {
 
             position: relative;
+            height: 56px;
 
             &[class*="sc-ion-segment"] {
                 ion-segment-button {
@@ -91,6 +92,7 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
 
                     ion-icon {
                         padding-top: 4px;
+                        margin-top: 0;
                     }
 
                     ion-label {
