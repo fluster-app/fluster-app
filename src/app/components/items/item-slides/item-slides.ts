@@ -2,7 +2,7 @@ import {
     Component, EventEmitter, Input, OnChanges, Output, SimpleChange,
     ViewChild
 } from '@angular/core';
-import {MenuController, ModalController, Platform, Slides} from '@ionic/angular';
+import {IonSlides, MenuController, ModalController, Platform} from '@ionic/angular';
 
 // Pages
 import {AbstractPage} from '../../../pages/abstract-page';
@@ -41,7 +41,7 @@ export class ItemSlidesComponent extends AbstractPage implements OnChanges {
     @Output() hideFirstAccessMsg: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() hideFirstSuperstarMsg: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    @ViewChild('itemSlider') private slides: Slides;
+    @ViewChild('itemSlider') private slides: IonSlides;
 
     itemImages: string[];
 

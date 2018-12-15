@@ -1,5 +1,5 @@
 import {Component, Input, ViewChild, Output, EventEmitter} from '@angular/core';
-import {Platform, Slides} from '@ionic/angular';
+import {IonSlides, Platform} from '@ionic/angular';
 
 // Model
 import {Item} from '../../../../services/model/item/item';
@@ -35,7 +35,7 @@ export class NewAdStepLifestyleComponent extends AbstractNewAdComponent {
     user: User;
     private originalUser: User;
 
-    @Input() slider: Slides;
+    @Input() slider: IonSlides;
 
     constructor(private platform: Platform,
                 protected newItemService: NewItemService,

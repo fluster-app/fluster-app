@@ -144,7 +144,8 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
         const isAndroid: boolean = this.platform.is('android');
 
         if (isAndroid) {
-            this.platform.resume.subscribe((event: CordovaResumeEvent) => {
+            // TODO: Ionic bug https://github.com/ionic-team/ionic/issues/16747
+            (<any> this.platform.resume).subscribe((event: CordovaResumeEvent) => {
                 this.handleAndroidCameraRestart(event);
             });
         }

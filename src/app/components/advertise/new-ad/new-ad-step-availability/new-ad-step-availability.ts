@@ -1,5 +1,5 @@
 import {Component, Input, ViewChild, Output, EventEmitter, NgZone} from '@angular/core';
-import {ModalController, Platform, Slides} from '@ionic/angular';
+import {ModalController, Platform, IonSlides} from '@ionic/angular';
 import {OverlayEventDetail} from '@ionic/core';
 
 import * as moment from 'moment';
@@ -37,7 +37,7 @@ export class NewAdStepAvailabilityComponent extends AbstractNewAdComponent {
 
     newItem: Item;
 
-    @Input() slider: Slides;
+    @Input() slider: IonSlides;
 
     availableNow: boolean;
     unlimited: boolean = true;

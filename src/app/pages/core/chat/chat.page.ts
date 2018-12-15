@@ -1,5 +1,13 @@
 import {Component, ElementRef, Input, NgZone, OnInit, ViewChild} from '@angular/core';
-import {ActionSheetController, Content, NavController, Platform, ToastController, ModalController, AlertController} from '@ionic/angular';
+import {
+    ActionSheetController,
+    NavController,
+    Platform,
+    ToastController,
+    ModalController,
+    AlertController,
+    IonContent
+} from '@ionic/angular';
 import {OverlayEventDetail} from '@ionic/core';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -43,7 +51,7 @@ import {ComplaintService} from '../../../services/core/complaint/complaint-servi
 })
 export class ChatPage extends AbstractPage implements OnInit {
 
-    @ViewChild(Content, {read: Content}) chatContent: Content;
+    @ViewChild(IonContent, {read: IonContent}) chatContent: IonContent;
     @ViewChild('msgInput', {read: ElementRef}) msgInput: ElementRef;
 
     @Input() message: string;

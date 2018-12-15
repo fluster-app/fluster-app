@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {ModalController, NavParams, Slides} from '@ionic/angular';
+import {IonSlides, ModalController, NavParams} from '@ionic/angular';
 
 // Abstract
 import {AbstractModal} from '../abstract-modal';
@@ -14,7 +14,7 @@ import {Comparator} from '../../../services/core/utils/utils';
 })
 export class PhotoLightboxModal extends AbstractModal implements AfterViewInit {
 
-    @ViewChild('photoLightboxSlider') private slides: Slides;
+    @ViewChild('photoLightboxSlider') private slides: IonSlides;
 
     images: string[];
 

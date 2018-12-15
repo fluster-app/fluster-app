@@ -165,12 +165,12 @@ export abstract class AbstractDeepLinkingNavigationPage extends AbstractPage {
         //removeIf(production)
         if (environment.production) {
             //endRemoveIf(production)
-            Raven.captureException(error);
+        Raven.captureException(error);
             //removeIf(production)
         }
         //endRemoveIf(production)
 
-        this.errorMsg(this.toastController, this.translateService, 'ERRORS.LOGIN.LOGIN_ERROR').then(() => {
+            this.errorMsg(this.toastController, this.translateService, 'ERRORS.LOGIN.LOGIN_ERROR').then(() => {
             // Do nothing
         });
     }
@@ -184,11 +184,11 @@ export abstract class AbstractDeepLinkingNavigationPage extends AbstractPage {
         const authResponse: FacebookToken = response.authResponse;
 
         this.facebookPeterParkerLogin(authResponse);
-    };
+    }
 
     private fbLoginError = (error: any) => {
         this.displayError(error, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.ERROR_LOGIN.FACEBOOK_LOGIN);
-    };
+    }
 
     protected navigateAndHandleDeeplinking() {
         const user: User = this.userSessionService.getUser();

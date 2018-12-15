@@ -1,11 +1,11 @@
 import {Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {IonContent} from '@ionic/angular';
 
 // Model
 import {User} from '../../../services/model/user/user';
 
 // Utils
 import {Comparator} from '../../../services/core/utils/utils';
-import {Content} from '@ionic/angular';
 
 @Component({
     templateUrl: 'user-profile-input-bio.html',
@@ -18,7 +18,7 @@ export class UserProfileInputBioComponent {
 
     @Input() user: User;
 
-    @Input() content: Content;
+    @Input() content: IonContent;
 
     private bioMaxLength: number = 500;
     bioLengthLeft: number = 500;

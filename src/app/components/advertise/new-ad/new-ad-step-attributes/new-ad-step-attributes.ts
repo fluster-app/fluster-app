@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {Platform, Slides} from '@ionic/angular';
+import {IonSlides, Platform} from '@ionic/angular';
 
 // Model
 import {Item, ItemDetailParking} from '../../../../services/model/item/item';
@@ -27,7 +27,7 @@ export class NewAdStepAttributesComponent extends AbstractNewAdComponent {
 
     newItem: Item;
 
-    @Input() slider: Slides;
+    @Input() slider: IonSlides;
 
     internet: boolean = false;
     cleaningAgent: boolean = false;

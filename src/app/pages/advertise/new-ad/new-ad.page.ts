@@ -1,5 +1,13 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
-import {LoadingController, MenuController, ModalController, NavController, Platform, Slides, ToastController} from '@ionic/angular';
+import {
+    IonSlides,
+    LoadingController,
+    MenuController,
+    ModalController,
+    NavController,
+    Platform,
+    ToastController
+} from '@ionic/angular';
 
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -31,7 +39,7 @@ import {NavParamsService, NewAdNavParams} from '../../../services/core/navigatio
 })
 export class NewAdPage extends AbstractPage implements OnInit {
 
-    @ViewChild('newAdSlider') slider: Slides;
+    @ViewChild('newAdSlider') slider: IonSlides;
 
     private loading: HTMLIonLoadingElement;
 

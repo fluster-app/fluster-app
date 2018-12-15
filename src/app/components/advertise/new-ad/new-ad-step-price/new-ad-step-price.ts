@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter, ViewChild, AfterViewInit} from '@angular/core';
-import {Platform, AlertController, Slides} from '@ionic/angular';
+import {Platform, AlertController, IonSlides} from '@ionic/angular';
 
 import {debounceTime} from 'rxjs/operators';
 
@@ -36,7 +36,7 @@ export class NewAdStepPriceComponent extends AbstractNewAdComponent implements A
 
     newItem: Item;
 
-    @Input() slider: Slides;
+    @Input() slider: IonSlides;
 
     additionalCosts: boolean = false;
 

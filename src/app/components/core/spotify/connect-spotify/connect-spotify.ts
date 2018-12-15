@@ -2,7 +2,6 @@ import {
     Component, AfterViewInit, Output, EventEmitter, OnDestroy, Input, OnChanges, SimpleChange,
     NgZone
 } from '@angular/core';
-import {Toggle} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
 import {Subscription} from 'rxjs';

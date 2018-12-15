@@ -1,4 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ModalController, NavParams, Platform} from '@ionic/angular';
 
 import {Card} from 'ionic-swing';
 
@@ -17,7 +18,6 @@ import {ItemsComparator} from '../../../services/core/utils/items-utils';
 // Services
 import {LastItemsService} from '../../../services/browse/last-items-service';
 import {GoogleAnalyticsNativeService} from '../../../services/native/analytics/google-analytics-native-service';
-import {ModalController, NavParams, Platform, Slides} from '@ionic/angular';
 import {InitScheduledDates, ItemAppointmentService} from '../../../services/core/appointment/item-appointment-service';
 
 @Component({

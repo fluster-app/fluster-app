@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter, SimpleChange, OnChanges, ViewChild, ElementRef} from '@angular/core';
-import {ModalController, Platform, AlertController, Slides} from '@ionic/angular';
+import {ModalController, Platform, AlertController, IonSlides} from '@ionic/angular';
 import {OverlayEventDetail} from '@ionic/core';
 
 import {WebView} from '@ionic-native/ionic-webview/ngx';
@@ -35,7 +35,7 @@ export class NewAdStepPhotoComponent extends AbstractNewAdComponent implements O
 
     newItem: Item;
 
-    @Input() slider: Slides;
+    @Input() slider: IonSlides;
 
     @Input() openPicker: boolean = false;
 

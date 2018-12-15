@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {LoadingController, NavController, Platform, Slides, ToastController} from '@ionic/angular';
+import {IonSlides, LoadingController, NavController, Platform, ToastController} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
@@ -37,7 +37,7 @@ import {NavParamsService} from '../../../services/core/navigation/nav-params-ser
 })
 export class FirstChoicePage extends AbstractPage {
 
-    @ViewChild('firstChoiceSlider') slider: Slides;
+    @ViewChild('firstChoiceSlider') slider: IonSlides;
 
     user: User;
 

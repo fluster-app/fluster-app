@@ -1,12 +1,9 @@
 import {Component, Input, Output, EventEmitter, AfterViewInit, OnDestroy} from '@angular/core';
-import {LoadingController, Platform, Slides} from '@ionic/angular';
+import {Platform, IonSlides} from '@ionic/angular';
 
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
-import {SocialSharing} from '@ionic-native/social-sharing/ngx';
 
 import {Subscription} from 'rxjs';
-
-import {TranslateService} from '@ngx-translate/core';
 
 // Pages
 import {AbstractNewAdComponent} from '../abstract-new-ad';
@@ -17,13 +14,8 @@ import {Reward} from '../../../../services/model/reward/reward';
 // Utils
 import {Comparator} from '../../../../services/core/utils/utils';
 
-// Model
-import {Item} from '../../../../services/model/item/item';
-
 // Service
 import {NewItemService} from '../../../../services/advertise/new-item-service';
-import {CurrencyService} from '../../../../services/core/currency/currency-service';
-import {GoogleAnalyticsNativeService} from '../../../../services/native/analytics/google-analytics-native-service';
 
 @Component({
     templateUrl: 'new-ad-step-done.html',
@@ -40,7 +32,7 @@ export class NewAdStepDoneComponent extends AbstractNewAdComponent implements Af
 
     @Output() notifiyGoToAdminLimitation: EventEmitter<void> = new EventEmitter<void>();
 
-    @Input() slider: Slides;
+    @Input() slider: IonSlides;
 
     confetti: number[];
 

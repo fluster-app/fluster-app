@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {AlertController, App, LoadingController, MenuController, NavController, Platform, ToastController} from '@ionic/angular';
+import {Component} from '@angular/core';
+import {AlertController, IonApp, LoadingController, MenuController, NavController, Platform, ToastController} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
 import {forkJoin} from 'rxjs';
@@ -55,7 +55,7 @@ export class ApplicantsPage extends AbstractAdsPage {
     private lastPageReached: boolean = false;
     private initialized: boolean = false;
 
-    constructor(private app: App,
+    constructor(private app: IonApp,
                 protected platform: Platform,
                 protected navController: NavController,
                 private menuController: MenuController,

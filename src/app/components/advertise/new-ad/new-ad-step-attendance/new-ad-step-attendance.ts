@@ -1,5 +1,5 @@
 import {Component, Output, EventEmitter, Input} from '@angular/core';
-import {Platform, Slides} from '@ionic/angular';
+import {IonSlides, Platform} from '@ionic/angular';
 
 // Abstract
 import {AbstractNewAdComponent} from '../abstract-new-ad';
@@ -21,7 +21,7 @@ export class NewAdStepAttendanceComponent extends AbstractNewAdComponent {
 
     @Output() notifiyPublishCall: EventEmitter<void> = new EventEmitter<void>();
 
-    @Input() slider: Slides;
+    @Input() slider: IonSlides;
 
     isSinglePicked: boolean = false;
     isMultiplePicked: boolean = false;

@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, SimpleChange} from '@angular/core';
-import {Slides} from '@ionic/angular';
+import {IonSlides} from '@ionic/angular';
 
 // Model
 import {Item} from '../../../../services/model/item/item';
@@ -22,7 +22,7 @@ export class NewAdStepPriceTotalComponent extends AbstractNewAdComponent impleme
 
     newItem: Item;
 
-    @Input() slider: Slides;
+    @Input() slider: IonSlides;
 
     @Input() price: string;
     @Input() charges: string;

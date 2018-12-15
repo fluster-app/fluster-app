@@ -1,6 +1,6 @@
 import {Component, Input, EventEmitter, Output} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
-import {ModalController, Platform, Slides} from '@ionic/angular';
+import {IonSlides, ModalController, Platform} from '@ionic/angular';
 import {OverlayEventDetail} from '@ionic/core';
 
 // Modal
@@ -34,7 +34,7 @@ export class NewAdStepSizeComponent extends AbstractNewAdComponent {
 
     newItem: Item;
 
-    @Input() slider: Slides;
+    @Input() slider: IonSlides;
 
     sizeFormGroup: FormGroup;
 

@@ -27,9 +27,9 @@ export class SentryErrorHandler extends ErrorHandler {
         //removeIf(production)
         if (environment.production) {
             //endRemoveIf(production)
-            Raven.captureException(err);
+        Raven.captureException(err);
             //removeIf(production)
         }
         //endRemoveIf(production)
-    }
+            }
 }

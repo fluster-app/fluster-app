@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {Platform, Slides} from '@ionic/angular';
+import {IonSlides, Platform} from '@ionic/angular';
 
 // Model
 import {Item} from '../../../../services/model/item/item';
@@ -24,7 +24,7 @@ export class NewAdStepTypeComponent extends AbstractNewAdComponent {
 
     newItem: Item;
 
-    @Input() slider: Slides;
+    @Input() slider: IonSlides;
 
     isSharePicked: boolean = false;
     isTakeoverPicked: boolean = false;

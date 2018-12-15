@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {List, ModalController, NavController, Platform, ToastController} from '@ionic/angular';
+import {IonList, ModalController, NavController, Platform, ToastController} from '@ionic/angular';
 import {OverlayEventDetail} from '@ionic/core';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -32,7 +32,7 @@ import {ItemAppointmentsModal} from '../../../../modals/browse/item-appointments
 })
 export class MyBookmarksItemsPage extends MyItemsPage {
 
-    @ViewChild('slidingList') slidingList: List;
+    @ViewChild('slidingList') slidingList: IonList;
 
     constructor(protected navController: NavController,
                 protected platform: Platform,

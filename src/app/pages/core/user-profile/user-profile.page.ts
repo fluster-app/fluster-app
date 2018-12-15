@@ -1,5 +1,5 @@
 import {Component, Input, ViewChild} from '@angular/core';
-import {Content, LoadingController, MenuController, ModalController, Platform, ToastController} from '@ionic/angular';
+import {IonContent, LoadingController, MenuController, ModalController, Platform, ToastController} from '@ionic/angular';
 import {OverlayEventDetail} from '@ionic/core';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -32,7 +32,7 @@ import {StorageService} from '../../../services/core/localstorage/storage-servic
 })
 export class UserProfilePage extends AbstractPage {
 
-    @ViewChild(Content) content: Content;
+    @ViewChild(IonContent) content: IonContent;
 
     @Input() user: User;
 

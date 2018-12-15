@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter, ViewChild, AfterViewInit} from '@angular/core';
-import {ModalController, Platform, AlertController, Slides} from '@ionic/angular';
+import {ModalController, Platform, AlertController, IonSlides} from '@ionic/angular';
 import {OverlayEventDetail} from '@ionic/core';
 
 import {from} from 'rxjs';
@@ -42,7 +42,7 @@ export class NewAdStepLocationComponent extends AbstractNewAdComponent implement
 
     newItem: Item;
 
-    @Input() slider: Slides;
+    @Input() slider: IonSlides;
 
     constructor(private platform: Platform,
                 private modalController: ModalController,

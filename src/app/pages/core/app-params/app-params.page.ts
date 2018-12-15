@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActionSheetController, App, LoadingController, MenuController, NavController, Platform, ToastController} from '@ionic/angular';
+import {ActionSheetController, IonApp, LoadingController, MenuController, NavController, Platform, ToastController} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
 
 import {forkJoin} from 'rxjs';
@@ -42,7 +42,7 @@ export class AppParamsPage extends AbstractPage implements OnInit {
     deleteInProgress: boolean = false;
 
     constructor(private platform: Platform,
-                private app: App,
+                private app: IonApp,
                 private menuController: MenuController,
                 private toastController: ToastController,
                 private loadingController: LoadingController,

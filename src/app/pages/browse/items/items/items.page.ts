@@ -2,7 +2,7 @@ import {Component, NgZone, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren
 import {HttpErrorResponse} from '@angular/common/http';
 import {
     AlertController,
-    Datetime,
+    IonDatetime,
     LoadingController,
     MenuController,
     ModalController,
@@ -62,7 +62,7 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
     @ViewChild('itemsSwingStack', {read: SwingStackDirective}) swingStack: SwingStackDirective;
     @ViewChildren('itemsSwingCards', {read: SwingCardDirective}) swingCards: QueryList<SwingCardDirective>;
 
-    @ViewChild('birthdayPicker', {read: Datetime}) birthdayPicker: Datetime;
+    @ViewChild('birthdayPicker', {read: IonDatetime}) birthdayPicker: IonDatetime;
 
     stackConfig: StackConfig;
 
@@ -417,7 +417,7 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
 
     private doLikeCallback = () => {
         this.doLike();
-    };
+    }
 
     goToNextItem(like: boolean) {
         if (this.hasItems()) {

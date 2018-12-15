@@ -1,6 +1,6 @@
 import {Component, HostListener, ViewChild} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
-import {LoadingController, ModalController, NavParams, Platform, Slides} from '@ionic/angular';
+import {IonSlides, LoadingController, ModalController, NavParams, Platform} from '@ionic/angular';
 
 // Modal
 import {AbstractModal} from '../../core/abstract-modal';
@@ -25,7 +25,7 @@ import {UserInterestsService} from '../../../services/core/user/user-interetsts-
 })
 export class SelectInterestModal extends AbstractModal {
 
-    @ViewChild('interestSlider') slider: Slides;
+    @ViewChild('interestSlider') slider: IonSlides;
 
     user: User;
 
