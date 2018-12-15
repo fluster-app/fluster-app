@@ -13,10 +13,6 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <platform name="android">
-        <config-file parent="/resources" target="./res/values/strings.xml">
-            <string name="fb_app_id">{{FACEBOOK_APP_ID}}</string>
-            <string name="fb_app_name">Fluster</string>
-        </config-file>
         <allow-intent href="market:*" />
         <hook src="scripts/cordova-android-copy-icons.js" type="before_prepare" />
         <hook src="scripts/cordova-android-prepare.js" type="after_prepare" />
@@ -139,11 +135,6 @@
     </plugin>
     <engine name="ios" spec="4.5.5" />
     <engine name="android" spec="7.1.4" />
-    <plugin name="cordova-plugin-facebook4" spec="3.2.0">
-        <variable name="APP_ID" value="{{FACEBOOK_APP_ID}}" />
-        <variable name="APP_NAME" value="Fluster" />
-        <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.38.1" />
-    </plugin>
     <plugin name="cordova-plugin-x-socialsharing" spec="5.4.3">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.1+" />
     </plugin>
@@ -153,5 +144,10 @@
     <plugin name="cordova-plugin-googleplus" spec="6.0.0">
         <variable name="REVERSED_CLIENT_ID" value="{{GOOGLE_LOGIN_REVERSED_CLIENT_ID}}" />
         <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
+    </plugin>
+    <plugin name="cordova-plugin-facebook4" spec="3.3.0">
+        <variable name="APP_ID" value="{{FACEBOOK_APP_ID}}" />
+        <variable name="APP_NAME" value="Fluster" />
+        <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.38.1" />
     </plugin>
 </widget>
