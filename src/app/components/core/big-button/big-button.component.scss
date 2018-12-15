@@ -166,14 +166,10 @@ button.big-button, button.medium-button, button.small-button {
 button.small-button {
   width: 6rem;
   height: 6rem;
-  --width: 6rem;
-  --height: 6rem;
 
   div {
     width: 5.6rem;
     height: 5.6rem;
-    --width: 5.6rem;
-    --height: 5.6rem;
 
     ion-icon {
       padding-top: 0.8rem;
@@ -190,14 +186,10 @@ button.small-button {
 button.medium-button {
   width: 9rem;
   height: 9rem;
-  --width: 9rem;
-  --height: 9rem;
 
   div {
     width: 8.6rem;
     height: 8.6rem;
-    --width: 8.6rem;
-    --height: 8.6rem;
 
     ion-icon {
       padding-top: 1.2rem;
@@ -213,14 +205,10 @@ button.medium-button {
   @include iphone4 {
     width: 6rem;
     height: 6rem;
-    --width: 6rem;
-    --height: 6rem;
 
     div {
       width: 5.6rem;
       height: 5.6rem;
-      --width: 5.6rem;
-      --height: 5.6rem;
 
       ion-icon {
         padding-top: 1rem;
@@ -237,14 +225,10 @@ button.medium-button {
   @include iphone5 {
     width: 7rem;
     height: 7rem;
-    --width: 7rem;
-    --height: 7rem;
 
     div {
       width: 6.6rem;
       height: 6.6rem;
-      --width: 6.6rem;
-      --height: 6.6rem;
 
       ion-icon {
         padding-top: 1.4rem;
@@ -260,14 +244,10 @@ button.medium-button {
   @include nexus5 {
     width: 7rem;
     height: 7rem;
-    --width: 7rem;
-    --height: 7rem;
 
     div {
       width: 6.6rem;
       height: 6.6rem;
-      --width: 6.6rem;
-      --height: 6.6rem;
 
       ion-icon {
         padding-top: 1.4rem;
@@ -284,14 +264,10 @@ button.medium-button {
   @include galaxyS5 {
     width: 7rem;
     height: 7rem;
-    --width: 7rem;
-    --height: 7rem;
 
     div {
       width: 6.6rem;
       height: 6.6rem;
-      --width: 6.6rem;
-      --height: 6.6rem;
 
       ion-icon {
         padding-top: 1.3rem;
@@ -308,14 +284,10 @@ button.medium-button {
   @include ipad {
     width: 9rem;
     height: 9rem;
-    --width: 9rem;
-    --height: 9rem;
 
     div {
       width: 8.6rem;
       height: 8.6rem;
-      --width: 8.6rem;
-      --height: 8.6rem;
 
       ion-icon {
         padding-top: 1.2rem;
@@ -333,14 +305,10 @@ button.medium-button {
 button.big-button {
   width: 14rem;
   height: 14rem;
-  --width: 14rem;
-  --height: 14rem;
 
   div {
     width: 13.6rem;
     height: 13.6rem;
-    --width: 13.6rem;
-    --height: 13.6rem;
 
     ion-icon {
       padding-top: 2.7rem;
@@ -356,14 +324,10 @@ button.big-button {
   @include iphone4 {
     width: 12rem;
     height: 12rem;
-    --width: 12rem;
-    --height: 12rem;
 
     div {
       width: 11.6rem;
       height: 11.6rem;
-      --width: 11.6rem;
-      --height: 11.6rem;
 
       ion-icon {
         font-size: 6rem;
@@ -378,14 +342,10 @@ button.big-button {
   @include iphone5 {
     width: 12rem;
     height: 12rem;
-    --width: 12rem;
-    --height: 12rem;
 
     div {
       width: 11.6rem;
       height: 11.6rem;
-      --width: 11.6rem;
-      --height: 11.6rem;
 
       ion-icon {
         font-size: 6rem;
@@ -400,14 +360,10 @@ button.big-button {
   @include ipad {
     width: 16rem;
     height: 16rem;
-    --width: 16rem;
-    --height: 16rem;
 
     div {
       width: 15.6rem;
       height: 15.6rem;
-      --width: 15.6rem;
-      --height: 15.6rem;
 
       ion-icon {
         font-size: 10rem;

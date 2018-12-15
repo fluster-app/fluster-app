@@ -196,9 +196,8 @@
 // Buttons for photos
 
 ion-fab-button.button-remove-big {
-    --size: 40px;
-    --width: 40px;
-    --height: 40px;
+    width: 40px;
+    height: 40px;
 
     ion-icon {
         font-size: 4vh;
@@ -206,9 +205,8 @@ ion-fab-button.button-remove-big {
 }
 
 ion-fab-button.button-remove-small {
-    --size: 28px;
-    --width: 28px;
-    --height: 28px;
+    width: 28px;
+    height: 28px;
 
     ion-icon {
         font-size: 3.4vh;
