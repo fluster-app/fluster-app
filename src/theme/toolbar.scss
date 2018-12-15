@@ -83,7 +83,7 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
 
                 ion-segment-button {
                     --border-color: transparent;
-                    color: $fluster-midnight-blue;
+                    --ion-toolbar-color-unchecked: $fluster-midnight-blue;
                     font-size: $fluster-text-normal;
                     --border-radius: 0;
                     opacity: 1.0;
@@ -106,7 +106,7 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
                     &.segment-button-checked {
                         @include fluster-linear-gradient-variable-checked(to bottom right, $fluster-peach1, $fluster-peach3);
                         --border-color-checked: transparent;
-                        color: white;
+                        --ion-toolbar-color-checked: white;
                     }
 
 
