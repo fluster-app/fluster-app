@@ -145,7 +145,7 @@
         <variable name="REVERSED_CLIENT_ID" value="{{GOOGLE_LOGIN_REVERSED_CLIENT_ID}}" />
         <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
     </plugin>
-    <plugin name="cordova-plugin-facebook4" spec="3.3.0">
+    <plugin name="cordova-plugin-facebook4" spec="4.0.0">
         <variable name="APP_ID" value="{{FACEBOOK_APP_ID}}" />
         <variable name="APP_NAME" value="Fluster" />
         <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.38.1" />
