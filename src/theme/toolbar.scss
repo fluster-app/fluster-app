@@ -84,7 +84,7 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
 
                 ion-segment-button {
                     --border-color: transparent;
-                    --ion-toolbar-color-unchecked: $fluster-midnight-blue;
+                    --ion-toolbar-color-unchecked: #{$fluster-midnight-blue};
                     font-size: $fluster-text-normal;
                     --border-radius: 0;
                     opacity: 1.0;
