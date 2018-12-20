@@ -507,7 +507,7 @@ export class ChatPage extends AbstractPage implements OnInit {
             userStarred: this.otherUserStarred
         });
 
-        this.navController.navigateForward('/applicant-selection', false);
+        this.navController.navigateForward('/applicant-selection', {animated: false});
     }
 
     private openItemDetails() {
@@ -520,7 +520,7 @@ export class ChatPage extends AbstractPage implements OnInit {
             backUrl: '/chat'
         });
 
-        this.navController.navigateForward('/item-details', false);
+        this.navController.navigateForward('/item-details', {animated: false});
     }
 
     hasNoMessages(): boolean {

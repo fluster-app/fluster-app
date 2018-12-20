@@ -133,7 +133,7 @@ export class ItemDetailsPage extends AbstractItemsPage {
                 const itemDetailsNavParams: ItemDetailsNavParams = await this.navParamsService.getItemDetailsNavParams();
                 const withAnimation: boolean = !this.isParamsHideChat(itemDetailsNavParams);
 
-                await this.navController.navigateBack(itemDetailsNavParams.backUrl, withAnimation);
+                await this.navController.navigateBack(itemDetailsNavParams.backUrl, {animated: withAnimation});
             } catch (err) {
                 // Do nothing
             }
