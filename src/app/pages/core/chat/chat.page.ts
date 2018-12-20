@@ -486,20 +486,20 @@ export class ChatPage extends AbstractPage implements OnInit {
         return Converter.getDateObj(startOfDayCurrent).getTime() !== Converter.getDateObj(startOfDayPrevious).getTime();
     }
 
-    openInformation() {
+    async openInformation() {
         if (this.keyboardOpen) {
             // In case keyboard is open we don't want to navigate but just to close the keyboard
             return;
         }
 
         if (this.isAdDisplay) {
-            this.openApplicantInfo();
+            await this.openApplicantInfo();
         } else {
-            this.openItemDetails();
+            await this.openItemDetails();
         }
     }
 
-    private openApplicantInfo() {
+    private async openApplicantInfo() {
         this.navParamsService.setApplicantSelectionNavParams({
             applicant: this.applicant,
             item: this.item,
@@ -507,10 +507,10 @@ export class ChatPage extends AbstractPage implements OnInit {
             userStarred: this.otherUserStarred
         });
 
-        this.navController.navigateForward('/applicant-selection', {animated: false});
+        await this.navController.navigateForward('/applicant-selection', {animated: false});
     }
 
-    private openItemDetails() {
+    private async openItemDetails() {
         this.navParamsService.setItemDetailsNavParams({
             item: this.item,
             itemUser: this.itemUser,
@@ -520,7 +520,7 @@ export class ChatPage extends AbstractPage implements OnInit {
             backUrl: '/chat'
         });
 
-        this.navController.navigateForward('/item-details', {animated: false});
+        await this.navController.navigateForward('/item-details', {animated: false});
     }
 
     hasNoMessages(): boolean {
@@ -569,8 +569,8 @@ export class ChatPage extends AbstractPage implements OnInit {
 
         buttons.push({
             text: this.isAdDisplay ? this.translateService.instant('CHAT.POPOVER.OPEN_APPLICANT', {who: this.getTitleUserFacebook().firstName}) : this.translateService.instant('CHAT.POPOVER.OPEN_AD', {who: this.getTitleUserFacebook().firstName}),
-            handler: () => {
-                this.openInformation();
+            handler: async () => {
+                await this.openInformation();
             }
         });
 
