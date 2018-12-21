@@ -159,7 +159,7 @@ const replaceResources = ['./src/app/services/core/utils/resources.ts', './confi
 const replaceLoginMockup = ['./src/app/pages/core/login/login.page.ts'];
 
 gulp.task('resources', function (done) {
-    const resources = JSON.parse(fs.readFileSync('/Users/daviddalbusco/Documents/projects/reedrichards/resources/resources.json'));
+    const resources = JSON.parse(fs.readFileSync('/Users/daviddalbusco/Documents/projects/fluster/reedrichards/resources/resources.json'));
 
     replace({
         regex: "{{AUTH_KEY}}",
@@ -296,14 +296,14 @@ gulp.task('cordova', function (done) {
         .pipe(gulp.dest('./src/'));
 
     // Copy Cordova Android configuration
-    gulp.src('/Users/daviddalbusco/Documents/projects/reedrichards/resources/android/google-services.json')
+    gulp.src('/Users/daviddalbusco/Documents/projects/fluster/reedrichards/resources/android/google-services.json')
         .pipe(gulp.dest('./resources/android/'));
 
-    gulp.src('/Users/daviddalbusco/Documents/projects/reedrichards/resources/android/release-signing.properties')
+    gulp.src('/Users/daviddalbusco/Documents/projects/fluster/reedrichards/resources/android/release-signing.properties')
         .pipe(gulp.dest('./resources/android/'));
 
     // Copy Cordova iOS configuration
-    gulp.src('/Users/daviddalbusco/Documents/projects/reedrichards/resources/ios/GoogleService-Info.plist')
+    gulp.src('/Users/daviddalbusco/Documents/projects/fluster/reedrichards/resources/ios/GoogleService-Info.plist')
         .pipe(gulp.dest('./resources/ios/'));
 
     done();
