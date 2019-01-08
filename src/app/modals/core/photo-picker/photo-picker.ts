@@ -1,5 +1,6 @@
 import {Component, ViewChild, ElementRef, NgZone, ViewEncapsulation} from '@angular/core';
 import {LoadingController, ModalController, NavParams, Platform, ToastController} from '@ionic/angular';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 
 import {Device} from '@ionic-native/device/ngx';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
@@ -67,6 +68,7 @@ export class PhotoPickerModal extends AbstractWizardModal {
                 private navParams: NavParams,
                 private toastController: ToastController,
                 private zone: NgZone,
+                private sanitizer: DomSanitizer,
                 private camera: Camera,
                 private webView: WebView,
                 private device: Device,
@@ -254,7 +256,7 @@ export class PhotoPickerModal extends AbstractWizardModal {
         this.cropper = new Cropper($event.detail.result, {
             viewMode: 2,
             aspectRatio: 1,
-            dragMode: <any> 'move',
+            dragMode: <any>'move',
             modal: true,
             guides: false,
             highlight: true,
@@ -301,7 +303,7 @@ export class PhotoPickerModal extends AbstractWizardModal {
         this.cropper = new Cropper(this.input.nativeElement, {
             viewMode: 2,
             aspectRatio: 1,
-            dragMode: <any> 'move',
+            dragMode: <any>'move',
             modal: true,
             guides: false,
             highlight: true,
@@ -420,10 +422,14 @@ export class PhotoPickerModal extends AbstractWizardModal {
         return true;
     }
 
+    sanitize(url: string): SafeUrl {
+        return this.sanitizer.bypassSecurityTrustUrl(url);
+    }
+
     //removeIf(production)
     dummyPhoto() {
         this.imgURI = 'assets/img/login/login-slide1.png' + '?' + Math.random();
     }
 
     //endRemoveIf(production)
-    }
+}

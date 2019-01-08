@@ -67,7 +67,7 @@
       </div>
 
       <div *ngIf="!advanceMode" id="previewAndroid">
-          <img (load)="imageLoadedWithoutFilters()" [src]="imgURI" #imageSrc>
+          <img (load)="imageLoadedWithoutFilters()" [src]="sanitize(imgURI)" #imageSrc/>
       </div>
   </div>
 
@@ -85,7 +85,7 @@
 
                     <div class="filter" tappable (click)="applyFilter(null)" [class.filter-selected]="filter == null">
                         <div>
-                            <img [src]="croppedImgFilterSrc"/>
+                            <img [src]="sanitize(croppedImgFilterSrc)"/>
                         </div>
                         <ion-label text-nowrap>No Filter</ion-label>
                     </div>
