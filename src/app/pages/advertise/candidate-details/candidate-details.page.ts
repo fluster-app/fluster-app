@@ -145,11 +145,8 @@ export class CandidateDetailsPage extends AbstractPage {
     private navBack(): Promise<{}> {
         return new Promise((resolve) => {
             this.starredCandidateCallCallback(this.candidate._id).then(() => {
-                this.navController.navigateBack('/candidates').then(() => {
-                    resolve();
-                }, (err: any) => {
-                    resolve();
-                });
+                this.navController.navigateBack('/candidates');
+                resolve();
             });
         });
     }

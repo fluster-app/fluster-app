@@ -124,9 +124,9 @@ export class NewAdPage extends AbstractPage implements OnInit {
             const newAdNavParams: NewAdNavParams = await this.navParamsService.getNewAdNavParams();
 
             if (!newAdNavParams || Comparator.isStringEmpty(newAdNavParams.backToPageUrl) || newAdNavParams.backToPageUrl === '/first-choice') {
-                await this.navController.navigateRoot('/candidates');
+                this.navController.navigateRoot('/candidates');
             } else {
-                await this.navController.navigateBack(newAdNavParams.backToPageUrl);
+                this.navController.navigateBack(newAdNavParams.backToPageUrl);
             }
         }
     }
@@ -198,22 +198,22 @@ export class NewAdPage extends AbstractPage implements OnInit {
         });
     }
 
-    async navigateToAdDetail() {
-        await this.navController.navigateRoot('/ads-details', {animated: true});
+    navigateToAdDetail() {
+        this.navController.navigateRoot('/ads-details', {animated: true});
     }
 
-    async navigateToCandidates() {
-        await this.navController.navigateRoot('/candidates', {animated: true});
+    navigateToCandidates() {
+        this.navController.navigateRoot('/candidates', {animated: true});
     }
 
-    async navigateToAdminAppointments() {
+    navigateToAdminAppointments() {
         this.navigateToAdminSetBackPage();
-        await this.navController.navigateRoot('/admin-appointments', {animated: true});
+        this.navController.navigateRoot('/admin-appointments', {animated: true});
     }
 
-    async navigateToAdminLimitation() {
+    navigateToAdminLimitation() {
         this.navigateToAdminSetBackPage();
-        await this.navController.navigateRoot('/admin-limitation', {animated: true});
+        this.navController.navigateRoot('/admin-limitation', {animated: true});
     }
 
     private navigateToAdminSetBackPage() {

@@ -111,8 +111,8 @@ export class AdsDetailsPage extends AbstractAdsPage {
         this.navController.navigateForward('/ads-close');
     }
 
-    async adminAppointments() {
-        await this.navController.navigateForward('/admin-appointments');
+    adminAppointments() {
+        this.navController.navigateForward('/admin-appointments');
     }
 
     presentActionSheet(ev) {
@@ -135,8 +135,8 @@ export class AdsDetailsPage extends AbstractAdsPage {
                         buttons.push({
                             text: data[6],
                             role: 'destructive',
-                            handler: async () => {
-                                await this.navigateToAdminExtend();
+                            handler: () => {
+                                this.navigateToAdminExtend();
                             }
                         });
                     }
@@ -151,8 +151,8 @@ export class AdsDetailsPage extends AbstractAdsPage {
 
                     buttons.push({
                         text: data[5],
-                        handler: async () => {
-                            await this.navigateToAdminLimitation();
+                        handler: () => {
+                            this.navigateToAdminLimitation();
                         }
                     });
 

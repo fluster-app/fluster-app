@@ -209,19 +209,19 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
     // private
     httpRequestIntercepted() {
         this.storageService.clear().then(async () => {
-            await this.navigateToLoginPage(false);
+            this.navigateToLoginPage(false);
         }, async (err: string) => {
             // In any case logout
-            await this.navigateToLoginPage(false);
+            this.navigateToLoginPage(false);
         });
     }
 
-    private async navigateToLoginPage(authorized: boolean) {
+    private navigateToLoginPage(authorized: boolean) {
         this.navParamsService.setLoginNavParams({
             authorized: authorized
         });
 
-        await this.navController.navigateRoot('/login');
+        this.navController.navigateRoot('/login');
     }
 
     initializeApp() {
@@ -351,7 +351,7 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
         this.saveUser().then(async () => {
             this.navigateSideInProgress = false;
 
-            await this.navController.navigateRoot(page);
+            this.navController.navigateRoot(page);
             await this.menu.close();
             await loading.dismiss();
         }, async (response: HttpErrorResponse) => {
@@ -379,19 +379,17 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
     private navToRoot(loginState: LoginState) {
         if (Comparator.equals(loginState.state, this.RESOURCES.LOGIN.STATE.TOKEN_EXPIRED)) {
             // Otherwise if error an empty screen gonna be displayed
-            this.navController.navigateRoot('/login').then(() => {
-                if (loginState.accessToken.googleAuth) {
-                    this.googleTryAutomaticSignIn();
-                } else {
-                    this.facebookSignIn();
-                }
-            });
+            this.navController.navigateRoot('/login');
+
+            if (loginState.accessToken.googleAuth) {
+                this.googleTryAutomaticSignIn();
+            } else {
+                this.facebookSignIn();
+            }
         } else if (Comparator.equals(loginState.state, this.RESOURCES.LOGIN.STATE.TOKEN_OK)) {
             this.automaticLoginWithPeterparker(loginState.accessToken);
         } else {
-            this.navController.navigateRoot('/login').then(() => {
-                // Do nothing
-            });
+            this.navController.navigateRoot('/login');
         }
     }
 
@@ -400,14 +398,11 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
             this.peterparkerLogin(accessToken).then((hasAlreadySetParams: boolean) => {
                 this.navigateLogin(hasAlreadySetParams);
             }, (errorResponse: any) => {
-                this.navController.navigateRoot('/login').then(() => {
-                    this.displayError(errorResponse, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.ERROR_LOGIN.AUTOMATIC_LOGIN);
-                });
+                this.navController.navigateRoot('/login');
+                this.displayError(errorResponse, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.EVENT.ACTION.ERROR_LOGIN.AUTOMATIC_LOGIN);
             });
         } else {
-            this.navController.navigateRoot('/login').then(() => {
-                // Do nothing
-            });
+            this.navController.navigateRoot('/login');
         }
     }
 

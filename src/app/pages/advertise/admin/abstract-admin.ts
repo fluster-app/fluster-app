@@ -35,12 +35,12 @@ export abstract class AbstractAdminPage extends AbstractPage {
         });
     }
 
-    protected async navigateBack(): Promise<boolean> {
+    protected async navigateBack() {
         const navParams: AdminAdsNavParams = await this.navParamsService.getAdminAdsNavParams();
         if (navParams && !Comparator.isStringEmpty(navParams.backToPageUrl)) {
-            return this.navController.navigateBack(navParams.backToPageUrl);
+            this.navController.navigateBack(navParams.backToPageUrl);
         } else {
-            return this.navController.navigateBack('/ads-details');
+            this.navController.navigateBack('/ads-details');
         }
     }
 }

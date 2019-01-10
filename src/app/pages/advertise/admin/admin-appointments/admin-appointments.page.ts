@@ -94,16 +94,13 @@ export class AdminAppointmentsPage extends AbstractAdminPage implements OnInit {
     }
 
     private refreshItemAndGoBack(loading: HTMLIonLoadingElement) {
-        this.initItem().then((item: Item) => {
+        this.initItem().then(async (item: Item) => {
             if (item != null) {
                 this.adsService.setSelectedItem(item);
             }
 
-            this.navigateBack().then(async () => {
-                await loading.dismiss();
-            }, async (err: any) => {
-                await loading.dismiss();
-            });
+            await this.navigateBack();
+            await loading.dismiss();
         });
     }
 

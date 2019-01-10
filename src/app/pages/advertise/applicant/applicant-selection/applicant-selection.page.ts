@@ -113,7 +113,7 @@ export class ApplicantSelectionPage extends AbstractApplicantSelectionPage {
             const subPage: string = applicantSelectionNavParams.subPage;
 
             if (!Comparator.isStringEmpty(subPage)) {
-                await this.navController.navigateBack('/' + subPage, {animated: false});
+                this.navController.navigateBack('/' + subPage, {animated: false});
             } else {
                 this.location.back();
             }

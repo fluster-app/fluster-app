@@ -150,9 +150,7 @@ export abstract class AbstractDeepLinkingNavigationPage extends AbstractPage {
         if (hasAlreadySetParams) {
             this.navigateAndHandleDeeplinking();
         } else {
-            this.navController.navigateRoot('/first-choice').then(() => {
-                // Do nothing
-            });
+            this.navController.navigateRoot('/first-choice');
         }
     }
 
@@ -227,9 +225,7 @@ export abstract class AbstractDeepLinkingNavigationPage extends AbstractPage {
                     backToPageUrl: '/first-choice'
                 });
 
-                this.navController.navigateRoot('/new-ad').then(() => {
-                    // Do nothing
-                });
+                this.navController.navigateRoot('/new-ad');
             }, (err: string) => {
                 this.doNavigateAds(notifications, chatMessages);
             });
@@ -263,9 +259,7 @@ export abstract class AbstractDeepLinkingNavigationPage extends AbstractPage {
                 this.navigateCheckAndSetUserSide(true, '/my-appointments-items');
             }
         } else {
-            this.navController.navigateRoot(withoutNotificationPage).then(() => {
-                // Do nothing
-            });
+            this.navController.navigateRoot(withoutNotificationPage);
         }
 
         this.userSessionService.sessionInitialized = true;
@@ -273,9 +267,7 @@ export abstract class AbstractDeepLinkingNavigationPage extends AbstractPage {
 
     private navigateCheckAndSetUserSide(browse: boolean, withNotificationPage: string) {
         this.checkAndSetUserSide(browse);
-        this.navController.navigateRoot(withNotificationPage).then(() => {
-            // Do nothing
-        });
+        this.navController.navigateRoot(withNotificationPage);
     }
 
     private checkAndSetUserSide(browse: boolean) {
@@ -347,9 +339,7 @@ export abstract class AbstractDeepLinkingNavigationPage extends AbstractPage {
             deeplink: true
         });
 
-        this.navController.navigateRoot('/item-details').then(() => {
-            // Do nothing
-        });
+        this.navController.navigateRoot('/item-details');
 
         this.userSessionService.sessionInitialized = true;
     }
@@ -361,9 +351,7 @@ export abstract class AbstractDeepLinkingNavigationPage extends AbstractPage {
 
         this.hideSplashScreen(this.platform, this.splashScreen, this.loginService);
 
-        this.navController.navigateRoot('/items').then(() => {
-            // Do nothing
-        });
+        this.navController.navigateRoot('/items');
 
         this.userSessionService.sessionInitialized = true;
     }

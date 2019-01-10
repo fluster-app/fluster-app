@@ -179,9 +179,7 @@ export class AppParamsPage extends AbstractPage implements OnInit {
         this.authenticationService.logout(status).then(() => {
             this.user = null;
 
-            this.navController.navigateRoot('/login').then(() => {
-                // Do noting
-            });
+            this.navController.navigateRoot('/login');
         });
     }
 

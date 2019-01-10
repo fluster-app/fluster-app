@@ -486,20 +486,20 @@ export class ChatPage extends AbstractPage implements OnInit {
         return Converter.getDateObj(startOfDayCurrent).getTime() !== Converter.getDateObj(startOfDayPrevious).getTime();
     }
 
-    async openInformation() {
+    openInformation() {
         if (this.keyboardOpen) {
             // In case keyboard is open we don't want to navigate but just to close the keyboard
             return;
         }
 
         if (this.isAdDisplay) {
-            await this.openApplicantInfo();
+            this.openApplicantInfo();
         } else {
-            await this.openItemDetails();
+            this.openItemDetails();
         }
     }
 
-    private async openApplicantInfo() {
+    private openApplicantInfo() {
         this.navParamsService.setApplicantSelectionNavParams({
             applicant: this.applicant,
             item: this.item,
@@ -507,10 +507,10 @@ export class ChatPage extends AbstractPage implements OnInit {
             userStarred: this.otherUserStarred
         });
 
-        await this.navController.navigateForward('/applicant-selection', {animated: false});
+        this.navController.navigateForward('/applicant-selection', {animated: false});
     }
 
-    private async openItemDetails() {
+    private openItemDetails() {
         this.navParamsService.setItemDetailsNavParams({
             item: this.item,
             itemUser: this.itemUser,
@@ -520,7 +520,7 @@ export class ChatPage extends AbstractPage implements OnInit {
             backUrl: '/chat'
         });
 
-        await this.navController.navigateForward('/item-details', {animated: false});
+        this.navController.navigateForward('/item-details', {animated: false});
     }
 
     hasNoMessages(): boolean {
