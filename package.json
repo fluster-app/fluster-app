@@ -20,7 +20,7 @@
     "@angular/http": "7.2.0",
     "@angular/platform-browser": "7.2.0",
     "@angular/platform-browser-dynamic": "7.2.0",
-    "@angular/pwa": "^0.11.4",
+    "@angular/pwa": "^0.12.1",
     "@angular/router": "7.2.0",
     "@angular/service-worker": "7.2.0",
     "@ionic-native/camera": "^v5.0.0-beta.21",
@@ -36,7 +36,7 @@
     "@ionic-native/social-sharing": "^v5.0.0-beta.21",
     "@ionic-native/splash-screen": "^v5.0.0-beta.21",
     "@ionic-native/status-bar": "^v5.0.0-beta.21",
-    "@ionic/angular": "^4.0.0-rc.0",
+    "@ionic/angular": "^4.0.0-rc.1",
     "@ionic/storage": "2.2.0",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
@@ -77,11 +77,11 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.11.4",
-    "@angular-devkit/build-angular": "^0.11.4",
-    "@angular-devkit/core": "^7.1.4",
-    "@angular-devkit/schematics": "^7.1.4",
-    "@angular/cli": "^7.1.4",
+    "@angular-devkit/architect": "^0.12.1",
+    "@angular-devkit/build-angular": "^0.12.1",
+    "@angular-devkit/core": "^7.2.1",
+    "@angular-devkit/schematics": "^7.2.1",
+    "@angular/cli": "^7.2.1",
     "@angular/compiler": "7.2.0",
     "@angular/compiler-cli": "7.2.0",
     "@angular/language-service": "7.2.0",
@@ -151,11 +151,11 @@
         "CALENDAR_USAGE_DESCRIPTION": "If you wish to export your viewings to your calendar, Fluster requires access to it"
       },
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.664467771927-7k907sfgd4i4u81q67n4e8ve6t8pl2u4",
+        "REVERSED_CLIENT_ID": "{{GOOGLE_LOGIN_REVERSED_CLIENT_ID}}",
         "PLAY_SERVICES_VERSION": "11.8.0"
       },
       "cordova-plugin-facebook4": {
-        "APP_ID": "979725632076019",
+        "APP_ID": "{{FACEBOOK_APP_ID}}",
         "APP_NAME": "Fluster",
         "FACEBOOK_ANDROID_SDK_VERSION": "4.38.1"
       },
