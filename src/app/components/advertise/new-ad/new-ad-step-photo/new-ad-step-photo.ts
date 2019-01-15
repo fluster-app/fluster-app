@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter, SimpleChange, OnChanges, ViewChild, ElementRef} from '@angular/core';
 import {ModalController, Platform, AlertController, IonSlides} from '@ionic/angular';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {OverlayEventDetail} from '@ionic/core';
 
 import {WebView} from '@ionic-native/ionic-webview/ngx';
@@ -49,6 +50,7 @@ export class NewAdStepPhotoComponent extends AbstractNewAdComponent implements O
     constructor(private platform: Platform,
                 private modalController: ModalController,
                 private alertController: AlertController,
+                private sanitizer: DomSanitizer,
                 private webView: WebView,
                 private translateService: TranslateService,
                 protected newItemService: NewItemService,
@@ -272,8 +274,8 @@ export class NewAdStepPhotoComponent extends AbstractNewAdComponent implements O
         }
     }
 
-    wkWebViewFileURI(uri: string) {
-        return this.ENV_CORDOVA && this.platform.is('cordova') ? this.webView.convertFileSrc(uri) : uri;
+    wkWebViewFileURI(uri: string): SafeUrl {
+        return this.sanitize(this.ENV_CORDOVA && this.platform.is('cordova') ? this.webView.convertFileSrc(uri) : uri);
     }
 
     private findNextPhotoIndex(): Promise<{}> {
@@ -339,5 +341,9 @@ export class NewAdStepPhotoComponent extends AbstractNewAdComponent implements O
 
     isItemShare() {
         return ItemsComparator.isItemShare(this.newItem);
+    }
+
+    private sanitize(url: string): SafeUrl {
+        return this.sanitizer.bypassSecurityTrustUrl(url);
     }
 }
