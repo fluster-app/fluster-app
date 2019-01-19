@@ -105,10 +105,10 @@ export class ItemDetailsPage extends AbstractItemsPage {
         this.gaTrackView(this.platform, this.googleAnalyticsNativeService, this.RESOURCES.GOOGLE.ANALYTICS.TRACKER.VIEW.ITEMS.ITEM_DETAILS);
     }
 
-    ionViewWillEnter() {
+    async ionViewWillEnter() {
         this.user = this.userSessionService.getUser();
 
-        this.initItem();
+        await this.initItem();
     }
 
     async ionViewDidEnter() {
@@ -435,6 +435,10 @@ export class ItemDetailsPage extends AbstractItemsPage {
 
     private actionJobIsDone() {
         this.actionInProgress = false;
+    }
+
+    displayActionButtons(): boolean {
+        return this.item && this.isAppointmentActionAllowed() && this.displayButtons;
     }
 
 }

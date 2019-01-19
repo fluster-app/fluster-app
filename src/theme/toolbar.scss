@@ -133,6 +133,7 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
 ion-footer[role="browse"], ion-footer[role="ad"] {
 
     &::before {
+        content: "";
         background: none;
     }
 

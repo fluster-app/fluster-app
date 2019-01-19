@@ -5,4 +5,8 @@ ion-footer {
   &.display {
     opacity: 1;
   }
+
+  &.hidden {
+    visibility: hidden;
+  }
 }
