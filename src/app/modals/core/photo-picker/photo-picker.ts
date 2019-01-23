@@ -300,6 +300,11 @@ export class PhotoPickerModal extends AbstractWizardModal {
     // Without Web Photo Filter aka for Android
 
     imageLoadedWithoutFilters() {
+
+        if (this.cropperReady) {
+            return;
+        }
+
         this.cropper = new Cropper(this.input.nativeElement, {
             viewMode: 2,
             aspectRatio: 1,
