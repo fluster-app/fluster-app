@@ -74,13 +74,7 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
 
         ion-segment {
 
-            position: relative;
-            height: 56px;
-
             &[class*="sc-ion-segment"] {
-                ion-segment-button {
-                    height: 100%;
-                }
 
                 ion-segment-button {
                     --border-color: transparent;
@@ -90,19 +84,12 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
                     opacity: 1.0;
                     --border-width: 0;
 
-                    ion-icon {
-                        padding-top: 4px;
-                        margin-top: 0;
-                    }
 
                     ion-label {
-                        display: block;
-                        text-transform: none;
                         font-size: $fluster-text-small;
                         text-overflow: ellipsis;
                         overflow: hidden;
-                        max-width: 100px;
-                        padding: 4px;
+                        text-transform: none;
                     }
 
                     &.segment-button-checked {
@@ -110,8 +97,6 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
                         --border-color-checked: transparent;
                         --ion-toolbar-color-checked: white;
                     }
-
-
                 }
             }
 
@@ -125,6 +110,22 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
                 }
             }
         }
+    }
+}
+
+ion-footer[role="browse"], ion-footer[role="ad"] {
+
+    ion-toolbar {
+
+        ion-segment {
+
+            &[class*="sc-ion-segment"] {
+                ion-label {
+                    max-width: 100px;
+                }
+            }
+        }
+
     }
 }
 
