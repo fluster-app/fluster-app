@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {Location} from '@angular/common';
 import {
     ActionSheetController,
     AlertController,
@@ -62,8 +61,7 @@ export class ApplicantSelectionPage extends AbstractApplicantSelectionPage {
 
     userStarred: boolean = false;
 
-    constructor(private location: Location,
-                protected platform: Platform,
+    constructor(protected platform: Platform,
                 private navController: NavController,
                 private modalController: ModalController,
                 protected loadingController: LoadingController,
@@ -115,10 +113,10 @@ export class ApplicantSelectionPage extends AbstractApplicantSelectionPage {
             if (!Comparator.isStringEmpty(subPage)) {
                 this.navController.navigateBack('/' + subPage, {animated: false});
             } else {
-                this.location.back();
+                this.navController.back();
             }
         } catch (err) {
-            this.location.back();
+            this.navController.back();
         }
     }
 
@@ -183,7 +181,7 @@ export class ApplicantSelectionPage extends AbstractApplicantSelectionPage {
         const self: any = this;
 
         this.updateApplicantCallback(updatedApplicant, this.applicantIndex).then(() => {
-            self.location.back();
+            self.navController.back();
         });
     }
 
