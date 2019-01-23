@@ -54,6 +54,10 @@ export class NewAdStepAvailabilityComponent extends AbstractNewAdComponent {
     }
 
     private updateItem(updateItem: Item) {
+        if (Comparator.isEmpty(updateItem)) {
+            return;
+        }
+
         this.newItem = updateItem;
 
         this.availableNow = this.newItem.attributes.availability.begin == null ||
