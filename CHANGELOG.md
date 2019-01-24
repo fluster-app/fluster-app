@@ -1,3 +1,15 @@
+<a name="5.6.0"></a>
+# [5.6.0](https://github.com/fluster/fluster-app/compare/v5.5.0...v5.6.0) (2019-01-24)
+
+### Fix
+
+* add `<noscript/>` to index.html ([#62](https://github.com/fluster/fluster-app/pull/62))
+
+### Libs
+
+* update to Ionic v4
+* update all actual libs dependencies
+
 <a name="5.5.0"></a>
 # [5.5.0](https://github.com/fluster/fluster-app/compare/v5.4.0...v5.5.0) (2018-12-07)
 
