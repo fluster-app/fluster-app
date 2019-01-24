@@ -1,3 +1,10 @@
+<a name="5.6.1"></a>
+# [5.6.1](https://github.com/fluster/fluster-app/compare/v5.6.0...v5.6.1) (2019-01-24)
+
+### Bump up version
+
+* apple store my love
+
 <a name="5.6.0"></a>
 # [5.6.0](https://github.com/fluster/fluster-app/compare/v5.5.0...v5.6.0) (2019-01-24)
 
