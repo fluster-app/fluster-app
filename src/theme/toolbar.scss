@@ -84,7 +84,6 @@ ion-footer[role="browse"], ion-content[role="browse"], ion-footer[role="ad"], io
                     opacity: 1.0;
                     --border-width: 0;
 
-
                     ion-label {
                         font-size: $fluster-text-small;
                         text-overflow: ellipsis;
@@ -122,6 +121,11 @@ ion-footer[role="browse"], ion-footer[role="ad"] {
             &[class*="sc-ion-segment"] {
                 ion-label {
                     max-width: 100px;
+                    margin-bottom: 8px;
+                }
+
+                ion-icon {
+                    margin-top: 8px;
                 }
             }
         }
