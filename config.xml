@@ -99,6 +99,12 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryAddUsageDescription">
         <string>If you wish to save pictures of your room to rent or flat, Fluster requires access to the photo library to save pictures there</string>
     </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="NSCalendarsUsageDescription">
+        <string>If you wish to export your viewings to your calendar, Fluster requires access to it</string>
+    </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="NSContactsUsageDescription">
+        <string>Fluster doesn't require access to your contacts</string>
+    </edit-config>
     <branch-config>
         <branch-key value="{{BRANCH_KEY}}" />
         <uri-scheme value="fluster" />
