@@ -161,9 +161,10 @@ export class FirstChoicePage extends AbstractPage {
                     this.activateUserAndNavigate(this.loading, this.user, '/items');
                 });
             } else {
-                this.currencyService.initDefaultCurrency(this.user.userParams.address.country).then(async () => {
-                    this.navController.navigateRoot('/items');
-                    await this.loading.dismiss();
+                this.currencyService.initDefaultCurrency(this.user.userParams.address.country).then(() => {
+                    this.navController.navigateRoot('/items').then(async () => {
+                        await this.loading.dismiss();
+                    });
                 });
             }
         });
@@ -210,7 +211,7 @@ export class FirstChoicePage extends AbstractPage {
 
         this.pickAd();
 
-        this.displayLoading().then(async () => {
+        this.displayLoading().then(() => {
 
             this.initUser();
 
@@ -227,8 +228,9 @@ export class FirstChoicePage extends AbstractPage {
                 this.activateUserAndNavigate(this.loading, this.user, '/new-ad');
             } else {
                 // We go to the dashboard
-                this.navController.navigateRoot('/candidates');
-                await this.loading.dismiss();
+                this.navController.navigateRoot('/candidates').then(async () => {
+                    await this.loading.dismiss();
+                });
             }
         });
     }
@@ -244,11 +246,12 @@ export class FirstChoicePage extends AbstractPage {
         this.userSessionService.setUserToSave(this.user);
 
         this.userProfileService.saveIfModified(user).then((data: User) => {
-            this.currencyService.initDefaultCurrency(user.userParams.address.country).then(async () => {
-                this.navController.navigateRoot(page);
-                if (loading) {
-                    await loading.dismiss();
-                }
+            this.currencyService.initDefaultCurrency(user.userParams.address.country).then(() => {
+                this.navController.navigateRoot(page).then(async () => {
+                    if (loading) {
+                        await loading.dismiss();
+                    }
+                });
             });
         }, async (response: HttpErrorResponse) => {
             if (loading) {

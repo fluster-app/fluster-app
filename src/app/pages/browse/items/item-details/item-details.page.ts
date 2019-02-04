@@ -133,7 +133,7 @@ export class ItemDetailsPage extends AbstractItemsPage {
                 const itemDetailsNavParams: ItemDetailsNavParams = await this.navParamsService.getItemDetailsNavParams();
                 const withAnimation: boolean = !this.isParamsHideChat(itemDetailsNavParams);
 
-                this.navController.navigateBack(itemDetailsNavParams.backUrl, {animated: withAnimation});
+                await this.navController.navigateBack(itemDetailsNavParams.backUrl, {animated: withAnimation});
             } catch (err) {
                 // Do nothing
             }
@@ -248,8 +248,9 @@ export class ItemDetailsPage extends AbstractItemsPage {
         if (this.srcDeeplink) {
             this.lastItemsService.reset();
 
-            this.navController.navigateRoot(backUrl);
-            this.actionJobIsDone();
+            this.navController.navigateRoot(backUrl).then(() => {
+                this.actionJobIsDone();
+            });
         } else {
             if (removeItem) {
                 if (this.itemSwingCard) {
@@ -261,12 +262,14 @@ export class ItemDetailsPage extends AbstractItemsPage {
 
             if (this.callback != null) {
                 this.callback().then(() => {
-                    this.navController.navigateBack(backUrl);
-                    this.actionJobIsDone();
+                    this.navController.navigateBack(backUrl).then(() => {
+                        this.actionJobIsDone();
+                    });
                 });
             } else {
-                this.navController.navigateBack(backUrl);
-                this.actionJobIsDone();
+                this.navController.navigateBack(backUrl).then(() => {
+                    this.actionJobIsDone();
+                });
             }
         }
     }

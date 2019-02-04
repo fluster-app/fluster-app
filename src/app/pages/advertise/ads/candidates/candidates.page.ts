@@ -232,9 +232,9 @@ export class CandidatesPage extends AbstractAdsPage implements OnInit {
         buttons.push({
             text: limitAdsText,
             role: 'destructive',
-            handler: () => {
+            handler: async () => {
                 this.navParamsService.setAdminAdsNavParams({backToPageUrl: '/candidates'});
-                this.navigateToAdminLimitation();
+                await this.navigateToAdminLimitation();
             }
         });
 

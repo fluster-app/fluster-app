@@ -67,18 +67,25 @@ export abstract class AbstractAdsPage extends AbstractPage {
         this.navParamsService.setNewAdNavParams({backToPageUrl: backToPageUrl});
 
         if (this.platform.is('cordova')) {
-            this.localFilesService.removeDir().then(async () => {
-                this.navController.navigateForward('/new-ad');
-                await loading.dismiss();
-            }, async (err: any) => {
+            this.localFilesService.removeDir().then(() => {
+                this.navController.navigateForward('/new-ad').then(async () => {
+                    await loading.dismiss();
+                }, async (err: any) => {
+                    await loading.dismiss();
+                });
+            }, (err: any) => {
                 // We could live if the directory and tmp files weren't deleted
-                this.navController.navigateForward('/new-ad');
-                await loading.dismiss();
+                this.navController.navigateForward('/new-ad').then(async () => {
+                    await loading.dismiss();
+                }, async (error: any) => {
+                    await loading.dismiss();
+                });
             });
         } else {
-            this.navController.navigateForward('/new-ad');
-            loading.dismiss().then(() => {
-                // Do nothing
+            this.navController.navigateForward('/new-ad').then(async () => {
+                await loading.dismiss();
+            }, async (err: any) => {
+                await loading.dismiss();
             });
         }
     }
@@ -99,11 +106,11 @@ export abstract class AbstractAdsPage extends AbstractPage {
         });
     }
 
-    protected navigateToAdminLimitation() {
-        this.navController.navigateForward('/admin-limitation');
+    protected async navigateToAdminLimitation() {
+        await this.navController.navigateForward('/admin-limitation');
     }
 
-    protected navigateToAdminExtend() {
-        this.navController.navigateForward('/admin-extend');
+    protected async navigateToAdminExtend() {
+        await this.navController.navigateForward('/admin-extend');
     }
 }

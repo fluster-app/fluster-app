@@ -591,7 +591,7 @@ export class ItemsPage extends AbstractItemsPage implements OnInit, OnDestroy {
             backUrl: '/items'
         });
 
-        this.navController.navigateForward('/item-details');
+        await this.navController.navigateForward('/item-details');
     }
 
     navigateToAppointmentThrowout() {
