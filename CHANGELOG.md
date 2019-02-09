@@ -1,3 +1,19 @@
+<a name="5.7.0"></a>
+# [5.7.0](https://github.com/fluster/fluster-app/compare/v5.6.1...v5.7.0) (2019-02-09)
+
+### Features
+
+* improve toolbar spacing ([35cf838](https://github.com/fluster/fluster-app/commit/35cf8383cfb94981e9f049a4136e155844b86d77))
+
+### Fix
+
+* iOS glitch when changing categories on the details view ([9ba28ff](https://github.com/fluster/fluster-app/commit/9ba28ffc0a221093fab0501c11eff5eb7edd244e))
+
+### Libs
+
+* revert Ionic navigation to use promises again ([f81c54a](https://github.com/fluster/fluster-app/commit/f81c54ab0f5b57ef5edf93bf2a9e0f74027a2c9e))
+* update various libs
+
 <a name="5.6.1"></a>
 # [5.6.1](https://github.com/fluster/fluster-app/compare/v5.6.0...v5.6.1) (2019-01-24)
 
