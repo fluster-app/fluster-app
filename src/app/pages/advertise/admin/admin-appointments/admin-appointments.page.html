@@ -20,7 +20,7 @@
 
       <app-pick-ads-appointments [adminScheduledDates]="adminScheduledDates"  (notifiySelected)="select($event)"></app-pick-ads-appointments>
 
-      <div text-center padding class="date-picker-actions">
+      <div text-center padding margin-bottom class="date-picker-actions">
         <ion-button expand="full" shape="round" (click)="updateAppointment()">
           {{'ADMIN_APPOINTMENTS.APPOINTMENTS.CONFIRM' | translate}}
           <ion-icon slot="end" name="checkmark"></ion-icon>

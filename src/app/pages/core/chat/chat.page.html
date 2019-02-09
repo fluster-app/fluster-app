@@ -59,19 +59,19 @@
 <ion-footer [attr.role]="isAdDisplay ? 'ad' : 'browse'">
   <ion-toolbar padding-start padding-end *ngIf="isInitialized()">
 
-    <ion-buttons slot="start" no-shadow padding-start padding-end>
+    <ion-buttons slot="start" no-shadow padding-start padding-end margin-bottom>
       <ion-button color="primary" [disabled]="!isInitialized()" (click)="presentActionSheet($event)">
         <ion-icon slot="icon-only" name="more"></ion-icon>
       </ion-button>
     </ion-buttons>
 
       <ng-container *ngIf="isOtherUserValid()">
-          <ion-item class="chat-input">
+          <ion-item class="chat-input" margin-bottom>
                 <textarea #msgInput id="msgInput" spellcheck="true" autocomplete="on" rows="1" maxLength="500"
                           (blur)="resetSizeTextarea()" (keyup)="resizeTextarea()" [(ngModel)]="message"></textarea>
           </ion-item>
 
-          <ion-buttons slot="end" no-shadow padding-start padding-end>
+          <ion-buttons slot="end" no-shadow padding-start padding-end margin-bottom>
               <ion-button *ngIf="!sendingMsg && lastMsgUpdated" [disabled]="isMessageEmpty()" (click)="sendMessage()"
                           color="primary">
                   <ion-icon slot="icon-only" name="send"></ion-icon>
@@ -81,7 +81,7 @@
           </ion-buttons>
       </ng-container>
 
-      <ion-item *ngIf="!isOtherUserValid()" class="chat-blocked">
+      <ion-item *ngIf="!isOtherUserValid()" class="chat-blocked" margin-bottom>
           <ion-label>{{ 'CHAT.OTHER_USER_INVALID' | translate }}</ion-label>
       </ion-item>
   </ion-toolbar>

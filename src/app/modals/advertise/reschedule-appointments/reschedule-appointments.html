@@ -24,7 +24,7 @@
 
         <app-pick-reschedule-appointments [item]="item" [appointment]="appointment" [applicant]="applicant" (notifiySelected)="select($event)"></app-pick-reschedule-appointments>
 
-        <div text-center padding class="date-picker-actions">
+        <div text-center padding margin-bottom class="date-picker-actions">
             <ion-button expand="full" shape="round" (click)="doReschedule()">
                 {{'ADMIN_APPOINTMENTS.APPOINTMENTS.CONFIRM' | translate}}
                 <ion-icon name="checkmark"></ion-icon>
