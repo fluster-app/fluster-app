@@ -258,8 +258,6 @@ export class AppComponent extends AbstractDeepLinkingNavigationPage implements O
         const branch = window['Branch'];
 
         if (branch) {
-            branch.getInstance().disableTracking(true);
-
             // Deep link thru universal links
             branch.initSession().then((data: DeeplinkMatch) => {
                 if (!Comparator.isStringEmpty(data.$marketing_title) &&
