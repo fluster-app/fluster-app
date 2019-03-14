@@ -145,7 +145,6 @@
         <variable name="CALENDAR_USAGE_DESCRIPTION" value="If you wish to export your viewings to your calendar, Fluster requires access to it" />
         <variable name="CONTACTS_USAGE_DESCRIPTION" value="If you wish to use your contacts, Fluster requires access to it" />
     </plugin>
-    <engine name="android" spec="7.1.4" />
     <engine name="ios" spec="5.0.0" />
     <plugin name="branch-cordova-sdk" spec="3.1.6" />
     <plugin name="cordova-plugin-facebook4" spec="4.2.1">
@@ -160,4 +159,5 @@
     <plugin name="cordova.plugins.diagnostic" spec="4.0.12">
         <variable name="ANDROID_SUPPORT_VERSION" value="28.+" />
     </plugin>
+    <engine name="android" spec="8.0.0" />
 </widget>

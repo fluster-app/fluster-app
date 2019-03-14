@@ -41,7 +41,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "branch-cordova-sdk": "3.1.6",
-    "cordova-android": "7.1.4",
+    "cordova-android": "8.0.0",
     "cordova-ios": "5.0.0",
     "cordova-plugin-calendar": "^5.1.4",
     "cordova-plugin-camera": "^4.0.3",
@@ -118,8 +118,8 @@
   "description": "Fluster",
   "cordova": {
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ],
     "plugins": {
       "es6-promise-plugin": {},
