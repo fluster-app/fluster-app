@@ -133,7 +133,6 @@
         <variable name="ANDROID_SUPPORT_V13_VERSION" value="27.+" />
         <variable name="FCM_VERSION" value="11.8.0" />
     </plugin>
-    <plugin name="cordova.plugins.diagnostic" spec="^4.0.10" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.3" />
     <plugin name="cordova-plugin-x-socialsharing" spec="5.4.4">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.1+" />
@@ -146,14 +145,19 @@
         <variable name="CALENDAR_USAGE_DESCRIPTION" value="If you wish to export your viewings to your calendar, Fluster requires access to it" />
         <variable name="CONTACTS_USAGE_DESCRIPTION" value="If you wish to use your contacts, Fluster requires access to it" />
     </plugin>
-    <plugin name="branch-cordova-sdk" spec="3.1.5" />
-    <plugin name="cordova-plugin-ionic-webview" spec="3.1.2" />
     <engine name="android" spec="7.1.4" />
     <engine name="ios" spec="5.0.0" />
-    <plugin name="cordova-plugin-facebook4" spec="4.2.0">
+    <plugin name="branch-cordova-sdk" spec="3.1.6" />
+    <plugin name="cordova-plugin-facebook4" spec="4.2.1">
         <variable name="APP_ID" value="{{FACEBOOK_APP_ID}}" />
         <variable name="APP_NAME" value="Fluster" />
         <variable name="FACEBOOK_HYBRID_APP_EVENTS" value="false" />
         <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.40.0" />
+    </plugin>
+    <plugin name="cordova-plugin-ionic-webview" spec="4.0.0">
+        <variable name="ANDROID_SUPPORT_ANNOTATIONS_VERSION" value="27.+" />
+    </plugin>
+    <plugin name="cordova.plugins.diagnostic" spec="4.0.12">
+        <variable name="ANDROID_SUPPORT_VERSION" value="28.+" />
     </plugin>
 </widget>
