@@ -1,3 +1,5 @@
+**[NOT MAINTAINED]** This project is discontinued.
+
 <h1 align="center">Fluster</h1>
 
 <p align="center">
